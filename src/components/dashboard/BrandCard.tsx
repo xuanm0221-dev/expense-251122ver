@@ -54,14 +54,17 @@ export function BrandCard({
 
   const isCommon = bizUnit === "공통";
 
-  const totalCost = current?.amount || 0;
+  const totalCost = current?.amount ?? 0;
   const totalCostYOY = calculateYOY(
-    current?.amount || null,
-    previous?.amount || null
+    current?.amount ?? 0,
+    previous?.amount ?? 0
   );
 
-  const sales = current?.sales || 0;
-  const salesYOY = calculateYOY(current?.sales || null, previous?.sales || null);
+  const sales = current?.sales ?? 0;
+  const salesYOY = calculateYOY(
+    current?.sales ?? 0,
+    previous?.sales ?? 0
+  );
 
   const costRatio = calculateCostRatio(totalCost, sales);
   const prevCostRatio = calculateCostRatio(
@@ -73,7 +76,7 @@ export function BrandCard({
       ? costRatio - prevCostRatio
       : null;
 
-  const headcount = current?.headcount || 0;
+  const headcount = current?.headcount ?? 0;
 
   // 대분류별 데이터
   const categoryData = getMonthlyAggregatedByCategory(
@@ -85,9 +88,10 @@ export function BrandCard({
   const categoryMap = new Map(
     categoryData.map((item) => [item.cost_lv1, item])
   );
-  const prevCategoryData = mode === "monthly"
-    ? getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode)
-    : [];
+  const prevCategoryData =
+    mode === "monthly"
+      ? getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode)
+      : [];
   const prevCategoryMap = new Map(
     prevCategoryData.map((item) => [item.cost_lv1, item])
   );
@@ -95,11 +99,17 @@ export function BrandCard({
   const getCategoryYOY = (category: string) => {
     const curr = categoryMap.get(category);
     const prev = prevCategoryMap.get(category);
-    return calculateYOY(curr?.amount || null, prev?.amount || null);
+    return calculateYOY(
+      curr?.amount ?? 0,
+      prev?.amount ?? 0
+    );
   };
 
   return (
-    <Card className="h-full flex flex-col" style={{ borderTopColor: brandColor, borderTopWidth: 4 }}>
+    <Card
+      className="h-full flex flex-col"
+      style={{ borderTopColor: brandColor, borderTopWidth: 4 }}
+    >
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -171,7 +181,9 @@ export function BrandCard({
                   <span className="text-lg font-semibold">
                     {formatK(sales)}
                   </span>
-                  <span className="text-sm text-muted-foreground">실판매 매출</span>
+                  <span className="text-sm text-muted-foreground">
+                    실판매 매출
+                  </span>
                   {salesYOY !== null && (
                     <span
                       className={`text-sm ${
@@ -201,7 +213,9 @@ export function BrandCard({
                 <div key={category} className="flex justify-between">
                   <span className="text-muted-foreground">{category}:</span>
                   <div className="flex items-center gap-1">
-                    <span className="font-medium">{formatK(catData.amount)}</span>
+                    <span className="font-medium">
+                      {formatK(catData.amount)}
+                    </span>
                     {catYOY !== null && (
                       <span
                         className={
@@ -231,4 +245,3 @@ export function BrandCard({
     </Card>
   );
 }
-
