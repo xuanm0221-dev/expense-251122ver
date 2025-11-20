@@ -98,8 +98,8 @@ export default function DivisionPage() {
 
   const costRatio = calculateCostRatio(totalCost, sales);
   const prevCostRatio = calculateCostRatio(
-    previous?.amount || null,
-    previous?.sales || null
+    previous?.amount ?? 0,
+    previous?.sales ?? 0
   );
   const costRatioYOY =
     costRatio !== null && prevCostRatio !== null
@@ -109,8 +109,8 @@ export default function DivisionPage() {
   const headcount = current?.headcount || 0;
   const perPersonCost = calculatePerPersonCost(totalCost, headcount);
   const prevPerPersonCost = calculatePerPersonCost(
-    previous?.amount || null,
-    previous?.headcount || null
+    previous?.amount ?? 0,
+    previous?.headcount ?? 0
   );
   const perPersonCostYOY = calculateYOY(perPersonCost, prevPerPersonCost);
 
