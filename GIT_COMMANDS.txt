@@ -1,0 +1,48 @@
+========================================
+GitHub 첫 푸시 명령어 세트
+========================================
+
+아래 명령어를 순서대로 터미널에 붙여넣어 실행하세요.
+
+========================================
+[1단계] 전처리 실행 (JSON 생성)
+========================================
+
+Windows PowerShell 또는 CMD에서:
+run_preprocess.bat
+
+또는 Python 직접 실행:
+python scripts/preprocess_expense.py
+
+========================================
+[2단계] Git 초기화 및 푸시
+========================================
+
+git init
+
+git add .
+
+git commit -m "초기 대시보드 세팅"
+
+git branch -M main
+
+git remote add origin https://github.com/내계정/내리포.git
+
+git push -u origin main
+
+========================================
+⚠️ 중요 사항
+========================================
+
+1. "내계정"과 "내리포"를 실제 GitHub 사용자명과 리포지토리명으로 변경하세요.
+   예시: git remote add origin https://github.com/johndoe/expense-dashboard.git
+
+2. GitHub 리포지토리를 먼저 생성해야 합니다.
+   - GitHub.com → New repository
+   - "Initialize with README" 체크 해제
+   - Create repository 클릭
+
+3. 전처리 실행 후 data/aggregated-expense.json 파일이 생성되었는지 확인하세요.
+
+========================================
+
