@@ -65,8 +65,8 @@ export function BrandCard({
 
   const costRatio = calculateCostRatio(totalCost, sales);
   const prevCostRatio = calculateCostRatio(
-    previous?.amount || null,
-    previous?.sales || null
+    previous?.amount ?? 0,
+    previous?.sales ?? 0
   );
   const costRatioYOY =
     costRatio !== null && prevCostRatio !== null
