@@ -1,44 +1,51 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Baby, Mountain, Building2, BarChart3, Calendar, ChevronDown, Download } from "lucide-react";
+import { Baby, Mountain, Building2, BarChart3, Calendar, ChevronDown, Download, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import React from "react";
 
-// 야구공 아이콘 컴포넌트
-const BaseballIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    {/* 야구공 원형 윤곽선 */}
-    <circle cx="12" cy="12" r="9" />
-    {/* 위쪽 이음새 곡선 (왼쪽에서 중앙으로) */}
-    <path d="M3 12 Q6 8 12 12" />
-    {/* 위쪽 이음새 곡선 (오른쪽에서 중앙으로) */}
-    <path d="M21 12 Q18 8 12 12" />
-    {/* 위쪽 이음새의 스티치 (왼쪽) */}
-    <line x1="4.5" y1="10" x2="4.5" y2="10.8" />
-    <line x1="5.5" y1="9.5" x2="5.5" y2="10.3" />
-    {/* 위쪽 이음새의 스티치 (오른쪽) */}
-    <line x1="19.5" y1="10" x2="19.5" y2="10.8" />
-    <line x1="18.5" y1="9.5" x2="18.5" y2="10.3" />
-    {/* 아래쪽 이음새 곡선 (왼쪽에서 중앙으로) */}
-    <path d="M3 12 Q6 16 12 12" />
-    {/* 아래쪽 이음새 곡선 (오른쪽에서 중앙으로) */}
-    <path d="M21 12 Q18 16 12 12" />
-    {/* 아래쪽 이음새의 스티치 (왼쪽) */}
-    <line x1="4.5" y1="14" x2="4.5" y2="13.2" />
-    <line x1="5.5" y1="14.5" x2="5.5" y2="13.7" />
-    {/* 아래쪽 이음새의 스티치 (오른쪽) */}
-    <line x1="19.5" y1="14" x2="19.5" y2="13.2" />
-    <line x1="18.5" y1="14.5" x2="18.5" y2="13.7" />
-  </svg>
-);
+// 야구공 아이콘 컴포넌트 (LucideIcon 타입과 호환)
+const BaseballIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  ({ className, ...props }, ref) => (
+    <svg
+      ref={ref}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      {...props}
+    >
+      {/* 야구공 원형 윤곽선 */}
+      <circle cx="12" cy="12" r="9" />
+      {/* 위쪽 이음새 곡선 (왼쪽에서 중앙으로) */}
+      <path d="M3 12 Q6 8 12 12" />
+      {/* 위쪽 이음새 곡선 (오른쪽에서 중앙으로) */}
+      <path d="M21 12 Q18 8 12 12" />
+      {/* 위쪽 이음새의 스티치 (왼쪽) */}
+      <line x1="4.5" y1="10" x2="4.5" y2="10.8" />
+      <line x1="5.5" y1="9.5" x2="5.5" y2="10.3" />
+      {/* 위쪽 이음새의 스티치 (오른쪽) */}
+      <line x1="19.5" y1="10" x2="19.5" y2="10.8" />
+      <line x1="18.5" y1="9.5" x2="18.5" y2="10.3" />
+      {/* 아래쪽 이음새 곡선 (왼쪽에서 중앙으로) */}
+      <path d="M3 12 Q6 16 12 12" />
+      {/* 아래쪽 이음새 곡선 (오른쪽에서 중앙으로) */}
+      <path d="M21 12 Q18 16 12 12" />
+      {/* 아래쪽 이음새의 스티치 (왼쪽) */}
+      <line x1="4.5" y1="14" x2="4.5" y2="13.2" />
+      <line x1="5.5" y1="14.5" x2="5.5" y2="13.7" />
+      {/* 아래쪽 이음새의 스티치 (오른쪽) */}
+      <line x1="19.5" y1="14" x2="19.5" y2="13.2" />
+      <line x1="18.5" y1="14.5" x2="18.5" y2="13.7" />
+    </svg>
+  )
+) as LucideIcon;
+
+BaseballIcon.displayName = "BaseballIcon";
 import { BrandCard } from "@/components/dashboard/BrandCard";
 import { ExpenseAccountHierTable } from "@/components/dashboard/ExpenseAccountHierTable";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
