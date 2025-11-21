@@ -12,6 +12,7 @@ import {
   Legend,
   ResponsiveContainer,
   ComposedChart,
+  ReferenceLine,
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatK, formatPercent } from "@/lib/utils";
@@ -20,22 +21,13 @@ import {
   type BizUnit,
   type Mode,
 } from "@/lib/expenseData";
+import { EXPENSE_COLOR_MAP } from "@/lib/expenseColors";
 
 interface MonthlyStackedChartProps {
   bizUnit: BizUnit;
   year: number;
   mode: Mode;
 }
-
-const CATEGORY_COLORS: Record<string, string> = {
-  인건비: "#3b82f6",
-  광고선전비: "#ef4444",
-  복리후생비: "#f59e0b",
-  출장비: "#10b981",
-  감가상각비: "#8b5cf6",
-  수수료: "#ec4899",
-  기타: "#6b7280",
-};
 
 export function MonthlyStackedChart({
   bizUnit,
@@ -50,13 +42,25 @@ export function MonthlyStackedChart({
     Object.keys(item.categories).forEach((cat) => allCategories.add(cat));
   });
 
-  const categories = Array.from(allCategories).sort();
+  // 범례 순서 정의 (사업부별로 다름)
+  const isCommon = bizUnit === "공통";
+  const categoryOrder = isCommon
+    ? ["임차료", "IT수수료", "세금과공과", "복리후생비", "지급수수료", "차량렌트비", "기타"]
+    : ["광고비", "인건비", "복리후생비", "수주회", "지급수수료", "출장비", "감가상각비"];
+  
+  // 지정된 순서대로 정렬하고, 없는 카테고리는 뒤에 추가
+  const categories = [
+    ...categoryOrder.filter((cat) => allCategories.has(cat)),
+    ...Array.from(allCategories).filter((cat) => !categoryOrder.includes(cat)).sort(),
+  ];
 
   // 차트 데이터 포맷팅
   const chartData = data.map((item) => {
     const result: any = {
       month: `${item.month}월`,
       yoy: item.yoy,
+      current: item.current,
+      previous: item.previous,
     };
     categories.forEach((cat) => {
       result[cat] = item.categories[cat] || 0;
@@ -66,22 +70,33 @@ export function MonthlyStackedChart({
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
+      // YOY 값 찾기
+      const yoyPayload = payload.find((p: any) => p.dataKey === "yoy");
+      const yoyValue = yoyPayload?.value;
+      
+      // 카테고리별 데이터 필터링 (yoy, current, previous 제외)
+      const categoryPayloads = payload.filter(
+        (p: any) => p.dataKey !== "yoy" && p.dataKey !== "current" && p.dataKey !== "previous"
+      );
+      
+      // 합계 계산
+      const total = categoryPayloads.reduce((sum: number, p: any) => sum + (p.value || 0), 0);
+      
       return (
         <div className="bg-white p-3 border rounded shadow-lg">
           <p className="font-semibold mb-2">{label}</p>
-          {payload
-            .filter((p: any) => p.dataKey !== "yoy")
-            .map((p: any) => (
-              <p key={p.dataKey} className="text-sm" style={{ color: p.color }}>
-                {p.name}: {formatK(p.value)}
-              </p>
-            ))}
-          {payload.find((p: any) => p.dataKey === "yoy") && (
+          {categoryPayloads.map((p: any) => (
+            <p key={p.dataKey} className="text-sm" style={{ color: p.color }}>
+              {p.name}: {formatK(p.value)}
+            </p>
+          ))}
+          {/* 합계 추가 */}
+          <p className="text-sm mt-2 pt-2 border-t border-gray-200 font-semibold">
+            합계: {formatK(total)}
+          </p>
+          {yoyValue !== null && yoyValue !== undefined && (
             <p className="text-sm mt-2 font-semibold">
-              YOY:{" "}
-              {formatPercent(
-                payload.find((p: any) => p.dataKey === "yoy")?.value
-              )}
+              YOY: {formatPercent(yoyValue, 0)}
             </p>
           )}
         </div>
@@ -93,41 +108,69 @@ export function MonthlyStackedChart({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>월별 비용 추이 및 YOY 비교</CardTitle>
+        <CardTitle className="text-xl font-bold">월별 비용 추이 및 YOY 비교</CardTitle>
+        <p className="text-sm text-gray-500 mt-1">
+          카테고리별 비용 구성 및 전년 대비 증감률
+        </p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={400}>
-          <ComposedChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
+          <ComposedChart 
+            data={chartData}
+            margin={{ left: 20, right: 20, top: 10, bottom: 10 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <XAxis 
+              dataKey="month" 
+              tick={{ fill: "#6b7280" }}
+              axisLine={{ stroke: "#e5e7eb" }}
+            />
             <YAxis
               yAxisId="left"
-              label={{ value: "비용 (K)", angle: -90, position: "insideLeft" }}
+              tick={{ fill: "#6b7280" }}
+              axisLine={{ stroke: "#e5e7eb" }}
+              tickFormatter={(value) => formatK(value)}
+              width={80}
             />
             <YAxis
               yAxisId="right"
               orientation="right"
-              label={{ value: "YOY (%)", angle: 90, position: "insideRight" }}
+              tick={{ fill: "#6b7280" }}
+              axisLine={{ stroke: "#e5e7eb" }}
+              domain={[0, 'dataMax + 10']}
+              tickFormatter={(value) => `${Math.round(value)}%`}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Legend />
+            <Legend 
+              iconType="circle"
+              wrapperStyle={{ paddingTop: "20px" }}
+            />
             {categories.map((cat) => (
               <Bar
                 key={cat}
                 yAxisId="left"
                 dataKey={cat}
                 stackId="a"
-                fill={CATEGORY_COLORS[cat] || "#6b7280"}
+                fill={EXPENSE_COLOR_MAP[cat] || "#6b7280"}
                 name={cat}
               />
             ))}
+            {/* 100% 기준선 */}
+            <ReferenceLine
+              yAxisId="right"
+              y={100}
+              stroke="#9ca3af"
+              strokeWidth={1}
+              strokeDasharray="5 5"
+              label=""
+            />
             <Line
               yAxisId="right"
               type="monotone"
               dataKey="yoy"
-              stroke="#f59e0b"
-              strokeWidth={2}
-              dot={{ fill: "#f59e0b", r: 4 }}
+              stroke="#000000"
+              strokeWidth={3}
+              dot={{ fill: "#000000", r: 4 }}
               name="YOY (%)"
               connectNulls={false}
             />

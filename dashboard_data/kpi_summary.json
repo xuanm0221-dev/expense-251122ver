@@ -1,0 +1,53 @@
+[
+  {
+    "bizUnit": "MLB",
+    "year": 2025,
+    "month": 10,
+    "totalCost": 19393000,
+    "totalCostYOY": 88.6,
+    "perPersonCost": 32.8,
+    "perPersonCostYOY": 105.2,
+    "costRatio": 2.2,
+    "costRatioYOY": 0.3,
+    "sales": 849376921,
+    "salesYOY": 91.5
+  },
+  {
+    "bizUnit": "KIDS",
+    "year": 2025,
+    "month": 10,
+    "totalCost": 5234000,
+    "totalCostYOY": 95.3,
+    "perPersonCost": 28.5,
+    "perPersonCostYOY": 98.7,
+    "costRatio": 1.8,
+    "costRatioYOY": -0.2,
+    "sales": 234567890,
+    "salesYOY": 102.1
+  },
+  {
+    "bizUnit": "DISCOVERY",
+    "year": 2025,
+    "month": 10,
+    "totalCost": 3456000,
+    "totalCostYOY": 110.5,
+    "perPersonCost": 35.2,
+    "perPersonCostYOY": 112.3,
+    "costRatio": 2.5,
+    "costRatioYOY": 0.5,
+    "sales": 123456789,
+    "salesYOY": 108.9
+  },
+  {
+    "bizUnit": "공통",
+    "year": 2025,
+    "month": 10,
+    "totalCost": 8765000,
+    "totalCostYOY": 127.0,
+    "costRatio": 1.5,
+    "costRatioYOY": 0.1,
+    "sales": 567890123,
+    "salesYOY": 115.2
+  }
+]
+

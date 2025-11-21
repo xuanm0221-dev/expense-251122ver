@@ -1,9 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { LucideIcon } from "lucide-react";
 import {
   formatK,
   formatPercent,
@@ -15,10 +12,10 @@ import {
   getPreviousYearTotal,
   getMonthlyAggregatedByCategory,
   calculateCostRatio,
-  calculatePerPersonCost,
   type BizUnit,
   type Mode,
 } from "@/lib/expenseData";
+import { BizUnitCard, type ExpenseDetail } from "./BizUnitCard";
 
 interface BrandCardProps {
   bizUnit: BizUnit;
@@ -28,17 +25,64 @@ interface BrandCardProps {
   brandColor: string;
   brandInitial: string;
   brandName: string;
+  icon: LucideIcon;
 }
 
-const COST_CATEGORIES = [
-  "광고선전비",
+// MLB/KIDS/DISCOVERY용 실제 대분류 카테고리 (실제 데이터 기준)
+const FIXED_COST_CATEGORIES = [
+  "광고비",
   "인건비",
   "복리후생비",
-  "수수료",
+  "수주회",
+  "지급수수료",
   "출장비",
   "감가상각비",
-  "기타",
 ];
+
+// 카테고리 표시 이름 매핑 (실제 데이터 이름 → 표시 이름)
+const CATEGORY_DISPLAY_NAME: Record<string, string> = {
+  "광고비": "광고비",
+  "인건비": "인건비",
+  "복리후생비": "복리후생비",
+  "수주회": "수주회",
+  "지급수수료": "지급수수료",
+  "출장비": "출장비",
+  "감가상각비": "감가상각비",
+};
+
+// 카테고리 표시 이름 가져오기
+function getCategoryDisplayName(categoryName: string): string {
+  return CATEGORY_DISPLAY_NAME[categoryName] || categoryName;
+}
+
+// 매출대비 비용율 계산
+function calculateCostRatioForCategory(
+  costAmount: number,
+  sales: number
+): number | null {
+  if (sales === 0 || sales === null || sales === undefined) {
+    return null;
+  }
+  // 비용율 계산: 비용 * 1.13 / 판매매출 * 100
+  return (costAmount * 1.13 / sales) * 100;
+}
+
+// 매출대비 비용율 증감 계산 (당년 비용율 - 전년 비용율)
+function calculateCostRatioChange(
+  currentCost: number,
+  currentSales: number,
+  previousCost: number,
+  previousSales: number
+): number | null {
+  const currentRatio = calculateCostRatioForCategory(currentCost, currentSales);
+  const previousRatio = calculateCostRatioForCategory(previousCost, previousSales);
+  
+  if (currentRatio === null || previousRatio === null) {
+    return null;
+  }
+  
+  return currentRatio - previousRatio;
+}
 
 export function BrandCard({
   bizUnit,
@@ -48,37 +92,14 @@ export function BrandCard({
   brandColor,
   brandInitial,
   brandName,
+  icon: Icon,
 }: BrandCardProps) {
   const current = getMonthlyTotal(bizUnit, year, month, mode);
   const previous = getPreviousYearTotal(bizUnit, year, month, mode);
 
   const isCommon = bizUnit === "공통";
 
-  const totalCost = current?.amount ?? 0;
-  const totalCostYOY = calculateYOY(
-    current?.amount ?? 0,
-    previous?.amount ?? 0
-  );
-
-  const sales = current?.sales ?? 0;
-  const salesYOY = calculateYOY(
-    current?.sales ?? 0,
-    previous?.sales ?? 0
-  );
-
-  const costRatio = calculateCostRatio(totalCost, sales);
-  const prevCostRatio = calculateCostRatio(
-    previous?.amount ?? 0,
-    previous?.sales ?? 0
-  );
-  const costRatioYOY =
-    costRatio !== null && prevCostRatio !== null
-      ? costRatio - prevCostRatio
-      : null;
-
-  const headcount = current?.headcount ?? 0;
-
-  // 대분류별 데이터
+  // 대분류별 데이터 가져오기
   const categoryData = getMonthlyAggregatedByCategory(
     bizUnit,
     year,
@@ -88,160 +109,98 @@ export function BrandCard({
   const categoryMap = new Map(
     categoryData.map((item) => [item.cost_lv1, item])
   );
-  const prevCategoryData =
-    mode === "monthly"
-      ? getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode)
-      : [];
+
+  // 총비용: 모든 대분류의 합계
+  const totalCost = categoryData.reduce((sum, item) => sum + item.amount, 0);
+
+  // 전년도 대분류별 데이터
+  const prevCategoryData = getMonthlyAggregatedByCategory(
+    bizUnit,
+    year - 1,
+    month,
+    mode
+  );
   const prevCategoryMap = new Map(
     prevCategoryData.map((item) => [item.cost_lv1, item])
   );
+  const prevTotalCost = prevCategoryData.reduce(
+    (sum, item) => sum + item.amount,
+    0
+  );
 
-  const getCategoryYOY = (category: string) => {
-    const curr = categoryMap.get(category);
-    const prev = prevCategoryMap.get(category);
-    return calculateYOY(
-      curr?.amount ?? 0,
-      prev?.amount ?? 0
-    );
-  };
+  const totalCostYOY = calculateYOY(totalCost, prevTotalCost);
+
+  const sales = current?.sales ?? 0;
+  const prevSales = previous?.sales ?? 0;
+  const salesYOY = calculateYOY(sales, prevSales);
+
+  const costRatio = calculateCostRatio(totalCost, sales);
+  const prevCostRatio = calculateCostRatio(
+    previous?.amount ?? null,
+    previous?.sales ?? null
+  );
+
+  const headcount = current?.headcount ?? 0;
+
+  // expenseDetails 배열 생성
+  const expenseDetails: ExpenseDetail[] = isCommon
+    ? Array.from(categoryMap.entries())
+        .filter(([_, data]) => data.amount > 0)
+        .sort(([_, a], [__, b]) => b.amount - a.amount)
+        .map(([categoryName, catData]) => {
+          const prevCatData = prevCategoryMap.get(categoryName);
+          const catYOY = calculateYOY(
+            catData?.amount ?? null,
+            prevCatData?.amount ?? null
+          );
+          return {
+            label: categoryName,
+            amount: formatK(catData.amount),
+            yoy: catYOY,
+            change: null, // 공통은 매출이 없으므로 change 없음
+          };
+        })
+    : FIXED_COST_CATEGORIES.map((categoryName) => {
+        const catData = categoryMap.get(categoryName);
+        const prevCatData = prevCategoryMap.get(categoryName);
+        const catYOY = calculateYOY(
+          catData?.amount ?? null,
+          prevCatData?.amount ?? null
+        );
+        const catAmount = catData?.amount ?? 0;
+        const prevCatAmount = prevCatData?.amount ?? 0;
+
+        // 매출대비 비용율 증감 계산
+        const costRatioChange = calculateCostRatioChange(
+          catAmount,
+          sales,
+          prevCatAmount,
+          prevSales
+        );
+
+        return {
+          label: getCategoryDisplayName(categoryName),
+          amount: formatK(catAmount),
+          yoy: catYOY,
+          change: costRatioChange,
+        };
+      });
 
   return (
-    <Card
-      className="h-full flex flex-col"
-      style={{ borderTopColor: brandColor, borderTopWidth: 4 }}
-    >
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Badge
-              style={{
-                backgroundColor: brandColor,
-                color: "white",
-                border: "none",
-              }}
-              className="text-lg font-bold px-3 py-1"
-            >
-              {brandInitial}
-            </Badge>
-            <span className="text-xl font-bold">{brandName}</span>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="flex-1 flex flex-col">
-        {/* 주요 KPI */}
-        <div className="space-y-3 mb-4">
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold">{formatK(totalCost)}</span>
-            <span className="text-sm text-muted-foreground">총비용</span>
-            {totalCostYOY !== null && (
-              <span
-                className={`text-sm font-medium ${
-                  totalCostYOY >= 0 ? "text-red-600" : "text-blue-600"
-                }`}
-              >
-                ({totalCostYOY >= 0 ? "+" : ""}
-                {formatPercent(totalCostYOY)})
-              </span>
-            )}
-          </div>
-
-          {!isCommon && (
-            <>
-              {costRatio !== null && (
-                <div className="flex items-baseline gap-2">
-                  <span className="text-lg font-semibold">
-                    {formatPercent(costRatio)}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    매출대비 비용률
-                  </span>
-                  {costRatioYOY !== null && (
-                    <span
-                      className={`text-sm ${
-                        costRatioYOY >= 0 ? "text-red-600" : "text-blue-600"
-                      }`}
-                    >
-                      ({formatPercentPoint(costRatioYOY)})
-                    </span>
-                  )}
-                </div>
-              )}
-
-              {headcount > 0 && (
-                <div className="flex items-baseline gap-2">
-                  <span className="text-lg font-semibold">
-                    {headcount.toLocaleString("ko-KR")}명
-                  </span>
-                  <span className="text-sm text-muted-foreground">인원수</span>
-                </div>
-              )}
-
-              {sales > 0 && (
-                <div className="flex items-baseline gap-2">
-                  <span className="text-lg font-semibold">
-                    {formatK(sales)}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    실판매 매출
-                  </span>
-                  {salesYOY !== null && (
-                    <span
-                      className={`text-sm ${
-                        salesYOY >= 0 ? "text-red-600" : "text-blue-600"
-                      }`}
-                    >
-                      ({salesYOY >= 0 ? "+" : ""}
-                      {formatPercent(salesYOY)})
-                    </span>
-                  )}
-                </div>
-              )}
-            </>
-          )}
-        </div>
-
-        {/* 대분류별 요약 */}
-        <div className="mt-auto pt-4 border-t">
-          <div className="text-sm font-semibold mb-2">영업비 상세</div>
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            {COST_CATEGORIES.map((category) => {
-              const catData = categoryMap.get(category);
-              const catYOY = getCategoryYOY(category);
-              if (!catData || catData.amount === 0) return null;
-
-              return (
-                <div key={category} className="flex justify-between">
-                  <span className="text-muted-foreground">{category}:</span>
-                  <div className="flex items-center gap-1">
-                    <span className="font-medium">
-                      {formatK(catData.amount)}
-                    </span>
-                    {catYOY !== null && (
-                      <span
-                        className={
-                          catYOY >= 0 ? "text-red-600" : "text-blue-600"
-                        }
-                      >
-                        ({catYOY >= 0 ? "+" : ""}
-                        {formatPercent(catYOY)})
-                      </span>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* 상세보기 버튼 */}
-        <div className="mt-4">
-          <Link href={`/${bizUnit}?year=${year}&month=${month}&mode=${mode}`}>
-            <Button className="w-full" variant="outline">
-              {isCommon ? "공통비용 상세보기" : "전체 대시보드 보기"}
-            </Button>
-          </Link>
-        </div>
-      </CardContent>
-    </Card>
+    <BizUnitCard
+      businessUnit={bizUnit}
+      icon={<Icon className="w-5 h-5" />}
+      yoySales={salesYOY}
+      yoyExpense={totalCostYOY}
+      totalExpense={formatK(totalCost)}
+      ratio={costRatio !== null ? formatPercent(costRatio) : null}
+      headcount={headcount > 0 ? `${headcount.toLocaleString("ko-KR")}명` : null}
+      salesAmount={sales > 0 ? formatK(sales) : null}
+      expenseDetails={expenseDetails}
+      year={year}
+      month={month}
+      mode={mode}
+      isCommon={isCommon}
+    />
   );
 }

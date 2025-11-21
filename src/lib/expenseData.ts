@@ -1,7 +1,7 @@
 // @ts-ignore - JSON import
 import aggregatedDataRaw from "../../data/aggregated-expense.json";
 
-export type BizUnit = "MLB" | "KIDS" | "DISCOVERY" | "공통";
+export type BizUnit = "MLB" | "KIDS" | "DISCOVERY" | "DUVETICA" | "SUPRA" | "공통";
 
 export type Mode = "monthly" | "ytd";
 
@@ -37,10 +37,20 @@ export interface CategoryDetail {
   amount: number;
 }
 
+export interface AnnualData {
+  biz_unit: string;
+  year: number;
+  cost_lv1: string;
+  cost_lv2: string;
+  cost_lv3: string;
+  annual_amount: number;
+}
+
 export interface AggregatedData {
   monthly_aggregated: MonthlyAggregated[];
   monthly_total: MonthlyTotal[];
   category_detail: CategoryDetail[];
+  annual_data?: AnnualData[];  // 연간 데이터 (선택적)
   metadata: {
     target_biz_units: string[];
     years: number[];
@@ -49,6 +59,9 @@ export interface AggregatedData {
 }
 
 const data = aggregatedDataRaw as AggregatedData;
+
+// 데이터를 export하여 컴포넌트에서 접근 가능하도록
+export { data };
 
 // 분석 대상 사업부만 필터링
 const TARGET_BIZ_UNITS: BizUnit[] = ["MLB", "KIDS", "DISCOVERY", "공통"];
@@ -76,12 +89,15 @@ export function getMonthlyTotal(
 
   // YTD인 경우 합계 계산
   if (mode === "ytd") {
+    if (filtered.length === 0) {
+      return null;
+    }
     const aggregated = filtered.reduce(
       (acc, item) => ({
         ...acc,
-        amount: acc.amount + item.amount,
-        headcount: item.headcount, // 마지막 월의 인원수 사용
-        sales: acc.sales + item.sales,
+        amount: acc.amount + (item.amount || 0),
+        headcount: item.headcount || 0, // 마지막 월의 인원수 사용
+        sales: acc.sales + (item.sales || 0),
       }),
       {
         biz_unit: bizUnit,
@@ -124,36 +140,57 @@ export function getMonthlyAggregatedByCategory(
     filtered = filtered.filter((item) => item.month <= month);
   }
 
-  if (mode === "ytd") {
-    // YTD: 대분류별로 합계
-    const grouped = new Map<string, MonthlyAggregated>();
-    filtered.forEach((item) => {
-      const key = item.cost_lv1;
-      if (grouped.has(key)) {
-        const existing = grouped.get(key)!;
-        existing.amount += item.amount;
-      } else {
-        grouped.set(key, { ...item });
-      }
-    });
-    return Array.from(grouped.values());
+  // monthly와 ytd 모두 대분류별로 합계 계산
+  const grouped = new Map<string, MonthlyAggregated>();
+  filtered.forEach((item) => {
+    const key = item.cost_lv1;
+    if (grouped.has(key)) {
+      const existing = grouped.get(key)!;
+      existing.amount += item.amount;
+    } else {
+      grouped.set(key, { ...item });
+    }
+  });
+  return Array.from(grouped.values());
+}
+
+export function getAnnualData(
+  bizUnit: BizUnit | "ALL",
+  year: number,
+  costLv1: string = "",
+  costLv2: string = "",
+  costLv3: string = ""
+): AnnualData[] {
+  if (!data.annual_data) {
+    return [];
   }
+
+  // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
+  let filtered = data.annual_data.filter(
+    (item) =>
+      (bizUnit === "ALL" || item.biz_unit === bizUnit) &&
+      item.year === year &&
+      (costLv1 === "" || item.cost_lv1 === costLv1) &&
+      (costLv2 === "" || item.cost_lv2 === costLv2) &&
+      (costLv3 === "" || item.cost_lv3 === costLv3)
+  );
 
   return filtered;
 }
 
 export function getCategoryDetail(
-  bizUnit: BizUnit,
+  bizUnit: BizUnit | "ALL",
   year: number,
   month: number,
-  costLv1: string,
+  costLv1: string = "",
   mode: Mode = "monthly"
 ): CategoryDetail[] {
+  // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
   let filtered = data.category_detail.filter(
     (item) =>
-      item.biz_unit === bizUnit &&
+      (bizUnit === "ALL" || item.biz_unit === bizUnit) &&
       item.year === year &&
-      item.cost_lv1 === costLv1
+      (costLv1 === "" || item.cost_lv1 === costLv1)
   );
 
   if (mode === "monthly") {
@@ -162,11 +199,23 @@ export function getCategoryDetail(
     filtered = filtered.filter((item) => item.month <= month);
   }
 
+  // 디버깅: 필터링 결과 확인
+  if (costLv1 === "광고비" && bizUnit === "MLB") {
+    console.log(`[getCategoryDetail] MLB 광고비 필터링 결과: ${filtered.length}개`);
+    if (filtered.length > 0) {
+      const lv2Set = new Set(filtered.map((item) => item.cost_lv2 || "").filter((x) => x.trim() !== ""));
+      console.log(`[getCategoryDetail] 중분류 종류:`, Array.from(lv2Set));
+      const sample = filtered.filter((item) => (item.cost_lv2 || "").trim() !== "").slice(0, 5);
+      console.log(`[getCategoryDetail] 샘플:`, sample);
+    }
+  }
+
   if (mode === "ytd") {
-    // YTD: 중분류, 소분류별로 합계
+    // YTD: 사업부구분, 중분류, 소분류별로 합계
     const grouped = new Map<string, CategoryDetail>();
     filtered.forEach((item) => {
-      const key = `${item.cost_lv2}|${item.cost_lv3}`;
+      // bizUnit이 "ALL"인 경우도 사업부구분을 유지 (계층 구조를 위해)
+      const key = `${item.biz_unit || ""}|${item.cost_lv1 || ""}|${item.cost_lv2 || ""}|${item.cost_lv3 || ""}`;
       if (grouped.has(key)) {
         const existing = grouped.get(key)!;
         existing.amount += item.amount;
@@ -222,6 +271,8 @@ export function getMonthlyStackedData(
   categories: Record<string, number>;
   total: number;
   yoy: number | null;
+  current: number;
+  previous: number | null;
 }[] {
   const monthlyData = getMonthlyTrend(bizUnit, year, mode);
   const prevYearData = getMonthlyTrend(bizUnit, year - 1, mode);
@@ -232,9 +283,11 @@ export function getMonthlyStackedData(
 
   return monthlyData.map((item) => {
     const prevItem = prevYearMap.get(`${item.month}`);
+    const previous = prevItem?.amount ?? null;
+    // YOY 계산: 당년 / 전년 * 100 (예: 당년 1500 / 전년 100 = 1,500%)
     const yoy =
-      prevItem && prevItem.amount > 0
-        ? ((item.amount - prevItem.amount) / prevItem.amount) * 100
+      previous !== null && previous > 0
+        ? (item.amount / previous) * 100
         : null;
 
     // 해당 월의 대분류별 데이터 가져오기
@@ -256,35 +309,64 @@ export function getMonthlyStackedData(
       categories,
       total: item.amount,
       yoy,
+      current: item.amount,
+      previous,
     };
   });
 }
 
 export function calculateYOY(
-  current: number | null,
-  previous: number | null
+  current: number | null | undefined,
+  previous: number | null | undefined
 ): number | null {
-  if (current === null || previous === null || previous === 0) {
+  // YOY 계산: 당년 / 전년 * 100 (예: 당년 68 / 전년 100 = 68%)
+  if (
+    current === null ||
+    current === undefined ||
+    previous === null ||
+    previous === undefined ||
+    previous === 0 ||
+    isNaN(current) ||
+    isNaN(previous)
+  ) {
     return null;
   }
-  return ((current - previous) / previous) * 100;
+  // YOY 계산: 당년 / 전년 * 100 (예: 당년 68 / 전년 100 = 68%)
+  return (current / previous) * 100;
 }
 
 export function calculateCostRatio(
-  cost: number,
-  sales: number
+  cost: number | null | undefined,
+  sales: number | null | undefined
 ): number | null {
-  if (sales === 0 || isNaN(sales)) {
+  if (
+    cost === null ||
+    cost === undefined ||
+    sales === null ||
+    sales === undefined ||
+    sales === 0 ||
+    isNaN(cost) ||
+    isNaN(sales)
+  ) {
     return null;
   }
-  return (cost / sales) * 100;
+  // 비용율 계산: 비용 * 1.13 / 판매매출 * 100
+  return (cost * 1.13 / sales) * 100;
 }
 
 export function calculatePerPersonCost(
-  cost: number,
-  headcount: number
+  cost: number | null | undefined,
+  headcount: number | null | undefined
 ): number | null {
-  if (headcount === 0 || isNaN(headcount)) {
+  if (
+    cost === null ||
+    cost === undefined ||
+    headcount === null ||
+    headcount === undefined ||
+    headcount === 0 ||
+    isNaN(cost) ||
+    isNaN(headcount)
+  ) {
     return null;
   }
   return cost / headcount;

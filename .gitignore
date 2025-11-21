@@ -18,6 +18,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -26,6 +27,26 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# data (aggregated-expense.json은 커밋 필요)
-# data/*.json
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
 
+# OS
+Thumbs.db
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# data files (JSON은 커밋하되, 필요시 제외 가능)
+# data/*.json

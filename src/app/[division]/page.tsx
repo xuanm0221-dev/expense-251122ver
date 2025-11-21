@@ -1,18 +1,56 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { KpiCard } from "@/components/dashboard/KpiCard";
 import { MonthlyStackedChart } from "@/components/dashboard/MonthlyStackedChart";
 import { CategoryDrilldown } from "@/components/dashboard/CategoryDrilldown";
+import { BizUnitSwitch } from "@/components/dashboard/BizUnitSwitch";
+import { AdExpenseAnalysisTable } from "@/components/dashboard/AdExpenseAnalysisTable";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2 } from "lucide-react";
+
+// 야구공 아이콘 컴포넌트
+const BaseballIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    {/* 야구공 원형 윤곽선 */}
+    <circle cx="12" cy="12" r="9" />
+    {/* 위쪽 이음새 곡선 (왼쪽에서 중앙으로) */}
+    <path d="M3 12 Q6 8 12 12" />
+    {/* 위쪽 이음새 곡선 (오른쪽에서 중앙으로) */}
+    <path d="M21 12 Q18 8 12 12" />
+    {/* 위쪽 이음새의 스티치 (왼쪽) */}
+    <line x1="4.5" y1="10" x2="4.5" y2="10.8" />
+    <line x1="5.5" y1="9.5" x2="5.5" y2="10.3" />
+    {/* 위쪽 이음새의 스티치 (오른쪽) */}
+    <line x1="19.5" y1="10" x2="19.5" y2="10.8" />
+    <line x1="18.5" y1="9.5" x2="18.5" y2="10.3" />
+    {/* 아래쪽 이음새 곡선 (왼쪽에서 중앙으로) */}
+    <path d="M3 12 Q6 16 12 12" />
+    {/* 아래쪽 이음새 곡선 (오른쪽에서 중앙으로) */}
+    <path d="M21 12 Q18 16 12 12" />
+    {/* 아래쪽 이음새의 스티치 (왼쪽) */}
+    <line x1="4.5" y1="14" x2="4.5" y2="13.2" />
+    <line x1="5.5" y1="14.5" x2="5.5" y2="13.7" />
+    {/* 아래쪽 이음새의 스티치 (오른쪽) */}
+    <line x1="19.5" y1="14" x2="19.5" y2="13.2" />
+    <line x1="18.5" y1="14.5" x2="18.5" y2="13.7" />
+  </svg>
+);
 import {
   getMonthlyTotal,
   getPreviousYearTotal,
+  getMonthlyAggregatedByCategory,
   calculateYOY,
   calculateCostRatio,
   calculatePerPersonCost,
@@ -30,13 +68,30 @@ const DIVISION_NAMES: Record<string, string> = {
   공통: "공통",
 };
 
+// 사업부별 아이콘 매핑
+const DIVISION_ICONS: Record<string, React.ElementType> = {
+  MLB: BaseballIcon,
+  KIDS: Baby,
+  DISCOVERY: Mountain,
+  공통: Building2,
+};
+
 export default function DivisionPage() {
   const params = useParams();
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const division = params.division as string;
+  // Next.js의 useParams()는 이미 디코딩된 값을 반환
+  const divisionRaw = params.division as string;
+  // 한글 경로 처리: URL 인코딩된 값이 올 수 있으므로 디코딩 시도
+  const division = divisionRaw ? decodeURIComponent(divisionRaw) : divisionRaw;
   const bizUnit = division as BizUnit;
+  
+  // 디버깅: division 값 확인
+  console.log("Division from params (raw):", divisionRaw);
+  console.log("Division (decoded):", division);
+  console.log("BizUnit:", bizUnit);
+  console.log("Valid bizUnits:", ["MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit));
 
   const availableYears = getAvailableYears();
   const [year, setYear] = useState<number>(
@@ -58,11 +113,12 @@ export default function DivisionPage() {
   }, [year, availableMonths, month]);
 
   useEffect(() => {
-    const params = new URLSearchParams();
-    params.set("year", year.toString());
-    params.set("month", month.toString());
-    params.set("mode", mode);
-    router.replace(`/${division}?${params.toString()}`, { scroll: false });
+    const searchParams = new URLSearchParams();
+    searchParams.set("year", year.toString());
+    searchParams.set("month", month.toString());
+    searchParams.set("mode", mode);
+    // Next.js router는 자동으로 URL 인코딩을 처리하므로 원본 값을 사용
+    router.replace(`/${division}?${searchParams.toString()}`, { scroll: false });
   }, [year, month, mode, division, router]);
 
   if (!["MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit)) {
@@ -80,6 +136,12 @@ export default function DivisionPage() {
 
   const current = getMonthlyTotal(bizUnit, year, month, mode);
   const previous = getPreviousYearTotal(bizUnit, year, month, mode);
+
+  // 인건비 데이터 가져오기
+  const currentCategories = getMonthlyAggregatedByCategory(bizUnit, year, month, mode);
+  const previousCategories = getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode);
+  const currentLaborCost = currentCategories.find(cat => cat.cost_lv1 === "인건비");
+  const previousLaborCost = previousCategories.find(cat => cat.cost_lv1 === "인건비");
 
   const isCommon = bizUnit === "공통";
 
@@ -106,12 +168,15 @@ export default function DivisionPage() {
       ? costRatio - prevCostRatio
       : null;
 
+  // 인당 비용 계산: 인건비 / 인원수
   const headcount = current?.headcount || 0;
-  const perPersonCost = calculatePerPersonCost(totalCost, headcount);
-  const prevPerPersonCost = calculatePerPersonCost(
-    previous?.amount ?? 0,
-    previous?.headcount ?? 0
-  );
+  const laborCostAmount = currentLaborCost?.amount || 0;
+  const perPersonCost = calculatePerPersonCost(laborCostAmount, headcount);
+  
+  const prevHeadcount = previous?.headcount || 0;
+  const prevLaborCostAmount = previousLaborCost?.amount || 0;
+  const prevPerPersonCost = calculatePerPersonCost(prevLaborCostAmount, prevHeadcount);
+  
   const perPersonCostYOY = calculateYOY(perPersonCost, prevPerPersonCost);
 
   return (
@@ -119,84 +184,121 @@ export default function DivisionPage() {
       <div className="container mx-auto px-4 py-8">
         {/* 헤더 */}
         <div className="mb-6">
-          <Link href="/">
-            <Button variant="ghost" className="mb-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              홈으로
-            </Button>
-          </Link>
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <h1 className="text-3xl font-bold">
-              {DIVISION_NAMES[bizUnit]} 비용 분석
-            </h1>
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2">
-                <label className="text-sm font-medium">연도:</label>
-                <Select
-                  value={year.toString()}
-                  onChange={(e) => setYear(parseInt(e.target.value))}
-                  className="w-24"
-                >
-                  {availableYears.map((y) => (
-                    <option key={y} value={y}>
-                      {y}년
-                    </option>
-                  ))}
-                </Select>
-              </div>
-              <div className="flex items-center gap-2">
-                <label className="text-sm font-medium">월:</label>
-                <Select
-                  value={month.toString()}
-                  onChange={(e) => setMonth(parseInt(e.target.value))}
-                  className="w-24"
-                >
-                  {availableMonths.map((m) => (
-                    <option key={m} value={m}>
-                      {m}월
-                    </option>
-                  ))}
-                </Select>
-              </div>
+          {/* 첫 번째 줄: 뒤로가기 + 제목 + 사업부 전환 버튼 */}
+          <div className="flex items-center gap-3 mb-3">
+            <Link href="/">
+              <Button variant="ghost" size="sm" className="p-2">
+                <ArrowLeft className="h-5 w-5" />
+              </Button>
+            </Link>
+            <div className="flex items-center gap-4 flex-1">
+              <h1 className="text-2xl font-bold flex items-center gap-2">
+                {DIVISION_ICONS[bizUnit] && (() => {
+                  const Icon = DIVISION_ICONS[bizUnit];
+                  return <Icon className="w-6 h-6" />;
+                })()}
+                <span>{DIVISION_NAMES[bizUnit]} 비용분석</span>
+              </h1>
+              {/* 사업부 전환 버튼 */}
+              <BizUnitSwitch
+                currentBizUnit={bizUnit}
+                year={year}
+                month={month}
+                mode={mode}
+              />
+            </div>
+          </div>
+          
+          {/* 두 번째 줄: 기준일 + 전환 버튼 + 날짜 선택 + 편집 버튼 */}
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <p className="text-sm text-gray-500">
+              {year}년 {month}월 기준
+            </p>
+            <div className="flex items-center gap-3 whitespace-nowrap">
+              {/* 당월/누적 전환 버튼 */}
               <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)}>
                 <TabsList>
                   <TabsTrigger value="monthly">당월</TabsTrigger>
-                  <TabsTrigger value="ytd">누적(YTD)</TabsTrigger>
+                  <TabsTrigger value="ytd">누적 (YTD)</TabsTrigger>
                 </TabsList>
               </Tabs>
+              {/* 날짜 선택 버튼 */}
+              <div className="inline-flex items-center gap-3 px-4 py-2.5 bg-white rounded-lg shadow-sm border border-gray-200 whitespace-nowrap">
+                <Calendar className="w-5 h-5" style={{ color: '#3b82f6' }} />
+                <div className="relative">
+                  <select
+                    value={year.toString()}
+                    onChange={(e) => setYear(parseInt(e.target.value))}
+                    className="appearance-none bg-transparent border-none outline-none text-sm font-medium text-gray-700 cursor-pointer pr-6"
+                  >
+                    {availableYears.map((y) => (
+                      <option key={y} value={y}>
+                        {y}년
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 pointer-events-none" />
+                </div>
+                <div className="relative">
+                  <select
+                    value={month.toString()}
+                    onChange={(e) => setMonth(parseInt(e.target.value))}
+                    className="appearance-none bg-transparent border-none outline-none text-sm font-medium text-gray-700 cursor-pointer pr-6"
+                  >
+                    {availableMonths.map((m) => (
+                      <option key={m} value={m}>
+                        {m}월
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 pointer-events-none" />
+                </div>
+              </div>
+              <Button variant="outline" size="sm">
+                편집
+              </Button>
             </div>
           </div>
         </div>
 
         {/* KPI 카드 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="mb-6">
+          <h2 className="text-xl font-bold mb-4">주요 지표 (KPI)</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <KpiCard
             title="총비용"
-            value={formatK(totalCost)}
+            value={totalCost}
+            unit="K"
             yoy={totalCostYOY}
-            changeAmount={totalCostChange}
             yoyLabel="전년동월대비"
+            previousValue={previous?.amount ?? null}
           />
           {!isCommon && (
             <>
               <KpiCard
                 title="인당 비용"
-                value={perPersonCost ? formatK(perPersonCost) : "-"}
+                value={perPersonCost}
+                unit="K"
                 yoy={perPersonCostYOY}
                 yoyLabel="전년동월대비"
+                previousValue={prevPerPersonCost}
+                description={`직원 1인당 인건비: ${headcount > 0 && laborCostAmount > 0 ? formatK(laborCostAmount / headcount, 1) : "-"} (${headcount}명)`}
               />
               <KpiCard
                 title="매출대비 비용률"
-                value={costRatio ? formatPercent(costRatio) : "-"}
+                value={costRatio}
                 yoy={costRatioYOY}
                 yoyLabel="전년동월대비"
-                description={costRatioYOY ? formatPercentPoint(costRatioYOY) : undefined}
+                previousValue={prevCostRatio}
+                description="효율성 지표"
               />
               <KpiCard
                 title="매출"
-                value={formatK(sales)}
+                value={sales}
+                unit="K"
                 yoy={salesYOY}
                 yoyLabel="전년동월대비"
+                previousValue={previous?.sales ?? null}
               />
             </>
           )}
@@ -204,16 +306,19 @@ export default function DivisionPage() {
             <>
               <KpiCard
                 title="공통비용 YOY"
-                value={totalCostYOY ? formatPercent(totalCostYOY) : "-"}
+                value={totalCostYOY}
+                yoy={null}
                 description="전년동월대비 증감률"
               />
               <KpiCard
                 title="공통비용 변화액"
-                value={totalCostChange ? formatK(totalCostChange) : "-"}
+                value={totalCostChange}
+                unit="K"
                 description="전년동월대비"
               />
             </>
           )}
+          </div>
         </div>
 
         {/* 월별 추이 차트 */}
@@ -222,7 +327,7 @@ export default function DivisionPage() {
         </div>
 
         {/* 드릴다운 차트 */}
-        <div>
+        <div className="mb-6">
           <CategoryDrilldown
             bizUnit={bizUnit}
             year={year}
@@ -230,6 +335,17 @@ export default function DivisionPage() {
             mode={mode}
           />
         </div>
+
+        {/* 광고비 분석 표 (브랜드만) */}
+        {bizUnit !== "공통" && (
+          <div className="mb-6">
+            <AdExpenseAnalysisTable
+              bizUnit={bizUnit}
+              year={year}
+              month={month}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

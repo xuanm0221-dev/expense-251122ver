@@ -1,0 +1,1915 @@
+"use client";
+
+import React, { useState, useMemo, useEffect } from "react";
+import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getCategoryDetail, getAnnualData, data, type BizUnit } from "@/lib/expenseData";
+
+type BizUnitOrAll = BizUnit | "ALL";
+import { formatK, formatPercent, calculateYOY } from "@/lib/utils";
+
+interface ExpenseAccountRow {
+  id: string;
+  level: 1 | 2 | 3 | 4; // 1: 대분류, 2: 사업부구분(브랜드) 또는 중분류(공통), 3: 중분류(브랜드) 또는 소분류(공통), 4: 소분류(브랜드)
+  category_l1: string; // 대분류
+  biz_unit?: string; // 사업부구분 (level 2 또는 level 3에서 사용)
+  category_l2: string; // 중분류
+  category_l3: string; // 소분류
+  prev_month: number;
+  curr_month: number;
+  prev_ytd: number;
+  curr_ytd: number;
+  prev_year_annual: number | null;
+  curr_year_annual: number | null;
+  description: string;
+  isExpanded: boolean;
+  children?: ExpenseAccountRow[];
+}
+
+interface ExpenseAccountHierTableProps {
+  bizUnit?: BizUnit | "ALL";
+  year: number;
+  month: number;
+  title?: string;
+}
+
+export function ExpenseAccountHierTable({
+  bizUnit = "ALL",
+  year,
+  month,
+  title,
+}: ExpenseAccountHierTableProps) {
+  const [viewMode, setViewMode] = useState<"monthly" | "ytd" | "annual">("monthly");
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+  
+  // 설명 편집을 위한 상태 관리
+  const [descriptions, setDescriptions] = useState<Map<string, string>>(new Map());
+  const [editingRowId, setEditingRowId] = useState<string | null>(null);
+  const [editValue, setEditValue] = useState<string>("");
+
+  // 로컬 스토리지에서 설명 데이터 로드
+  useEffect(() => {
+    const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}`;
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        setDescriptions(new Map(Object.entries(parsed)));
+      } catch (e) {
+        console.error("Failed to load descriptions from localStorage", e);
+      }
+    }
+  }, [bizUnit, year, month]);
+
+  // 설명 저장 함수
+  const saveDescriptions = (newDescriptions: Map<string, string>) => {
+    const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}`;
+    const obj = Object.fromEntries(newDescriptions);
+    localStorage.setItem(storageKey, JSON.stringify(obj));
+    setDescriptions(newDescriptions);
+  };
+
+  // 편집 시작
+  const startEdit = (rowId: string, currentDescription: string) => {
+    setEditingRowId(rowId);
+    setEditValue(currentDescription);
+  };
+
+  // 편집 취소
+  const cancelEdit = () => {
+    setEditingRowId(null);
+    setEditValue("");
+  };
+
+  // 편집 저장
+  const saveEdit = (rowId: string) => {
+    const newDescriptions = new Map(descriptions);
+    newDescriptions.set(rowId, editValue);
+    saveDescriptions(newDescriptions);
+    setEditingRowId(null);
+    setEditValue("");
+  };
+
+  // 계층 데이터 변환 및 집계
+  const hierarchicalData = useMemo(() => {
+    // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
+    // 모든 대분류 가져오기 (costLv1을 빈 문자열로 전달하면 모든 대분류 반환)
+    const bizUnitFilter: BizUnitOrAll = bizUnit || "ALL";
+    // viewMode가 "annual"이면 "ytd"로 변환 (연간 데이터는 YTD 모드로 가져옴)
+    const modeForDataFetch: "monthly" | "ytd" = viewMode === "annual" ? "ytd" : viewMode;
+    const allDetails = getCategoryDetail(bizUnitFilter, year, month, "", modeForDataFetch);
+    const prevYearDetails = getCategoryDetail(bizUnitFilter, year - 1, month, "", modeForDataFetch);
+
+    // 대분류별로 그룹화
+    const l1Map = new Map<string, ExpenseAccountRow>();
+    const l2Map = new Map<string, ExpenseAccountRow>();
+    const l3Map = new Map<string, ExpenseAccountRow>();
+
+    // 전년도 데이터를 먼저 처리하여 구조 생성 (전년도에만 존재하는 데이터도 포함)
+    prevYearDetails.forEach((detail) => {
+      const l1Key = detail.cost_lv1 || "";
+      if (!l1Key) return;
+
+      const isAdExpense = l1Key === "광고비";
+      const isInteriorDev = l1Key === "지급수수료" && detail.cost_lv2 === "인테리어 개발";
+      const isTravelExpense = l1Key === "출장비" && (detail.cost_lv2 === "국내출장비" || detail.cost_lv2 === "해외출장비");
+      
+      // 디버깅: 복리후생비 KIDS 데이터 확인
+      if (l1Key === "복리후생비" && detail.biz_unit === "KIDS" && modeForDataFetch === "ytd") {
+        console.log(`[전년도] 복리후생비 KIDS: cost_lv2=${detail.cost_lv2}, cost_lv3=${detail.cost_lv3}, amount=${detail.amount}`);
+      }
+
+      // 대분류 생성 또는 가져오기
+      if (!l1Map.has(l1Key)) {
+        l1Map.set(l1Key, {
+          id: `l1-${l1Key}`,
+          level: 1,
+          category_l1: l1Key,
+          category_l2: "",
+          category_l3: "",
+          prev_month: 0,
+          curr_month: 0,
+          prev_ytd: 0,
+          curr_ytd: 0,
+          prev_year_annual: null,
+          curr_year_annual: null,
+          description: "",
+          isExpanded: expandedRows.has(`l1-${l1Key}`),
+          children: [],
+        });
+      }
+      const l1Row = l1Map.get(l1Key)!;
+
+      if (isAdExpense) {
+        // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+        const bizUnitKey = detail.biz_unit || "기타";
+        const l2Key = `${l1Key}|${bizUnitKey}`;
+        let l2Row = l2Map.get(l2Key);
+        if (!l2Row) {
+          l2Row = {
+            id: `l2-${l1Key}-${bizUnitKey}`,
+            level: 2,
+            category_l1: l1Key,
+            biz_unit: bizUnitKey,
+            category_l2: bizUnitKey,
+            category_l3: "",
+            prev_month: 0,
+            curr_month: 0,
+            prev_ytd: 0,
+            curr_ytd: 0,
+            prev_year_annual: null,
+            curr_year_annual: null,
+            description: "",
+            isExpanded: expandedRows.has(`l2-${l1Key}-${bizUnitKey}`),
+            children: [],
+          };
+          l2Map.set(l2Key, l2Row);
+          l1Row.children!.push(l2Row);
+        }
+
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l3Key = `${l2Key}|${detail.cost_lv2}`;
+          let l3Row = l3Map.get(l3Key);
+          if (!l3Row) {
+            l3Row = {
+              id: `l3-${l1Key}-${bizUnitKey}-${detail.cost_lv2}`,
+              level: 3,
+              category_l1: l1Key,
+              biz_unit: bizUnitKey,
+              category_l2: detail.cost_lv2,
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: false,
+            };
+            l3Map.set(l3Key, l3Row);
+            l2Row.children!.push(l3Row);
+          }
+          if (viewMode === "monthly") {
+            l3Row.prev_month += detail.amount;
+          } else {
+            l3Row.prev_ytd += detail.amount;
+          }
+        } else {
+          if (viewMode === "monthly") {
+            l2Row.prev_month += detail.amount;
+          } else {
+            l2Row.prev_ytd += detail.amount;
+          }
+        }
+      } else if (isInteriorDev) {
+        // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류(인테리어 개발) → 사업부구분 → 소분류
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${detail.cost_lv2}`,
+              level: 2,
+              category_l1: l1Key,
+              category_l2: detail.cost_lv2,
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+              children: [],
+            };
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
+          }
+
+          // 사업부구분 처리 (level 3)
+          const bizUnitKey = detail.biz_unit || "기타";
+          const l3Key = `${l2Key}|${bizUnitKey}`;
+          let l3Row = l3Map.get(l3Key);
+          if (!l3Row) {
+            l3Row = {
+              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+              level: 3,
+              category_l1: l1Key,
+              biz_unit: bizUnitKey,
+              category_l2: detail.cost_lv2,
+              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+              children: [],
+            };
+            l3Map.set(l3Key, l3Row);
+            l2Row.children!.push(l3Row);
+          }
+
+          // 소분류 처리 (level 4)
+          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+            const l4Key = `${l3Key}|${detail.cost_lv3}`;
+            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
+            if (!l4Row) {
+              l4Row = {
+                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                level: 4,
+                category_l1: l1Key,
+                biz_unit: bizUnitKey,
+                category_l2: detail.cost_lv2,
+                category_l3: detail.cost_lv3,
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l4Key, l4Row);
+              l3Row.children!.push(l4Row);
+            }
+            if (viewMode === "monthly") {
+              l4Row.prev_month += detail.amount;
+            } else {
+              l4Row.prev_ytd += detail.amount;
+            }
+          } else {
+            // 소분류가 없으면 사업부구분에 직접 추가
+            if (viewMode === "monthly") {
+              l3Row.prev_month += detail.amount;
+            } else {
+              l3Row.prev_ytd += detail.amount;
+            }
+          }
+        } else {
+          if (viewMode === "monthly") {
+            l1Row.prev_month += detail.amount;
+          } else {
+            l1Row.prev_ytd += detail.amount;
+          }
+        }
+      } else if (isTravelExpense) {
+        // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${detail.cost_lv2}`,
+              level: 2,
+              category_l1: l1Key,
+              category_l2: detail.cost_lv2,
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+              children: [],
+            };
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
+          }
+
+          // 사업부구분 처리 (level 3)
+          const bizUnitKey = detail.biz_unit || "기타";
+          const l3Key = `${l2Key}|${bizUnitKey}`;
+          let l3Row = l3Map.get(l3Key);
+          if (!l3Row) {
+            l3Row = {
+              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+              level: 3,
+              category_l1: l1Key,
+              biz_unit: bizUnitKey,
+              category_l2: detail.cost_lv2,
+              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+              children: [],
+            };
+            l3Map.set(l3Key, l3Row);
+            l2Row.children!.push(l3Row);
+          }
+
+          // 소분류 처리 (level 4)
+          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+            const l4Key = `${l3Key}|${detail.cost_lv3}`;
+            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
+            if (!l4Row) {
+              l4Row = {
+                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                level: 4,
+                category_l1: l1Key,
+                biz_unit: bizUnitKey,
+                category_l2: detail.cost_lv2,
+                category_l3: detail.cost_lv3,
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l4Key, l4Row);
+              l3Row.children!.push(l4Row);
+            }
+            if (viewMode === "monthly") {
+              l4Row.prev_month += detail.amount;
+            } else {
+              l4Row.prev_ytd += detail.amount;
+            }
+          } else {
+            // 소분류가 없으면 사업부구분에 직접 추가
+            if (viewMode === "monthly") {
+              l3Row.prev_month += detail.amount;
+            } else {
+              l3Row.prev_ytd += detail.amount;
+            }
+          }
+        } else {
+          if (viewMode === "monthly") {
+            l1Row.prev_month += detail.amount;
+          } else {
+            l1Row.prev_ytd += detail.amount;
+          }
+        }
+      } else {
+        // 광고비가 아닌 경우: 기존 로직 (대분류 → 중분류 → 소분류)
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${detail.cost_lv2}`,
+              level: 2,
+              category_l1: l1Key,
+              category_l2: detail.cost_lv2,
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+              children: [],
+            };
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
+          }
+
+          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+            const l3Key = `${l2Key}|${detail.cost_lv3}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${detail.cost_lv2}-${detail.cost_lv3}`,
+                level: 3,
+                category_l1: l1Key,
+                category_l2: detail.cost_lv2,
+                category_l3: detail.cost_lv3,
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
+            }
+            if (viewMode === "monthly") {
+              l3Row.prev_month += detail.amount;
+            } else {
+              l3Row.prev_ytd += detail.amount;
+            }
+          } else {
+            if (viewMode === "monthly") {
+              l2Row.prev_month += detail.amount;
+            } else {
+              l2Row.prev_ytd += detail.amount;
+            }
+          }
+        } else {
+          if (viewMode === "monthly") {
+            l1Row.prev_month += detail.amount;
+          } else {
+            l1Row.prev_ytd += detail.amount;
+          }
+        }
+      }
+    });
+
+    // 당년 데이터 처리
+    allDetails.forEach((detail) => {
+      const l1Key = detail.cost_lv1 || "";
+      if (!l1Key) return;
+
+      // 광고비인지 확인
+      const isAdExpense = l1Key === "광고비";
+      const isInteriorDev = l1Key === "지급수수료" && detail.cost_lv2 === "인테리어 개발";
+      const isTravelExpense = l1Key === "출장비" && (detail.cost_lv2 === "국내출장비" || detail.cost_lv2 === "해외출장비");
+
+      // 대분류 생성 또는 가져오기
+      if (!l1Map.has(l1Key)) {
+        l1Map.set(l1Key, {
+          id: `l1-${l1Key}`,
+          level: 1,
+          category_l1: l1Key,
+          category_l2: "",
+          category_l3: "",
+          prev_month: 0,
+          curr_month: 0,
+          prev_ytd: 0,
+          curr_ytd: 0,
+          prev_year_annual: null,
+          curr_year_annual: null,
+          description: "",
+          isExpanded: expandedRows.has(`l1-${l1Key}`),
+          children: [],
+        });
+      }
+      const l1Row = l1Map.get(l1Key)!;
+
+      // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+      if (isAdExpense) {
+        // 사업부구분 처리 (level 2)
+        const bizUnitKey = detail.biz_unit || "기타";
+        const l2Key = `${l1Key}|${bizUnitKey}`;
+        let l2Row = l2Map.get(l2Key);
+        if (!l2Row) {
+          l2Row = {
+            id: `l2-${l1Key}-${bizUnitKey}`,
+            level: 2,
+            category_l1: l1Key,
+            biz_unit: bizUnitKey,
+            category_l2: bizUnitKey, // 사업부구분을 category_l2에 저장
+            category_l3: "",
+            prev_month: 0,
+            curr_month: 0,
+            prev_ytd: 0,
+            curr_ytd: 0,
+            prev_year_annual: null,
+            curr_year_annual: null,
+            description: "",
+            isExpanded: expandedRows.has(`l2-${l1Key}-${bizUnitKey}`),
+            children: [],
+          };
+          l2Map.set(l2Key, l2Row);
+          l1Row.children!.push(l2Row);
+        }
+
+        // 중분류 처리 (level 3, 광고비의 경우 소분류 무시)
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l3Key = `${l2Key}|${detail.cost_lv2}`;
+          let l3Row = l3Map.get(l3Key);
+          if (!l3Row) {
+            l3Row = {
+              id: `l3-${l1Key}-${bizUnitKey}-${detail.cost_lv2}`,
+              level: 3,
+              category_l1: l1Key,
+              biz_unit: bizUnitKey,
+              category_l2: detail.cost_lv2, // 중분류를 category_l2에 저장
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: false,
+            };
+            l3Map.set(l3Key, l3Row);
+            l2Row.children!.push(l3Row);
+          }
+
+          // 중분류에 금액 추가
+          if (viewMode === "monthly") {
+            l3Row.curr_month += detail.amount;
+          } else {
+            l3Row.curr_ytd += detail.amount;
+          }
+        } else {
+          // 중분류가 없으면 사업부구분에 직접 추가
+          if (viewMode === "monthly") {
+            l2Row.curr_month += detail.amount;
+          } else {
+            l2Row.curr_ytd += detail.amount;
+          }
+        }
+      } else if (isInteriorDev) {
+        // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류(인테리어 개발) → 사업부구분 → 소분류
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${detail.cost_lv2}`,
+              level: 2,
+              category_l1: l1Key,
+              category_l2: detail.cost_lv2,
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+              children: [],
+            };
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
+          }
+
+          // 사업부구분 처리 (level 3)
+          const bizUnitKey = detail.biz_unit || "기타";
+          const l3Key = `${l2Key}|${bizUnitKey}`;
+          let l3Row = l3Map.get(l3Key);
+          if (!l3Row) {
+            l3Row = {
+              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+              level: 3,
+              category_l1: l1Key,
+              biz_unit: bizUnitKey,
+              category_l2: detail.cost_lv2,
+              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+              children: [],
+            };
+            l3Map.set(l3Key, l3Row);
+            l2Row.children!.push(l3Row);
+          }
+
+          // 소분류 처리 (level 4)
+          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+            const l4Key = `${l3Key}|${detail.cost_lv3}`;
+            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
+            if (!l4Row) {
+              l4Row = {
+                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                level: 4,
+                category_l1: l1Key,
+                biz_unit: bizUnitKey,
+                category_l2: detail.cost_lv2,
+                category_l3: detail.cost_lv3,
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l4Key, l4Row);
+              l3Row.children!.push(l4Row);
+            }
+            if (viewMode === "monthly") {
+              l4Row.curr_month += detail.amount;
+            } else {
+              l4Row.curr_ytd += detail.amount;
+            }
+          } else {
+            // 소분류가 없으면 사업부구분에 직접 추가
+            if (viewMode === "monthly") {
+              l3Row.curr_month += detail.amount;
+            } else {
+              l3Row.curr_ytd += detail.amount;
+            }
+          }
+        } else {
+          if (viewMode === "monthly") {
+            l1Row.curr_month += detail.amount;
+          } else {
+            l1Row.curr_ytd += detail.amount;
+          }
+        }
+      } else {
+        // 광고비가 아닌 경우: 기존 로직 (대분류 → 중분류 → 소분류)
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${detail.cost_lv2}`,
+              level: 2,
+              category_l1: l1Key,
+              category_l2: detail.cost_lv2,
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+              children: [],
+            };
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
+          }
+
+          // 소분류 처리
+          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+            const l3Key = `${l2Key}|${detail.cost_lv3}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${detail.cost_lv2}-${detail.cost_lv3}`,
+                level: 3,
+                category_l1: l1Key,
+                category_l2: detail.cost_lv2,
+                category_l3: detail.cost_lv3,
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
+            }
+
+            // 소분류에 금액 추가
+            if (viewMode === "monthly") {
+              l3Row.curr_month += detail.amount;
+            } else {
+              l3Row.curr_ytd += detail.amount;
+            }
+          } else {
+            // 소분류가 없으면 중분류에 직접 추가
+            if (viewMode === "monthly") {
+              l2Row.curr_month += detail.amount;
+            } else {
+              l2Row.curr_ytd += detail.amount;
+            }
+          }
+        } else {
+          // 중분류가 없으면 대분류에 직접 추가
+          if (viewMode === "monthly") {
+            l1Row.curr_month += detail.amount;
+          } else {
+            l1Row.curr_ytd += detail.amount;
+          }
+        }
+      }
+    });
+
+    // 전년 데이터는 이미 위에서 처리했으므로 여기서는 제거
+
+    // 재귀적으로 하위 노드의 합계를 계산하는 헬퍼 함수
+    const aggregateNode = (node: ExpenseAccountRow): {
+      prevYtd: number;
+      currYtd: number;
+      prevYearAnnual: number;
+      currYearAnnual: number;
+    } => {
+      if (!node.children || node.children.length === 0) {
+        // 리프 노드: 자신의 값 반환
+        return {
+          prevYtd: node.prev_ytd,
+          currYtd: node.curr_ytd,
+          prevYearAnnual: node.prev_year_annual ?? 0,
+          currYearAnnual: node.curr_year_annual ?? 0,
+        };
+      }
+
+      // 하위 노드들의 집계값 계산
+      const childAggs = node.children.map(aggregateNode);
+      const prevYtdSum = childAggs.reduce((sum, agg) => sum + agg.prevYtd, 0);
+      const currYtdSum = childAggs.reduce((sum, agg) => sum + agg.currYtd, 0);
+      const prevYearAnnualSum = childAggs.reduce((sum, agg) => sum + agg.prevYearAnnual, 0);
+      const currYearAnnualSum = childAggs.reduce((sum, agg) => sum + agg.currYearAnnual, 0);
+
+      return {
+        prevYtd: prevYtdSum,
+        currYtd: currYtdSum,
+        prevYearAnnual: prevYearAnnualSum,
+        currYearAnnual: currYearAnnualSum,
+      };
+    };
+
+    // 연간 계획 데이터 처리 (먼저 개별 노드에 할당)
+    if (data.annual_data && data.annual_data.length > 0) {
+      // 당년 연간 데이터
+      const bizUnitFilter: BizUnitOrAll = bizUnit || "ALL";
+      const currAnnualData = getAnnualData(bizUnitFilter, year);
+      currAnnualData.forEach((annual) => {
+        const l1Key = annual.cost_lv1 || "";
+        const l1Row = l1Map.get(l1Key);
+        if (l1Row) {
+          const isAdExpense = l1Key === "광고비";
+          const isInteriorDev = l1Key === "지급수수료" && annual.cost_lv2 === "인테리어 개발";
+          const isTravelExpense = l1Key === "출장비" && (annual.cost_lv2 === "국내출장비" || annual.cost_lv2 === "해외출장비");
+          
+          if (isAdExpense) {
+            // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+            const bizUnitKey = annual.biz_unit || "기타";
+            const l2Key = `${l1Key}|${bizUnitKey}`;
+            const l2Row = l2Map.get(l2Key);
+            if (l2Row) {
+              if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+                const l3Key = `${l2Key}|${annual.cost_lv2}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) {
+                  l3Row.curr_year_annual = annual.annual_amount;
+                }
+              } else {
+                l2Row.curr_year_annual = annual.annual_amount;
+              }
+            }
+          } else if (isInteriorDev) {
+            // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+              const l2Key = `${l1Key}|${annual.cost_lv2}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                const bizUnitKey = annual.biz_unit || "기타";
+                const l3Key = `${l2Key}|${bizUnitKey}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) {
+                  if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                    const l4Row = l3Map.get(l4Key);
+                    if (l4Row) {
+                      l4Row.curr_year_annual = annual.annual_amount;
+                    }
+                  } else {
+                    l3Row.curr_year_annual = annual.annual_amount;
+                  }
+                }
+              }
+            }
+          } else if (isTravelExpense) {
+            // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+              const l2Key = `${l1Key}|${annual.cost_lv2}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                const bizUnitKey = annual.biz_unit || "기타";
+                const l3Key = `${l2Key}|${bizUnitKey}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) {
+                  if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                    const l4Row = l3Map.get(l4Key);
+                    if (l4Row) {
+                      l4Row.curr_year_annual = annual.annual_amount;
+                    }
+                  } else {
+                    l3Row.curr_year_annual = annual.annual_amount;
+                  }
+                }
+              }
+            }
+          } else {
+            // 광고비가 아닌 경우: 기존 로직
+            if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+              const l2Key = `${l1Key}|${annual.cost_lv2}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                  const l3Key = `${l2Key}|${annual.cost_lv3}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    l3Row.curr_year_annual = annual.annual_amount;
+                  }
+                } else {
+                  l2Row.curr_year_annual = annual.annual_amount;
+                }
+              }
+            } else {
+              l1Row.curr_year_annual = annual.annual_amount;
+            }
+          }
+        }
+      });
+
+      // 전년 연간 데이터
+      const prevAnnualData = getAnnualData(bizUnitFilter, year - 1);
+      prevAnnualData.forEach((annual) => {
+        const l1Key = annual.cost_lv1 || "";
+        const l1Row = l1Map.get(l1Key);
+        if (l1Row) {
+          const isAdExpense = l1Key === "광고비";
+          const isInteriorDev = l1Key === "지급수수료" && annual.cost_lv2 === "인테리어 개발";
+          const isTravelExpense = l1Key === "출장비" && (annual.cost_lv2 === "국내출장비" || annual.cost_lv2 === "해외출장비");
+          
+          if (isAdExpense) {
+            // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+            const bizUnitKey = annual.biz_unit || "기타";
+            const l2Key = `${l1Key}|${bizUnitKey}`;
+            const l2Row = l2Map.get(l2Key);
+            if (l2Row) {
+              if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+                const l3Key = `${l2Key}|${annual.cost_lv2}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) {
+                  l3Row.prev_year_annual = annual.annual_amount;
+                }
+              } else {
+                l2Row.prev_year_annual = annual.annual_amount;
+              }
+            }
+          } else if (isInteriorDev) {
+            // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+              const l2Key = `${l1Key}|${annual.cost_lv2}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                const bizUnitKey = annual.biz_unit || "기타";
+                const l3Key = `${l2Key}|${bizUnitKey}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) {
+                  if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                    const l4Row = l3Map.get(l4Key);
+                    if (l4Row) {
+                      l4Row.prev_year_annual = annual.annual_amount;
+                    }
+                  } else {
+                    l3Row.prev_year_annual = annual.annual_amount;
+                  }
+                }
+              }
+            }
+          } else if (isTravelExpense) {
+            // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+              const l2Key = `${l1Key}|${annual.cost_lv2}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                const bizUnitKey = annual.biz_unit || "기타";
+                const l3Key = `${l2Key}|${bizUnitKey}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) {
+                  if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                    const l4Row = l3Map.get(l4Key);
+                    if (l4Row) {
+                      l4Row.prev_year_annual = annual.annual_amount;
+                    }
+                  } else {
+                    l3Row.prev_year_annual = annual.annual_amount;
+                  }
+                }
+              }
+            }
+          } else {
+            // 광고비가 아닌 경우: 기존 로직
+            if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+              const l2Key = `${l1Key}|${annual.cost_lv2}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                  const l3Key = `${l2Key}|${annual.cost_lv3}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    l3Row.prev_year_annual = annual.annual_amount;
+                  }
+                } else {
+                  l2Row.prev_year_annual = annual.annual_amount;
+                }
+              }
+            } else {
+              l1Row.prev_year_annual = annual.annual_amount;
+            }
+          }
+        }
+      });
+    }
+
+    // 대분류 합계 계산 (하위 항목 합계) - 연간 계획 데이터 할당 후 실행
+    l1Map.forEach((l1Row) => {
+      if (l1Row.children && l1Row.children.length > 0) {
+        if (viewMode === "monthly") {
+          // 당월 모드: 기존 로직 유지
+          let totalCurr = 0;
+          let totalPrev = 0;
+          l1Row.children.forEach((l2Row) => {
+            if (l2Row.children && l2Row.children.length > 0) {
+              l2Row.children.forEach((l3Row) => {
+                totalCurr += l3Row.curr_month;
+                totalPrev += l3Row.prev_month;
+              });
+            } else {
+              totalCurr += l2Row.curr_month;
+              totalPrev += l2Row.prev_month;
+            }
+          });
+          l1Row.curr_month = totalCurr;
+          l1Row.prev_month = totalPrev;
+        } else {
+          // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
+          const aggregated = aggregateNode(l1Row);
+          l1Row.prev_ytd = aggregated.prevYtd;
+          l1Row.curr_ytd = aggregated.currYtd;
+          l1Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
+          l1Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+        }
+      }
+    });
+
+    // 중분류 합계 계산 (하위 소분류 합계) - 연간 계획 데이터 할당 후 실행
+    l2Map.forEach((l2Row) => {
+      if (l2Row.children && l2Row.children.length > 0) {
+        if (viewMode === "monthly") {
+          // 당월 모드: 기존 로직 유지
+          let totalCurr = 0;
+          let totalPrev = 0;
+          l2Row.children.forEach((l3Row) => {
+            totalCurr += l3Row.curr_month;
+            totalPrev += l3Row.prev_month;
+          });
+          l2Row.curr_month = totalCurr;
+          l2Row.prev_month = totalPrev;
+        } else {
+          // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
+          const aggregated = aggregateNode(l2Row);
+          l2Row.prev_ytd = aggregated.prevYtd;
+          l2Row.curr_ytd = aggregated.currYtd;
+          l2Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
+          l2Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+        }
+      }
+    });
+
+    // 사업부구분 합계 계산 (하위 소분류 합계) - 지급수수료 > 인테리어 개발의 경우
+    l3Map.forEach((l3Row) => {
+      // 지급수수료 > 인테리어 개발의 사업부구분(level 3)인 경우만 처리
+      if (
+        l3Row.category_l1 === "지급수수료" &&
+        l3Row.category_l2 === "인테리어 개발" &&
+        l3Row.level === 3 &&
+        l3Row.children &&
+        l3Row.children.length > 0
+      ) {
+        if (viewMode === "monthly") {
+          // 당월 모드: 소분류(level 4) 합계 계산
+          let totalCurr = 0;
+          let totalPrev = 0;
+          l3Row.children.forEach((l4Row) => {
+            totalCurr += l4Row.curr_month;
+            totalPrev += l4Row.prev_month;
+          });
+          l3Row.curr_month = totalCurr;
+          l3Row.prev_month = totalPrev;
+        } else {
+          // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
+          const aggregated = aggregateNode(l3Row);
+          l3Row.prev_ytd = aggregated.prevYtd;
+          l3Row.curr_ytd = aggregated.currYtd;
+          l3Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
+          l3Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+        }
+      }
+    });
+
+    // 대분류 순서 정의
+    const categoryOrder = [
+      "광고비",
+      "인건비",
+      "복리후생비",
+      "IT수수료",
+      "임차료",
+      "지급수수료",
+      "수주회",
+      "감가상각비",
+      "출장비",
+      "세금과공과",
+      "차량렌트비",
+      "기타",
+    ];
+
+    // 사업부구분 순서 정의 (광고비의 경우)
+    const bizUnitOrder = ["MLB", "KIDS", "DISCOVERY", "DUVETICA", "SUPRA", "공통"];
+
+    // 인건비 하위항목 순서 정의
+    const laborCostOrder = ["기본급", "Red pack", "성과급충당금", "실제 지급 성과급", "잡급"];
+
+    // 소분류 레벨 사업부구분 순서 정의
+    const subcategoryOrder = ["경영지원", "MLB", "KIDS", "DISCOVERY", "DUVETICA", "SUPRA"];
+
+    // 광고비의 사업부구분 children 정렬
+    l1Map.forEach((l1Row) => {
+      if (l1Row.category_l1 === "광고비" && l1Row.children) {
+        l1Row.children.sort((a, b) => {
+          const bizUnitA = a.biz_unit || "";
+          const bizUnitB = b.biz_unit || "";
+          const indexA = bizUnitOrder.indexOf(bizUnitA);
+          const indexB = bizUnitOrder.indexOf(bizUnitB);
+          
+          // 순서에 없는 항목은 맨 뒤로
+          if (indexA === -1 && indexB === -1) return 0;
+          if (indexA === -1) return 1;
+          if (indexB === -1) return -1;
+          
+          return indexA - indexB;
+        });
+      }
+      
+      // 인건비의 중분류 children 정렬
+      if (l1Row.category_l1 === "인건비" && l1Row.children) {
+        l1Row.children.sort((a, b) => {
+          const categoryA = a.category_l2 || "";
+          const categoryB = b.category_l2 || "";
+          const indexA = laborCostOrder.indexOf(categoryA);
+          const indexB = laborCostOrder.indexOf(categoryB);
+          
+          // 순서에 없는 항목은 맨 뒤로
+          if (indexA === -1 && indexB === -1) return 0;
+          if (indexA === -1) return 1;
+          if (indexB === -1) return -1;
+          
+          return indexA - indexB;
+        });
+      }
+    });
+
+    // 중분류의 소분류 children 정렬 (소분류가 있는 경우)
+    l2Map.forEach((l2Row) => {
+      if (l2Row.children && l2Row.children.length > 0) {
+        // 소분류 레벨 정렬 (category_l3가 사업부구분인 경우)
+        l2Row.children.sort((a, b) => {
+          const subcategoryA = a.category_l3 || "";
+          const subcategoryB = b.category_l3 || "";
+          const indexA = subcategoryOrder.indexOf(subcategoryA);
+          const indexB = subcategoryOrder.indexOf(subcategoryB);
+          
+          // 순서에 없는 항목은 맨 뒤로
+          if (indexA === -1 && indexB === -1) return 0;
+          if (indexA === -1) return 1;
+          if (indexB === -1) return -1;
+          
+          return indexA - indexB;
+        });
+      }
+    });
+
+    // 순서에 따라 정렬
+    const sortedL1Rows = Array.from(l1Map.values()).sort((a, b) => {
+      const indexA = categoryOrder.indexOf(a.category_l1);
+      const indexB = categoryOrder.indexOf(b.category_l1);
+      
+      // 순서에 없는 항목은 맨 뒤로
+      if (indexA === -1 && indexB === -1) return 0;
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      
+      return indexA - indexB;
+    });
+
+    return sortedL1Rows;
+  }, [bizUnit, year, month, viewMode, expandedRows]);
+
+  // 평면화된 행 리스트 생성 (렌더링용)
+  const flattenedRows = useMemo(() => {
+    const result: ExpenseAccountRow[] = [];
+    
+    const traverse = (rows: ExpenseAccountRow[]) => {
+      rows.forEach((row) => {
+        result.push(row);
+        if (row.isExpanded && row.children && row.children.length > 0) {
+          traverse(row.children);
+        }
+      });
+    };
+
+    traverse(hierarchicalData);
+    return result;
+  }, [hierarchicalData]);
+
+  const toggleRow = (rowId: string) => {
+    const newExpanded = new Set(expandedRows);
+    if (newExpanded.has(rowId)) {
+      newExpanded.delete(rowId);
+    } else {
+      newExpanded.add(rowId);
+    }
+    setExpandedRows(newExpanded);
+  };
+
+  const expandAll = () => {
+    const allIds = new Set<string>();
+    const collectIds = (rows: ExpenseAccountRow[]) => {
+      rows.forEach((row) => {
+        if (row.children && row.children.length > 0) {
+          allIds.add(row.id);
+          collectIds(row.children);
+        }
+      });
+    };
+    collectIds(hierarchicalData);
+    setExpandedRows(allIds);
+  };
+
+  const collapseAll = () => {
+    setExpandedRows(new Set());
+  };
+
+  const isAllExpanded = useMemo(() => {
+    const allIds = new Set<string>();
+    const collectIds = (rows: ExpenseAccountRow[]) => {
+      rows.forEach((row) => {
+        if (row.children && row.children.length > 0) {
+          allIds.add(row.id);
+          collectIds(row.children);
+        }
+      });
+    };
+    collectIds(hierarchicalData);
+    return allIds.size > 0 && Array.from(allIds).every((id) => expandedRows.has(id));
+  }, [hierarchicalData, expandedRows]);
+
+  const handleExpandCollapseAll = () => {
+    if (isAllExpanded) {
+      collapseAll();
+    } else {
+      expandAll();
+    }
+  };
+
+  // 계산 헬퍼 함수
+  const getDifference = (current: number, previous: number): number => {
+    return current - previous;
+  };
+
+  const getYOY = (current: number, previous: number): number | null => {
+    return calculateYOY(current, previous);
+  };
+
+  const getProgressRate = (ytd: number, annual: number | null): number | null => {
+    if (annual === null || annual === 0) return null;
+    return (ytd / annual) * 100;
+  };
+
+  const getYOYColor = (yoy: number | null): string => {
+    if (yoy === null) return "text-gray-600";
+    if (Math.abs(yoy - 100) < 0.1) return "text-gray-600";
+    if (yoy > 100) return "text-red-500";
+    return "text-blue-600";
+  };
+
+  // 차이금액 포맷 (양수는 +, 마이너스는 △로 표시)
+  const formatDifference = (value: number | null | undefined): string => {
+    if (value === null || value === undefined || isNaN(value)) {
+      return "-";
+    }
+    if (value === 0) {
+      return "0";
+    }
+    if (value < 0) {
+      // 마이너스는 △로 표시하고 절댓값 사용
+      return `△${formatK(Math.abs(value))}`;
+    }
+    // 양수는 + 표시
+    return `+${formatK(value)}`;
+  };
+
+  // YOY 포맷 (소수점 없이)
+  const formatYOY = (value: number | null | undefined): string => {
+    if (value === null || value === undefined || isNaN(value)) {
+      return "-";
+    }
+    return `${Math.round(value)}%`;
+  };
+
+  // Leaf 노드만 추출하는 함수
+  const getLeafNodes = (rows: ExpenseAccountRow[]): ExpenseAccountRow[] => {
+    const leaves: ExpenseAccountRow[] = [];
+    const traverse = (nodes: ExpenseAccountRow[]) => {
+      nodes.forEach((node) => {
+        if (!node.children || node.children.length === 0) {
+          // Leaf 노드
+          leaves.push(node);
+        } else {
+          // 자식이 있으면 재귀적으로 탐색
+          traverse(node.children);
+        }
+      });
+    };
+    traverse(rows);
+    return leaves;
+  };
+
+  // 전체 합계 계산 함수
+  const computeTotals = useMemo(() => {
+    const leaves = getLeafNodes(hierarchicalData);
+    
+    if (viewMode === "monthly") {
+      // 당월 모드
+      const prevTotal = leaves.reduce((sum, leaf) => sum + leaf.prev_month, 0);
+      const currTotal = leaves.reduce((sum, leaf) => sum + leaf.curr_month, 0);
+      const diffTotal = currTotal - prevTotal;
+      const yoyTotal = prevTotal > 0 ? (currTotal / prevTotal) * 100 : null;
+      
+      return {
+        prevTotal,
+        currTotal,
+        diffTotal,
+        yoyTotal,
+        prevYtdTotal: null,
+        currYtdTotal: null,
+        diffYtdTotal: null,
+        yoyYtdTotal: null,
+        annual2024Total: null,
+        annual2025Total: null,
+        diffAnnualTotal: null,
+        yoyAnnualTotal: null,
+        progressTotal: null,
+      };
+    } else {
+      // 누적(YTD) 모드
+      const prevYtdTotal = leaves.reduce((sum, leaf) => sum + leaf.prev_ytd, 0);
+      const currYtdTotal = leaves.reduce((sum, leaf) => sum + leaf.curr_ytd, 0);
+      const diffYtdTotal = currYtdTotal - prevYtdTotal;
+      const yoyYtdTotal = prevYtdTotal > 0 ? (currYtdTotal / prevYtdTotal) * 100 : null;
+      
+      const annual2024Total = leaves.reduce((sum, leaf) => sum + (leaf.prev_year_annual || 0), 0);
+      const annual2025Total = leaves.reduce((sum, leaf) => sum + (leaf.curr_year_annual || 0), 0);
+      const diffAnnualTotal = annual2025Total - annual2024Total;
+      const yoyAnnualTotal = annual2024Total > 0 ? (annual2025Total / annual2024Total) * 100 : null;
+      const progressTotal = annual2025Total > 0 ? (currYtdTotal / annual2025Total) * 100 : null;
+      
+      return {
+        prevTotal: null,
+        currTotal: null,
+        diffTotal: null,
+        yoyTotal: null,
+        prevYtdTotal,
+        currYtdTotal,
+        diffYtdTotal,
+        yoyYtdTotal,
+        annual2024Total,
+        annual2025Total,
+        diffAnnualTotal,
+        yoyAnnualTotal,
+        progressTotal,
+      };
+    }
+  }, [hierarchicalData, viewMode]);
+
+  // YOY/진척률 Badge 스타일 함수
+  const getYOYBadgeClass = (value: number | null): string => {
+    if (value === null || value === undefined || isNaN(value)) {
+      return "inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-500";
+    }
+    if (value >= 100) {
+      return "inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-pink-100 text-pink-700";
+    }
+    return "inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700";
+  };
+
+  return (
+    <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden backdrop-blur-sm">
+      {/* 상단 헤더 */}
+      <div className="bg-slate-800 border-b-2 border-slate-600">
+        <div className="px-8 py-6">
+          <div className="flex items-center justify-between">
+            {/* 왼쪽: 제목 + 태그들 */}
+            <div className="flex items-center gap-4">
+              {/* 메인 제목 */}
+              <h2 className="text-xl font-bold text-slate-50">
+                {title || "전체 비용 계정 상세 분석"}
+              </h2>
+              
+              {/* 태그들 */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-600 bg-slate-700/50">
+                  <Sparkles className="w-4 h-4 text-slate-200" />
+                  <span className="text-sm font-medium text-slate-200">계층형</span>
+                </div>
+                <div className="w-1 h-1 rounded-full bg-slate-500"></div>
+                <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-600 bg-slate-700/50">
+                  <Calendar className="w-4 h-4 text-slate-200" />
+                  <span className="text-sm font-medium text-slate-200">{year}년 {month}월 기준</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* 우측: 탭과 버튼 */}
+            <div className="flex items-center gap-3">
+              <Tabs value={viewMode} onValueChange={(v) => setViewMode(v as "monthly" | "ytd" | "annual")}>
+                <TabsList className="bg-slate-700/50 p-1.5 rounded-xl border border-slate-600 shadow-md">
+                  <TabsTrigger 
+                    value="monthly"
+                    className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
+                  >
+                    당월
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="ytd"
+                    className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
+                  >
+                    누적(YTD)
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleExpandCollapseAll}
+                className="flex items-center gap-2 min-w-[140px] justify-center px-4 py-2 bg-slate-700/50 border-slate-600 text-slate-200 hover:bg-slate-600 hover:text-slate-50 font-medium shadow-md hover:shadow-lg transition-all duration-200"
+              >
+                <ChevronsDownUp className="w-4 h-4" />
+                <span className="whitespace-nowrap">{isAllExpanded ? "모두 접기" : "모두 펼치기"}</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 테이블 */}
+      <div className="overflow-x-auto bg-white">
+        <table className="w-full border-collapse" style={{ tableLayout: "fixed" }}>
+          <colgroup>
+            {viewMode === "monthly" ? (
+              <>
+                {/* 당월 모드: 구분 15% + 당월 데이터 4개 각 10% + 설명 45% */}
+                <col style={{ width: "15%" }} />
+                <col style={{ width: "0%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "0%" }} />
+                <col style={{ width: "45%" }} />
+              </>
+            ) : (
+              <>
+                {/* 누적(YTD) 모드: 구분 15% + 숫자 데이터 9개 각 7% + 설명 22% */}
+                <col style={{ width: "15%" }} />
+                <col style={{ width: "0%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "0%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "7%" }} />
+                <col style={{ width: "0%" }} />
+                <col style={{ width: "22%" }} />
+              </>
+            )}
+          </colgroup>
+          <thead className="sticky top-0 z-10">
+            {/* 첫 번째 헤더 행 */}
+            <tr className="bg-slate-800 border-b border-slate-600">
+              <th rowSpan={2} className="border-r border-slate-600 px-3 py-3 text-left text-xs font-semibold text-slate-50">
+                구분
+              </th>
+              <th className="border-r border-slate-600"></th>
+              {viewMode === "monthly" ? (
+                <>
+                  <th colSpan={4} className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    당월 데이터
+                  </th>
+                  <th className="border-r border-slate-600"></th>
+                  <th rowSpan={2} className="border-r border-slate-600 px-3 py-3 text-left text-xs font-semibold text-slate-50">
+                    설명
+                  </th>
+                </>
+              ) : (
+                <>
+                  <th colSpan={5} className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    누적(YTD)
+                  </th>
+                  <th className="border-r border-slate-600"></th>
+                  <th colSpan={4} className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    연간 계획
+                  </th>
+                  <th className="border-r border-slate-600"></th>
+                  <th rowSpan={2} className="border-r border-slate-600 px-3 py-3 text-left text-xs font-semibold text-slate-50">
+                    설명
+                  </th>
+                </>
+              )}
+            </tr>
+            {/* 두 번째 헤더 행 */}
+            <tr className="bg-slate-800 border-b-2 border-slate-600">
+              <th className="border-r border-slate-600"></th>
+              {viewMode === "monthly" ? (
+                <>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    전년
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    당월
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    차이(금액)
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    YOY (%)
+                  </th>
+                  <th className="border-r border-slate-600"></th>
+                </>
+              ) : (
+                <>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    전년누적
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    당년누적
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    차이(금액)
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    YOY (%)
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    진척률 (%)
+                  </th>
+                  <th className="border-r border-slate-600"></th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    2024년 연간
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    2025년 연간
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    차이(금액)
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    YOY (%)
+                  </th>
+                  <th className="border-r border-slate-600"></th>
+                </>
+              )}
+            </tr>
+          </thead>
+          <tbody>
+            {/* 전체 합계 행 */}
+            <tr className="bg-indigo-50 border-b border-indigo-100">
+              <td className="border-r border-gray-200 px-3 py-2 text-sm font-semibold text-gray-800">
+                <div className="flex items-center gap-2">
+                  <PieChart className="w-4 h-4 text-indigo-600" />
+                  <span>전체 합계</span>
+                </div>
+              </td>
+              <td className="border-r border-gray-200"></td>
+              {viewMode === "monthly" ? (
+                <>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.prevTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.currTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatDifference(computeTotals.diffTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right">
+                    <span className={getYOYBadgeClass(computeTotals.yoyTotal)}>
+                      {formatYOY(computeTotals.yoyTotal)}
+                    </span>
+                  </td>
+                  <td className="border-r border-gray-200"></td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-gray-600">
+                    -
+                  </td>
+                </>
+              ) : (
+                <>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.prevYtdTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.currYtdTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatDifference(computeTotals.diffYtdTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right">
+                    <span className={getYOYBadgeClass(computeTotals.yoyYtdTotal)}>
+                      {formatYOY(computeTotals.yoyYtdTotal)}
+                    </span>
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right">
+                    <span className={getYOYBadgeClass(computeTotals.progressTotal)}>
+                      {formatYOY(computeTotals.progressTotal)}
+                    </span>
+                  </td>
+                  <td className="border-r border-gray-200"></td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.annual2024Total)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.annual2025Total)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatDifference(computeTotals.diffAnnualTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right">
+                    <span className={getYOYBadgeClass(computeTotals.yoyAnnualTotal)}>
+                      {formatYOY(computeTotals.yoyAnnualTotal)}
+                    </span>
+                  </td>
+                  <td className="border-r border-gray-200"></td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-gray-600">
+                    -
+                  </td>
+                </>
+              )}
+            </tr>
+            {flattenedRows.map((row) => {
+              const hasChildren = row.children && row.children.length > 0;
+              
+              // 들여쓰기 및 폰트 스타일 결정
+              const getIndentClass = (level: number): string => {
+                if (level === 1) return "pl-2";
+                if (level === 2) return "pl-8";
+                if (level === 3) return "pl-12";
+                return "pl-16"; // level 4
+              };
+              
+              const getFontWeight = (level: number): string => {
+                if (level === 1) return "font-bold";
+                if (level === 2) return "font-semibold";
+                return "font-normal";
+              };
+              
+              // 표시할 텍스트 결정
+              const getDisplayText = (row: ExpenseAccountRow): string => {
+                if (row.level === 1) return row.category_l1 || "-";
+                if (row.level === 2) {
+                  // 광고비의 경우 level 2는 사업부구분
+                  if (row.category_l1 === "광고비" && row.biz_unit) {
+                    return row.biz_unit;
+                  }
+                  // 지급수수료 > 인테리어 개발의 경우 level 2는 중분류(인테리어 개발)
+                  if (row.category_l1 === "지급수수료" && row.category_l2 === "인테리어 개발") {
+                    return row.category_l2 || "-";
+                  }
+                  // 출장비 > 국내출장비/해외출장비의 경우 level 2는 중분류
+                  if (row.category_l1 === "출장비" && (row.category_l2 === "국내출장비" || row.category_l2 === "해외출장비")) {
+                    return row.category_l2 || "-";
+                  }
+                  return row.category_l2 || "-";
+                }
+                if (row.level === 3) {
+                  // 광고비의 경우 level 3는 중분류
+                  if (row.category_l1 === "광고비") {
+                    return row.category_l2 || "-";
+                  }
+                  // 지급수수료 > 인테리어 개발의 경우 level 3는 사업부구분
+                  if (row.category_l1 === "지급수수료" && row.category_l2 === "인테리어 개발" && row.biz_unit) {
+                    return row.biz_unit;
+                  }
+                  // 출장비 > 국내출장비/해외출장비의 경우 level 3는 사업부구분
+                  if (row.category_l1 === "출장비" && (row.category_l2 === "국내출장비" || row.category_l2 === "해외출장비") && row.biz_unit) {
+                    return row.biz_unit;
+                  }
+                  // 일반적인 경우 level 3는 소분류
+                  return row.category_l3 || "-";
+                }
+                // level 4: 지급수수료 > 인테리어 개발 또는 출장비 > 국내출장비/해외출장비의 경우 소분류
+                if (row.level === 4) {
+                  return row.category_l3 || "-";
+                }
+                return row.category_l3 || "-";
+              };
+              
+              const indentClass = getIndentClass(row.level);
+              const fontWeight = getFontWeight(row.level);
+              const displayText = getDisplayText(row);
+
+              const prevValue = viewMode === "monthly" ? row.prev_month : row.prev_ytd;
+              const currValue = viewMode === "monthly" ? row.curr_month : row.curr_ytd;
+              const diff = getDifference(currValue, prevValue);
+              const yoy = getYOY(currValue, prevValue);
+
+              // 진척률 계산 (누적 모드에서만 사용)
+              // 진척률(%) = 당년누적 / 2025년 연간 * 100
+              const progressRate = viewMode === "ytd" 
+                ? getProgressRate(currValue, row.curr_year_annual)
+                : null;
+
+              // 연간 계획 데이터 계산 (누적 모드에서만 사용)
+              const annualDiff = viewMode === "ytd" && row.curr_year_annual !== null && row.prev_year_annual !== null
+                ? getDifference(row.curr_year_annual, row.prev_year_annual)
+                : null;
+              const annualYOY = viewMode === "ytd" ? getYOY(
+                row.curr_year_annual ?? 0,
+                row.prev_year_annual ?? 0
+              ) : null;
+
+              // 대분류(level 1)는 연한 회색 배경
+              const isLevel1 = row.level === 1;
+              
+              return (
+                <tr
+                  key={row.id}
+                  className={`transition-colors duration-150 cursor-pointer border-b border-gray-100 ${
+                    isLevel1 
+                      ? "bg-gray-100 hover:bg-gray-200" 
+                      : "hover:bg-blue-50/50"
+                  }`}
+                  onClick={() => hasChildren && toggleRow(row.id)}
+                >
+                  {/* 구분 영역 (단일 컬럼, 들여쓰기로 계층 표현) */}
+                  <td
+                    className={`border-r border-gray-100 px-4 py-3 text-sm ${fontWeight} ${indentClass} transition-colors`}
+                  >
+                    <div className="flex items-center gap-2">
+                      {hasChildren && (
+                        <span className="flex-shrink-0">
+                          {row.isExpanded ? (
+                            <ChevronDown className="w-4 h-4" />
+                          ) : (
+                            <ChevronRight className="w-4 h-4" />
+                          )}
+                        </span>
+                      )}
+                      {!hasChildren && <span className="w-4" />}
+                      <span>{displayText}</span>
+                    </div>
+                  </td>
+                  <td className="border-r border-gray-200"></td>
+                  
+                  {/* 당월/누적 데이터 영역 */}
+                  {viewMode === "monthly" ? (
+                    <>
+                      {/* 당월 모드: 전년, 당월, 차이, YOY */}
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(prevValue)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(currValue)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatDifference(diff)}
+                      </td>
+                      <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium ${getYOYColor(yoy)}`}>
+                        {formatYOY(yoy)}
+                      </td>
+                      <td className="border-r border-gray-200"></td>
+                      {/* 설명 (편집 가능) */}
+                      <td 
+                        className="border-r border-gray-100 px-4 py-3 text-sm text-gray-600 relative group"
+                        onClick={(e) => {
+                          // 편집 모드가 아니고, 편집 버튼이 아닌 경우에만 편집 시작
+                          if (editingRowId !== row.id && !(e.target as HTMLElement).closest('button')) {
+                            const currentDesc = descriptions.get(row.id) || row.description || "";
+                            startEdit(row.id, currentDesc);
+                          }
+                        }}
+                      >
+                        {editingRowId === row.id ? (
+                          <div className="flex items-center gap-2">
+                            <textarea
+                              value={editValue}
+                              onChange={(e) => setEditValue(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" && e.ctrlKey) {
+                                  saveEdit(row.id);
+                                } else if (e.key === "Escape") {
+                                  cancelEdit();
+                                }
+                              }}
+                              className="flex-1 px-2 py-1 text-sm border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                              rows={2}
+                              autoFocus
+                              onClick={(e) => e.stopPropagation()}
+                            />
+                            <div className="flex flex-col gap-1">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  saveEdit(row.id);
+                                }}
+                                className="p-1 text-green-600 hover:bg-green-50 rounded"
+                                title="저장 (Ctrl+Enter)"
+                              >
+                                <Check className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  cancelEdit();
+                                }}
+                                className="p-1 text-red-600 hover:bg-red-50 rounded"
+                                title="취소 (Esc)"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="flex-1 min-w-0">
+                              {descriptions.get(row.id) || row.description || "-"}
+                            </span>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                const currentDesc = descriptions.get(row.id) || row.description || "";
+                                startEdit(row.id, currentDesc);
+                              }}
+                              className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
+                              title="편집"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </button>
+                          </div>
+                        )}
+                      </td>
+                    </>
+                  ) : (
+                    <>
+                      {/* 누적(YTD) 모드: 전년누적, 당년누적, 차이, YOY, 진척률 */}
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(prevValue)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(currValue)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatDifference(diff)}
+                      </td>
+                      <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium ${getYOYColor(yoy)}`}>
+                        {formatYOY(yoy)}
+                      </td>
+                      <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium ${getYOYColor(progressRate)}`}>
+                        {formatYOY(progressRate)}
+                      </td>
+                      <td className="border-r border-gray-200"></td>
+                      {/* 연간 계획 영역 */}
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(row.prev_year_annual)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(row.curr_year_annual)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatDifference(annualDiff)}
+                      </td>
+                      <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium ${getYOYColor(annualYOY)}`}>
+                        {formatYOY(annualYOY)}
+                      </td>
+                      <td className="border-r border-gray-200"></td>
+                      {/* 설명 (편집 가능) */}
+                      <td 
+                        className="border-r border-gray-100 px-4 py-3 text-sm text-gray-600 relative group"
+                        onClick={(e) => {
+                          // 편집 모드가 아니고, 편집 버튼이 아닌 경우에만 편집 시작
+                          if (editingRowId !== row.id && !(e.target as HTMLElement).closest('button')) {
+                            const currentDesc = descriptions.get(row.id) || row.description || "";
+                            startEdit(row.id, currentDesc);
+                          }
+                        }}
+                      >
+                        {editingRowId === row.id ? (
+                          <div className="flex items-center gap-2">
+                            <textarea
+                              value={editValue}
+                              onChange={(e) => setEditValue(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" && e.ctrlKey) {
+                                  saveEdit(row.id);
+                                } else if (e.key === "Escape") {
+                                  cancelEdit();
+                                }
+                              }}
+                              className="flex-1 px-2 py-1 text-sm border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                              rows={2}
+                              autoFocus
+                              onClick={(e) => e.stopPropagation()}
+                            />
+                            <div className="flex flex-col gap-1">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  saveEdit(row.id);
+                                }}
+                                className="p-1 text-green-600 hover:bg-green-50 rounded"
+                                title="저장 (Ctrl+Enter)"
+                              >
+                                <Check className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  cancelEdit();
+                                }}
+                                className="p-1 text-red-600 hover:bg-red-50 rounded"
+                                title="취소 (Esc)"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="flex-1 min-w-0">
+                              {descriptions.get(row.id) || row.description || "-"}
+                            </span>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                const currentDesc = descriptions.get(row.id) || row.description || "";
+                                startEdit(row.id, currentDesc);
+                              }}
+                              className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
+                              title="편집"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </button>
+                          </div>
+                        )}
+                      </td>
+                    </>
+                  )}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+

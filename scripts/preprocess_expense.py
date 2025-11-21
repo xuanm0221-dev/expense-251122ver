@@ -19,90 +19,408 @@ TARGET_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통"]
 
 
 def parse_month_column(col: str) -> tuple[int, int] | None:
-    """월 컬럼명(예: '24-Jan', '25-Oct')을 (year, month)로 파싱"""
+    """월 컬럼명(예: '24년1월', '24년10월', 'Jan-24', '24-Jan', '2024-01') → (year, month)로 파싱"""
     try:
+        import re
+        
+        # 형식 1: "24년1월", "25년10월" (한글 형식) - 최우선 처리
+        match = re.match(r'(\d{2})년(\d{1,2})월', col)
+        if match:
+            year_str, month_str = match.groups()
+            year = 2000 + int(year_str)
+            month = int(month_str)
+            if 2000 <= year <= 2100 and 1 <= month <= 12:
+                return (year, month)
+        
+        # 형식 2: 기존 형식들도 지원 (하위 호환성)
         parts = col.split("-")
         if len(parts) != 2:
             return None
-        year_str, month_str = parts
-        year = 2000 + int(year_str)
+
+        part1, part2 = parts
+
         month_map = {
             "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,
             "May": 5, "Jun": 6, "Jul": 7, "Aug": 8,
-            "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12
+            "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
         }
-        month = month_map.get(month_str)
-        if month:
+        
+        # "Jan-24" (월-년도)
+        if part1 in month_map:
+            month = month_map[part1]
+            year = 2000 + int(part2)
             return (year, month)
-    except:
-        pass
-    return None
+        
+        # "24-Jan" (년도-월)
+        if part2 in month_map:
+            try:
+                year = 2000 + int(part1)
+                month = month_map[part2]
+                return (year, month)
+            except:
+                pass
+        
+        # "2024-01" (년도-월)
+        try:
+            year = int(part1)
+            month = int(part2)
+            if 2000 <= year <= 2100 and 1 <= month <= 12:
+                return (year, month)
+        except:
+            pass
 
+        return None
+
+    except Exception:
+        return None
+
+
+# 전역 변수로 연간 데이터 저장
+_annual_data_list: list[pd.DataFrame] = []
 
 def load_expense_data() -> pd.DataFrame:
     """비용 CSV 파일들을 읽어서 long-format으로 변환"""
     expense_files = [
         ("2024년비용.csv", 2024),
-        ("2025년비용.csv", 2025)
+        ("2025년비용.csv", 2025),
     ]
-    
-    all_data = []
-    
+
+    all_data: list[pd.DataFrame] = []
+
     for filename, default_year in expense_files:
         filepath = os.path.join(CSV_BASE_PATH, filename)
         if not os.path.exists(filepath):
             print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
             continue
-        
+
         df = pd.read_csv(filepath, encoding="utf-8-sig")
         
-        # 비용 관련 컬럼 추출
-        id_cols = ["사업부구분", "대분류", "중분류", "소분류"]
-        month_cols = [col for col in df.columns if col not in id_cols]
+        # 디버깅: 실제 컬럼명 출력
+        print(f"   - {filename} 원본 컬럼명: {list(df.columns)[:15]}...")
         
-        # Long format으로 변환
+        # "사업부구분 대분류"가 하나의 컬럼으로 합쳐져 있을 수 있음
+        # 컬럼명 정리: 공백으로 분리된 경우 처리
+        actual_id_cols = []
+        for col in df.columns:
+            if "사업부" in col or "대분류" in col or "중분류" in col or "소분류" in col:
+                actual_id_cols.append(col)
+        
+        # 표준 컬럼명 확인
+        id_cols = []
+        if "사업부구분" in df.columns:
+            id_cols.append("사업부구분")
+        elif any("사업부" in col for col in df.columns):
+            # "사업부구분 대분류" 같은 경우 분리 필요
+            for col in df.columns:
+                if "사업부" in col:
+                    # 첫 번째 컬럼이 "사업부구분 대분류"인 경우, 실제로는 두 컬럼일 수 있음
+                    # 일단 그대로 사용
+                    id_cols.append(col)
+                    break
+        
+        if "대분류" in df.columns:
+            id_cols.append("대분류")
+        if "중분류" in df.columns:
+            id_cols.append("중분류")
+        if "소분류" in df.columns:
+            id_cols.append("소분류")
+        
+        # id_cols가 비어있으면 기본값 사용
+        if not id_cols:
+            id_cols = ["사업부구분", "대분류", "중분류", "소분류"]
+        
+        print(f"   - {filename} ID 컬럼: {id_cols}")
+        
+        # 연간 컬럼과 월별 컬럼 분리
+        month_cols = []
+        annual_cols = []
+        
+        for col in df.columns:
+            if col not in id_cols:
+                # 연간 컬럼 체크 (예: "2024년 연간", "2025년 연간", "2024연간", "2025연간")
+                if "연간" in col or "annual" in col.lower() or "yearly" in col.lower():
+                    annual_cols.append(col)
+                else:
+                    month_cols.append(col)
+        
+        print(f"   - 월 컬럼 후보: {month_cols[:5]}...")  # 처음 5개만 출력
+        print(f"   - 연간 컬럼: {annual_cols}")
+
+        # Long format으로 변환 (월별 데이터)
         df_melted = df.melt(
             id_vars=id_cols,
             value_vars=month_cols,
             var_name="month_col",
-            value_name="amount"
+            value_name="amount",
         )
         
+        # 연간 데이터 처리
+        annual_data = []
+        if annual_cols:
+            for col in annual_cols:
+                # 연도 추출 (예: "2024년 연간" -> 2024, "2025연간" -> 2025)
+                year_match = None
+                for year in range(2020, 2030):
+                    if str(year) in col:
+                        year_match = year
+                        break
+                
+                if year_match:
+                    df_annual = df[id_cols + [col]].copy()
+                    df_annual = df_annual.rename(columns={col: "annual_amount"})
+                    df_annual["year"] = year_match
+                    annual_data.append(df_annual)
+            
+            if annual_data:
+                df_annual_combined = pd.concat(annual_data, ignore_index=True)
+                print(f"   - 연간 데이터: {len(df_annual_combined)} 행")
+
         # 연도/월 파싱
-        df_melted["parsed"] = df_melted["month_col"].apply(parse_month_column)
-        df_melted = df_melted[df_melted["parsed"].notna()]
-        df_melted[["year", "month"]] = pd.DataFrame(
-            df_melted["parsed"].tolist(),
-            index=df_melted.index
-        )
+        parsed = df_melted["month_col"].apply(parse_month_column)
+
+        # (year, month) 튜플만 남기기
+        mask = parsed.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
+
+        # 잘못된 값 제거
+        df_melted = df_melted[mask].copy()
         
+        if len(df_melted) == 0:
+            print(f"경고: {filename}에서 유효한 월 컬럼을 찾을 수 없습니다.")
+            print(f"   - 파싱 시도한 컬럼 샘플: {df_melted['month_col'].unique()[:5] if 'month_col' in df_melted.columns else 'N/A'}")
+            # 원본 month_cols에서 파싱 결과 확인
+            sample_cols = month_cols[:5] if len(month_cols) > 0 else []
+            print(f"   - 월 컬럼 샘플 파싱 결과:")
+            for col in sample_cols:
+                result = parse_month_column(col)
+                print(f"     '{col}' -> {result}")
+            continue
+
+        # year, month 컬럼 분리
+        parsed_filtered = parsed[mask].tolist()
+        df_melted["year"] = [p[0] for p in parsed_filtered]
+        df_melted["month"] = [p[1] for p in parsed_filtered]
+
         # yyyymm 생성
-        df_melted["yyyymm"] = df_melted["year"].astype(str) + df_melted["month"].astype(str).str.zfill(2)
+        df_melted["yyyymm"] = (
+            df_melted["year"].astype(str)
+            + df_melted["month"].astype(str).str.zfill(2)
+        )
+
+        # 컬럼명 변경 (실제 컬럼명에 맞게)
+        rename_map = {}
+        for col in df_melted.columns:
+            if "사업부" in col and "구분" in col:
+                rename_map[col] = "biz_unit"
+            elif col == "대분류" or ("대분류" in col and "사업부" not in col):
+                rename_map[col] = "cost_lv1"
+            elif col == "중분류" or ("중분류" in col):
+                rename_map[col] = "cost_lv2"
+            elif col == "소분류" or ("소분류" in col):
+                rename_map[col] = "cost_lv3"
         
-        # 컬럼명 변경
-        df_melted = df_melted.rename(columns={
-            "사업부구분": "biz_unit",
-            "대분류": "cost_lv1",
-            "중분류": "cost_lv2",
-            "소분류": "cost_lv3"
-        })
+        # 표준 컬럼명이 있으면 사용
+        if "사업부구분" in df_melted.columns:
+            rename_map["사업부구분"] = "biz_unit"
+        if "대분류" in df_melted.columns:
+            rename_map["대분류"] = "cost_lv1"
+        if "중분류" in df_melted.columns:
+            rename_map["중분류"] = "cost_lv2"
+        if "소분류" in df_melted.columns:
+            rename_map["소분류"] = "cost_lv3"
         
+        if rename_map:
+            df_melted = df_melted.rename(columns=rename_map)
+            print(f"   - 컬럼명 변경: {rename_map}")
+        
+        # 디버깅: 컬럼 존재 여부 확인
+        print(f"   - 변경 후 컬럼: {list(df_melted.columns)}")
+        if "cost_lv2" in df_melted.columns:
+            lv2_sample = df_melted[df_melted["cost_lv2"].astype(str).str.strip() != ""].head(3)
+            if len(lv2_sample) > 0:
+                print(f"   - 중분류 샘플:")
+                for idx, row in lv2_sample.iterrows():
+                    print(f"     {row.get('biz_unit', 'N/A')} / {row.get('cost_lv1', 'N/A')} / {row.get('cost_lv2', 'N/A')}")
+        
+        # biz_unit 값 정리 (공백 제거, 대소문자 통일)
+        if "biz_unit" in df_melted.columns:
+            df_melted["biz_unit"] = df_melted["biz_unit"].astype(str).str.strip()
+            print(f"   - biz_unit 고유값: {df_melted['biz_unit'].unique().tolist()[:10]}")
+
         # amount를 숫자로 변환 (NaN은 0으로)
-        df_melted["amount"] = pd.to_numeric(df_melted["amount"], errors="coerce").fillna(0)
+        # 먼저 문자열에서 쉼표 제거 (천 단위 구분자)
+        print(f"   - amount 원본 타입: {df_melted['amount'].dtype}")
+        print(f"   - amount 샘플 (처음 5개): {df_melted['amount'].head(5).tolist()}")
+        
+        if df_melted["amount"].dtype == "object":
+            # NaN을 문자열로 변환하기 전에 처리
+            # 먼저 NaN 값을 처리
+            df_melted["amount"] = df_melted["amount"].fillna("0")
+            # 문자열로 변환
+            df_melted["amount"] = df_melted["amount"].astype(str)
+            # 'nan', 'NaN', 빈 문자열 등을 처리
+            df_melted["amount"] = df_melted["amount"].replace(["nan", "NaN", "None", "", " "], "0")
+            # 쉼표와 공백 제거 (regex=False로 정확한 문자열 매칭)
+            df_melted["amount"] = df_melted["amount"].str.replace(",", "", regex=False)
+            df_melted["amount"] = df_melted["amount"].str.replace(" ", "", regex=False)
+            df_melted["amount"] = df_melted["amount"].str.strip()
+        
+        df_melted["amount"] = pd.to_numeric(
+            df_melted["amount"], errors="coerce"
+        ).fillna(0)
+        
+        print(f"   - amount 변환 후 샘플 (처음 5개): {df_melted['amount'].head(5).tolist()}")
+        print(f"   - amount 통계: min={df_melted['amount'].min()}, max={df_melted['amount'].max()}, sum={df_melted['amount'].sum():.2f}")
+        
+        # 디버깅: 데이터 샘플 확인
+        if len(df_melted) > 0:
+            print(f"   - {filename} melt 후 데이터 수: {len(df_melted)}")
+            print(f"   - amount 통계: min={df_melted['amount'].min()}, max={df_melted['amount'].max()}, mean={df_melted['amount'].mean():.2f}")
+            sample_data = df_melted[df_melted["amount"] > 0].head(5)
+            if len(sample_data) > 0:
+                print(f"   - {filename} 데이터 샘플 (amount > 0):")
+                for idx, row in sample_data.iterrows():
+                    print(f"     {row['biz_unit']} / {row['cost_lv1']} / {row['year']}-{row['month']:02d} / amount={row['amount']}")
+            else:
+                print(f"   - 경고: {filename}에서 amount > 0인 데이터가 없습니다.")
+                print(f"     원본 melt 데이터 샘플 (처음 10개):")
+                for idx, row in df_melted.head(10).iterrows():
+                    print(f"       month_col='{row['month_col']}', amount='{row['amount']}' (type: {type(row['amount'])})")
+
+        # cost_lv2, cost_lv3가 없으면 빈 문자열로 채우기
+        if "cost_lv2" not in df_melted.columns:
+            df_melted["cost_lv2"] = ""
+        else:
+            df_melted["cost_lv2"] = df_melted["cost_lv2"].fillna("").astype(str).str.strip()
+        
+        if "cost_lv3" not in df_melted.columns:
+            df_melted["cost_lv3"] = ""
+        else:
+            df_melted["cost_lv3"] = df_melted["cost_lv3"].fillna("").astype(str).str.strip()
+        
+        # 디버깅: 복리후생비 > 5대보험/공적금 데이터 확인
+        if default_year == 2024:
+            welfare_5 = df_melted[(df_melted["cost_lv1"] == "복리후생비") & (df_melted["cost_lv2"] == "5대보험")]
+            welfare_public = df_melted[(df_melted["cost_lv1"] == "복리후생비") & (df_melted["cost_lv2"] == "공적금")]
+            print(f"   - 2024년 복리후생비 > 5대보험 행 수: {len(welfare_5)}")
+            if len(welfare_5) > 0:
+                print(f"     사업부구분: {sorted(welfare_5['biz_unit'].unique().tolist())}")
+                for biz in ["KIDS", "DISCOVERY", "DUVETICA", "SUPRA"]:
+                    biz_data = welfare_5[welfare_5["biz_unit"] == biz]
+                    if len(biz_data) > 0:
+                        print(f"     {biz}: {len(biz_data)}행, amount sum={biz_data['amount'].sum():.2f}")
+            print(f"   - 2024년 복리후생비 > 공적금 행 수: {len(welfare_public)}")
+            if len(welfare_public) > 0:
+                print(f"     사업부구분: {sorted(welfare_public['biz_unit'].unique().tolist())}")
+                for biz in ["KIDS", "DISCOVERY", "DUVETICA", "SUPRA"]:
+                    biz_data = welfare_public[welfare_public["biz_unit"] == biz]
+                    if len(biz_data) > 0:
+                        print(f"     {biz}: {len(biz_data)}행, amount sum={biz_data['amount'].sum():.2f}")
+        
+        # 디버깅: 중분류 데이터 확인
+        if len(df_melted) > 0:
+            sample_with_lv2 = df_melted[df_melted["cost_lv2"].astype(str).str.strip() != ""].head(5)
+            if len(sample_with_lv2) > 0:
+                print(f"   - {filename} 중분류 샘플:")
+                for idx, row in sample_with_lv2.iterrows():
+                    print(f"     {row['biz_unit']} / {row['cost_lv1']} / {row['cost_lv2']} / amount={row['amount']}")
+            else:
+                print(f"   - 경고: {filename}에서 중분류 데이터가 없습니다.")
+                print(f"     cost_lv2 컬럼 존재: {'cost_lv2' in df_melted.columns}")
+                if 'cost_lv2' in df_melted.columns:
+                    print(f"     cost_lv2 고유값 샘플: {df_melted['cost_lv2'].unique()[:10].tolist()}")
         
         # 필요한 컬럼만 선택
-        df_melted = df_melted[[
-            "year", "month", "yyyymm", "biz_unit",
-            "cost_lv1", "cost_lv2", "cost_lv3", "amount"
-        ]]
-        
+        df_melted = df_melted[
+            [
+                "year",
+                "month",
+                "yyyymm",
+                "biz_unit",
+                "cost_lv1",
+                "cost_lv2",
+                "cost_lv3",
+                "amount",
+            ]
+        ]
+
         all_data.append(df_melted)
-    
+        
+        # 연간 데이터 처리 및 저장 (별도로 관리)
+        if annual_data:
+            df_annual_combined = pd.concat(annual_data, ignore_index=True)
+            
+            # 컬럼명 변경
+            rename_map = {}
+            for col in df_annual_combined.columns:
+                if "사업부" in col and "구분" in col:
+                    rename_map[col] = "biz_unit"
+                elif col == "대분류" or ("대분류" in col and "사업부" not in col):
+                    rename_map[col] = "cost_lv1"
+                elif col == "중분류" or ("중분류" in col):
+                    rename_map[col] = "cost_lv2"
+                elif col == "소분류" or ("소분류" in col):
+                    rename_map[col] = "cost_lv3"
+            
+            if rename_map:
+                df_annual_combined = df_annual_combined.rename(columns=rename_map)
+            
+            # 표준 컬럼명이 있으면 사용
+            if "사업부구분" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"사업부구분": "biz_unit"})
+            if "대분류" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"대분류": "cost_lv1"})
+            if "중분류" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"중분류": "cost_lv2"})
+            if "소분류" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"소분류": "cost_lv3"})
+            
+            # biz_unit 값 정리
+            if "biz_unit" in df_annual_combined.columns:
+                df_annual_combined["biz_unit"] = df_annual_combined["biz_unit"].astype(str).str.strip()
+            
+            # cost_lv2, cost_lv3 처리
+            if "cost_lv2" not in df_annual_combined.columns:
+                df_annual_combined["cost_lv2"] = ""
+            else:
+                df_annual_combined["cost_lv2"] = df_annual_combined["cost_lv2"].fillna("").astype(str).str.strip()
+            
+            if "cost_lv3" not in df_annual_combined.columns:
+                df_annual_combined["cost_lv3"] = ""
+            else:
+                df_annual_combined["cost_lv3"] = df_annual_combined["cost_lv3"].fillna("").astype(str).str.strip()
+            
+            # annual_amount를 숫자로 변환
+            if "annual_amount" in df_annual_combined.columns:
+                if df_annual_combined["annual_amount"].dtype == "object":
+                    df_annual_combined["annual_amount"] = df_annual_combined["annual_amount"].fillna("0")
+                    df_annual_combined["annual_amount"] = df_annual_combined["annual_amount"].astype(str)
+                    df_annual_combined["annual_amount"] = df_annual_combined["annual_amount"].replace(["nan", "NaN", "None", "", " "], "0")
+                    df_annual_combined["annual_amount"] = df_annual_combined["annual_amount"].str.replace(",", "", regex=False)
+                    df_annual_combined["annual_amount"] = df_annual_combined["annual_amount"].str.replace(" ", "", regex=False)
+                    df_annual_combined["annual_amount"] = df_annual_combined["annual_amount"].str.strip()
+                
+                df_annual_combined["annual_amount"] = pd.to_numeric(
+                    df_annual_combined["annual_amount"], errors="coerce"
+                ).fillna(0)
+            
+            # 연간 데이터를 전역 변수에 저장 (나중에 사용)
+            _annual_data_list.append(df_annual_combined)
+
     if not all_data:
         raise ValueError("비용 데이터를 로드할 수 없습니다.")
-    
+
     expense_df = pd.concat(all_data, ignore_index=True)
     return expense_df
+
+
+def get_annual_data() -> pd.DataFrame | None:
+    """전역 변수에 저장된 연간 데이터를 반환하고 초기화"""
+    global _annual_data_list
+    if _annual_data_list:
+        result = pd.concat(_annual_data_list, ignore_index=True)
+        _annual_data_list = []  # 초기화
+        return result
+    return None
 
 
 def load_headcount_data() -> pd.DataFrame:
@@ -111,37 +429,76 @@ def load_headcount_data() -> pd.DataFrame:
     if not os.path.exists(filepath):
         print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
         return pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
-    
+
     df = pd.read_csv(filepath, encoding="utf-8-sig")
-    
+
     # 사업부 기준으로 집계 (사업부(소분류)는 무시)
+    # "사업부" 컬럼만 사용하고, "사업부(소분류)" 같은 컬럼은 제외
     id_cols = ["사업부"]
-    month_cols = [col for col in df.columns if col not in id_cols]
-    
+    # "사업부(소분류)" 같은 컬럼 제외
+    exclude_cols = [col for col in df.columns if "사업부" in col and col != "사업부"]
+    month_cols = [col for col in df.columns if col not in id_cols and col not in exclude_cols]
+
     df_melted = df.melt(
         id_vars=id_cols,
         value_vars=month_cols,
         var_name="month_col",
-        value_name="headcount"
+        value_name="headcount",
     )
-    
+
     # 연도/월 파싱
-    df_melted["parsed"] = df_melted["month_col"].apply(parse_month_column)
-    df_melted = df_melted[df_melted["parsed"].notna()]
-    df_melted[["year", "month"]] = pd.DataFrame(
-        df_melted["parsed"].tolist(),
-        index=df_melted.index
+    parsed = df_melted["month_col"].apply(parse_month_column)
+
+    # (year, month) 튜플만 남기기
+    mask = parsed.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
+
+    # 잘못된 값 제거
+    df_melted = df_melted[mask].copy()
+    
+    if len(df_melted) == 0:
+        return pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
+
+    # year, month 컬럼 분리
+    parsed_filtered = parsed[mask].tolist()
+    df_melted["year"] = [p[0] for p in parsed_filtered]
+    df_melted["month"] = [p[1] for p in parsed_filtered]
+
+    df_melted["yyyymm"] = (
+        df_melted["year"].astype(str)
+        + df_melted["month"].astype(str).str.zfill(2)
     )
+
+    # headcount를 먼저 숫자로 변환 (천 단위 구분자 처리)
+    # 집계 전에 숫자로 변환해야 sum()이 제대로 작동함
+    if df_melted["headcount"].dtype == "object":
+        df_melted["headcount"] = df_melted["headcount"].astype(str)
+        df_melted["headcount"] = df_melted["headcount"].replace(["nan", "NaN", "None", "", " ", "-"], "0")
+        df_melted["headcount"] = df_melted["headcount"].str.replace(",", "", regex=False).str.replace(" ", "", regex=False).str.strip()
     
-    df_melted["yyyymm"] = df_melted["year"].astype(str) + df_melted["month"].astype(str).str.zfill(2)
+    df_melted["headcount"] = pd.to_numeric(
+        df_melted["headcount"], errors="coerce"
+    ).fillna(0)
+
+    # 사업부 기준으로 집계 (숫자로 변환한 후 sum)
+    # 디버깅: 집계 전 데이터 확인
+    if len(df_melted) > 0:
+        sample = df_melted[(df_melted["사업부"] == "MLB") & (df_melted["yyyymm"] == "202410")]
+        if len(sample) > 0:
+            print(f"   - MLB 202410 집계 전 데이터: {len(sample)} 행")
+            print(f"     값들: {sample['headcount'].tolist()}")
+            print(f"     합계: {sample['headcount'].sum()}")
     
-    # 사업부 기준으로 집계
-    headcount_df = df_melted.groupby(["사업부", "yyyymm"], as_index=False)["headcount"].sum()
+    headcount_df = df_melted.groupby(
+        ["사업부", "yyyymm"], as_index=False
+    )["headcount"].sum()
     headcount_df = headcount_df.rename(columns={"사업부": "biz_unit"})
     
-    # headcount를 숫자로 변환
-    headcount_df["headcount"] = pd.to_numeric(headcount_df["headcount"], errors="coerce").fillna(0)
-    
+    # 디버깅: 집계 후 데이터 확인
+    if len(headcount_df) > 0:
+        mlb_202410 = headcount_df[(headcount_df["biz_unit"] == "MLB") & (headcount_df["yyyymm"] == "202410")]
+        if len(mlb_202410) > 0:
+            print(f"   - MLB 202410 집계 후 headcount: {mlb_202410['headcount'].values[0]}")
+
     return headcount_df[["biz_unit", "yyyymm", "headcount"]]
 
 
@@ -151,150 +508,310 @@ def load_sales_data() -> pd.DataFrame:
     if not os.path.exists(filepath):
         print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
         return pd.DataFrame(columns=["biz_unit", "yyyymm", "sales"])
-    
+
     df = pd.read_csv(filepath, encoding="utf-8-sig")
-    
+
     id_cols = ["사업부"]
     month_cols = [col for col in df.columns if col not in id_cols]
-    
+
     df_melted = df.melt(
         id_vars=id_cols,
         value_vars=month_cols,
         var_name="month_col",
-        value_name="sales"
+        value_name="sales",
     )
-    
+
     # 연도/월 파싱
-    df_melted["parsed"] = df_melted["month_col"].apply(parse_month_column)
-    df_melted = df_melted[df_melted["parsed"].notna()]
-    df_melted[["year", "month"]] = pd.DataFrame(
-        df_melted["parsed"].tolist(),
-        index=df_melted.index
+    parsed = df_melted["month_col"].apply(parse_month_column)
+
+    # (year, month) 튜플만 남기기
+    mask = parsed.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
+
+    # 이상한 값(파싱 실패, 기타 문자열)은 모두 제거
+    df_melted = df_melted[mask].copy()
+    
+    if len(df_melted) == 0:
+        return pd.DataFrame(columns=["biz_unit", "yyyymm", "sales"])
+
+    # year, month 컬럼 분리
+    parsed_filtered = parsed[mask].tolist()
+    df_melted["year"] = [p[0] for p in parsed_filtered]
+    df_melted["month"] = [p[1] for p in parsed_filtered]
+
+    df_melted["yyyymm"] = (
+        df_melted["year"].astype(str)
+        + df_melted["month"].astype(str).str.zfill(2)
     )
-    
-    df_melted["yyyymm"] = df_melted["year"].astype(str) + df_melted["month"].astype(str).str.zfill(2)
-    
+
     sales_df = df_melted.rename(columns={"사업부": "biz_unit"})
-    sales_df["sales"] = pd.to_numeric(sales_df["sales"], errors="coerce").fillna(0)
     
+    # sales를 숫자로 변환 (천 단위 구분자 처리)
+    if sales_df["sales"].dtype == "object":
+        sales_df["sales"] = sales_df["sales"].fillna("0")
+        sales_df["sales"] = sales_df["sales"].astype(str)
+        sales_df["sales"] = sales_df["sales"].replace(["nan", "NaN", "None", "", " "], "0")
+        sales_df["sales"] = sales_df["sales"].str.replace(",", "", regex=False)
+        sales_df["sales"] = sales_df["sales"].str.replace(" ", "", regex=False)
+        sales_df["sales"] = sales_df["sales"].str.strip()
+    
+    sales_df["sales"] = pd.to_numeric(
+        sales_df["sales"], errors="coerce"
+    ).fillna(0)
+
     return sales_df[["biz_unit", "yyyymm", "sales"]]
 
 
-def merge_all_data(expense_df: pd.DataFrame, headcount_df: pd.DataFrame, sales_df: pd.DataFrame) -> pd.DataFrame:
+def merge_all_data(
+    expense_df: pd.DataFrame,
+    headcount_df: pd.DataFrame,
+    sales_df: pd.DataFrame,
+) -> pd.DataFrame:
     """모든 데이터를 병합"""
+    # 디버깅: 병합 전 데이터 확인
+    print(f"   - 병합 전 데이터:")
+    print(f"     expense_df: {len(expense_df)} 행, amount sum={expense_df['amount'].sum():.2f}")
+    print(f"     headcount_df: {len(headcount_df)} 행, yyyymm 샘플: {headcount_df['yyyymm'].head(3).tolist() if len(headcount_df) > 0 else '없음'}")
+    print(f"     sales_df: {len(sales_df)} 행, yyyymm 샘플: {sales_df['yyyymm'].head(3).tolist() if len(sales_df) > 0 else '없음'}")
+    if len(expense_df) > 0:
+        print(f"     expense_df yyyymm 샘플: {expense_df['yyyymm'].head(3).tolist()}")
+        print(f"     expense_df biz_unit 샘플: {expense_df['biz_unit'].head(3).tolist()}")
+    
     # expense_df를 기준으로 left join
     merged = expense_df.merge(
         headcount_df,
         on=["biz_unit", "yyyymm"],
-        how="left"
+        how="left",
     ).merge(
         sales_df,
         on=["biz_unit", "yyyymm"],
-        how="left"
+        how="left",
     )
-    
+
+    # 디버깅: 병합 후 데이터 확인
+    print(f"   - 병합 후 데이터:")
+    print(f"     merged: {len(merged)} 행, amount sum={merged['amount'].sum():.2f}")
+    print(f"     headcount null 개수: {merged['headcount'].isna().sum()}")
+    print(f"     sales null 개수: {merged['sales'].isna().sum()}")
+
     # NaN을 0으로 채우기
     merged["headcount"] = merged["headcount"].fillna(0)
     merged["sales"] = merged["sales"].fillna(0)
     
+    print(f"   - NaN 처리 후:")
+    print(f"     amount sum={merged['amount'].sum():.2f}, headcount sum={merged['headcount'].sum():.2f}, sales sum={merged['sales'].sum():.2f}")
+
     return merged
 
 
-def calculate_aggregations(df: pd.DataFrame) -> Dict[str, Any]:
+def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = None) -> Dict[str, Any]:
     """집계 데이터 계산"""
     # 전체 데이터 (DUVETICA, SUPRA 포함)
     full_df = df.copy()
     
+    # 디버깅: 병합된 데이터 확인
+    print(f"   - 병합된 데이터 통계:")
+    print(f"     전체 행 수: {len(df)}")
+    print(f"     biz_unit 종류: {df['biz_unit'].unique().tolist()}")
+    print(f"     amount 통계: min={df['amount'].min()}, max={df['amount'].max()}, sum={df['amount'].sum():.2f}")
+
+    # biz_unit 값 정리 (공백 제거)
+    if "biz_unit" in df.columns:
+        df["biz_unit"] = df["biz_unit"].astype(str).str.strip()
+    
     # 분석 대상만 필터링
     target_df = df[df["biz_unit"].isin(TARGET_BIZ_UNITS)].copy()
     
+    # 디버깅: 필터링 전후 비교
+    print(f"   - 필터링 전 biz_unit 고유값: {df['biz_unit'].unique().tolist()}")
+    print(f"   - 필터링 전 데이터 수: {len(df)}, amount sum={df['amount'].sum():.2f}")
+    
+    # 디버깅: 필터링 후 데이터 확인
+    print(f"   - 필터링 후 데이터 통계:")
+    print(f"     대상 사업부 행 수: {len(target_df)}")
+    print(f"     대상 사업부: {target_df['biz_unit'].unique().tolist()}")
+    print(f"     amount 통계: min={target_df['amount'].min()}, max={target_df['amount'].max()}, sum={target_df['amount'].sum():.2f}")
+    if len(target_df) > 0:
+        sample = target_df[target_df["amount"] > 0].head(3)
+        if len(sample) > 0:
+            print(f"     샘플 데이터 (amount > 0):")
+            for idx, row in sample.iterrows():
+                print(f"       {row['biz_unit']} / {row['cost_lv1']} / {row['year']}-{row['month']:02d} / amount={row['amount']}")
+
     # 기본 집계: biz_unit, year, month, cost_lv1 기준
     monthly_agg = target_df.groupby(
         ["biz_unit", "year", "month", "yyyymm", "cost_lv1"],
-        as_index=False
-    ).agg({
-        "amount": "sum",
-        "headcount": "first",  # 같은 yyyymm, biz_unit이면 동일하므로 first
-        "sales": "first"
-    })
+        as_index=False,
+    ).agg(
+        {
+            "amount": "sum",
+            "headcount": "first",  # 같은 yyyymm, biz_unit이면 동일하므로 first
+            "sales": "first",
+        }
+    )
     
+    # 디버깅: 집계 후 데이터 확인
+    print(f"   - 집계 후 monthly_agg 통계:")
+    print(f"     행 수: {len(monthly_agg)}")
+    print(f"     amount 통계: min={monthly_agg['amount'].min()}, max={monthly_agg['amount'].max()}, sum={monthly_agg['amount'].sum():.2f}")
+    if len(monthly_agg) > 0:
+        sample = monthly_agg[monthly_agg["amount"] > 0].head(3)
+        if len(sample) > 0:
+            print(f"     샘플 데이터 (amount > 0):")
+            for idx, row in sample.iterrows():
+                print(f"       {row['biz_unit']} / {row['cost_lv1']} / {row['year']}-{row['month']:02d} / amount={row['amount']}")
+
     # 월별 총합 (cost_lv1 무시)
     monthly_total = target_df.groupby(
         ["biz_unit", "year", "month", "yyyymm"],
-        as_index=False
-    ).agg({
-        "amount": "sum",
-        "headcount": "first",
-        "sales": "first"
-    })
+        as_index=False,
+    ).agg(
+        {
+            "amount": "sum",
+            "headcount": "first",
+            "sales": "first",
+        }
+    )
+
+    # category_detail은 전체 데이터(DUVETICA, SUPRA 포함)를 사용
+    # cost_lv2, cost_lv3가 없으면 빈 문자열로 채우기
+    if "cost_lv2" not in df.columns:
+        df["cost_lv2"] = ""
+    else:
+        df["cost_lv2"] = df["cost_lv2"].fillna("").astype(str).str.strip()
     
-    # 대분류별 상세 (중분류, 소분류 포함)
-    category_detail = target_df.groupby(
-        ["biz_unit", "year", "month", "yyyymm", "cost_lv1", "cost_lv2", "cost_lv3"],
-        as_index=False
-    ).agg({
-        "amount": "sum"
-    })
+    if "cost_lv3" not in df.columns:
+        df["cost_lv3"] = ""
+    else:
+        df["cost_lv3"] = df["cost_lv3"].fillna("").astype(str).str.strip()
     
+    # 디버깅: MLB 광고비 중분류 확인
+    mlb_ads = target_df[(target_df["biz_unit"] == "MLB") & (target_df["cost_lv1"] == "광고비")]
+    if len(mlb_ads) > 0:
+        print(f"   - MLB 광고비 데이터: {len(mlb_ads)} 행")
+        lv2_unique = mlb_ads["cost_lv2"].unique()
+        print(f"   - MLB 광고비 중분류 종류: {sorted([str(x) for x in lv2_unique if str(x).strip() != ''])}")
+        sample = mlb_ads[mlb_ads["amount"] > 0].head(5)
+        if len(sample) > 0:
+            print(f"   - MLB 광고비 샘플 (amount > 0):")
+            for idx, row in sample.iterrows():
+                print(f"     {row['year']}-{row['month']:02d} / {row['cost_lv2']} / {row['cost_lv3']} / amount={row['amount']}")
+    
+    # category_detail: 전체 데이터 사용 (DUVETICA, SUPRA 포함)
+    category_detail = df.groupby(
+        [
+            "biz_unit",
+            "year",
+            "month",
+            "yyyymm",
+            "cost_lv1",
+            "cost_lv2",
+            "cost_lv3",
+        ],
+        as_index=False,
+    ).agg({"amount": "sum"})
+    
+    print(f"   - category_detail 생성 (전체 데이터 사용):")
+    print(f"     행 수: {len(category_detail)}")
+    print(f"     biz_unit 종류: {sorted(category_detail['biz_unit'].unique().tolist())}")
+
+    # 연간 데이터 처리
+    annual_records = []
+    if annual_df is not None and len(annual_df) > 0:
+        # 연간 데이터는 전체 데이터 사용 (DUVETICA, SUPRA 포함)
+        # biz_unit 값 정리 (공백 제거)
+        if "biz_unit" in annual_df.columns:
+            annual_df["biz_unit"] = annual_df["biz_unit"].astype(str).str.strip()
+        
+        # 연간 데이터를 category_detail과 같은 구조로 변환
+        # biz_unit, year, cost_lv1, cost_lv2, cost_lv3 기준으로 그룹화
+        annual_grouped = annual_df.groupby(
+            ["biz_unit", "year", "cost_lv1", "cost_lv2", "cost_lv3"],
+            as_index=False,
+        ).agg({"annual_amount": "sum"})
+        
+        annual_records = annual_grouped.to_dict("records")
+        print(f"   - 연간 데이터 집계 (전체 데이터 사용): {len(annual_records)} 행")
+        print(f"     biz_unit 종류: {sorted(annual_grouped['biz_unit'].unique().tolist())}")
+
     # JSON 직렬화를 위해 리스트로 변환
-    result = {
-        "monthly_aggregated": monthly_agg.to_dict("records"),
-        "monthly_total": monthly_total.to_dict("records"),
+    monthly_agg_records = monthly_agg.to_dict("records")
+    monthly_total_records = monthly_total.to_dict("records")
+    
+    # 디버깅: JSON 변환 전 데이터 확인
+    print(f"   - JSON 변환 전:")
+    print(f"     monthly_agg_records 수: {len(monthly_agg_records)}")
+    if len(monthly_agg_records) > 0:
+        sample = [r for r in monthly_agg_records if r.get("amount", 0) > 0][:3]
+        if sample:
+            print(f"     샘플 (amount > 0): {sample}")
+        else:
+            print(f"     ⚠️ 모든 amount가 0입니다!")
+            print(f"     첫 3개 레코드: {monthly_agg_records[:3]}")
+    
+    result: Dict[str, Any] = {
+        "monthly_aggregated": monthly_agg_records,
+        "monthly_total": monthly_total_records,
         "category_detail": category_detail.to_dict("records"),
+        "annual_data": annual_records,  # 연간 데이터 추가
         "metadata": {
             "target_biz_units": TARGET_BIZ_UNITS,
             "years": sorted(target_df["year"].unique().tolist()),
-            "months": sorted(target_df["month"].unique().tolist())
-        }
+            "months": sorted(target_df["month"].unique().tolist()),
+        },
     }
-    
+
     return result
 
 
-def main():
+def main() -> int:
     print("비용 데이터 전처리를 시작합니다...")
-    
+
     try:
         # 데이터 로드
         print("1. 비용 데이터 로드 중...")
         expense_df = load_expense_data()
         print(f"   - 비용 데이터: {len(expense_df)} 행")
         
+        # 연간 데이터 추출
+        annual_df = get_annual_data()
+        if annual_df is not None:
+            print(f"   - 연간 데이터: {len(annual_df)} 행")
+
         print("2. 인원수 데이터 로드 중...")
         headcount_df = load_headcount_data()
         print(f"   - 인원수 데이터: {len(headcount_df)} 행")
-        
+
         print("3. 매출 데이터 로드 중...")
         sales_df = load_sales_data()
         print(f"   - 매출 데이터: {len(sales_df)} 행")
-        
+
         # 데이터 병합
         print("4. 데이터 병합 중...")
         merged_df = merge_all_data(expense_df, headcount_df, sales_df)
         print(f"   - 병합된 데이터: {len(merged_df)} 행")
-        
+
         # 집계 계산
         print("5. 집계 데이터 계산 중...")
-        aggregated = calculate_aggregations(merged_df)
-        
+        aggregated = calculate_aggregations(merged_df, annual_df)
+
         # JSON 저장
         output_file = OUTPUT_DIR / "aggregated-expense.json"
         print(f"6. JSON 파일 저장 중: {output_file}")
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(aggregated, f, ensure_ascii=False, indent=2)
-        
+
         print("전처리 완료!")
         print(f"출력 파일: {output_file}")
-        
+
     except Exception as e:
         print(f"오류 발생: {e}")
         import traceback
+
         traceback.print_exc()
         return 1
-    
+
     return 0
 
 
 if __name__ == "__main__":
-    exit(main())
-
+    raise SystemExit(main())
