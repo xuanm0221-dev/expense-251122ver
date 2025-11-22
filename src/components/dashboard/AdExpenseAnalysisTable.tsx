@@ -51,6 +51,18 @@ const BRAND_COLORS: Record<BizUnit, {
     header: "bg-green-800",
     headerLight: "bg-green-700",
   },
+  DUVETICA: {
+    primary: "bg-purple-600",
+    light: "bg-purple-50",
+    header: "bg-purple-800",
+    headerLight: "bg-purple-700",
+  },
+  SUPRA: {
+    primary: "bg-orange-600",
+    light: "bg-orange-50",
+    header: "bg-orange-800",
+    headerLight: "bg-orange-700",
+  },
   공통: {
     primary: "bg-gray-600",
     light: "bg-gray-50",

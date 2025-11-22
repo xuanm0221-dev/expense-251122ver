@@ -9,7 +9,6 @@ export const EXPENSE_COLOR_MAP: Record<string, string> = {
   출장비: "#E0E0E0", // 회색 파스텔
   감가상각비: "#E1BEE7", // 라벤더 파스텔
   수수료: "#D1C4E9", // 퍼플 파스텔
-  지급수수료: "#D1C4E9", // 퍼플 파스텔
   기타: "#CFD8DC", // 블루그레이 파스텔
   "VMD/매장보수대": "#CFD8DC", // 블루그레이 파스텔
   "샘플대(제작/구입)": "#F8BBD0", // 핑크 파스텔
@@ -23,7 +22,6 @@ export const EXPENSE_COLOR_MAP: Record<string, string> = {
   "자가임차료": "#D1C4E9", // 퍼플 파스텔 - 별칭
   지급수수료: "#C8E6C9", // 그린 파스텔
   "복리후생비(공통)": "#B2DFDB", // 민트 파스텔
-  복리후생비: "#B2DFDB", // 민트 파스텔
   "세금과공과": "#FFCCBC", // 복숭아 파스텔
   "세금": "#FFCCBC", // 복숭아 파스텔 - 별칭
   "공과": "#FFCCBC", // 복숭아 파스텔 - 별칭

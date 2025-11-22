@@ -8,6 +8,8 @@ const DIVISION_NAMES: Record<BizUnit, string> = {
   MLB: "MLB",
   KIDS: "KIDS",
   DISCOVERY: "DISCOVERY",
+  DUVETICA: "DUVETICA",
+  SUPRA: "SUPRA",
   공통: "공통",
 };
 
@@ -24,6 +26,14 @@ const BRAND_THEMES: Record<BizUnit, { border: string; text: string }> = {
   DISCOVERY: {
     border: "border-green-500",
     text: "text-green-600",
+  },
+  DUVETICA: {
+    border: "border-purple-500",
+    text: "text-purple-600",
+  },
+  SUPRA: {
+    border: "border-orange-500",
+    text: "text-orange-600",
   },
   공통: {
     border: "border-gray-700",
