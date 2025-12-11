@@ -1546,9 +1546,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "감가상각비",
-      "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "amount": 5488.3,
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1556,9 +1556,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "광고비",
-      "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "amount": 5315980.29,
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1566,9 +1566,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "amount": 269693.52,
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1577,8 +1577,8 @@
       "yyyymm": "202511",
       "cost_lv1": "수주회",
       "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1586,9 +1586,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "인건비",
-      "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "amount": 1056713.42,
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1596,9 +1596,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "amount": 45318.87,
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1606,9 +1606,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "출장비",
-      "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "amount": 32884.86,
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -3226,9 +3226,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "감가상각비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "amount": 3017.02,
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -3236,9 +3236,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "광고비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "amount": 1808685.07,
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -3246,9 +3246,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "amount": 207710.4,
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -3257,8 +3257,8 @@
       "yyyymm": "202511",
       "cost_lv1": "수주회",
       "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -3266,9 +3266,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "인건비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "amount": 752347.16,
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -3277,8 +3277,8 @@
       "yyyymm": "202511",
       "cost_lv1": "지급수수료",
       "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -3286,9 +3286,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "출장비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "amount": 67366.21,
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -4906,9 +4906,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "감가상각비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "amount": 367036.77,
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -4916,9 +4916,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "광고비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "amount": 9854455.82,
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -4926,9 +4926,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "amount": 1737299.25,
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -4937,8 +4937,8 @@
       "yyyymm": "202511",
       "cost_lv1": "수주회",
       "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -4946,9 +4946,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "인건비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "amount": 6680532.2299999995,
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -4956,9 +4956,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "amount": 75000.0,
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -4966,9 +4966,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "출장비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "amount": 189060.55,
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -6586,7 +6586,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "amount": 0.0,
+      "amount": 965789.07,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6596,7 +6596,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "기타",
-      "amount": 0.0,
+      "amount": 155432.87,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6606,7 +6606,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
+      "amount": 626061.17,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6616,7 +6616,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "세금과공과",
-      "amount": 0.0,
+      "amount": 1603522.5399999998,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6626,7 +6626,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "임차료",
-      "amount": 0.0,
+      "amount": 1915497.1300000001,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6636,7 +6636,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
+      "amount": 602644.37,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6646,7 +6646,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "차량렌트비",
-      "amount": 0.0,
+      "amount": 48864.72,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6925,9 +6925,9 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 0.0,
-      "headcount": 33.0,
-      "sales": 0.0
+      "amount": 6726079.26,
+      "headcount": 29.0,
+      "sales": 6689754.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7141,9 +7141,9 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 0.0
+      "amount": 2839125.86,
+      "headcount": 24.0,
+      "sales": 32696514.75
     },
     {
       "biz_unit": "KIDS",
@@ -7357,9 +7357,9 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 0.0
+      "amount": 18903384.62,
+      "headcount": 200.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "MLB",
@@ -7573,7 +7573,7 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 0.0,
+      "amount": 5917811.87,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -7684,8 +7684,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -7694,8 +7694,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -8034,8 +8034,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -8044,8 +8044,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -8384,8 +8384,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -8394,8 +8394,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -8734,8 +8734,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -8744,8 +8744,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -9084,8 +9084,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -9094,8 +9094,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -9434,8 +9434,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -9444,8 +9444,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -9784,8 +9784,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -9794,8 +9794,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -10134,8 +10134,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -10144,8 +10144,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -10484,8 +10484,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 979138.0
     },
     {
@@ -10494,8 +10494,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -10834,8 +10834,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -10844,8 +10844,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -11184,8 +11184,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -11194,8 +11194,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -11534,8 +11534,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -11544,8 +11544,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -15306,7 +15306,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "유형자산 감가상각비",
-      "amount": 0.0
+      "amount": 5488.3
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15326,7 +15326,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Branding",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 559089.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15336,7 +15336,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "CAMPAIGN",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 4041877.19
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15346,7 +15346,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Product",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 65013.57
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15356,7 +15356,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Retailing",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 650000.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15366,7 +15366,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0
+      "amount": 183849.52
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15376,7 +15376,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0
+      "amount": 85844.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15416,7 +15416,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0
+      "amount": 805947.16
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15426,7 +15426,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0
+      "amount": 250766.26
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15466,7 +15466,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "VMD 개발",
-      "amount": 0.0
+      "amount": 45318.87
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15506,7 +15506,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "MD",
-      "amount": 0.0
+      "amount": 3111.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15516,7 +15516,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "VMD",
-      "amount": 0.0
+      "amount": 141.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15526,7 +15526,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
-      "amount": 0.0
+      "amount": 6782.33
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15546,7 +15546,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "마케팅",
-      "amount": 0.0
+      "amount": 631.82
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15566,7 +15566,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "인테리어",
-      "amount": 0.0
+      "amount": 2596.32
     },
     {
       "biz_unit": "DISCOVERY",
@@ -15576,7 +15576,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
-      "amount": 0.0
+      "amount": 19621.62
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16054,8 +16054,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -16064,8 +16064,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 307370.0
     },
     {
@@ -16224,8 +16224,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -16234,8 +16234,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -16394,8 +16394,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -16404,8 +16404,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -16564,8 +16564,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -16574,8 +16574,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -16734,8 +16734,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -16744,8 +16744,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -16904,8 +16904,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -16914,8 +16914,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -17074,8 +17074,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -17084,8 +17084,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -17244,8 +17244,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -17254,8 +17254,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -17414,8 +17414,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -17424,8 +17424,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -17584,8 +17584,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -17594,8 +17594,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -17754,8 +17754,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -17764,8 +17764,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -17924,8 +17924,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -17934,8 +17934,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -20164,8 +20164,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -20174,8 +20174,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -20484,8 +20484,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -20494,8 +20494,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -20804,8 +20804,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -20814,8 +20814,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -21124,8 +21124,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -21134,8 +21134,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -21444,8 +21444,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -21454,8 +21454,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -21764,8 +21764,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -21774,8 +21774,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -22084,8 +22084,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 347068.0
     },
     {
@@ -22094,8 +22094,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -22404,8 +22404,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -22414,8 +22414,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -22724,8 +22724,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -22734,8 +22734,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -23044,8 +23044,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -23054,8 +23054,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -23364,8 +23364,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -23374,8 +23374,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -23684,8 +23684,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -23694,8 +23694,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -27126,7 +27126,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "KIDS",
       "cost_lv3": "유형자산 감가상각비",
-      "amount": 0.0
+      "amount": 3017.02
     },
     {
       "biz_unit": "KIDS",
@@ -27146,7 +27146,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Branding",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 21160.0
     },
     {
       "biz_unit": "KIDS",
@@ -27156,7 +27156,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Campaign",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 1500000.0
     },
     {
       "biz_unit": "KIDS",
@@ -27166,7 +27166,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Product",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 33723.28
     },
     {
       "biz_unit": "KIDS",
@@ -27176,7 +27176,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Retailing",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 253801.79
     },
     {
       "biz_unit": "KIDS",
@@ -27186,7 +27186,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "KIDS",
-      "amount": 0.0
+      "amount": 141598.4
     },
     {
       "biz_unit": "KIDS",
@@ -27196,7 +27196,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "KIDS",
-      "amount": 0.0
+      "amount": 66112.0
     },
     {
       "biz_unit": "KIDS",
@@ -27236,7 +27236,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "KIDS",
-      "amount": 0.0
+      "amount": 584668.9
     },
     {
       "biz_unit": "KIDS",
@@ -27246,7 +27246,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
-      "amount": 0.0
+      "amount": 167678.26
     },
     {
       "biz_unit": "KIDS",
@@ -27306,7 +27306,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Kids Department",
-      "amount": 0.0
+      "amount": 459.68
     },
     {
       "biz_unit": "KIDS",
@@ -27326,7 +27326,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "VMD",
-      "amount": 0.0
+      "amount": 11378.58
     },
     {
       "biz_unit": "KIDS",
@@ -27336,7 +27336,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
-      "amount": 0.0
+      "amount": 7233.0
     },
     {
       "biz_unit": "KIDS",
@@ -27346,7 +27346,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "리테일",
-      "amount": 0.0
+      "amount": 461.86
     },
     {
       "biz_unit": "KIDS",
@@ -27356,7 +27356,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "마케팅",
-      "amount": 0.0
+      "amount": 257.13
     },
     {
       "biz_unit": "KIDS",
@@ -27366,7 +27366,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "인테리어",
-      "amount": 0.0
+      "amount": 2451.13
     },
     {
       "biz_unit": "KIDS",
@@ -27376,7 +27376,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "Kids Department",
-      "amount": 0.0
+      "amount": 15592.2
     },
     {
       "biz_unit": "KIDS",
@@ -27386,7 +27386,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
-      "amount": 0.0
+      "amount": 29532.63
     },
     {
       "biz_unit": "KIDS",
@@ -27894,8 +27894,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -27904,8 +27904,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -28504,8 +28504,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -28514,8 +28514,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 210548.0
     },
     {
@@ -29114,8 +29114,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -29124,8 +29124,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -29724,8 +29724,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -29734,8 +29734,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -30334,8 +30334,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -30344,8 +30344,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -30944,8 +30944,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 8657620.0
     },
     {
@@ -30954,8 +30954,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -31554,8 +31554,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -31564,8 +31564,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -32164,8 +32164,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": -207503.0
     },
     {
@@ -32174,8 +32174,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -32774,8 +32774,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -32784,8 +32784,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -33384,8 +33384,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -33394,8 +33394,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -33994,8 +33994,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -34004,8 +34004,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -34604,8 +34604,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -34614,8 +34614,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -41176,7 +41176,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "무형자산 상각비",
-      "amount": 0.0
+      "amount": 169303.62
     },
     {
       "biz_unit": "MLB",
@@ -41186,7 +41186,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "유형자산 감가상각비",
-      "amount": 0.0
+      "amount": 74436.05
     },
     {
       "biz_unit": "MLB",
@@ -41196,7 +41196,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "인테리어 상각비",
-      "amount": 0.0
+      "amount": 123297.1
     },
     {
       "biz_unit": "MLB",
@@ -41206,7 +41206,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "ACC",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 2971305.77
     },
     {
       "biz_unit": "MLB",
@@ -41216,7 +41216,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "APP",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 4023407.72
     },
     {
       "biz_unit": "MLB",
@@ -41226,7 +41226,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Branding",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 2507223.61
     },
     {
       "biz_unit": "MLB",
@@ -41246,7 +41246,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Others Product requested",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 25140.71
     },
     {
       "biz_unit": "MLB",
@@ -41256,7 +41256,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Products",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 143347.44
     },
     {
       "biz_unit": "MLB",
@@ -41266,7 +41266,7 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Retailing",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 184030.57
     },
     {
       "biz_unit": "MLB",
@@ -41276,7 +41276,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
-      "amount": 0.0
+      "amount": 684679.25
     },
     {
       "biz_unit": "MLB",
@@ -41286,7 +41286,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
-      "amount": 0.0
+      "amount": 503387.0
     },
     {
       "biz_unit": "MLB",
@@ -41296,7 +41296,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
-      "amount": 0.0
+      "amount": 405959.0
     },
     {
       "biz_unit": "MLB",
@@ -41306,7 +41306,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
-      "amount": 0.0
+      "amount": 143274.0
     },
     {
       "biz_unit": "MLB",
@@ -41356,7 +41356,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
-      "amount": 0.0
+      "amount": 2994398.47
     },
     {
       "biz_unit": "MLB",
@@ -41366,7 +41366,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
-      "amount": 0.0
+      "amount": 2161296.51
     },
     {
       "biz_unit": "MLB",
@@ -41376,7 +41376,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "amount": 0.0
+      "amount": 864836.84
     },
     {
       "biz_unit": "MLB",
@@ -41386,7 +41386,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "amount": 0.0
+      "amount": 610831.22
     },
     {
       "biz_unit": "MLB",
@@ -41416,7 +41416,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
-      "amount": 0.0
+      "amount": 49169.19
     },
     {
       "biz_unit": "MLB",
@@ -41446,7 +41446,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "부분개발",
-      "amount": 0.0
+      "amount": 25000.0
     },
     {
       "biz_unit": "MLB",
@@ -41466,7 +41466,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
-      "amount": 0.0
+      "amount": 50000.0
     },
     {
       "biz_unit": "MLB",
@@ -41476,7 +41476,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "BD",
-      "amount": 0.0
+      "amount": 1269.65
     },
     {
       "biz_unit": "MLB",
@@ -41486,7 +41486,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Business Operation",
-      "amount": 0.0
+      "amount": 117.5
     },
     {
       "biz_unit": "MLB",
@@ -41506,7 +41506,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "MGT",
-      "amount": 0.0
+      "amount": 756.0
     },
     {
       "biz_unit": "MLB",
@@ -41526,7 +41526,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Supply Chain",
-      "amount": 0.0
+      "amount": 1650.5
     },
     {
       "biz_unit": "MLB",
@@ -41546,7 +41546,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
-      "amount": 0.0
+      "amount": 24496.0
     },
     {
       "biz_unit": "MLB",
@@ -41566,7 +41566,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "마케팅",
-      "amount": 0.0
+      "amount": 21014.72
     },
     {
       "biz_unit": "MLB",
@@ -41596,7 +41596,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "온라인",
-      "amount": 0.0
+      "amount": 1066.2
     },
     {
       "biz_unit": "MLB",
@@ -41606,7 +41606,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "유통MD(MO)",
-      "amount": 0.0
+      "amount": 3802.03
     },
     {
       "biz_unit": "MLB",
@@ -41616,7 +41616,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "인테리어",
-      "amount": 0.0
+      "amount": 38621.07
     },
     {
       "biz_unit": "MLB",
@@ -41656,7 +41656,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
-      "amount": 0.0
+      "amount": 13784.1
     },
     {
       "biz_unit": "MLB",
@@ -41676,7 +41676,7 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
-      "amount": 0.0
+      "amount": 82482.78
     },
     {
       "biz_unit": "MLB",
@@ -42474,8 +42474,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -42484,8 +42484,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -42684,8 +42684,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -42694,8 +42694,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 241911.0
     },
     {
@@ -42894,8 +42894,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -42904,8 +42904,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -43104,8 +43104,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -43114,8 +43114,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -43314,8 +43314,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -43324,8 +43324,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -43524,8 +43524,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -43534,8 +43534,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -43734,8 +43734,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -43744,8 +43744,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -43944,8 +43944,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -43954,8 +43954,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -44154,8 +44154,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -44164,8 +44164,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -44364,8 +44364,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -44374,8 +44374,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -44574,8 +44574,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -44584,8 +44584,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -44784,8 +44784,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "amount": 0.0
     },
     {
@@ -44794,8 +44794,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "amount": 0.0
     },
     {
@@ -71646,7 +71646,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "CN SAP",
       "cost_lv3": "업그레이드 비용(확장,인터페이스 등)",
-      "amount": 0.0
+      "amount": 23162.21
     },
     {
       "biz_unit": "공통",
@@ -71656,7 +71656,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "CN SAP",
       "cost_lv3": "연간 유지보수비용 (IT)",
-      "amount": 0.0
+      "amount": 254402.0
     },
     {
       "biz_unit": "공통",
@@ -71676,7 +71676,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 86589.44
     },
     {
       "biz_unit": "공통",
@@ -71686,7 +71686,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "Data Server",
       "cost_lv3": "Ali클라우드",
-      "amount": 0.0
+      "amount": 28538.13
     },
     {
       "biz_unit": "공통",
@@ -71706,7 +71706,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "Data Server",
       "cost_lv3": "anchnet서버",
-      "amount": 0.0
+      "amount": 6151.07
     },
     {
       "biz_unit": "공통",
@@ -71716,7 +71716,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "Data Server",
       "cost_lv3": "aws클라우드",
-      "amount": 0.0
+      "amount": 1558.87
     },
     {
       "biz_unit": "공통",
@@ -71756,7 +71756,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "OMS",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 112937.01
     },
     {
       "biz_unit": "공통",
@@ -71766,7 +71766,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 162034.28
     },
     {
       "biz_unit": "공통",
@@ -71796,7 +71796,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
-      "amount": 0.0
+      "amount": 129000.0
     },
     {
       "biz_unit": "공통",
@@ -71866,7 +71866,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "사무실 소프트웨어",
       "cost_lv3": "ADSL 사용료",
-      "amount": 0.0
+      "amount": -3141.51
     },
     {
       "biz_unit": "공통",
@@ -71886,7 +71886,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "사무실 소프트웨어",
       "cost_lv3": "MS office",
-      "amount": 0.0
+      "amount": 17335.0
     },
     {
       "biz_unit": "공통",
@@ -71906,7 +71906,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "사무실 소프트웨어",
       "cost_lv3": "VPN",
-      "amount": 0.0
+      "amount": 10793.2
     },
     {
       "biz_unit": "공통",
@@ -71926,7 +71926,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "BI",
-      "amount": 0.0
+      "amount": 2000.0
     },
     {
       "biz_unit": "공통",
@@ -71946,7 +71946,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "BOS(직영)",
-      "amount": 0.0
+      "amount": 18867.93
     },
     {
       "biz_unit": "공통",
@@ -71956,7 +71956,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "OA",
-      "amount": 0.0
+      "amount": 6217.77
     },
     {
       "biz_unit": "공통",
@@ -71976,7 +71976,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
-      "amount": 0.0
+      "amount": 82092.38
     },
     {
       "biz_unit": "공통",
@@ -71986,7 +71986,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "데이터 구매&운영",
-      "amount": 0.0
+      "amount": 11774.2
     },
     {
       "biz_unit": "공통",
@@ -71996,7 +71996,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "트랜드 데이터 구매",
-      "amount": 0.0
+      "amount": 5929.92
     },
     {
       "biz_unit": "공통",
@@ -72016,7 +72016,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": -27245.28
     },
     {
       "biz_unit": "공통",
@@ -72026,7 +72026,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 36792.45
     },
     {
       "biz_unit": "공통",
@@ -72046,7 +72046,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "물류비",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 39119.73
     },
     {
       "biz_unit": "공통",
@@ -72056,7 +72056,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "사무용품비",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 30069.11
     },
     {
       "biz_unit": "공통",
@@ -72066,7 +72066,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "여비교통비",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 35489.65
     },
     {
       "biz_unit": "공통",
@@ -72076,7 +72076,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "접대비",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 49242.4
     },
     {
       "biz_unit": "공통",
@@ -72086,7 +72086,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "통신비",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 1511.98
     },
     {
       "biz_unit": "공통",
@@ -72116,7 +72116,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "생일&명절",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 39772.6
     },
     {
       "biz_unit": "공통",
@@ -72146,7 +72146,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
       "cost_lv3": "간식",
-      "amount": 0.0
+      "amount": 58826.64
     },
     {
       "biz_unit": "공통",
@@ -72156,7 +72156,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
       "cost_lv3": "교육식대",
-      "amount": 0.0
+      "amount": 998.0
     },
     {
       "biz_unit": "공통",
@@ -72166,7 +72166,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
       "cost_lv3": "야근식대",
-      "amount": 0.0
+      "amount": 12137.37
     },
     {
       "biz_unit": "공통",
@@ -72176,7 +72176,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
       "cost_lv3": "임원식대",
-      "amount": 0.0
+      "amount": 24767.36
     },
     {
       "biz_unit": "공통",
@@ -72206,7 +72206,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "장기근속(여행티켓,숙박비)",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": -3629.05
     },
     {
       "biz_unit": "공통",
@@ -72226,7 +72226,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "건강검진&보험",
-      "amount": 0.0
+      "amount": -12926.65
     },
     {
       "biz_unit": "공통",
@@ -72236,7 +72236,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "비자&이사비용",
-      "amount": 0.0
+      "amount": 7400.0
     },
     {
       "biz_unit": "공통",
@@ -72246,7 +72246,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "자기개발비(훈련비)",
-      "amount": 0.0
+      "amount": 5000.0
     },
     {
       "biz_unit": "공통",
@@ -72256,7 +72256,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "자녀교육비",
-      "amount": 0.0
+      "amount": 146081.04
     },
     {
       "biz_unit": "공통",
@@ -72266,7 +72266,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "전기,수도,통신비 등",
-      "amount": 0.0
+      "amount": 8786.53
     },
     {
       "biz_unit": "공통",
@@ -72276,7 +72276,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "주택임차료 (관리비포함)",
-      "amount": 0.0
+      "amount": 210090.47
     },
     {
       "biz_unit": "공통",
@@ -72286,7 +72286,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "항공권",
-      "amount": 0.0
+      "amount": 33931.42
     },
     {
       "biz_unit": "공통",
@@ -72296,7 +72296,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "팀빌딩",
       "cost_lv3": "팀빌딩-부서",
-      "amount": 0.0
+      "amount": 21626.44
     },
     {
       "biz_unit": "공통",
@@ -72306,7 +72306,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "팀빌딩",
       "cost_lv3": "팀빌딩-사무실",
-      "amount": 0.0
+      "amount": 73199.0
     },
     {
       "biz_unit": "공통",
@@ -72316,7 +72316,7 @@
       "cost_lv1": "세금과공과",
       "cost_lv2": "인지세",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 159290.15
     },
     {
       "biz_unit": "공통",
@@ -72326,7 +72326,7 @@
       "cost_lv1": "세금과공과",
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 1444232.39
     },
     {
       "biz_unit": "공통",
@@ -72336,7 +72336,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 215887.96
     },
     {
       "biz_unit": "공통",
@@ -72346,7 +72346,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "35층",
-      "amount": 0.0
+      "amount": 489398.02
     },
     {
       "biz_unit": "공통",
@@ -72356,7 +72356,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "35층 (2024.10.15)",
-      "amount": 0.0
+      "amount": 116282.05
     },
     {
       "biz_unit": "공통",
@@ -72366,7 +72366,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "38층(25년 신규)",
-      "amount": 0.0
+      "amount": 486809.19
     },
     {
       "biz_unit": "공통",
@@ -72376,7 +72376,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "39층",
-      "amount": 0.0
+      "amount": 607119.91
     },
     {
       "biz_unit": "공통",
@@ -72396,7 +72396,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Office Service",
       "cost_lv3": "사무실 유지보수",
-      "amount": 0.0
+      "amount": 219.34
     },
     {
       "biz_unit": "공통",
@@ -72406,7 +72406,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Office Service",
       "cost_lv3": "시즌 클리닝",
-      "amount": 0.0
+      "amount": 505.0
     },
     {
       "biz_unit": "공통",
@@ -72456,7 +72456,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "RFID 서비스",
-      "amount": 0.0
+      "amount": 9183.26
     },
     {
       "biz_unit": "공통",
@@ -72466,7 +72466,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
-      "amount": 0.0
+      "amount": 248736.37
     },
     {
       "biz_unit": "공통",
@@ -72536,7 +72536,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "법무",
       "cost_lv3": "샘플 구매",
-      "amount": 0.0
+      "amount": 59115.69
     },
     {
       "biz_unit": "공통",
@@ -72546,7 +72546,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "법무",
       "cost_lv3": "온라인 감시 비용",
-      "amount": 0.0
+      "amount": 6471.84
     },
     {
       "biz_unit": "공통",
@@ -72556,7 +72556,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "법무",
       "cost_lv3": "증명서 발급비용(증명서, 번역)",
-      "amount": 0.0
+      "amount": 750.0
     },
     {
       "biz_unit": "공통",
@@ -72576,7 +72576,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "HR Platinum 시스템",
-      "amount": 0.0
+      "amount": 3374.6
     },
     {
       "biz_unit": "공통",
@@ -72586,7 +72586,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "사무실 직원 채용비",
-      "amount": 0.0
+      "amount": 214592.3
     },
     {
       "biz_unit": "공통",
@@ -72596,7 +72596,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "장애인 서비스 비용",
-      "amount": 0.0
+      "amount": 5288.14
     },
     {
       "biz_unit": "공통",
@@ -72606,7 +72606,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "직영매장 채용비",
-      "amount": 0.0
+      "amount": 9333.33
     },
     {
       "biz_unit": "공통",
@@ -72646,7 +72646,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "SAP 유지보수 비용",
-      "amount": 0.0
+      "amount": 34707.51
     },
     {
       "biz_unit": "공통",
@@ -72656,7 +72656,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "Tax",
-      "amount": 0.0
+      "amount": 10000.0
     },
     {
       "biz_unit": "공통",
@@ -72676,7 +72676,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "계약서번역",
-      "amount": 0.0
+      "amount": 366.99
     },
     {
       "biz_unit": "공통",
@@ -72706,7 +72706,7 @@
       "cost_lv1": "차량렌트비",
       "cost_lv2": "ALPHA",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 33168.32
     },
     {
       "biz_unit": "공통",
@@ -72716,7 +72716,7 @@
       "cost_lv1": "차량렌트비",
       "cost_lv2": "KIA",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 9207.92
     },
     {
       "biz_unit": "공통",
@@ -72726,7 +72726,7 @@
       "cost_lv1": "차량렌트비",
       "cost_lv2": "차량유지비",
       "cost_lv3": "",
-      "amount": 0.0
+      "amount": 6488.48
     },
     {
       "biz_unit": "공통",
@@ -73906,16 +73906,16 @@
       "biz_unit": "DISCOVERY",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "FW",
       "annual_amount": 979138.0
     },
     {
       "biz_unit": "DISCOVERY",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "SS",
       "annual_amount": 0.0
     },
     {
@@ -74442,16 +74442,16 @@
       "biz_unit": "DUVETICA",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "FW",
       "annual_amount": 0.0
     },
     {
       "biz_unit": "DUVETICA",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "SS",
       "annual_amount": 307370.0
     },
     {
@@ -74738,16 +74738,16 @@
       "biz_unit": "KIDS",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "FW",
       "annual_amount": 347068.0
     },
     {
       "biz_unit": "KIDS",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "SS",
       "annual_amount": 0.0
     },
     {
@@ -75290,16 +75290,16 @@
       "biz_unit": "MLB",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "FW",
       "annual_amount": 8450117.0
     },
     {
       "biz_unit": "MLB",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "SS",
       "annual_amount": 210548.0
     },
     {
@@ -76218,16 +76218,16 @@
       "biz_unit": "SUPRA",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "FW",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "FW",
       "annual_amount": 0.0
     },
     {
       "biz_unit": "SUPRA",
       "year": 2024,
       "cost_lv1": "수주회",
-      "cost_lv2": "SS",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "SS",
       "annual_amount": 241911.0
     },
     {

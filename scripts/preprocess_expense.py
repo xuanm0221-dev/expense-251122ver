@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Dict, List, Any
 
 # CSV 파일 경로 설정
-CSV_BASE_PATH = r"C:\2.대시보드(파일)\비용엑셀"
+CSV_BASE_PATH = r"D:\비용대시보드\비용엑셀"
 OUTPUT_DIR = Path(__file__).parent.parent / "data"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -510,6 +510,15 @@ def load_sales_data() -> pd.DataFrame:
         return pd.DataFrame(columns=["biz_unit", "yyyymm", "sales"])
 
     df = pd.read_csv(filepath, encoding="utf-8-sig")
+    
+    # 컬럼명 공백 제거
+    df.columns = df.columns.str.strip()
+    
+    # "합계" 행 제외
+    df = df[df["사업부"] != "합계"]
+    
+    # 빈 행 제거
+    df = df.dropna(subset=["사업부"])
 
     id_cols = ["사업부"]
     month_cols = [col for col in df.columns if col not in id_cols]

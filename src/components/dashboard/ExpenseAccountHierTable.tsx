@@ -1328,6 +1328,33 @@ export function ExpenseAccountHierTable({
     }
   }, [hierarchicalData, viewMode]);
 
+  // 전체 합계의 대분류별 당월 차이 설명 자동 생성 (항상 당월 기준)
+  const totalDescription = useMemo(() => {
+    if (hierarchicalData.length === 0) return "-";
+    
+    // 대분류별 당월 차이 계산
+    const diffs: { name: string; diff: number }[] = hierarchicalData.map((l1Row) => ({
+      name: l1Row.category_l1,
+      diff: l1Row.curr_month - l1Row.prev_month,
+    }));
+    
+    // 차이가 0이 아닌 항목만 필터링하고 절대값 기준 내림차순 정렬
+    const significantDiffs = diffs
+      .filter((d) => Math.abs(d.diff) >= 1000) // 1K 이상만 표시
+      .sort((a, b) => Math.abs(b.diff) - Math.abs(a.diff));
+    
+    if (significantDiffs.length === 0) return "-";
+    
+    // 포맷팅: "광고비 +225K, 인건비 △444K, ..."
+    const formatted = significantDiffs.map((d) => {
+      const sign = d.diff >= 0 ? "+" : "△";
+      const absValue = Math.abs(d.diff);
+      return `${d.name} ${sign}${formatK(absValue)}`;
+    });
+    
+    return formatted.join(", ");
+  }, [hierarchicalData]);
+
   // YOY/진척률 Badge 스타일 함수
   const getYOYBadgeClass = (value: number | null): string => {
     if (value === null || value === undefined || isNaN(value)) {
@@ -1549,7 +1576,7 @@ export function ExpenseAccountHierTable({
                   </td>
                   <td className="border-r border-gray-200"></td>
                   <td className="border-r border-gray-200 px-3 py-2 text-sm text-gray-600">
-                    -
+                    {totalDescription}
                   </td>
                 </>
               ) : (
@@ -1590,7 +1617,7 @@ export function ExpenseAccountHierTable({
                   </td>
                   <td className="border-r border-gray-200"></td>
                   <td className="border-r border-gray-200 px-3 py-2 text-sm text-gray-600">
-                    -
+                    {totalDescription}
                   </td>
                 </>
               )}
