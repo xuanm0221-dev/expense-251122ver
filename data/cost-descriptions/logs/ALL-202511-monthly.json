@@ -1,5 +1,82 @@
 [
   {
+    "timestamp": "2025-12-12T06:04:35.478Z",
+    "accountPath": "l1-감가상각비",
+    "oldValue": "인테리어 감가상각비 △137K",
+    "newValue": "본사건물 3층 철수로 인테리어 감가상각비 △137K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:55:10.066Z",
+    "accountPath": "l1-감가상각비",
+    "oldValue": "인테리어 감가상각비 △137K",
+    "newValue": "인테리어 감가상각비 △137K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:48:46.311Z",
+    "accountPath": "l1-세금과공과",
+    "oldValue": "YTD 전년비 91%",
+    "newValue": "YTD YOY 91%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:48:38.899Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "",
+    "newValue": "YTD YOY 94%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:47:59.766Z",
+    "accountPath": "l1-차량렌트비",
+    "oldValue": "",
+    "newValue": "차량2대 렌트, 렌트비 전년과 동일",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:47:04.225Z",
+    "accountPath": "l1-기타",
+    "oldValue": "",
+    "newValue": "물류비 39K, 사무용품비 30K, 여비교통비 35K, 접대비 49K, 통신비 2K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:46:17.952Z",
+    "accountPath": "l1-세금과공과",
+    "oldValue": "",
+    "newValue": "YTD 전년비 91%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:45:38.571Z",
+    "accountPath": "l1-감가상각비",
+    "oldValue": "",
+    "newValue": "인테리어 감가상각비 △137K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:44:53.392Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "①VAS 수리비용 (Credit notes 반품)[신규] +249K ②25년 폐기비용 미발생으로△125",
+    "newValue": "①VAS 수리비용 (Credit notes 반품)[신규] +249K\n②25년 폐기비용 미발생으로△125",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:44:48.124Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "",
+    "newValue": "①VAS 수리비용 (Credit notes 반품)[신규] +249K ②25년 폐기비용 미발생으로△125",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:43:13.577Z",
+    "accountPath": "l1-임차료",
+    "oldValue": "",
+    "newValue": "①25년 38층 신규임차 +487K ②3층 임차 취소 △272K",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2025-12-12T05:36:28.369Z",
     "accountPath": "l1-IT수수료",
     "oldValue": "[증감]①DX경쟁상품 데이터 구매 +87K",
