@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2025-12-12T05:36:28.369Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "[증감]①DX경쟁상품 데이터 구매 +87K",
+    "newValue": "[증감]①DX경쟁상품 데이터 구매 +87K ②OMS +99K ③RMS반품개발시스템(신규) +162K ④온라인플랫폼 서비스 △57K⑤Office Hardware upgrade +129K ⑥온라인플랫폼 서비스 비용 △155K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:13:45.764Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "trf",
+    "newValue": "[증감]①DX경쟁상품 데이터 구매 +87K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2025-12-12T05:12:19.524Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "",
+    "newValue": "trf",
+    "userIdentifier": "anonymous"
+  }
+]

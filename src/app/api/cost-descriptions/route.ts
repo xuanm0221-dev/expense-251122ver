@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { kv } from "@vercel/kv";
+import { promises as fs } from "fs";
+import path from "path";
 
 // 저장 로그 타입
 interface SaveLog {
@@ -19,6 +20,92 @@ interface CostDescription {
   description: string;
 }
 
+// 데이터 디렉토리 경로
+const DATA_DIR = path.join(process.cwd(), "data", "cost-descriptions");
+const LOGS_DIR = path.join(DATA_DIR, "logs");
+
+// 디렉토리 생성 (없는 경우)
+async function ensureDirectoryExists(dirPath: string) {
+  try {
+    await fs.access(dirPath);
+  } catch {
+    await fs.mkdir(dirPath, { recursive: true });
+  }
+}
+
+// 파일 경로 생성
+function getDataFilePath(brand: string, ym: string, mode: string): string {
+  const fileName = `${brand}-${ym}-${mode}.json`;
+  return path.join(DATA_DIR, fileName);
+}
+
+function getLogFilePath(brand: string, ym: string, mode: string): string {
+  const fileName = `${brand}-${ym}-${mode}.json`;
+  return path.join(LOGS_DIR, fileName);
+}
+
+// 파일에서 데이터 읽기
+async function readDescriptions(
+  brand: string,
+  ym: string,
+  mode: string
+): Promise<Record<string, string>> {
+  try {
+    const filePath = getDataFilePath(brand, ym, mode);
+    const fileContent = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(fileContent);
+  } catch (error: any) {
+    // 파일이 없으면 빈 객체 반환
+    if (error.code === "ENOENT") {
+      return {};
+    }
+    throw error;
+  }
+}
+
+// 파일에 데이터 쓰기
+async function writeDescriptions(
+  brand: string,
+  ym: string,
+  mode: string,
+  descriptions: Record<string, string>
+): Promise<void> {
+  await ensureDirectoryExists(DATA_DIR);
+  const filePath = getDataFilePath(brand, ym, mode);
+  await fs.writeFile(filePath, JSON.stringify(descriptions, null, 2), "utf-8");
+}
+
+// 로그 읽기
+async function readLogs(
+  brand: string,
+  ym: string,
+  mode: string
+): Promise<SaveLog[]> {
+  try {
+    const filePath = getLogFilePath(brand, ym, mode);
+    const fileContent = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(fileContent);
+  } catch (error: any) {
+    // 파일이 없으면 빈 배열 반환
+    if (error.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
+}
+
+// 로그 쓰기
+async function writeLogs(
+  brand: string,
+  ym: string,
+  mode: string,
+  logs: SaveLog[]
+): Promise<void> {
+  await ensureDirectoryExists(LOGS_DIR);
+  const filePath = getLogFilePath(brand, ym, mode);
+  await fs.writeFile(filePath, JSON.stringify(logs, null, 2), "utf-8");
+}
+
 // GET: 설명 조회 (공개)
 export async function GET(request: NextRequest) {
   try {
@@ -34,9 +121,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // KV에서 데이터 조회
-    const key = `cost-descriptions:${brand}:${ym}:${mode}`;
-    const descriptions = await kv.get<Record<string, string>>(key);
+    // 파일에서 데이터 조회
+    const descriptions = await readDescriptions(brand, ym, mode);
 
     return NextResponse.json({
       success: true,
@@ -51,11 +137,11 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST: 설명 저장 (비밀번호 필요)
+// POST: 설명 저장
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { brand, ym, mode, accountPath, description, password } = body;
+    const { brand, ym, mode, accountPath, description } = body;
 
     // 필수 파라미터 검증
     if (!brand || !ym || !mode || !accountPath) {
@@ -65,26 +151,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 비밀번호 검증
-    const editPassword = process.env.EDIT_PASSWORD;
-    if (!editPassword) {
-      console.error("EDIT_PASSWORD 환경 변수가 설정되지 않았습니다.");
-      return NextResponse.json(
-        { error: "서버 설정 오류" },
-        { status: 500 }
-      );
-    }
-
-    if (password !== editPassword) {
-      return NextResponse.json(
-        { error: "비밀번호가 올바르지 않습니다." },
-        { status: 401 }
-      );
-    }
-
     // 기존 값 조회 (로그용)
-    const key = `cost-descriptions:${brand}:${ym}:${mode}`;
-    const existingDescriptions = (await kv.get<Record<string, string>>(key)) || {};
+    const existingDescriptions = await readDescriptions(brand, ym, mode);
     const oldValue = existingDescriptions[accountPath] || "";
 
     // 새 값 저장
@@ -98,11 +166,10 @@ export async function POST(request: NextRequest) {
       delete newDescriptions[accountPath];
     }
 
-    await kv.set(key, newDescriptions);
+    await writeDescriptions(brand, ym, mode, newDescriptions);
 
     // 저장 로그 기록
-    const logKey = `cost-descriptions-logs:${brand}:${ym}:${mode}`;
-    const logs = (await kv.get<SaveLog[]>(logKey)) || [];
+    const logs = await readLogs(brand, ym, mode);
     
     const newLog: SaveLog = {
       timestamp: new Date().toISOString(),
@@ -115,7 +182,7 @@ export async function POST(request: NextRequest) {
     logs.unshift(newLog); // 최신 로그를 앞에 추가
     // 최근 100개 로그만 유지
     const recentLogs = logs.slice(0, 100);
-    await kv.set(logKey, recentLogs);
+    await writeLogs(brand, ym, mode, recentLogs);
 
     return NextResponse.json({
       success: true,

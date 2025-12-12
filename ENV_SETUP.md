@@ -4,33 +4,15 @@
 
 설명 편집 기능이 정상적으로 작동하려면 다음 환경 변수를 설정해야 합니다.
 
-### 1. Vercel KV 설정
+### 데이터 저장 방식
 
-#### Vercel 대시보드에서 설정
+설명 데이터는 파일 기반으로 저장됩니다:
+- 데이터 파일: `data/cost-descriptions/{brand}-{ym}-{mode}.json`
+- 로그 파일: `data/cost-descriptions/logs/{brand}-{ym}-{mode}.json`
 
-1. Vercel 프로젝트 대시보드 접속
-2. **Settings** → **Storage** → **Create Database** 선택
-3. **KV (Upstash)** 선택
-4. 데이터베이스 이름 입력 후 생성
-5. 생성된 KV 데이터베이스의 환경 변수가 자동으로 추가됩니다:
-   - `KV_URL`
-   - `KV_REST_API_URL`
-   - `KV_REST_API_TOKEN`
-   - `KV_REST_API_READ_ONLY_TOKEN`
+데이터 디렉토리는 자동으로 생성되므로 별도 설정이 필요하지 않습니다.
 
-#### 로컬 개발 환경 설정
-
-로컬에서 개발할 때는 `.env.local` 파일을 생성하고 다음을 추가하세요:
-
-```env
-# Vercel KV 환경 변수 (Vercel 대시보드에서 복사)
-KV_URL=your-kv-url
-KV_REST_API_URL=your-kv-rest-api-url
-KV_REST_API_TOKEN=your-kv-rest-api-token
-KV_REST_API_READ_ONLY_TOKEN=your-kv-read-only-token
-```
-
-### 2. 편집 비밀번호 설정
+### 1. 편집 비밀번호 설정
 
 #### Vercel 대시보드에서 설정
 
@@ -50,15 +32,15 @@ KV_REST_API_READ_ONLY_TOKEN=your-kv-read-only-token
 EDIT_PASSWORD=my-secure-password-123
 ```
 
-### 3. 환경 변수 확인
+### 2. 환경 변수 확인
 
 설정이 완료되면 다음을 확인하세요:
 
-- ✅ Vercel KV 데이터베이스가 생성되었는지
 - ✅ `EDIT_PASSWORD` 환경 변수가 설정되었는지
 - ✅ 모든 환경(Production, Preview, Development)에 적용되었는지
+- ✅ `data/cost-descriptions/` 디렉토리가 생성될 수 있는지 (자동 생성됨)
 
-### 4. 테스트
+### 3. 테스트
 
 설정 후 다음을 테스트하세요:
 
