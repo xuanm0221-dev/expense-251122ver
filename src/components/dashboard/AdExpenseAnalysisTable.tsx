@@ -94,16 +94,22 @@ export function AdExpenseAnalysisTable({
     const ytd24_sales = ytd24Total?.sales || 0;
 
     // 1. 판매매출(V+) 행
+    // 25년 금액 / 24년 금액 * 100 계산 함수
+    const calculateYearOverYearRatio = (year25: number, year24: number): number | null => {
+      if (year24 === 0 || year24 === null || year24 === undefined) return null;
+      return (year25 / year24) * 100;
+    };
+
     const salesRow: AdExpenseRow = {
       label: "판매매출(V+)",
       level: 0,
       annual25_amount: annual25_sales,
-      annual25_ratio: null, // 매출은 비율 계산 안 함
+      annual25_ratio: calculateYearOverYearRatio(annual25_sales, annual24_sales),
       annual24_amount: annual24_sales,
       annual24_ratio: null,
       annual_ratio_diff: null,
       ytd25_amount: ytd25_sales,
-      ytd25_ratio: null,
+      ytd25_ratio: calculateYearOverYearRatio(ytd25_sales, ytd24_sales),
       ytd24_amount: ytd24_sales,
       ytd24_ratio: null,
       ytd_ratio_diff: null,
@@ -125,12 +131,13 @@ export function AdExpenseAnalysisTable({
     const ytd25_totalCost = adExpenseDetails.reduce((sum, item) => sum + (item.amount || 0), 0);
     const ytd24_totalCost = adExpenseDetails24.reduce((sum, item) => sum + (item.amount || 0), 0);
 
-    // 매출대비 비율 계산 (비용 * 1.13 / 매출 * 100)
+    // 매출대비 비율 계산 (비용 * 1.13 / 매출 * 100) - 광고비 및 하위 항목의 매출대비% 계산에 사용
     const calculateRatio = (cost: number, sales: number): number | null => {
       if (sales === 0 || sales === null || sales === undefined) return null;
       return (cost * 1.13 / sales) * 100;
     };
 
+    // 광고비 합계의 매출대비% 계산 (기존 방식)
     const annual25_ratio = calculateRatio(annual25_totalCost, annual25_sales);
     const annual24_ratio = calculateRatio(annual24_totalCost, annual24_sales);
     const ytd25_ratio = calculateRatio(ytd25_totalCost, ytd25_sales);
@@ -261,6 +268,7 @@ export function AdExpenseAnalysisTable({
 
     // 하위 항목 행 생성
     itemMap.forEach((item) => {
+      // 하위 항목의 매출대비% 계산 (기존 방식)
       const annual25_ratio_item = calculateRatio(item.annual25, annual25_sales);
       const annual24_ratio_item = calculateRatio(item.annual24, annual24_sales);
       const ytd25_ratio_item = calculateRatio(item.ytd25, ytd25_sales);
@@ -404,7 +412,7 @@ export function AdExpenseAnalysisTable({
 
                   {/* 25년 연간 매출대비% */}
                   <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
-                    {row.annual25_ratio !== null ? formatPercent(row.annual25_ratio, 2) : "-"}
+                    {row.annual25_ratio !== null ? formatPercent(row.annual25_ratio, isSalesRow ? 0 : 2) : "-"}
                   </td>
 
                   {/* 연간 증감(p) */}
@@ -429,7 +437,7 @@ export function AdExpenseAnalysisTable({
 
                   {/* 25년 YTD 매출대비% */}
                   <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
-                    {row.ytd25_ratio !== null ? formatPercent(row.ytd25_ratio, 2) : "-"}
+                    {row.ytd25_ratio !== null ? formatPercent(row.ytd25_ratio, isSalesRow ? 0 : 2) : "-"}
                   </td>
 
                   {/* YTD 증감(p) */}
