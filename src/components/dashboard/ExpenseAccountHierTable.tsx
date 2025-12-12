@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Sparkles } from "lucide-react";
+import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Sparkles, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getCategoryDetail, getAnnualData, data, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
+import { useToast } from "@/components/ui/toast";
+import { PasswordModal } from "@/components/dashboard/PasswordModal";
 
 type BizUnitOrAll = BizUnit | "ALL";
 import { formatK, formatPercent, calculateYOY } from "@/lib/utils";
@@ -47,28 +49,43 @@ export function ExpenseAccountHierTable({
   const [descriptions, setDescriptions] = useState<Map<string, string>>(new Map());
   const [editingRowId, setEditingRowId] = useState<string | null>(null);
   const [editValue, setEditValue] = useState<string>("");
+  const [passwordModalOpen, setPasswordModalOpen] = useState(false);
+  const [pendingSave, setPendingSave] = useState<{ rowId: string; value: string } | null>(null);
+  const { addToast } = useToast();
 
-  // 로컬 스토리지에서 설명 데이터 로드
+  // API에서 설명 데이터 로드
   useEffect(() => {
-    const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}`;
-    const saved = localStorage.getItem(storageKey);
-    if (saved) {
+    const loadDescriptions = async () => {
       try {
-        const parsed = JSON.parse(saved);
-        setDescriptions(new Map(Object.entries(parsed)));
-      } catch (e) {
-        console.error("Failed to load descriptions from localStorage", e);
+        const ym = `${year}${String(month).padStart(2, "0")}`;
+        const response = await fetch(
+          `/api/cost-descriptions?brand=${bizUnit}&ym=${ym}&mode=${viewMode}`
+        );
+        
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success && result.data) {
+            setDescriptions(new Map(Object.entries(result.data)));
+          }
+        }
+      } catch (error) {
+        console.error("설명 데이터 로드 실패:", error);
+        // 실패 시 localStorage에서 fallback (선택적)
+        const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}`;
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved);
+            setDescriptions(new Map(Object.entries(parsed)));
+          } catch (e) {
+            console.error("localStorage fallback 실패:", e);
+          }
+        }
       }
-    }
-  }, [bizUnit, year, month]);
+    };
 
-  // 설명 저장 함수
-  const saveDescriptions = (newDescriptions: Map<string, string>) => {
-    const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}`;
-    const obj = Object.fromEntries(newDescriptions);
-    localStorage.setItem(storageKey, JSON.stringify(obj));
-    setDescriptions(newDescriptions);
-  };
+    loadDescriptions();
+  }, [bizUnit, year, month, viewMode]);
 
   // 편집 시작
   const startEdit = (rowId: string, currentDescription: string) => {
@@ -82,13 +99,64 @@ export function ExpenseAccountHierTable({
     setEditValue("");
   };
 
-  // 편집 저장
+  // 비밀번호 확인 후 저장
+  const handlePasswordConfirm = async (password: string) => {
+    if (!pendingSave) return;
+
+    try {
+      const ym = `${year}${String(month).padStart(2, "0")}`;
+      const response = await fetch("/api/cost-descriptions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          brand: bizUnit,
+          ym,
+          mode: viewMode,
+          accountPath: pendingSave.rowId,
+          description: pendingSave.value,
+          password,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        // 성공: 로컬 상태 업데이트
+        const newDescriptions = new Map(descriptions);
+        newDescriptions.set(pendingSave.rowId, pendingSave.value);
+        setDescriptions(newDescriptions);
+        
+        // localStorage에도 저장 (fallback용)
+        const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}`;
+        const obj = Object.fromEntries(newDescriptions);
+        localStorage.setItem(storageKey, JSON.stringify(obj));
+
+        addToast({
+          type: "success",
+          message: "설명이 저장되었습니다.",
+        });
+        
+        setEditingRowId(null);
+        setEditValue("");
+        setPendingSave(null);
+      } else {
+        throw new Error(result.error || "저장에 실패했습니다.");
+      }
+    } catch (error: any) {
+      addToast({
+        type: "error",
+        message: error.message || "설명 저장 중 오류가 발생했습니다.",
+      });
+      throw error;
+    }
+  };
+
+  // 편집 저장 (비밀번호 모달 열기)
   const saveEdit = (rowId: string) => {
-    const newDescriptions = new Map(descriptions);
-    newDescriptions.set(rowId, editValue);
-    saveDescriptions(newDescriptions);
-    setEditingRowId(null);
-    setEditValue("");
+    setPendingSave({ rowId, value: editValue });
+    setPasswordModalOpen(true);
   };
 
   // 계층 데이터 변환 및 집계
@@ -1644,7 +1712,16 @@ export function ExpenseAccountHierTable({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden backdrop-blur-sm">
+    <>
+      <PasswordModal
+        open={passwordModalOpen}
+        onClose={() => {
+          setPasswordModalOpen(false);
+          setPendingSave(null);
+        }}
+        onConfirm={handlePasswordConfirm}
+      />
+      <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden backdrop-blur-sm">
       {/* 상단 헤더 */}
       <div className="bg-slate-800 border-b-2 border-slate-600">
         <div className="px-8 py-6">
@@ -2066,7 +2143,7 @@ export function ExpenseAccountHierTable({
                                   saveEdit(row.id);
                                 }}
                                 className="p-1 text-green-600 hover:bg-green-50 rounded"
-                                title="저장 (Ctrl+Enter)"
+                                title="저장 (Ctrl+Enter) - 편집 권한 필요"
                               >
                                 <Check className="w-4 h-4" />
                               </button>
@@ -2080,6 +2157,10 @@ export function ExpenseAccountHierTable({
                               >
                                 <X className="w-4 h-4" />
                               </button>
+                            </div>
+                            <div className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                              <Lock className="w-3 h-3" />
+                              <span>편집 권한 필요</span>
                             </div>
                           </div>
                         ) : (
@@ -2100,17 +2181,23 @@ export function ExpenseAccountHierTable({
                                 return descriptions.get(row.id) || row.description || "-";
                               })()}
                             </span>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                const currentDesc = descriptions.get(row.id) || row.description || "";
-                                startEdit(row.id, currentDesc);
-                              }}
-                              className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
-                              title="편집"
-                            >
-                              <Edit2 className="w-4 h-4" />
-                            </button>
+                            <div className="flex items-center gap-1">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  const currentDesc = descriptions.get(row.id) || row.description || "";
+                                  startEdit(row.id, currentDesc);
+                                }}
+                                className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
+                                title="편집"
+                              >
+                                <Edit2 className="w-4 h-4" />
+                              </button>
+                              <span className="opacity-0 group-hover:opacity-100 text-xs text-gray-400 transition-opacity flex items-center gap-1">
+                                <Lock className="w-3 h-3" />
+                                <span>편집 권한 필요</span>
+                              </span>
+                            </div>
                           </div>
                         )}
                       </td>
@@ -2183,7 +2270,7 @@ export function ExpenseAccountHierTable({
                                   saveEdit(row.id);
                                 }}
                                 className="p-1 text-green-600 hover:bg-green-50 rounded"
-                                title="저장 (Ctrl+Enter)"
+                                title="저장 (Ctrl+Enter) - 편집 권한 필요"
                               >
                                 <Check className="w-4 h-4" />
                               </button>
@@ -2197,6 +2284,10 @@ export function ExpenseAccountHierTable({
                               >
                                 <X className="w-4 h-4" />
                               </button>
+                            </div>
+                            <div className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                              <Lock className="w-3 h-3" />
+                              <span>편집 권한 필요</span>
                             </div>
                           </div>
                         ) : (
@@ -2217,17 +2308,23 @@ export function ExpenseAccountHierTable({
                                 return descriptions.get(row.id) || row.description || "-";
                               })()}
                             </span>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                const currentDesc = descriptions.get(row.id) || row.description || "";
-                                startEdit(row.id, currentDesc);
-                              }}
-                              className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
-                              title="편집"
-                            >
-                              <Edit2 className="w-4 h-4" />
-                            </button>
+                            <div className="flex items-center gap-1">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  const currentDesc = descriptions.get(row.id) || row.description || "";
+                                  startEdit(row.id, currentDesc);
+                                }}
+                                className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
+                                title="편집"
+                              >
+                                <Edit2 className="w-4 h-4" />
+                              </button>
+                              <span className="opacity-0 group-hover:opacity-100 text-xs text-gray-400 transition-opacity flex items-center gap-1">
+                                <Lock className="w-3 h-3" />
+                                <span>편집 권한 필요</span>
+                              </span>
+                            </div>
                           </div>
                         )}
                       </td>
@@ -2240,6 +2337,7 @@ export function ExpenseAccountHierTable({
         </table>
       </div>
     </div>
+    </>
   );
 }
 
