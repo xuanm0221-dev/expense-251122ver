@@ -380,7 +380,7 @@ export function AdExpenseAnalysisTable({
               if (isSalesRow) {
                 rowBgClass = colors.light;
               } else if (isAdExpenseRow) {
-                rowBgClass = "bg-gray-50";
+                rowBgClass = colors.light;
               } else if (isSubItem) {
                 rowBgClass = index % 2 === 0 ? "bg-white" : "bg-gray-50";
               }
@@ -401,7 +401,7 @@ export function AdExpenseAnalysisTable({
                   </td>
 
                   {/* 24년 연간 매출대비% */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                  <td className={`border-r border-gray-200 px-2 py-2 text-sm text-right ${isSubItem ? "text-gray-400" : ""}`}>
                     {row.annual24_ratio !== null ? formatPercent(row.annual24_ratio, 2) : "-"}
                   </td>
 
@@ -411,7 +411,7 @@ export function AdExpenseAnalysisTable({
                   </td>
 
                   {/* 25년 연간 매출대비% */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                  <td className={`border-r border-gray-200 px-2 py-2 text-sm text-right ${isSubItem ? "text-gray-400" : ""}`}>
                     {row.annual25_ratio !== null ? formatPercent(row.annual25_ratio, isSalesRow ? 0 : 2) : "-"}
                   </td>
 
@@ -426,7 +426,7 @@ export function AdExpenseAnalysisTable({
                   </td>
 
                   {/* 24년 YTD 매출대비% */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                  <td className={`border-r border-gray-200 px-2 py-2 text-sm text-right ${isSubItem ? "text-gray-400" : ""}`}>
                     {row.ytd24_ratio !== null ? formatPercent(row.ytd24_ratio, 2) : "-"}
                   </td>
 
@@ -436,7 +436,7 @@ export function AdExpenseAnalysisTable({
                   </td>
 
                   {/* 25년 YTD 매출대비% */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                  <td className={`border-r border-gray-200 px-2 py-2 text-sm text-right ${isSubItem ? "text-gray-400" : ""}`}>
                     {row.ytd25_ratio !== null ? formatPercent(row.ytd25_ratio, isSalesRow ? 0 : 2) : "-"}
                   </td>
 
@@ -447,7 +447,7 @@ export function AdExpenseAnalysisTable({
 
                   {/* 진척률 */}
                   <td className={`border-l border-gray-200 px-2 py-2 text-sm text-right ${getProgressColor(row.progress)}`}>
-                    {row.progress !== null ? formatPercent(row.progress, 1) : "-"}
+                    {row.progress !== null ? formatPercent(row.progress, 0) : "-"}
                   </td>
                 </tr>
               );
