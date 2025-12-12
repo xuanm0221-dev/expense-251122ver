@@ -1299,6 +1299,19 @@ export function ExpenseAccountHierTable({
     
     const traverse = (rows: ExpenseAccountRow[]) => {
       rows.forEach((row) => {
+        // 당월 모드일 때만 필터링: 당해 당월 = 0 AND 전년 당월 = 0인 행은 제외
+        if (viewMode === "monthly") {
+          const shouldHide = row.curr_month === 0 && row.prev_month === 0;
+          if (shouldHide) {
+            // 숨길 행이지만, 자식이 펼쳐져 있으면 자식은 표시해야 함
+            // 자식이 있으면 자식만 순회
+            if (row.isExpanded && row.children && row.children.length > 0) {
+              traverse(row.children);
+            }
+            return; // 현재 행은 결과에 추가하지 않음
+          }
+        }
+        
         result.push(row);
         if (row.isExpanded && row.children && row.children.length > 0) {
           traverse(row.children);
@@ -1308,7 +1321,7 @@ export function ExpenseAccountHierTable({
 
     traverse(hierarchicalData);
     return result;
-  }, [hierarchicalData]);
+  }, [hierarchicalData, viewMode]);
 
   const toggleRow = (rowId: string) => {
     const newExpanded = new Set(expandedRows);
