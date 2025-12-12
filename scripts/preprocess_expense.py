@@ -423,19 +423,24 @@ def get_annual_data() -> pd.DataFrame | None:
     return None
 
 
-def load_headcount_data() -> pd.DataFrame:
-    """인원수 CSV를 읽어서 biz_unit & yyyymm 기준으로 집계"""
+def load_headcount_data() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """인원수 CSV를 읽어서 biz_unit & yyyymm 기준으로 집계
+    반환값: (사업부 기준 인원수, 사업부(소분류) 기준 인원수)
+    """
     filepath = os.path.join(CSV_BASE_PATH, "인원수.csv")
     if not os.path.exists(filepath):
         print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
-        return pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
+        empty_df = pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
+        return empty_df, empty_df
 
     df = pd.read_csv(filepath, encoding="utf-8-sig")
 
-    # 사업부 기준으로 집계 (사업부(소분류)는 무시)
-    # "사업부" 컬럼만 사용하고, "사업부(소분류)" 같은 컬럼은 제외
+    # 사업부 기준으로 집계
     id_cols = ["사업부"]
-    # "사업부(소분류)" 같은 컬럼 제외
+    # "사업부(소분류)" 컬럼 확인
+    has_subcategory = "사업부(소분류)" in df.columns
+    
+    # "사업부(소분류)" 같은 컬럼 제외 (사업부 기준 집계용)
     exclude_cols = [col for col in df.columns if "사업부" in col and col != "사업부"]
     month_cols = [col for col in df.columns if col not in id_cols and col not in exclude_cols]
 
@@ -456,7 +461,8 @@ def load_headcount_data() -> pd.DataFrame:
     df_melted = df_melted[mask].copy()
     
     if len(df_melted) == 0:
-        return pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
+        empty_df = pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
+        return empty_df, empty_df
 
     # year, month 컬럼 분리
     parsed_filtered = parsed[mask].tolist()
@@ -469,7 +475,6 @@ def load_headcount_data() -> pd.DataFrame:
     )
 
     # headcount를 먼저 숫자로 변환 (천 단위 구분자 처리)
-    # 집계 전에 숫자로 변환해야 sum()이 제대로 작동함
     if df_melted["headcount"].dtype == "object":
         df_melted["headcount"] = df_melted["headcount"].astype(str)
         df_melted["headcount"] = df_melted["headcount"].replace(["nan", "NaN", "None", "", " ", "-"], "0")
@@ -480,26 +485,67 @@ def load_headcount_data() -> pd.DataFrame:
     ).fillna(0)
 
     # 사업부 기준으로 집계 (숫자로 변환한 후 sum)
-    # 디버깅: 집계 전 데이터 확인
-    if len(df_melted) > 0:
-        sample = df_melted[(df_melted["사업부"] == "MLB") & (df_melted["yyyymm"] == "202410")]
-        if len(sample) > 0:
-            print(f"   - MLB 202410 집계 전 데이터: {len(sample)} 행")
-            print(f"     값들: {sample['headcount'].tolist()}")
-            print(f"     합계: {sample['headcount'].sum()}")
-    
     headcount_df = df_melted.groupby(
         ["사업부", "yyyymm"], as_index=False
     )["headcount"].sum()
     headcount_df = headcount_df.rename(columns={"사업부": "biz_unit"})
     
-    # 디버깅: 집계 후 데이터 확인
-    if len(headcount_df) > 0:
-        mlb_202410 = headcount_df[(headcount_df["biz_unit"] == "MLB") & (headcount_df["yyyymm"] == "202410")]
-        if len(mlb_202410) > 0:
-            print(f"   - MLB 202410 집계 후 headcount: {mlb_202410['headcount'].values[0]}")
+    # 사업부(소분류) 기준 인원수 처리
+    headcount_subcategory_df = pd.DataFrame(columns=["biz_unit", "subcategory", "yyyymm", "headcount"])
+    if has_subcategory:
+        # 사업부(소분류) 기준으로 집계
+        id_cols_sub = ["사업부", "사업부(소분류)"]
+        exclude_cols_sub = [col for col in df.columns if "사업부" in col and col not in id_cols_sub]
+        month_cols_sub = [col for col in df.columns if col not in id_cols_sub and col not in exclude_cols_sub]
+        
+        df_melted_sub = df.melt(
+            id_vars=id_cols_sub,
+            value_vars=month_cols_sub,
+            var_name="month_col",
+            value_name="headcount",
+        )
+        
+        # 연도/월 파싱
+        parsed_sub = df_melted_sub["month_col"].apply(parse_month_column)
+        mask_sub = parsed_sub.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
+        df_melted_sub = df_melted_sub[mask_sub].copy()
+        
+        if len(df_melted_sub) > 0:
+            parsed_filtered_sub = parsed_sub[mask_sub].tolist()
+            df_melted_sub["year"] = [p[0] for p in parsed_filtered_sub]
+            df_melted_sub["month"] = [p[1] for p in parsed_filtered_sub]
+            df_melted_sub["yyyymm"] = (
+                df_melted_sub["year"].astype(str)
+                + df_melted_sub["month"].astype(str).str.zfill(2)
+            )
+            
+            # headcount 숫자 변환
+            if df_melted_sub["headcount"].dtype == "object":
+                df_melted_sub["headcount"] = df_melted_sub["headcount"].astype(str)
+                df_melted_sub["headcount"] = df_melted_sub["headcount"].replace(["nan", "NaN", "None", "", " ", "-"], "0")
+                df_melted_sub["headcount"] = df_melted_sub["headcount"].str.replace(",", "", regex=False).str.replace(" ", "", regex=False).str.strip()
+            
+            df_melted_sub["headcount"] = pd.to_numeric(
+                df_melted_sub["headcount"], errors="coerce"
+            ).fillna(0)
+            
+            # 사업부 컬럼이 비어있으면 "사업부(소분류)" 값을 사용
+            df_melted_sub["사업부"] = df_melted_sub["사업부"].fillna(df_melted_sub["사업부(소분류)"])
+            df_melted_sub["사업부"] = df_melted_sub.apply(
+                lambda row: row["사업부(소분류)"] if pd.isna(row["사업부"]) or str(row["사업부"]).strip() == "" else row["사업부"],
+                axis=1
+            )
+            
+            # 사업부(소분류) 기준으로 집계
+            headcount_subcategory_df = df_melted_sub.groupby(
+                ["사업부", "사업부(소분류)", "yyyymm"], as_index=False
+            )["headcount"].sum()
+            headcount_subcategory_df = headcount_subcategory_df.rename(columns={"사업부": "biz_unit", "사업부(소분류)": "subcategory"})
+            print(f"   - 사업부(소분류) 기준 인원수: {len(headcount_subcategory_df)} 행")
+            if len(headcount_subcategory_df) > 0:
+                print(f"     샘플: {headcount_subcategory_df.head(5).to_dict('records')}")
 
-    return headcount_df[["biz_unit", "yyyymm", "headcount"]]
+    return headcount_df[["biz_unit", "yyyymm", "headcount"]], headcount_subcategory_df
 
 
 def load_sales_data() -> pd.DataFrame:
@@ -573,6 +619,7 @@ def load_sales_data() -> pd.DataFrame:
 def merge_all_data(
     expense_df: pd.DataFrame,
     headcount_df: pd.DataFrame,
+    headcount_subcategory_df: pd.DataFrame,
     sales_df: pd.DataFrame,
 ) -> pd.DataFrame:
     """모든 데이터를 병합"""
@@ -595,6 +642,39 @@ def merge_all_data(
         on=["biz_unit", "yyyymm"],
         how="left",
     )
+
+    # 사업부(소분류) 기준 인원수 병합 (cost_lv3와 매칭)
+    if len(headcount_subcategory_df) > 0 and "cost_lv3" in merged.columns:
+        # cost_lv3가 있는 경우에만 병합
+        # 1단계: biz_unit과 cost_lv3로 매칭 시도
+        merged = merged.merge(
+            headcount_subcategory_df.rename(columns={"subcategory": "cost_lv3"}),
+            on=["biz_unit", "cost_lv3", "yyyymm"],
+            how="left",
+            suffixes=("", "_subcategory"),
+        )
+        
+        # 2단계: 매칭이 안 된 경우 cost_lv3만으로 매칭 시도 (biz_unit이 비어있거나 다른 경우)
+        unmatched_mask = merged["headcount_subcategory"].isna()
+        if unmatched_mask.any():
+            # cost_lv3만으로 매칭
+            headcount_by_subcategory = headcount_subcategory_df.rename(columns={"subcategory": "cost_lv3"}).drop(columns=["biz_unit"])
+            merged_unmatched = merged[unmatched_mask].merge(
+                headcount_by_subcategory,
+                on=["cost_lv3", "yyyymm"],
+                how="left",
+                suffixes=("", "_subcategory_fallback"),
+            )
+            # 매칭된 경우 업데이트
+            matched_mask = merged_unmatched["headcount_subcategory_fallback"].notna()
+            if matched_mask.any():
+                merged.loc[unmatched_mask, "headcount_subcategory"] = merged_unmatched.loc[matched_mask, "headcount_subcategory_fallback"].values
+                merged = merged.drop(columns=["headcount_subcategory_fallback"], errors="ignore")
+        
+        # 사업부(소분류) 기준 인원수가 있으면 그것을 사용, 없으면 사업부 기준 인원수 사용
+        merged["headcount"] = merged["headcount_subcategory"].fillna(merged["headcount"])
+        merged = merged.drop(columns=["headcount_subcategory"], errors="ignore")
+        print(f"   - 사업부(소분류) 기준 인원수 병합 완료")
 
     # 디버깅: 병합 후 데이터 확인
     print(f"   - 병합 후 데이터:")
@@ -717,7 +797,10 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
             "cost_lv3",
         ],
         as_index=False,
-    ).agg({"amount": "sum"})
+    ).agg({
+        "amount": "sum",
+        "headcount": "first",  # 같은 biz_unit, cost_lv3, yyyymm이면 동일하므로 first
+    })
     
     print(f"   - category_detail 생성 (전체 데이터 사용):")
     print(f"     행 수: {len(category_detail)}")
@@ -787,8 +870,9 @@ def main() -> int:
             print(f"   - 연간 데이터: {len(annual_df)} 행")
 
         print("2. 인원수 데이터 로드 중...")
-        headcount_df = load_headcount_data()
+        headcount_df, headcount_subcategory_df = load_headcount_data()
         print(f"   - 인원수 데이터: {len(headcount_df)} 행")
+        print(f"   - 사업부(소분류) 기준 인원수: {len(headcount_subcategory_df)} 행")
 
         print("3. 매출 데이터 로드 중...")
         sales_df = load_sales_data()
@@ -796,7 +880,7 @@ def main() -> int:
 
         # 데이터 병합
         print("4. 데이터 병합 중...")
-        merged_df = merge_all_data(expense_df, headcount_df, sales_df)
+        merged_df = merge_all_data(expense_df, headcount_df, headcount_subcategory_df, sales_df)
         print(f"   - 병합된 데이터: {len(merged_df)} 행")
 
         # 집계 계산

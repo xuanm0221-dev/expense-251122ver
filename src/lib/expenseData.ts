@@ -35,6 +35,7 @@ export interface CategoryDetail {
   cost_lv2: string;
   cost_lv3: string;
   amount: number;
+  headcount?: number;  // 사업부(소분류) 기준 인원수 (선택적)
 }
 
 export interface AnnualData {

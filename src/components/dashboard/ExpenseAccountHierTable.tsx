@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getCategoryDetail, getAnnualData, data, type BizUnit } from "@/lib/expenseData";
+import { getCategoryDetail, getAnnualData, data, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
 
 type BizUnitOrAll = BizUnit | "ALL";
 import { formatK, formatPercent, calculateYOY } from "@/lib/utils";
@@ -659,6 +659,102 @@ export function ExpenseAccountHierTable({
             l1Row.curr_ytd += detail.amount;
           }
         }
+      } else if (isTravelExpense) {
+        // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${detail.cost_lv2}`,
+              level: 2,
+              category_l1: l1Key,
+              category_l2: detail.cost_lv2,
+              category_l3: "",
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+              children: [],
+            };
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
+          }
+
+          // 사업부구분 처리 (level 3)
+          const bizUnitKey = detail.biz_unit || "기타";
+          const l3Key = `${l2Key}|${bizUnitKey}`;
+          let l3Row = l3Map.get(l3Key);
+          if (!l3Row) {
+            l3Row = {
+              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+              level: 3,
+              category_l1: l1Key,
+              biz_unit: bizUnitKey,
+              category_l2: detail.cost_lv2,
+              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
+              prev_month: 0,
+              curr_month: 0,
+              prev_ytd: 0,
+              curr_ytd: 0,
+              prev_year_annual: null,
+              curr_year_annual: null,
+              description: "",
+              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+              children: [],
+            };
+            l3Map.set(l3Key, l3Row);
+            l2Row.children!.push(l3Row);
+          }
+
+          // 소분류 처리 (level 4)
+          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+            const l4Key = `${l3Key}|${detail.cost_lv3}`;
+            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
+            if (!l4Row) {
+              l4Row = {
+                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                level: 4,
+                category_l1: l1Key,
+                biz_unit: bizUnitKey,
+                category_l2: detail.cost_lv2,
+                category_l3: detail.cost_lv3,
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l4Key, l4Row);
+              l3Row.children!.push(l4Row);
+            }
+            if (viewMode === "monthly") {
+              l4Row.curr_month += detail.amount;
+            } else {
+              l4Row.curr_ytd += detail.amount;
+            }
+          } else {
+            // 소분류가 없으면 사업부구분에 직접 추가
+            if (viewMode === "monthly") {
+              l3Row.curr_month += detail.amount;
+            } else {
+              l3Row.curr_ytd += detail.amount;
+            }
+          }
+        } else {
+          if (viewMode === "monthly") {
+            l1Row.curr_month += detail.amount;
+          } else {
+            l1Row.curr_ytd += detail.amount;
+          }
+        }
       } else {
         // 광고비가 아닌 경우: 기존 로직 (대분류 → 중분류 → 소분류)
         if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
@@ -958,42 +1054,37 @@ export function ExpenseAccountHierTable({
       });
     }
 
-    // 대분류 합계 계산 (하위 항목 합계) - 연간 계획 데이터 할당 후 실행
-    l1Map.forEach((l1Row) => {
-      if (l1Row.children && l1Row.children.length > 0) {
+    // Level 3 합계 계산 (하위 Level 4 합계) - 모든 Level 3에 대해 처리
+    // Level 3 합계를 먼저 계산해야 Level 2 합계 계산 시 올바른 값이 반영됨
+    l3Map.forEach((l3Row) => {
+      if (l3Row.level === 3 && l3Row.children && l3Row.children.length > 0) {
         if (viewMode === "monthly") {
-          // 당월 모드: 기존 로직 유지
+          // 당월 모드: 소분류(level 4) 합계 계산
           let totalCurr = 0;
           let totalPrev = 0;
-          l1Row.children.forEach((l2Row) => {
-            if (l2Row.children && l2Row.children.length > 0) {
-              l2Row.children.forEach((l3Row) => {
-                totalCurr += l3Row.curr_month;
-                totalPrev += l3Row.prev_month;
-              });
-            } else {
-              totalCurr += l2Row.curr_month;
-              totalPrev += l2Row.prev_month;
-            }
+          l3Row.children.forEach((l4Row) => {
+            totalCurr += l4Row.curr_month;
+            totalPrev += l4Row.prev_month;
           });
-          l1Row.curr_month = totalCurr;
-          l1Row.prev_month = totalPrev;
+          l3Row.curr_month = totalCurr;
+          l3Row.prev_month = totalPrev;
         } else {
           // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
-          const aggregated = aggregateNode(l1Row);
-          l1Row.prev_ytd = aggregated.prevYtd;
-          l1Row.curr_ytd = aggregated.currYtd;
-          l1Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
-          l1Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+          const aggregated = aggregateNode(l3Row);
+          l3Row.prev_ytd = aggregated.prevYtd;
+          l3Row.curr_ytd = aggregated.currYtd;
+          l3Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
+          l3Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
         }
       }
     });
 
-    // 중분류 합계 계산 (하위 소분류 합계) - 연간 계획 데이터 할당 후 실행
+    // 중분류 합계 계산 (하위 Level 3 합계) - 연간 계획 데이터 할당 후 실행
+    // Level 3 합계 계산 후 실행하여 올바른 합계 반영
     l2Map.forEach((l2Row) => {
       if (l2Row.children && l2Row.children.length > 0) {
         if (viewMode === "monthly") {
-          // 당월 모드: 기존 로직 유지
+          // 당월 모드: Level 3 합계 계산
           let totalCurr = 0;
           let totalPrev = 0;
           l2Row.children.forEach((l3Row) => {
@@ -1013,33 +1104,26 @@ export function ExpenseAccountHierTable({
       }
     });
 
-    // 사업부구분 합계 계산 (하위 소분류 합계) - 지급수수료 > 인테리어 개발의 경우
-    l3Map.forEach((l3Row) => {
-      // 지급수수료 > 인테리어 개발의 사업부구분(level 3)인 경우만 처리
-      if (
-        l3Row.category_l1 === "지급수수료" &&
-        l3Row.category_l2 === "인테리어 개발" &&
-        l3Row.level === 3 &&
-        l3Row.children &&
-        l3Row.children.length > 0
-      ) {
+    // 대분류 합계 계산 (하위 Level 2 합계) - 연간 계획 데이터 할당 후 실행
+    l1Map.forEach((l1Row) => {
+      if (l1Row.children && l1Row.children.length > 0) {
         if (viewMode === "monthly") {
-          // 당월 모드: 소분류(level 4) 합계 계산
+          // 당월 모드: 이미 계산된 Level 2 합계를 사용
           let totalCurr = 0;
           let totalPrev = 0;
-          l3Row.children.forEach((l4Row) => {
-            totalCurr += l4Row.curr_month;
-            totalPrev += l4Row.prev_month;
+          l1Row.children.forEach((l2Row) => {
+            totalCurr += l2Row.curr_month;
+            totalPrev += l2Row.prev_month;
           });
-          l3Row.curr_month = totalCurr;
-          l3Row.prev_month = totalPrev;
+          l1Row.curr_month = totalCurr;
+          l1Row.prev_month = totalPrev;
         } else {
           // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
-          const aggregated = aggregateNode(l3Row);
-          l3Row.prev_ytd = aggregated.prevYtd;
-          l3Row.curr_ytd = aggregated.currYtd;
-          l3Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
-          l3Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+          const aggregated = aggregateNode(l1Row);
+          l1Row.prev_ytd = aggregated.prevYtd;
+          l1Row.curr_ytd = aggregated.currYtd;
+          l1Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
+          l1Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
         }
       }
     });
@@ -1169,17 +1253,15 @@ export function ExpenseAccountHierTable({
   };
 
   const expandAll = () => {
-    const allIds = new Set<string>();
-    const collectIds = (rows: ExpenseAccountRow[]) => {
-      rows.forEach((row) => {
-        if (row.children && row.children.length > 0) {
-          allIds.add(row.id);
-          collectIds(row.children);
-        }
-      });
-    };
-    collectIds(hierarchicalData);
-    setExpandedRows(allIds);
+    // 대분류(level 1)까지만 펼치기
+    const level1Ids = new Set<string>();
+    hierarchicalData.forEach((row) => {
+      // level 1이고 자식이 있는 경우만 추가
+      if (row.level === 1 && row.children && row.children.length > 0) {
+        level1Ids.add(row.id);
+      }
+    });
+    setExpandedRows(level1Ids);
   };
 
   const collapseAll = () => {
@@ -1187,17 +1269,15 @@ export function ExpenseAccountHierTable({
   };
 
   const isAllExpanded = useMemo(() => {
-    const allIds = new Set<string>();
-    const collectIds = (rows: ExpenseAccountRow[]) => {
-      rows.forEach((row) => {
-        if (row.children && row.children.length > 0) {
-          allIds.add(row.id);
-          collectIds(row.children);
-        }
-      });
-    };
-    collectIds(hierarchicalData);
-    return allIds.size > 0 && Array.from(allIds).every((id) => expandedRows.has(id));
+    // 대분류(level 1)까지만 확인
+    const level1Ids = new Set<string>();
+    hierarchicalData.forEach((row) => {
+      if (row.level === 1 && row.children && row.children.length > 0) {
+        level1Ids.add(row.id);
+      }
+    });
+    // level 1 행이 있고, 모두 펼쳐져 있는지 확인
+    return level1Ids.size > 0 && Array.from(level1Ids).every((id) => expandedRows.has(id));
   }, [hierarchicalData, expandedRows]);
 
   const handleExpandCollapseAll = () => {
@@ -1243,6 +1323,203 @@ export function ExpenseAccountHierTable({
     }
     // 양수는 + 표시
     return `+${formatK(value)}`;
+  };
+
+  // 인건비 대분류 행의 설명 자동 계산 (기본급 설명 재사용)
+  const calculateLaborCostDescription = (row: ExpenseAccountRow): string => {
+    // 인건비 대분류(level 1)이고 당월 모드인 경우만 계산
+    if (
+      row.category_l1 !== "인건비" ||
+      row.level !== 1 ||
+      viewMode !== "monthly"
+    ) {
+      return "";
+    }
+
+    // 인건비 대분류의 children에서 기본급 행 찾기
+    if (!row.children || row.children.length === 0) {
+      return "";
+    }
+
+    const basicSalaryRow = row.children.find(
+      (child) => child.category_l2 === "기본급"
+    );
+
+    if (!basicSalaryRow) {
+      return "";
+    }
+
+    // 기본급 행의 설명 가져오기
+    const basicSalaryDescription = calculateBasicSalaryDescription(basicSalaryRow);
+
+    // 기본급 설명이 "-"이면 그대로 반환
+    if (basicSalaryDescription === "-" || !basicSalaryDescription) {
+      return "-";
+    }
+
+    // "인당 인건비"를 "인당 기본급"으로 치환
+    return basicSalaryDescription.replace("인당 인건비", "인당 기본급");
+  };
+
+  // 인건비 > 기본급 행의 설명 자동 계산
+  const calculateBasicSalaryDescription = (row: ExpenseAccountRow): string => {
+    // 인건비 > 기본급이고 당월 모드인 경우만 계산
+    if (
+      row.category_l1 !== "인건비" ||
+      row.category_l2 !== "기본급" ||
+      viewMode !== "monthly"
+    ) {
+      return "";
+    }
+
+    try {
+      // 헬퍼 함수: 특정 연도/월의 인원수 가져오기
+      const getHeadcountForPeriod = (
+        targetYear: number,
+        targetMonth: number,
+        targetSubcategory: string | null,
+        isParent: boolean
+      ): number | null => {
+        if (isParent) {
+          // 부모 행: 하위 행들의 인원수 합계
+          if (!row.children || row.children.length === 0) {
+            return null;
+          }
+
+          let sumHeadcount = 0;
+          let hasValidHeadcount = false;
+
+          for (const childRow of row.children) {
+            if (childRow.level === 3 && childRow.category_l3) {
+              const childSubcategory = childRow.category_l3;
+              
+              try {
+                const categoryDetails = getCategoryDetail(
+                  bizUnit === "ALL" ? "ALL" : bizUnit,
+                  targetYear,
+                  targetMonth,
+                  "인건비",
+                  "monthly"
+                ).filter(
+                  (detail) =>
+                    detail.cost_lv2 === "기본급" &&
+                    detail.cost_lv3 === childSubcategory
+                );
+
+                const filteredDetails =
+                  bizUnit === "ALL"
+                    ? categoryDetails
+                    : categoryDetails.filter((detail) => detail.biz_unit === bizUnit);
+
+                if (filteredDetails.length > 0) {
+                  const matchedDetail = filteredDetails.find((d) => d.headcount && d.headcount > 0);
+                  if (matchedDetail && matchedDetail.headcount) {
+                    sumHeadcount += matchedDetail.headcount;
+                    hasValidHeadcount = true;
+                  }
+                }
+              } catch (e) {
+                console.warn(`하위 인원수 조회 실패: ${childSubcategory}`, e);
+              }
+            }
+          }
+
+          return hasValidHeadcount ? sumHeadcount : null;
+        } else {
+          // 하위 행: 특정 소분류의 인원수
+          if (!targetSubcategory) {
+            return null;
+          }
+
+          try {
+            const categoryDetails = getCategoryDetail(
+              bizUnit === "ALL" ? "ALL" : bizUnit,
+              targetYear,
+              targetMonth,
+              "인건비",
+              "monthly"
+            ).filter(
+              (detail) =>
+                detail.cost_lv2 === "기본급" &&
+                detail.cost_lv3 === targetSubcategory
+            );
+
+            const filteredDetails =
+              bizUnit === "ALL"
+                ? categoryDetails
+                : categoryDetails.filter((detail) => detail.biz_unit === bizUnit);
+
+            if (filteredDetails.length > 0) {
+              const matchedDetail = filteredDetails.find((d) => d.headcount && d.headcount > 0);
+              if (matchedDetail && matchedDetail.headcount) {
+                return matchedDetail.headcount;
+              }
+            }
+          } catch (e) {
+            console.warn(`인원수 조회 실패: ${targetSubcategory}`, e);
+          }
+
+          return null;
+        }
+      };
+
+      // 당월 인원수 가져오기
+      const targetSubcategory = row.level === 3 ? row.category_l3 : null;
+      const isParent = row.level === 2;
+      const currHeadcount = getHeadcountForPeriod(year, month, targetSubcategory, isParent);
+
+      // 인원수가 0이거나 null이면 "-" 반환
+      if (currHeadcount === null || currHeadcount === 0 || isNaN(currHeadcount)) {
+        return "-";
+      }
+
+      // 전년 인원수 가져오기 (전년 동일월)
+      const prevHeadcount = getHeadcountForPeriod(year - 1, month, targetSubcategory, isParent);
+
+      // 당년 인당 인건비 계산
+      const currAmount = row.curr_month;
+      const currPerPersonCostK = currAmount / currHeadcount / 1000; // K 단위
+
+      // 전년 인당 인건비 계산
+      const prevAmount = row.prev_month;
+      let prevPerPersonCostK: number | null = null;
+      let yoyPercent: number | null = null;
+
+      if (
+        prevHeadcount !== null &&
+        prevHeadcount > 0 &&
+        !isNaN(prevHeadcount) &&
+        prevAmount !== null &&
+        prevAmount !== undefined &&
+        !isNaN(prevAmount)
+      ) {
+        prevPerPersonCostK = prevAmount / prevHeadcount / 1000; // K 단위
+
+        // YOY 계산: (당년 / 전년 - 1) × 100
+        if (prevPerPersonCostK > 0) {
+          yoyPercent = (currPerPersonCostK / prevPerPersonCostK - 1) * 100;
+        }
+      }
+
+      // 포맷팅
+      let result = `[당월 인원수 ${Math.round(currHeadcount)}명, 인당 인건비 ${currPerPersonCostK.toFixed(1)}K`;
+
+      if (yoyPercent !== null && !isNaN(yoyPercent)) {
+        // 전년비 표시
+        const sign = yoyPercent >= 0 ? "+" : "△";
+        const absYoy = Math.abs(yoyPercent);
+        result += `, 전년비 ${sign}${absYoy.toFixed(1)}%`;
+      } else {
+        // 전년비 계산 불가
+        result += `, 전년비 -`;
+      }
+
+      result += `]`;
+      return result;
+    } catch (error) {
+      console.error("기본급 설명 계산 오류:", error);
+      return "-";
+    }
   };
 
   // YOY 포맷 (소수점 없이)
@@ -1808,7 +2085,20 @@ export function ExpenseAccountHierTable({
                         ) : (
                           <div className="flex items-center justify-between gap-2">
                             <span className="flex-1 min-w-0">
-                              {descriptions.get(row.id) || row.description || "-"}
+                              {(() => {
+                                // 인건비 대분류(level 1) 행의 경우 자동 계산된 설명 우선 표시
+                                const laborCostDescription = calculateLaborCostDescription(row);
+                                if (laborCostDescription) {
+                                  return laborCostDescription;
+                                }
+                                // 인건비 > 기본급 행의 경우 자동 계산된 설명 우선 표시
+                                const autoDescription = calculateBasicSalaryDescription(row);
+                                if (autoDescription) {
+                                  return autoDescription;
+                                }
+                                // 그 외의 경우 저장된 설명 또는 기본 설명 표시
+                                return descriptions.get(row.id) || row.description || "-";
+                              })()}
                             </span>
                             <button
                               onClick={(e) => {
@@ -1912,7 +2202,20 @@ export function ExpenseAccountHierTable({
                         ) : (
                           <div className="flex items-center justify-between gap-2">
                             <span className="flex-1 min-w-0">
-                              {descriptions.get(row.id) || row.description || "-"}
+                              {(() => {
+                                // 인건비 대분류(level 1) 행의 경우 자동 계산된 설명 우선 표시 (당월 모드만)
+                                const laborCostDescription = calculateLaborCostDescription(row);
+                                if (laborCostDescription) {
+                                  return laborCostDescription;
+                                }
+                                // 인건비 > 기본급 행의 경우 자동 계산된 설명 우선 표시 (당월 모드만)
+                                const autoDescription = calculateBasicSalaryDescription(row);
+                                if (autoDescription) {
+                                  return autoDescription;
+                                }
+                                // 그 외의 경우 저장된 설명 또는 기본 설명 표시
+                                return descriptions.get(row.id) || row.description || "-";
+                              })()}
                             </span>
                             <button
                               onClick={(e) => {
