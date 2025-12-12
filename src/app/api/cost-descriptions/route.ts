@@ -84,11 +84,11 @@ export async function POST(request: NextRequest) {
 
     // 기존 값 조회 (로그용)
     const key = `cost-descriptions:${brand}:${ym}:${mode}`;
-    const existingDescriptions = await kv.get<Record<string, string>>(key) || {};
+    const existingDescriptions = (await kv.get<Record<string, string>>(key)) || {};
     const oldValue = existingDescriptions[accountPath] || "";
 
     // 새 값 저장
-    const newDescriptions = {
+    const newDescriptions: Record<string, string> = {
       ...existingDescriptions,
       [accountPath]: description || "",
     };
