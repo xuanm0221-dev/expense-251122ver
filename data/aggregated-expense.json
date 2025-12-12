@@ -7594,8 +7594,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -7604,8 +7604,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -7614,8 +7614,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -7944,8 +7944,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -7954,8 +7954,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -7964,8 +7964,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -8294,8 +8294,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -8304,8 +8304,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -8314,8 +8314,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -8644,8 +8644,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -8654,8 +8654,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -8664,8 +8664,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -8994,8 +8994,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -9004,8 +9004,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -9014,8 +9014,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -9344,8 +9344,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -9354,8 +9354,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -9364,8 +9364,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -9694,8 +9694,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -9704,8 +9704,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -9714,8 +9714,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -10044,8 +10044,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -10054,8 +10054,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -10064,8 +10064,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -10394,8 +10394,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -10404,8 +10404,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -10414,8 +10414,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -10744,8 +10744,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -10754,8 +10754,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -10764,8 +10764,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 3.0
     },
     {
@@ -11094,8 +11094,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -11104,8 +11104,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -11114,8 +11114,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 18.0
     },
     {
@@ -11444,8 +11444,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -11454,8 +11454,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -11464,8 +11464,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "amount": 9.0
     },
     {
@@ -15994,8 +15994,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -16164,8 +16164,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1482.0
     },
     {
@@ -16334,8 +16334,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1482.0
     },
     {
@@ -16504,8 +16504,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1482.0
     },
     {
@@ -16674,8 +16674,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1482.0
     },
     {
@@ -16844,8 +16844,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1482.0
     },
     {
@@ -17014,8 +17014,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 741.0
     },
     {
@@ -17184,8 +17184,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 741.0
     },
     {
@@ -17354,8 +17354,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 741.0
     },
     {
@@ -17524,8 +17524,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 741.0
     },
     {
@@ -17694,8 +17694,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 741.0
     },
     {
@@ -17864,8 +17864,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 741.0
     },
     {
@@ -20074,8 +20074,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -20084,8 +20084,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -20094,8 +20094,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -20394,8 +20394,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -20404,8 +20404,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3982.0
     },
     {
@@ -20414,8 +20414,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 315.0
     },
     {
@@ -20714,8 +20714,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -20724,8 +20724,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3829.0
     },
     {
@@ -20734,8 +20734,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 212.0
     },
     {
@@ -21034,8 +21034,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -21044,8 +21044,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3829.0
     },
     {
@@ -21054,8 +21054,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 182.0
     },
     {
@@ -21354,8 +21354,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -21364,8 +21364,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3829.0
     },
     {
@@ -21374,8 +21374,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 107.0
     },
     {
@@ -21674,8 +21674,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -21684,8 +21684,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3829.0
     },
     {
@@ -21694,8 +21694,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 100.0
     },
     {
@@ -21994,8 +21994,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -22004,8 +22004,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3829.0
     },
     {
@@ -22014,8 +22014,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 141.0
     },
     {
@@ -22314,8 +22314,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -22324,8 +22324,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3816.0
     },
     {
@@ -22334,8 +22334,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 132.0
     },
     {
@@ -22634,8 +22634,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -22644,8 +22644,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3369.0
     },
     {
@@ -22654,8 +22654,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 134.0
     },
     {
@@ -22954,8 +22954,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -22964,8 +22964,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3369.0
     },
     {
@@ -22974,8 +22974,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 126.0
     },
     {
@@ -23274,8 +23274,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -23284,8 +23284,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 3369.0
     },
     {
@@ -23294,8 +23294,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 94.0
     },
     {
@@ -23594,8 +23594,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -23604,8 +23604,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 2446.0
     },
     {
@@ -23614,8 +23614,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "amount": 60.0
     },
     {
@@ -27754,8 +27754,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 189814.0
     },
     {
@@ -27764,8 +27764,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 83906.0
     },
     {
@@ -27774,8 +27774,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 225725.0
     },
     {
@@ -28364,8 +28364,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 189606.0
     },
     {
@@ -28374,8 +28374,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 71769.0
     },
     {
@@ -28384,8 +28384,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 229331.0
     },
     {
@@ -28974,8 +28974,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 189990.0
     },
     {
@@ -28984,8 +28984,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 75316.0
     },
     {
@@ -28994,8 +28994,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 225518.0
     },
     {
@@ -29584,8 +29584,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 171889.0
     },
     {
@@ -29594,8 +29594,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 80316.0
     },
     {
@@ -29604,8 +29604,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 225894.0
     },
     {
@@ -30194,8 +30194,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 173514.0
     },
     {
@@ -30204,8 +30204,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 88807.0
     },
     {
@@ -30214,8 +30214,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 225574.0
     },
     {
@@ -30804,8 +30804,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 173514.0
     },
     {
@@ -30814,8 +30814,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 78120.0
     },
     {
@@ -30824,8 +30824,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 224006.0
     },
     {
@@ -31414,8 +31414,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 173514.0
     },
     {
@@ -31424,8 +31424,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 76954.0
     },
     {
@@ -31434,8 +31434,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 225967.0
     },
     {
@@ -32024,8 +32024,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 173514.0
     },
     {
@@ -32034,8 +32034,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 79025.0
     },
     {
@@ -32044,8 +32044,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 249188.0
     },
     {
@@ -32634,8 +32634,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 173514.0
     },
     {
@@ -32644,8 +32644,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 71311.0
     },
     {
@@ -32654,8 +32654,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 261624.0
     },
     {
@@ -33244,8 +33244,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 173514.0
     },
     {
@@ -33254,8 +33254,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 73207.0
     },
     {
@@ -33264,8 +33264,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 264210.0
     },
     {
@@ -33854,8 +33854,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 173514.0
     },
     {
@@ -33864,8 +33864,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 76934.0
     },
     {
@@ -33874,8 +33874,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 260493.0
     },
     {
@@ -34464,8 +34464,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "amount": 164342.0
     },
     {
@@ -34474,8 +34474,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 76509.0
     },
     {
@@ -34484,8 +34484,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "amount": 106339.0
     },
     {
@@ -42394,8 +42394,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 0.0
     },
     {
@@ -42404,8 +42404,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 0.0
     },
     {
@@ -42414,8 +42414,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -42604,8 +42604,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -42614,8 +42614,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 710.0
     },
     {
@@ -42624,8 +42624,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": 24.0
     },
     {
@@ -42814,8 +42814,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -42824,8 +42824,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 710.0
     },
     {
@@ -42834,8 +42834,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": 12.0
     },
     {
@@ -43024,8 +43024,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -43034,8 +43034,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 710.0
     },
     {
@@ -43044,8 +43044,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": -5.0
     },
     {
@@ -43234,8 +43234,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -43244,8 +43244,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 710.0
     },
     {
@@ -43254,8 +43254,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": 33.0
     },
     {
@@ -43444,8 +43444,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -43454,8 +43454,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 710.0
     },
     {
@@ -43464,8 +43464,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": -3.0
     },
     {
@@ -43654,8 +43654,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -43664,8 +43664,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1348.0
     },
     {
@@ -43674,8 +43674,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": -10.0
     },
     {
@@ -43864,8 +43864,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -43874,8 +43874,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1348.0
     },
     {
@@ -43884,8 +43884,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": -4.0
     },
     {
@@ -44074,8 +44074,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -44084,8 +44084,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1348.0
     },
     {
@@ -44094,8 +44094,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": -3.0
     },
     {
@@ -44284,8 +44284,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -44294,8 +44294,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1348.0
     },
     {
@@ -44304,8 +44304,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": 0.0
     },
     {
@@ -44494,8 +44494,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -44504,8 +44504,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1348.0
     },
     {
@@ -44514,8 +44514,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": -2.0
     },
     {
@@ -44704,8 +44704,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "amount": 208.0
     },
     {
@@ -44714,8 +44714,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "amount": 1348.0
     },
     {
@@ -44724,8 +44724,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "amount": 2.0
     },
     {
@@ -73834,24 +73834,24 @@
       "biz_unit": "DISCOVERY",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "무형자산 상각비",
       "annual_amount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "유형자산 감가상각비",
       "annual_amount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "DISCOVERY",
+      "cost_lv2": "DISCOVERY",
+      "cost_lv3": "인테리어 상각비",
       "annual_amount": 30.0
     },
     {
@@ -74394,8 +74394,8 @@
       "biz_unit": "DUVETICA",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "DUVETICA",
+      "cost_lv2": "DUVETICA",
+      "cost_lv3": "유형자산 감가상각비",
       "annual_amount": 11856.0
     },
     {
@@ -74666,24 +74666,24 @@
       "biz_unit": "KIDS",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "무형자산 상각비",
       "annual_amount": 0.0
     },
     {
       "biz_unit": "KIDS",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "유형자산 감가상각비",
       "annual_amount": 39496.0
     },
     {
       "biz_unit": "KIDS",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "KIDS",
+      "cost_lv2": "KIDS",
+      "cost_lv3": "인테리어 상각비",
       "annual_amount": 1603.0
     },
     {
@@ -75178,24 +75178,24 @@
       "biz_unit": "MLB",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "무형자산 상각비",
       "annual_amount": 2120239.0
     },
     {
       "biz_unit": "MLB",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "유형자산 감가상각비",
       "annual_amount": 932174.0
     },
     {
       "biz_unit": "MLB",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "MLB",
+      "cost_lv2": "MLB",
+      "cost_lv3": "인테리어 상각비",
       "annual_amount": 2723869.0
     },
     {
@@ -76154,24 +76154,24 @@
       "biz_unit": "SUPRA",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "무형자산 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "무형자산 상각비",
       "annual_amount": 2288.0
     },
     {
       "biz_unit": "SUPRA",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "유형자산 감가상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "유형자산 감가상각비",
       "annual_amount": 11638.0
     },
     {
       "biz_unit": "SUPRA",
       "year": 2024,
       "cost_lv1": "감가상각비",
-      "cost_lv2": "인테리어 상각비",
-      "cost_lv3": "SUPRA",
+      "cost_lv2": "SUPRA",
+      "cost_lv3": "인테리어 상각비",
       "annual_amount": 44.0
     },
     {

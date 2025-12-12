@@ -231,9 +231,50 @@ export function CategoryDrilldown({
       }
     });
 
+    // 전년도 데이터 매핑 디버깅
+    console.log(`[CategoryDrilldown] DetailMap keys (${detailMap.size}):`, Array.from(detailMap.keys()));
+    console.log(`[CategoryDrilldown] PrevDetailMap keys (${prevDetailMap.size}):`, Array.from(prevDetailMap.keys()));
+    
+    // 키 매칭 확인
+    const allKeys = new Set([...detailMap.keys(), ...prevDetailMap.keys()]);
+    console.log(`[CategoryDrilldown] All unique keys:`, Array.from(allKeys));
+    
+    // 전년도 데이터를 cost_lv2, cost_lv3 값으로 직접 찾기 위한 매핑 생성
+    const prevDataByLv = new Map<string, CategoryDetail>();
+    prevDetailMap.forEach((item, key) => {
+      const lv2 = (item.cost_lv2 || "").trim() || "기타";
+      const lv3 = (item.cost_lv3 || "").trim();
+      // 소분류가 있고 중분류와 다르면 소분류 포함 키 사용, 아니면 중분류만
+      const lookupKey = lv3 !== "" && lv3 !== lv2 ? `${lv2}|${lv3}` : lv2;
+      // 이미 있으면 amount 합산
+      if (prevDataByLv.has(lookupKey)) {
+        prevDataByLv.get(lookupKey)!.amount += item.amount;
+      } else {
+        prevDataByLv.set(lookupKey, { ...item });
+      }
+    });
+
     level2Data = Array.from(detailMap.entries())
       .map(([key, current]) => {
-        const prev = prevDetailMap.get(key);
+        // 키로 먼저 시도
+        let prev = prevDetailMap.get(key);
+        
+        // 키로 찾지 못한 경우, cost_lv2/cost_lv3 값으로 직접 찾기
+        if (!prev) {
+          const lv2 = (current.cost_lv2 || "").trim() || "기타";
+          const lv3 = (current.cost_lv3 || "").trim();
+          const lookupKey = lv3 !== "" && lv3 !== lv2 ? `${lv2}|${lv3}` : lv2;
+          prev = prevDataByLv.get(lookupKey);
+          
+          if (!prev && prevDetailMap.size > 0) {
+            console.log(`[CategoryDrilldown] 전년도 데이터 없음 - key: "${key}", lookupKey: "${lookupKey}", current:`, {
+              lv2: current.cost_lv2,
+              lv3: current.cost_lv3,
+              amount: current.amount
+            });
+          }
+        }
+        
         const yoy =
           prev && prev.amount > 0
             ? (current.amount / prev.amount) * 100
@@ -256,8 +297,7 @@ export function CategoryDrilldown({
       .sort((a, b) => b.current - a.current);
 
     console.log(`[CategoryDrilldown] Level2Data (${level2Data.length} items):`, level2Data);
-    console.log(`[CategoryDrilldown] DetailMap keys:`, Array.from(detailMap.keys()));
-    console.log(`[CategoryDrilldown] DetailMap entries:`, Array.from(detailMap.entries()).slice(0, 10));
+    console.log(`[CategoryDrilldown] 전년도 데이터 포함된 항목:`, level2Data.filter(item => item.previous > 0).map(item => ({ label: item.label, previous: item.previous })));
   }
 
   const CustomTooltip = ({ active, payload, label }: any) => {
@@ -391,12 +431,27 @@ export function CategoryDrilldown({
                     name="당년"
                     radius={[0, 4, 4, 0]}
                     fill={selectedCategory ? (EXPENSE_COLOR_MAP[selectedCategory] || DEFAULT_COLOR) : DEFAULT_COLOR}
+                    shape={(props: any) => {
+                      const { payload, x, y, width, height } = props;
+                      if (!payload) {
+                        return <rect x={x} y={y} width={width} height={height} fill={DEFAULT_COLOR} rx={4} />;
+                      }
+                      const fill = selectedCategory 
+                        ? (EXPENSE_COLOR_MAP[selectedCategory] || DEFAULT_COLOR) 
+                        : DEFAULT_COLOR;
+                      return <rect x={x} y={y} width={width} height={height} fill={fill} rx={4} />;
+                    }}
                   />
                   <Bar
                     dataKey="previous"
                     name="전년"
                     radius={[0, 4, 4, 0]}
                     fill={PREVIOUS_YEAR_COLOR}
+                    shape={(props: any) => {
+                      // 전년도는 항상 회색으로 고정
+                      const { x, y, width, height } = props;
+                      return <rect x={x} y={y} width={width} height={height} fill={PREVIOUS_YEAR_COLOR} rx={4} />;
+                    }}
                   />
                 </BarChart>
               </ResponsiveContainer>
