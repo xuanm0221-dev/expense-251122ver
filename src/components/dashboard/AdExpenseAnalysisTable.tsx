@@ -350,14 +350,14 @@ export function AdExpenseAnalysisTable({
             </tr>
             {/* 두 번째 헤더 행 */}
             <tr className={`${colors.headerLight} text-white`}>
-              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">25년 금액</th>
-              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">매출대비%</th>
               <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">24년 금액</th>
+              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">매출대비%</th>
+              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">25년 금액</th>
               <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">매출대비%</th>
               <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">증감(p)</th>
-              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">25년 금액</th>
-              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">매출대비%</th>
               <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">24년 금액</th>
+              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">매출대비%</th>
+              <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">25년 금액</th>
               <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">매출대비%</th>
               <th className="border-r border-gray-300 px-2 py-2 text-center text-xs font-semibold">증감(p)</th>
             </tr>
@@ -387,16 +387,6 @@ export function AdExpenseAnalysisTable({
                     </div>
                   </td>
 
-                  {/* 25년 연간 금액 */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
-                    {isSalesRow ? formatK(row.annual25_amount) : formatK(row.annual25_amount)}
-                  </td>
-
-                  {/* 25년 연간 매출대비% */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
-                    {row.annual25_ratio !== null ? formatPercent(row.annual25_ratio, 2) : "-"}
-                  </td>
-
                   {/* 24년 연간 금액 */}
                   <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
                     {formatK(row.annual24_amount)}
@@ -407,19 +397,19 @@ export function AdExpenseAnalysisTable({
                     {row.annual24_ratio !== null ? formatPercent(row.annual24_ratio, 2) : "-"}
                   </td>
 
+                  {/* 25년 연간 금액 */}
+                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                    {isSalesRow ? formatK(row.annual25_amount) : formatK(row.annual25_amount)}
+                  </td>
+
+                  {/* 25년 연간 매출대비% */}
+                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                    {row.annual25_ratio !== null ? formatPercent(row.annual25_ratio, 2) : "-"}
+                  </td>
+
                   {/* 연간 증감(p) */}
                   <td className={`border-r border-gray-200 px-2 py-2 text-sm text-right ${getDiffColor(row.annual_ratio_diff)}`}>
                     {row.annual_ratio_diff !== null ? formatPercentPoint(row.annual_ratio_diff, 2) : "-"}
-                  </td>
-
-                  {/* 25년 YTD 금액 */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
-                    {formatK(row.ytd25_amount)}
-                  </td>
-
-                  {/* 25년 YTD 매출대비% */}
-                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
-                    {row.ytd25_ratio !== null ? formatPercent(row.ytd25_ratio, 2) : "-"}
                   </td>
 
                   {/* 24년 YTD 금액 */}
@@ -430,6 +420,16 @@ export function AdExpenseAnalysisTable({
                   {/* 24년 YTD 매출대비% */}
                   <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
                     {row.ytd24_ratio !== null ? formatPercent(row.ytd24_ratio, 2) : "-"}
+                  </td>
+
+                  {/* 25년 YTD 금액 */}
+                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                    {formatK(row.ytd25_amount)}
+                  </td>
+
+                  {/* 25년 YTD 매출대비% */}
+                  <td className="border-r border-gray-200 px-2 py-2 text-sm text-right">
+                    {row.ytd25_ratio !== null ? formatPercent(row.ytd25_ratio, 2) : "-"}
                   </td>
 
                   {/* YTD 증감(p) */}
