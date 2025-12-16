@@ -692,7 +692,42 @@ def merge_all_data(
     return merged
 
 
-def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = None) -> Dict[str, Any]:
+def reassign_biz_unit_by_subcategory(df: pd.DataFrame) -> pd.DataFrame:
+    """인건비/복리후생비의 소분류 기준으로 사업부 재할당
+    - 대분류가 "인건비" 또는 "복리후생비"이고, 소분류가 "경영지원"인 경우 → 공통
+    - 나머지 비용은 원래 사업부구분 그대로 유지
+    """
+    # 재할당 전 통계
+    before_common = (df["biz_unit"] == "공통").sum()
+    before_mlb = (df["biz_unit"] == "MLB").sum()
+    
+    # 조건: 대분류가 인건비 또는 복리후생비이고, 소분류가 경영지원인 경우
+    mask = (
+        (df["cost_lv1"].isin(["인건비", "복리후생비"])) &
+        (df["cost_lv3"] == "경영지원")
+    )
+    
+    # 경영지원 → 공통으로 재할당
+    df.loc[mask, "biz_unit"] = "공통"
+    
+    # 재할당 후 통계
+    after_common = (df["biz_unit"] == "공통").sum()
+    after_mlb = (df["biz_unit"] == "MLB").sum()
+    
+    reassigned_count = mask.sum()
+    if reassigned_count > 0:
+        print(f"   - 인건비/복리후생비 경영지원 → 공통 재할당: {reassigned_count}행")
+        print(f"     MLB: {before_mlb}행 → {after_mlb}행 (△{before_mlb - after_mlb})")
+        print(f"     공통: {before_common}행 → {after_common}행 (+{after_common - before_common})")
+        
+        # 재할당된 금액 확인
+        reassigned_amount = df.loc[mask, "amount"].sum()
+        print(f"     재할당된 금액: {reassigned_amount:,.2f}")
+    
+    return df
+
+
+def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = None, headcount_subcategory_df: pd.DataFrame | None = None) -> Dict[str, Any]:
     """집계 데이터 계산"""
     # 전체 데이터 (DUVETICA, SUPRA 포함)
     full_df = df.copy()
@@ -760,6 +795,34 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
             "sales": "first",
         }
     )
+
+    # ========== 사업부(소분류) 기준 인원수로 덮어쓰기 ==========
+    # 경영지원 → 공통, MLB → MLB, KIDS → KIDS, DISCOVERY → DISCOVERY
+    if headcount_subcategory_df is not None and len(headcount_subcategory_df) > 0:
+        subcategory_to_bizunit = {
+            "경영지원": "공통",
+            "MLB": "MLB",
+            "KIDS": "KIDS",
+            "DISCOVERY": "DISCOVERY",
+        }
+        
+        print(f"   - 사업부(소분류) 기준 인원수 매핑 중...")
+        for subcategory, dashboard_biz in subcategory_to_bizunit.items():
+            sub_headcount = headcount_subcategory_df[
+                headcount_subcategory_df["subcategory"] == subcategory
+            ]
+            for _, row in sub_headcount.iterrows():
+                mask = (monthly_total["biz_unit"] == dashboard_biz) & \
+                       (monthly_total["yyyymm"] == row["yyyymm"])
+                if mask.any():
+                    monthly_total.loc[mask, "headcount"] = row["headcount"]
+        
+        print(f"     매핑 규칙: {subcategory_to_bizunit}")
+        # 디버깅: 매핑 결과 확인
+        for biz in ["공통", "MLB", "KIDS", "DISCOVERY"]:
+            sample = monthly_total[(monthly_total["biz_unit"] == biz) & (monthly_total["yyyymm"] == "202511")]
+            if len(sample) > 0:
+                print(f"     {biz} 202511: headcount={sample['headcount'].values[0]}")
 
     # category_detail은 전체 데이터(DUVETICA, SUPRA 포함)를 사용
     # cost_lv2, cost_lv3가 없으면 빈 문자열로 채우기
@@ -883,9 +946,13 @@ def main() -> int:
         merged_df = merge_all_data(expense_df, headcount_df, headcount_subcategory_df, sales_df)
         print(f"   - 병합된 데이터: {len(merged_df)} 행")
 
+        # 인건비/복리후생비 소분류 기준 사업부 재할당
+        print("4-1. 인건비/복리후생비 소분류 기준 사업부 재할당...")
+        merged_df = reassign_biz_unit_by_subcategory(merged_df)
+
         # 집계 계산
         print("5. 집계 데이터 계산 중...")
-        aggregated = calculate_aggregations(merged_df, annual_df)
+        aggregated = calculate_aggregations(merged_df, annual_df, headcount_subcategory_df)
 
         # JSON 저장
         output_file = OUTPUT_DIR / "aggregated-expense.json"

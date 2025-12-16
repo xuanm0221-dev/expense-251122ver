@@ -3386,8 +3386,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "복리후생비",
-      "amount": 1398213.0,
-      "headcount": 73.0,
+      "amount": 933423.0,
+      "headcount": 127.0,
       "sales": 775693012.0
     },
     {
@@ -3406,8 +3406,8 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "인건비",
-      "amount": 6240572.0,
-      "headcount": 73.0,
+      "amount": 3826973.0,
+      "headcount": 127.0,
       "sales": 775693012.0
     },
     {
@@ -3456,8 +3456,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "복리후생비",
-      "amount": 1364173.0,
-      "headcount": 73.0,
+      "amount": 897089.0,
+      "headcount": 124.0,
       "sales": 811312966.0
     },
     {
@@ -3476,8 +3476,8 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "인건비",
-      "amount": 9717864.0,
-      "headcount": 73.0,
+      "amount": 5939543.0,
+      "headcount": 124.0,
       "sales": 811312966.0
     },
     {
@@ -3526,8 +3526,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "복리후생비",
-      "amount": 1358713.0,
-      "headcount": 75.0,
+      "amount": 871523.0,
+      "headcount": 125.0,
       "sales": 659575345.0
     },
     {
@@ -3546,8 +3546,8 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "인건비",
-      "amount": 1463683.0,
-      "headcount": 75.0,
+      "amount": -10333116.0,
+      "headcount": 125.0,
       "sales": 659575345.0
     },
     {
@@ -3596,8 +3596,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "복리후생비",
-      "amount": 1294462.0,
-      "headcount": 73.0,
+      "amount": 851329.0,
+      "headcount": 125.0,
       "sales": 660729738.0
     },
     {
@@ -3616,8 +3616,8 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "인건비",
-      "amount": 6605474.0,
-      "headcount": 73.0,
+      "amount": 4046193.0,
+      "headcount": 125.0,
       "sales": 660729738.0
     },
     {
@@ -3666,8 +3666,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "복리후생비",
-      "amount": 1307160.0,
-      "headcount": 73.0,
+      "amount": 864737.0,
+      "headcount": 125.0,
       "sales": 680762984.0
     },
     {
@@ -3686,8 +3686,8 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "인건비",
-      "amount": 6848599.0,
-      "headcount": 73.0,
+      "amount": 4176479.0,
+      "headcount": 125.0,
       "sales": 680762984.0
     },
     {
@@ -3736,8 +3736,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "복리후생비",
-      "amount": 1298450.0,
-      "headcount": 74.0,
+      "amount": 837418.0,
+      "headcount": 122.0,
       "sales": 577505906.0
     },
     {
@@ -3756,8 +3756,8 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "인건비",
-      "amount": 6984366.0,
-      "headcount": 74.0,
+      "amount": 3857107.0,
+      "headcount": 122.0,
       "sales": 577505906.0
     },
     {
@@ -3806,8 +3806,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "복리후생비",
-      "amount": 1286270.0,
-      "headcount": 72.0,
+      "amount": 838118.0,
+      "headcount": 121.0,
       "sales": 513176438.0
     },
     {
@@ -3826,8 +3826,8 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "인건비",
-      "amount": 6679099.0,
-      "headcount": 72.0,
+      "amount": 4154970.0,
+      "headcount": 121.0,
       "sales": 513176438.0
     },
     {
@@ -3876,8 +3876,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "복리후생비",
-      "amount": 1707308.0,
-      "headcount": 72.0,
+      "amount": 1128981.0,
+      "headcount": 131.0,
       "sales": 560099219.0
     },
     {
@@ -3896,8 +3896,8 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "인건비",
-      "amount": 6728296.0,
-      "headcount": 72.0,
+      "amount": 4217813.0,
+      "headcount": 131.0,
       "sales": 560099219.0
     },
     {
@@ -3946,8 +3946,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "복리후생비",
-      "amount": 1551858.0,
-      "headcount": 71.0,
+      "amount": 1042213.0,
+      "headcount": 133.0,
       "sales": 564071023.0
     },
     {
@@ -3966,8 +3966,8 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "인건비",
-      "amount": 6658160.0,
-      "headcount": 71.0,
+      "amount": 4155916.0,
+      "headcount": 133.0,
       "sales": 564071023.0
     },
     {
@@ -4016,8 +4016,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "복리후생비",
-      "amount": 1566808.0,
-      "headcount": 71.0,
+      "amount": 1057163.0,
+      "headcount": 135.0,
       "sales": 849376921.0
     },
     {
@@ -4036,8 +4036,8 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "인건비",
-      "amount": 6759765.0,
-      "headcount": 71.0,
+      "amount": 4164564.0,
+      "headcount": 135.0,
       "sales": 849376921.0
     },
     {
@@ -4086,8 +4086,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "복리후생비",
-      "amount": 1528351.0,
-      "headcount": 70.0,
+      "amount": 1021718.0,
+      "headcount": 133.0,
       "sales": 816167738.0
     },
     {
@@ -4106,8 +4106,8 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "인건비",
-      "amount": 6628059.0,
-      "headcount": 70.0,
+      "amount": 4072422.0,
+      "headcount": 133.0,
       "sales": 816167738.0
     },
     {
@@ -4156,8 +4156,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "복리후생비",
-      "amount": 1526442.0,
-      "headcount": 71.0,
+      "amount": 1022446.0,
+      "headcount": 132.0,
       "sales": 852812009.0
     },
     {
@@ -4176,8 +4176,8 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "인건비",
-      "amount": 6506166.0,
-      "headcount": 71.0,
+      "amount": 3999374.0,
+      "headcount": 132.0,
       "sales": 852812009.0
     },
     {
@@ -4226,8 +4226,8 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "복리후생비",
-      "amount": 1549700.0,
-      "headcount": 73.0,
+      "amount": 1024650.0,
+      "headcount": 133.0,
       "sales": 1107450309.0
     },
     {
@@ -4246,8 +4246,8 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "인건비",
-      "amount": 11750042.0,
-      "headcount": 73.0,
+      "amount": 7243202.0,
+      "headcount": 133.0,
       "sales": 1107450309.0
     },
     {
@@ -4296,8 +4296,8 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "복리후생비",
-      "amount": 1520649.0,
-      "headcount": 72.0,
+      "amount": 1016528.0,
+      "headcount": 133.0,
       "sales": 535372030.0
     },
     {
@@ -4316,8 +4316,8 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "인건비",
-      "amount": 6607001.0,
-      "headcount": 72.0,
+      "amount": 4119026.0,
+      "headcount": 133.0,
       "sales": 535372030.0
     },
     {
@@ -4366,8 +4366,8 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "복리후생비",
-      "amount": 1537997.0,
-      "headcount": 72.0,
+      "amount": 1051427.0,
+      "headcount": 132.0,
       "sales": 665246475.0
     },
     {
@@ -4386,8 +4386,8 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "인건비",
-      "amount": -372995.98000000045,
-      "headcount": 72.0,
+      "amount": -9295396.98,
+      "headcount": 132.0,
       "sales": 665246475.0
     },
     {
@@ -4436,8 +4436,8 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "복리후생비",
-      "amount": 1532175.0,
-      "headcount": 72.0,
+      "amount": 1045928.0,
+      "headcount": 133.0,
       "sales": 652833667.0
     },
     {
@@ -4456,8 +4456,8 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "인건비",
-      "amount": 7189324.0,
-      "headcount": 72.0,
+      "amount": 4322896.0,
+      "headcount": 133.0,
       "sales": 652833667.0
     },
     {
@@ -4506,8 +4506,8 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "복리후생비",
-      "amount": 1529625.0,
-      "headcount": 72.0,
+      "amount": 1008978.0,
+      "headcount": 132.0,
       "sales": 721255069.0
     },
     {
@@ -4526,8 +4526,8 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "인건비",
-      "amount": 6697348.0,
-      "headcount": 72.0,
+      "amount": 4186479.0,
+      "headcount": 132.0,
       "sales": 721255069.0
     },
     {
@@ -4576,8 +4576,8 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "복리후생비",
-      "amount": 1490840.0,
-      "headcount": 71.0,
+      "amount": 988392.0,
+      "headcount": 130.0,
       "sales": 552730387.0
     },
     {
@@ -4596,8 +4596,8 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "인건비",
-      "amount": 6752780.0,
-      "headcount": 71.0,
+      "amount": 4223633.0,
+      "headcount": 130.0,
       "sales": 552730387.0
     },
     {
@@ -4646,8 +4646,8 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "복리후생비",
-      "amount": 1490607.0,
-      "headcount": 72.0,
+      "amount": 992259.0,
+      "headcount": 132.0,
       "sales": 522527235.0
     },
     {
@@ -4666,8 +4666,8 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "인건비",
-      "amount": 6847611.0,
-      "headcount": 72.0,
+      "amount": 4270990.0,
+      "headcount": 132.0,
       "sales": 522527235.0
     },
     {
@@ -4716,8 +4716,8 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "복리후생비",
-      "amount": 1923313.0,
-      "headcount": 72.0,
+      "amount": 1268571.0,
+      "headcount": 128.0,
       "sales": 590182141.0
     },
     {
@@ -4736,8 +4736,8 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "인건비",
-      "amount": 7147323.0,
-      "headcount": 72.0,
+      "amount": 4085287.0,
+      "headcount": 128.0,
       "sales": 590182141.0
     },
     {
@@ -4786,8 +4786,8 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "복리후생비",
-      "amount": 1733020.0,
-      "headcount": 72.0,
+      "amount": 1078315.0,
+      "headcount": 127.0,
       "sales": 552479892.0
     },
     {
@@ -4806,8 +4806,8 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "인건비",
-      "amount": 6513748.0,
-      "headcount": 72.0,
+      "amount": 4186179.0,
+      "headcount": 127.0,
       "sales": 552479892.0
     },
     {
@@ -4856,8 +4856,8 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "복리후생비",
-      "amount": 1724976.0,
-      "headcount": 71.0,
+      "amount": 1078315.0,
+      "headcount": 128.0,
       "sales": 896298588.0
     },
     {
@@ -4876,8 +4876,8 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "인건비",
-      "amount": 6709747.0,
-      "headcount": 71.0,
+      "amount": 4184172.0,
+      "headcount": 128.0,
       "sales": 896298588.0
     },
     {
@@ -4926,8 +4926,8 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "amount": 1737299.25,
-      "headcount": 72.0,
+      "amount": 1090638.25,
+      "headcount": 128.0,
       "sales": 804211750.6
     },
     {
@@ -4946,8 +4946,8 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "인건비",
-      "amount": 6680532.2299999995,
-      "headcount": 72.0,
+      "amount": 3908404.5,
+      "headcount": 128.0,
       "sales": 804211750.6
     },
     {
@@ -4997,7 +4997,7 @@
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
       "amount": 0.0,
-      "headcount": 73.0,
+      "headcount": 137.0,
       "sales": 877748575.0
     },
     {
@@ -5017,7 +5017,7 @@
       "yyyymm": "202512",
       "cost_lv1": "인건비",
       "amount": 0.0,
-      "headcount": 73.0,
+      "headcount": 137.0,
       "sales": 877748575.0
     },
     {
@@ -5066,9 +5066,9 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "복리후생비",
-      "amount": 2212208.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 2676998.0,
+      "headcount": 73.0,
+      "sales": 775693012.0
     },
     {
       "biz_unit": "공통",
@@ -5079,6 +5079,16 @@
       "amount": 3155403.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "인건비",
+      "amount": 2413599.0,
+      "headcount": 73.0,
+      "sales": 775693012.0
     },
     {
       "biz_unit": "공통",
@@ -5136,9 +5146,9 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "복리후생비",
-      "amount": 768484.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1235568.0,
+      "headcount": 73.0,
+      "sales": 811312966.0
     },
     {
       "biz_unit": "공통",
@@ -5149,6 +5159,16 @@
       "amount": 176977.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "인건비",
+      "amount": 3778321.0,
+      "headcount": 73.0,
+      "sales": 811312966.0
     },
     {
       "biz_unit": "공통",
@@ -5206,9 +5226,9 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "복리후생비",
-      "amount": 625138.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1112328.0,
+      "headcount": 75.0,
+      "sales": 659575345.0
     },
     {
       "biz_unit": "공통",
@@ -5219,6 +5239,16 @@
       "amount": 221101.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "인건비",
+      "amount": 11796799.0,
+      "headcount": 75.0,
+      "sales": 659575345.0
     },
     {
       "biz_unit": "공통",
@@ -5276,9 +5306,9 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "복리후생비",
-      "amount": 498329.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 941462.0,
+      "headcount": 73.0,
+      "sales": 660729738.0
     },
     {
       "biz_unit": "공통",
@@ -5289,6 +5319,16 @@
       "amount": 165506.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "인건비",
+      "amount": 2559281.0,
+      "headcount": 73.0,
+      "sales": 660729738.0
     },
     {
       "biz_unit": "공통",
@@ -5346,9 +5386,9 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "복리후생비",
-      "amount": 727752.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1170175.0,
+      "headcount": 73.0,
+      "sales": 680762984.0
     },
     {
       "biz_unit": "공통",
@@ -5359,6 +5399,16 @@
       "amount": 1956274.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "인건비",
+      "amount": 2672120.0,
+      "headcount": 73.0,
+      "sales": 680762984.0
     },
     {
       "biz_unit": "공통",
@@ -5416,9 +5466,9 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "복리후생비",
-      "amount": 884921.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1345953.0,
+      "headcount": 74.0,
+      "sales": 577505906.0
     },
     {
       "biz_unit": "공통",
@@ -5429,6 +5479,16 @@
       "amount": 1453402.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "인건비",
+      "amount": 3127259.0,
+      "headcount": 74.0,
+      "sales": 577505906.0
     },
     {
       "biz_unit": "공통",
@@ -5486,9 +5546,9 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "복리후생비",
-      "amount": 640390.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1088542.0,
+      "headcount": 72.0,
+      "sales": 513176438.0
     },
     {
       "biz_unit": "공통",
@@ -5499,6 +5559,16 @@
       "amount": 885569.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "인건비",
+      "amount": 2524129.0,
+      "headcount": 72.0,
+      "sales": 513176438.0
     },
     {
       "biz_unit": "공통",
@@ -5556,9 +5626,9 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "복리후생비",
-      "amount": 538713.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1117040.0,
+      "headcount": 72.0,
+      "sales": 560099219.0
     },
     {
       "biz_unit": "공통",
@@ -5569,6 +5639,16 @@
       "amount": 287724.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "인건비",
+      "amount": 2510483.0,
+      "headcount": 72.0,
+      "sales": 560099219.0
     },
     {
       "biz_unit": "공통",
@@ -5626,9 +5706,9 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "복리후생비",
-      "amount": 832043.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1341688.0,
+      "headcount": 71.0,
+      "sales": 564071023.0
     },
     {
       "biz_unit": "공통",
@@ -5639,6 +5719,16 @@
       "amount": 1557420.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "인건비",
+      "amount": 2502244.0,
+      "headcount": 71.0,
+      "sales": 564071023.0
     },
     {
       "biz_unit": "공통",
@@ -5696,9 +5786,9 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "복리후생비",
-      "amount": 698010.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1207655.0,
+      "headcount": 71.0,
+      "sales": 849376921.0
     },
     {
       "biz_unit": "공통",
@@ -5709,6 +5799,16 @@
       "amount": 298617.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "인건비",
+      "amount": 2595201.0,
+      "headcount": 71.0,
+      "sales": 849376921.0
     },
     {
       "biz_unit": "공통",
@@ -5766,9 +5866,9 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "복리후생비",
-      "amount": 770252.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1276885.0,
+      "headcount": 70.0,
+      "sales": 816167738.0
     },
     {
       "biz_unit": "공통",
@@ -5779,6 +5879,16 @@
       "amount": 331912.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "인건비",
+      "amount": 2555637.0,
+      "headcount": 70.0,
+      "sales": 816167738.0
     },
     {
       "biz_unit": "공통",
@@ -5836,9 +5946,9 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "복리후생비",
-      "amount": 1392652.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1896648.0,
+      "headcount": 71.0,
+      "sales": 852812009.0
     },
     {
       "biz_unit": "공통",
@@ -5849,6 +5959,16 @@
       "amount": 2608951.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "인건비",
+      "amount": 2506792.0,
+      "headcount": 71.0,
+      "sales": 852812009.0
     },
     {
       "biz_unit": "공통",
@@ -5906,9 +6026,9 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "복리후생비",
-      "amount": 2433587.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 2958637.0,
+      "headcount": 73.0,
+      "sales": 1107450309.0
     },
     {
       "biz_unit": "공통",
@@ -5919,6 +6039,16 @@
       "amount": 1322238.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "인건비",
+      "amount": 4506840.0,
+      "headcount": 73.0,
+      "sales": 1107450309.0
     },
     {
       "biz_unit": "공통",
@@ -5976,9 +6106,9 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "복리후생비",
-      "amount": 956578.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1460699.0,
+      "headcount": 72.0,
+      "sales": 535372030.0
     },
     {
       "biz_unit": "공통",
@@ -5989,6 +6119,16 @@
       "amount": 1577221.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "인건비",
+      "amount": 2487975.0,
+      "headcount": 72.0,
+      "sales": 535372030.0
     },
     {
       "biz_unit": "공통",
@@ -6046,9 +6186,9 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "복리후생비",
-      "amount": 474835.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 961405.0,
+      "headcount": 72.0,
+      "sales": 665246475.0
     },
     {
       "biz_unit": "공통",
@@ -6059,6 +6199,16 @@
       "amount": 217216.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "인건비",
+      "amount": 8922401.0,
+      "headcount": 72.0,
+      "sales": 665246475.0
     },
     {
       "biz_unit": "공통",
@@ -6116,9 +6266,9 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "복리후생비",
-      "amount": 658298.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1144545.0,
+      "headcount": 72.0,
+      "sales": 652833667.0
     },
     {
       "biz_unit": "공통",
@@ -6129,6 +6279,16 @@
       "amount": 170315.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "인건비",
+      "amount": 2866428.0,
+      "headcount": 72.0,
+      "sales": 652833667.0
     },
     {
       "biz_unit": "공통",
@@ -6186,9 +6346,9 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "복리후생비",
-      "amount": 1424371.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1945018.0,
+      "headcount": 72.0,
+      "sales": 721255069.0
     },
     {
       "biz_unit": "공통",
@@ -6199,6 +6359,16 @@
       "amount": 1026098.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "인건비",
+      "amount": 2510869.0,
+      "headcount": 72.0,
+      "sales": 721255069.0
     },
     {
       "biz_unit": "공통",
@@ -6256,9 +6426,9 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "복리후생비",
-      "amount": 296853.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 799301.0,
+      "headcount": 71.0,
+      "sales": 552730387.0
     },
     {
       "biz_unit": "공통",
@@ -6269,6 +6439,16 @@
       "amount": 196394.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "인건비",
+      "amount": 2529147.0,
+      "headcount": 71.0,
+      "sales": 552730387.0
     },
     {
       "biz_unit": "공통",
@@ -6326,9 +6506,9 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "복리후생비",
-      "amount": 814134.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1312482.0,
+      "headcount": 72.0,
+      "sales": 522527235.0
     },
     {
       "biz_unit": "공통",
@@ -6339,6 +6519,16 @@
       "amount": 773838.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "인건비",
+      "amount": 2576621.0,
+      "headcount": 72.0,
+      "sales": 522527235.0
     },
     {
       "biz_unit": "공통",
@@ -6396,9 +6586,9 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "복리후생비",
-      "amount": 514791.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1169533.0,
+      "headcount": 72.0,
+      "sales": 590182141.0
     },
     {
       "biz_unit": "공통",
@@ -6409,6 +6599,16 @@
       "amount": 401935.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "인건비",
+      "amount": 3062036.0,
+      "headcount": 72.0,
+      "sales": 590182141.0
     },
     {
       "biz_unit": "공통",
@@ -6466,9 +6666,9 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "복리후생비",
-      "amount": 652318.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1307023.0,
+      "headcount": 72.0,
+      "sales": 552479892.0
     },
     {
       "biz_unit": "공통",
@@ -6479,6 +6679,16 @@
       "amount": 375853.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "인건비",
+      "amount": 2327569.0,
+      "headcount": 72.0,
+      "sales": 552479892.0
     },
     {
       "biz_unit": "공통",
@@ -6536,9 +6746,9 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "복리후생비",
-      "amount": 649597.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1296258.0,
+      "headcount": 71.0,
+      "sales": 896298588.0
     },
     {
       "biz_unit": "공통",
@@ -6549,6 +6759,16 @@
       "amount": 1830669.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "인건비",
+      "amount": 2525575.0,
+      "headcount": 71.0,
+      "sales": 896298588.0
     },
     {
       "biz_unit": "공통",
@@ -6606,9 +6826,9 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "amount": 626061.17,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 1272722.17,
+      "headcount": 72.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "공통",
@@ -6619,6 +6839,16 @@
       "amount": 1603522.5399999998,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "인건비",
+      "amount": 2772127.7299999995,
+      "headcount": 72.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "공통",
@@ -6677,8 +6907,8 @@
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
       "amount": 0.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "headcount": 73.0,
+      "sales": 877748575.0
     },
     {
       "biz_unit": "공통",
@@ -6689,6 +6919,16 @@
       "amount": 0.0,
       "headcount": 0.0,
       "sales": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 73.0,
+      "sales": 877748575.0
     },
     {
       "biz_unit": "공통",
@@ -7159,8 +7399,8 @@
       "year": 2024,
       "month": 1,
       "yyyymm": "202401",
-      "amount": 30829550.0,
-      "headcount": 73.0,
+      "amount": 27951161.0,
+      "headcount": 127.0,
       "sales": 775693012.0
     },
     {
@@ -7168,8 +7408,8 @@
       "year": 2024,
       "month": 2,
       "yyyymm": "202402",
-      "amount": 20556189.0,
-      "headcount": 73.0,
+      "amount": 16310784.0,
+      "headcount": 124.0,
       "sales": 811312966.0
     },
     {
@@ -7177,8 +7417,8 @@
       "year": 2024,
       "month": 3,
       "yyyymm": "202403",
-      "amount": 11027332.0,
-      "headcount": 75.0,
+      "amount": -1256657.0,
+      "headcount": 125.0,
       "sales": 659575345.0
     },
     {
@@ -7186,8 +7426,8 @@
       "year": 2024,
       "month": 4,
       "yyyymm": "202404",
-      "amount": 18484198.0,
-      "headcount": 73.0,
+      "amount": 15481784.0,
+      "headcount": 125.0,
       "sales": 660729738.0
     },
     {
@@ -7195,8 +7435,8 @@
       "year": 2024,
       "month": 5,
       "yyyymm": "202405",
-      "amount": 14107540.0,
-      "headcount": 73.0,
+      "amount": 10992997.0,
+      "headcount": 125.0,
       "sales": 680762984.0
     },
     {
@@ -7204,8 +7444,8 @@
       "year": 2024,
       "month": 6,
       "yyyymm": "202406",
-      "amount": 21102221.0,
-      "headcount": 74.0,
+      "amount": 17513930.0,
+      "headcount": 122.0,
       "sales": 577505906.0
     },
     {
@@ -7213,8 +7453,8 @@
       "year": 2024,
       "month": 7,
       "yyyymm": "202407",
-      "amount": 12738820.0,
-      "headcount": 72.0,
+      "amount": 9766539.0,
+      "headcount": 121.0,
       "sales": 513176438.0
     },
     {
@@ -7222,8 +7462,8 @@
       "year": 2024,
       "month": 8,
       "yyyymm": "202408",
-      "amount": 26910251.0,
-      "headcount": 72.0,
+      "amount": 23821441.0,
+      "headcount": 131.0,
       "sales": 560099219.0
     },
     {
@@ -7231,8 +7471,8 @@
       "year": 2024,
       "month": 9,
       "yyyymm": "202409",
-      "amount": 24464674.0,
-      "headcount": 71.0,
+      "amount": 21452785.0,
+      "headcount": 133.0,
       "sales": 564071023.0
     },
     {
@@ -7240,8 +7480,8 @@
       "year": 2024,
       "month": 10,
       "yyyymm": "202410",
-      "amount": 21878855.0,
-      "headcount": 71.0,
+      "amount": 18774009.0,
+      "headcount": 135.0,
       "sales": 849376921.0
     },
     {
@@ -7249,8 +7489,8 @@
       "year": 2024,
       "month": 11,
       "yyyymm": "202411",
-      "amount": 20136516.0,
-      "headcount": 70.0,
+      "amount": 17074246.0,
+      "headcount": 133.0,
       "sales": 816167738.0
     },
     {
@@ -7258,8 +7498,8 @@
       "year": 2024,
       "month": 12,
       "yyyymm": "202412",
-      "amount": 18036702.0,
-      "headcount": 71.0,
+      "amount": 15025914.0,
+      "headcount": 132.0,
       "sales": 852812009.0
     },
     {
@@ -7267,8 +7507,8 @@
       "year": 2025,
       "month": 1,
       "yyyymm": "202501",
-      "amount": 33749618.0,
-      "headcount": 73.0,
+      "amount": 28717728.0,
+      "headcount": 133.0,
       "sales": 1107450309.0
     },
     {
@@ -7276,8 +7516,8 @@
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "amount": 20447173.0,
-      "headcount": 72.0,
+      "amount": 17455077.0,
+      "headcount": 133.0,
       "sales": 535372030.0
     },
     {
@@ -7285,8 +7525,8 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "amount": 14055181.02,
-      "headcount": 72.0,
+      "amount": 4646210.02,
+      "headcount": 132.0,
       "sales": 665246475.0
     },
     {
@@ -7294,8 +7534,8 @@
       "year": 2025,
       "month": 4,
       "yyyymm": "202504",
-      "amount": 17765941.0,
-      "headcount": 72.0,
+      "amount": 14413266.0,
+      "headcount": 133.0,
       "sales": 652833667.0
     },
     {
@@ -7303,8 +7543,8 @@
       "year": 2025,
       "month": 5,
       "yyyymm": "202505",
-      "amount": 19334769.0,
-      "headcount": 72.0,
+      "amount": 16303253.0,
+      "headcount": 132.0,
       "sales": 721255069.0
     },
     {
@@ -7312,8 +7552,8 @@
       "year": 2025,
       "month": 6,
       "yyyymm": "202506",
-      "amount": 16752449.0,
-      "headcount": 71.0,
+      "amount": 13720854.0,
+      "headcount": 130.0,
       "sales": 552730387.0
     },
     {
@@ -7321,8 +7561,8 @@
       "year": 2025,
       "month": 7,
       "yyyymm": "202507",
-      "amount": 22859169.0,
-      "headcount": 72.0,
+      "amount": 19784200.0,
+      "headcount": 132.0,
       "sales": 522527235.0
     },
     {
@@ -7330,8 +7570,8 @@
       "year": 2025,
       "month": 8,
       "yyyymm": "202508",
-      "amount": 24765604.0,
-      "headcount": 72.0,
+      "amount": 21048826.0,
+      "headcount": 128.0,
       "sales": 590182141.0
     },
     {
@@ -7339,8 +7579,8 @@
       "year": 2025,
       "month": 9,
       "yyyymm": "202509",
-      "amount": 33830146.0,
-      "headcount": 72.0,
+      "amount": 30847872.0,
+      "headcount": 127.0,
       "sales": 552479892.0
     },
     {
@@ -7348,8 +7588,8 @@
       "year": 2025,
       "month": 10,
       "yyyymm": "202510",
-      "amount": 19392590.0,
-      "headcount": 71.0,
+      "amount": 16220354.0,
+      "headcount": 128.0,
       "sales": 896298588.0
     },
     {
@@ -7357,8 +7597,8 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 18903384.62,
-      "headcount": 72.0,
+      "amount": 15484595.89,
+      "headcount": 128.0,
       "sales": 804211750.6
     },
     {
@@ -7367,7 +7607,7 @@
       "month": 12,
       "yyyymm": "202512",
       "amount": 0.0,
-      "headcount": 73.0,
+      "headcount": 137.0,
       "sales": 877748575.0
     },
     {
@@ -7375,207 +7615,207 @@
       "year": 2024,
       "month": 1,
       "yyyymm": "202401",
-      "amount": 8297724.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 11176113.0,
+      "headcount": 73.0,
+      "sales": 775693012.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 2,
       "yyyymm": "202402",
-      "amount": 3540220.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 7785625.0,
+      "headcount": 73.0,
+      "sales": 811312966.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 3,
       "yyyymm": "202403",
-      "amount": 3809008.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 16092997.0,
+      "headcount": 75.0,
+      "sales": 659575345.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 4,
       "yyyymm": "202404",
-      "amount": 3644831.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 6647245.0,
+      "headcount": 73.0,
+      "sales": 660729738.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 5,
       "yyyymm": "202405",
-      "amount": 5474836.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8589379.0,
+      "headcount": 73.0,
+      "sales": 680762984.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 6,
       "yyyymm": "202406",
-      "amount": 5300630.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8888921.0,
+      "headcount": 74.0,
+      "sales": 577505906.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 7,
       "yyyymm": "202407",
-      "amount": 4111437.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 7083718.0,
+      "headcount": 72.0,
+      "sales": 513176438.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 8,
       "yyyymm": "202408",
-      "amount": 3444230.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 6533040.0,
+      "headcount": 72.0,
+      "sales": 560099219.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 9,
       "yyyymm": "202409",
-      "amount": 5818768.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8830657.0,
+      "headcount": 71.0,
+      "sales": 564071023.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 10,
       "yyyymm": "202410",
-      "amount": 5004625.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8109471.0,
+      "headcount": 71.0,
+      "sales": 849376921.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 11,
       "yyyymm": "202411",
-      "amount": 4049938.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 7112208.0,
+      "headcount": 70.0,
+      "sales": 816167738.0
     },
     {
       "biz_unit": "공통",
       "year": 2024,
       "month": 12,
       "yyyymm": "202412",
-      "amount": 8702271.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 11713059.0,
+      "headcount": 71.0,
+      "sales": 852812009.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 1,
       "yyyymm": "202501",
-      "amount": 6761385.54,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 11793275.54,
+      "headcount": 73.0,
+      "sales": 1107450309.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "amount": 5631466.92,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8623562.92,
+      "headcount": 72.0,
+      "sales": 535372030.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "amount": 4861585.84,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 14270556.84,
+      "headcount": 72.0,
+      "sales": 665246475.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 4,
       "yyyymm": "202504",
-      "amount": 4147268.52,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 7499943.52,
+      "headcount": 72.0,
+      "sales": 652833667.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 5,
       "yyyymm": "202505",
-      "amount": 5516921.89,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8548437.89,
+      "headcount": 72.0,
+      "sales": 721255069.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 6,
       "yyyymm": "202506",
-      "amount": 3169103.76,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 6200698.76,
+      "headcount": 71.0,
+      "sales": 552730387.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 7,
       "yyyymm": "202507",
-      "amount": 5288807.44,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8363776.44,
+      "headcount": 72.0,
+      "sales": 522527235.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 8,
       "yyyymm": "202508",
-      "amount": 4618432.61,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 8335210.61,
+      "headcount": 72.0,
+      "sales": 590182141.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 9,
       "yyyymm": "202509",
-      "amount": 4256440.54,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 7238714.54,
+      "headcount": 72.0,
+      "sales": 552479892.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 10,
       "yyyymm": "202510",
-      "amount": 6353131.39,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 9525367.39,
+      "headcount": 71.0,
+      "sales": 896298588.0
     },
     {
       "biz_unit": "공통",
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 5917811.87,
-      "headcount": 0.0,
-      "sales": 0.0
+      "amount": 9336600.6,
+      "headcount": 72.0,
+      "sales": 804211750.6
     },
     {
       "biz_unit": "공통",
@@ -7583,8 +7823,8 @@
       "month": 12,
       "yyyymm": "202512",
       "amount": 0.0,
-      "headcount": 0.0,
-      "sales": 0.0
+      "headcount": 73.0,
+      "sales": 877748575.0
     }
   ],
   "category_detail": [
@@ -29891,32 +30131,10 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 321524.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 291502.0,
       "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 143266.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -29957,32 +30175,10 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 2774422.0,
       "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1700720.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -30001,32 +30197,10 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 712879.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -30562,32 +30736,10 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 323818.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 278667.0,
       "headcount": 124.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 143266.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -30628,32 +30780,10 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 1477396.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 2789077.0,
       "headcount": 124.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1751566.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -30672,32 +30802,10 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 549359.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 124.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -31233,32 +31341,10 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 339328.0,
-      "headcount": 75.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 268514.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 147862.0,
-      "headcount": 75.0
     },
     {
       "biz_unit": "MLB",
@@ -31299,32 +31385,10 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 75.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 2918264.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1934007.0,
-      "headcount": 75.0
     },
     {
       "biz_unit": "MLB",
@@ -31343,32 +31407,10 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 1015498.0,
-      "headcount": 75.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": -14069838.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 8847294.0,
-      "headcount": 75.0
     },
     {
       "biz_unit": "MLB",
@@ -31904,32 +31946,10 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 301213.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 278714.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 141920.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -31970,32 +31990,10 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3010236.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1961754.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -32014,32 +32012,10 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 597527.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -32575,32 +32551,10 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 302546.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 274666.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 139877.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -32641,32 +32595,10 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3140706.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1929514.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -32685,32 +32617,10 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 742606.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -33246,32 +33156,10 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 316055.0,
-      "headcount": 74.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 265983.0,
       "headcount": 122.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 144977.0,
-      "headcount": 74.0
     },
     {
       "biz_unit": "MLB",
@@ -33312,32 +33200,10 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 74.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 2928332.0,
       "headcount": 122.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1994797.0,
-      "headcount": 74.0
     },
     {
       "biz_unit": "MLB",
@@ -33356,32 +33222,10 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 1132462.0,
-      "headcount": 74.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 122.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 74.0
     },
     {
       "biz_unit": "MLB",
@@ -33917,32 +33761,10 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 308664.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 265333.0,
       "headcount": 121.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 139488.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -33983,32 +33805,10 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3179151.0,
       "headcount": 121.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1874622.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -34027,32 +33827,10 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 649507.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 121.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -34588,32 +34366,10 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 397048.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 361253.0,
       "headcount": 131.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 181279.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -34654,32 +34410,10 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3320018.0,
       "headcount": 131.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1833367.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -34698,32 +34432,10 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 677116.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 131.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -35259,32 +34971,10 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 350782.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 332086.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 158863.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -35325,32 +35015,10 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3170190.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1829848.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -35369,32 +35037,10 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 672396.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -35930,32 +35576,10 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 350782.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 336849.0,
       "headcount": 135.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 158863.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -35996,32 +35620,10 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3330581.0,
       "headcount": 135.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1842283.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -36040,32 +35642,10 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 752918.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 135.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -36601,32 +36181,10 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 348730.0,
-      "headcount": 70.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 325556.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 157903.0,
-      "headcount": 70.0
     },
     {
       "biz_unit": "MLB",
@@ -36667,32 +36225,10 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 70.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3120954.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1849236.0,
-      "headcount": 70.0
     },
     {
       "biz_unit": "MLB",
@@ -36711,32 +36247,10 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 706401.0,
-      "headcount": 70.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 70.0
     },
     {
       "biz_unit": "MLB",
@@ -37272,32 +36786,10 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 346933.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 328196.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 157063.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -37338,32 +36830,10 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3163882.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1866803.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -37382,32 +36852,10 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 639989.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -37943,32 +37391,10 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 350547.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 315236.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 174503.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -38009,32 +37435,10 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 1650177.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3249837.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 2083360.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -38053,32 +37457,10 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 773303.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -38614,32 +37996,10 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 347710.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 332916.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 156411.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -38680,32 +38040,10 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3035737.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1808595.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -38724,32 +38062,10 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 679380.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -39285,32 +38601,10 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 344469.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 345925.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 142101.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -39351,32 +38645,10 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3386280.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 2110499.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -39395,32 +38667,10 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 564197.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": -13637935.98,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 6247705.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -39956,32 +39206,10 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 331523.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 332916.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 154724.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -40022,32 +39250,10 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3340918.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 2052533.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -40066,32 +39272,10 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 558895.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 255000.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -40627,32 +39811,10 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 358982.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 321156.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 161665.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -40693,32 +39855,10 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3257955.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1958916.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -40737,32 +39877,10 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 551953.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -41298,32 +40416,10 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 346576.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 317248.0,
       "headcount": 130.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 155872.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -41364,32 +40460,10 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3240405.0,
       "headcount": 130.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1963329.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -41408,32 +40482,10 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 565818.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 130.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -41969,32 +41021,10 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 338617.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 315833.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 159731.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -42035,32 +41065,10 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3290277.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1981831.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -42079,32 +41087,10 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 594790.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -42640,32 +41626,10 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 445459.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 401889.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 209283.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -42706,32 +41670,10 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3209939.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 2515338.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -42750,32 +41692,10 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 546698.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -43311,32 +42231,10 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 521502.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 401889.0,
       "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 133203.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -43377,32 +42275,10 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3220771.0,
       "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1820817.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -43421,32 +42297,10 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 506752.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -43982,32 +42836,10 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 503387.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 401889.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 143274.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -44048,32 +42880,10 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3358757.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 1844921.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -44092,32 +42902,10 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 680654.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
     },
     {
       "biz_unit": "MLB",
@@ -44653,32 +43441,10 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 503387.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 405959.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 143274.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -44719,32 +43485,10 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 2994398.47,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 2161296.51,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -44763,32 +43507,10 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 610831.22,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
     },
     {
       "biz_unit": "MLB",
@@ -45324,32 +44046,10 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "5대보험",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 137.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "공적금",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -45390,32 +44090,10 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "cost_lv2": "Red pack",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 137.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
-      "cost_lv2": "기본급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -45434,32 +44112,10 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "cost_lv2": "성과급충당금",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
       "headcount": 137.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
     },
     {
       "biz_unit": "MLB",
@@ -51924,10 +50580,32 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 321524.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 143266.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -52181,6 +50859,50 @@
       "cost_lv3": "",
       "amount": 2814012.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1700720.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 712879.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -53134,10 +51856,32 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 323818.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 143266.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -53391,6 +52135,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 1477396.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1751566.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 549359.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -54344,10 +53132,32 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 339328.0,
+      "headcount": 75.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 147862.0,
+      "headcount": 75.0
     },
     {
       "biz_unit": "공통",
@@ -54601,6 +53411,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 75.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1934007.0,
+      "headcount": 75.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 1015498.0,
+      "headcount": 75.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 8847294.0,
+      "headcount": 75.0
     },
     {
       "biz_unit": "공통",
@@ -55554,10 +54408,32 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 301213.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 141920.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -55811,6 +54687,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1961754.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 597527.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -56764,10 +55684,32 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 302546.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 139877.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -57021,6 +55963,50 @@
       "cost_lv3": "",
       "amount": 1840572.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1929514.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 742606.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -57974,10 +56960,32 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 316055.0,
+      "headcount": 74.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 144977.0,
+      "headcount": 74.0
     },
     {
       "biz_unit": "공통",
@@ -58231,6 +57239,50 @@
       "cost_lv3": "",
       "amount": 1321000.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 74.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1994797.0,
+      "headcount": 74.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 1132462.0,
+      "headcount": 74.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 74.0
     },
     {
       "biz_unit": "공통",
@@ -59184,10 +58236,32 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 308664.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 139488.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -59441,6 +58515,50 @@
       "cost_lv3": "",
       "amount": 626454.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1874622.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 649507.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -60394,10 +59512,32 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 397048.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 181279.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -60651,6 +59791,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1833367.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 677116.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -61604,10 +60788,32 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 350782.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 158863.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -61861,6 +61067,50 @@
       "cost_lv3": "",
       "amount": 1231817.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1829848.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 672396.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -62814,10 +62064,32 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 350782.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 158863.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -63071,6 +62343,50 @@
       "cost_lv3": "",
       "amount": 74334.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1842283.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 752918.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -64024,10 +63340,32 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 348730.0,
+      "headcount": 70.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 157903.0,
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -64281,6 +63619,50 @@
       "cost_lv3": "",
       "amount": 178694.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 70.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1849236.0,
+      "headcount": 70.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 706401.0,
+      "headcount": 70.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -65234,10 +64616,32 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 346933.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 477596.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 157063.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -65491,6 +64895,50 @@
       "cost_lv3": "",
       "amount": 2340298.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1866803.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 639989.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -66444,10 +65892,32 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 350547.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 174503.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -66701,6 +66171,50 @@
       "cost_lv3": "",
       "amount": 1055799.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 1650177.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 2083360.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 773303.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -67654,10 +67168,32 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 347710.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 156411.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -67911,6 +67447,50 @@
       "cost_lv3": "",
       "amount": 1299102.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1808595.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 679380.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -68864,10 +68444,32 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 344469.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 142101.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -69121,6 +68723,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 2110499.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 564197.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 6247705.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -70074,10 +69720,32 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 331523.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 154724.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -70331,6 +69999,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 2052533.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 558895.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 255000.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -71284,10 +70996,32 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 358982.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 161665.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -71541,6 +71275,50 @@
       "cost_lv3": "",
       "amount": 872118.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1958916.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 551953.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -72494,10 +72272,32 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 346576.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": -157319.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 155872.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -72751,6 +72551,50 @@
       "cost_lv3": "",
       "amount": 4629.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1963329.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 565818.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -73704,10 +73548,32 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 338617.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 159731.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -73961,6 +73827,50 @@
       "cost_lv3": "",
       "amount": 469186.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1981831.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 594790.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -74914,10 +74824,32 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 445459.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 209283.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -75171,6 +75103,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 2515338.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 546698.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -76124,10 +76100,32 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 521502.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 133203.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -76381,6 +76379,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1820817.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 506752.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -77334,10 +77376,32 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 503387.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 143274.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -77591,6 +77655,50 @@
       "cost_lv3": "",
       "amount": 1560703.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 1844921.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 680654.0,
+      "headcount": 71.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -78544,10 +78652,32 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 503387.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 143274.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -78801,6 +78931,50 @@
       "cost_lv3": "",
       "amount": 1444232.39,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 2161296.51,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 610831.22,
+      "headcount": 72.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -79754,10 +79928,32 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
+      "cost_lv2": "5대보험",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "공적금",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",
@@ -80011,6 +80207,50 @@
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "인건비",
+      "cost_lv2": "Red pack",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "인건비",
+      "cost_lv2": "기본급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "인건비",
+      "cost_lv2": "성과급충당금",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "인건비",
+      "cost_lv2": "실제 지급 성과급",
+      "cost_lv3": "경영지원",
+      "amount": 0.0,
+      "headcount": 73.0
     },
     {
       "biz_unit": "공통",

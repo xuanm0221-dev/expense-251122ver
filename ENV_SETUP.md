@@ -54,3 +54,9 @@ EDIT_PASSWORD=my-secure-password-123
 - `EDIT_PASSWORD`는 강력한 비밀번호를 사용하세요
 - 환경 변수는 절대 Git에 커밋하지 마세요 (`.env.local`은 `.gitignore`에 포함되어 있음)
 - Vercel에 배포한 후에는 Vercel 대시보드에서 환경 변수를 설정해야 합니다
+
+
+
+
+
+

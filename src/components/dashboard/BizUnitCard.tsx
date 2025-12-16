@@ -56,6 +56,8 @@ export interface BizUnitCardProps {
   ratio: string | null; // 영업비율 (예: "2.2%")
   headcount: string | null; // 인원수 (예: "199명")
   salesAmount: string | null; // 판매매출 (예: "896,299K")
+  perPersonLaborCost: string | null; // 인당 인건비 (예: "30.5K")
+  perPersonWelfareCost: string | null; // 인당 복리후생비 (예: "8.5K")
   expenseDetails: ExpenseDetail[];
   year: number;
   month: number;
@@ -72,6 +74,8 @@ export function BizUnitCard({
   ratio,
   headcount,
   salesAmount,
+  perPersonLaborCost,
+  perPersonWelfareCost,
   expenseDetails,
   year,
   month,
@@ -170,28 +174,84 @@ export function BizUnitCard({
           </div>
 
           {!isCommon && (
-            <div className="grid grid-cols-3 gap-2">
-              {/* 영업비율 */}
-              {ratio !== null && (
-                <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                  <div className="text-sm font-semibold text-blue-600">{ratio}</div>
-                  <div className="text-[10px] text-gray-500 mt-0.5">영업비율</div>
+            <>
+              <div className="grid grid-cols-3 gap-2">
+                {/* 영업비율 */}
+                {ratio !== null && (
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
+                    <div className="text-sm font-semibold text-blue-600">{ratio}</div>
+                    <div className="text-[10px] text-gray-500 mt-0.5">영업비율</div>
+                  </div>
+                )}
+
+                {/* 인원수 */}
+                {headcount !== null && (
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
+                    <div className="text-sm font-semibold text-purple-600">{headcount}</div>
+                    <div className="text-[10px] text-gray-500 mt-0.5">인원수</div>
+                  </div>
+                )}
+
+                {/* 판매매출 */}
+                {salesAmount !== null && (
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
+                    <div className="text-sm font-semibold text-teal-600">{salesAmount}</div>
+                    <div className="text-[10px] text-gray-500 mt-0.5">판매매출</div>
+                  </div>
+                )}
+              </div>
+              {/* 인당 인건비/복리후생비 */}
+              {(perPersonLaborCost || perPersonWelfareCost) && (
+                <div className="border-t border-gray-200 mt-3 pt-2">
+                  <div className="flex items-center justify-center gap-4 text-sm">
+                    {perPersonLaborCost && (
+                      <span>
+                        <span className="text-gray-500">인당인건비</span>{" "}
+                        <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
+                      </span>
+                    )}
+                    {perPersonLaborCost && perPersonWelfareCost && (
+                      <span className="text-gray-300">|</span>
+                    )}
+                    {perPersonWelfareCost && (
+                      <span>
+                        <span className="text-gray-500">인당복후비</span>{" "}
+                        <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
+                      </span>
+                    )}
+                  </div>
                 </div>
               )}
-
-              {/* 인원수 */}
+            </>
+          )}
+          {/* 공통 카드에 인원수 및 인당 비용 표시 */}
+          {isCommon && (
+            <div className="mt-2 space-y-2">
               {headcount !== null && (
-                <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
+                <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 inline-block">
                   <div className="text-sm font-semibold text-purple-600">{headcount}</div>
                   <div className="text-[10px] text-gray-500 mt-0.5">인원수</div>
                 </div>
               )}
-
-              {/* 판매매출 */}
-              {salesAmount !== null && (
-                <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                  <div className="text-sm font-semibold text-teal-600">{salesAmount}</div>
-                  <div className="text-[10px] text-gray-500 mt-0.5">판매매출</div>
+              {(perPersonLaborCost || perPersonWelfareCost) && (
+                <div className="border-t border-gray-200 mt-3 pt-2">
+                  <div className="flex items-center justify-center gap-4 text-sm">
+                    {perPersonLaborCost && (
+                      <span>
+                        <span className="text-gray-500">인당인건비</span>{" "}
+                        <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
+                      </span>
+                    )}
+                    {perPersonLaborCost && perPersonWelfareCost && (
+                      <span className="text-gray-300">|</span>
+                    )}
+                    {perPersonWelfareCost && (
+                      <span>
+                        <span className="text-gray-500">인당복후비</span>{" "}
+                        <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
+                      </span>
+                    )}
+                  </div>
                 </div>
               )}
             </div>

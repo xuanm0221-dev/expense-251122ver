@@ -11,6 +11,7 @@ import {
   getMonthlyTotal,
   getPreviousYearTotal,
   getMonthlyAggregatedByCategory,
+  getCategoryDetail,
   calculateCostRatio,
   type BizUnit,
   type Mode,
@@ -130,6 +131,20 @@ export function BrandCard({
 
   const headcount = current?.headcount ?? 0;
 
+  // 인건비(기본급만), 복리후생비 금액 추출 (인당 비용 계산용)
+  // 인건비는 대분류 전체가 아닌 중분류 "기본급"만 사용 (성과급, 잡급 제외)
+  const categoryDetails = getCategoryDetail(bizUnit, year, month, "인건비", mode);
+  const basicSalary = categoryDetails
+    .filter((item) => item.cost_lv2 === "기본급")
+    .reduce((sum, item) => sum + (item.amount ?? 0), 0);
+  
+  const laborCost = basicSalary;  // 기본급만 사용
+  const welfareCost = categoryMap.get("복리후생비")?.amount ?? 0;
+
+  // 인당 비용 계산
+  const perPersonLaborCost = headcount > 0 ? laborCost / headcount : null;
+  const perPersonWelfareCost = headcount > 0 ? welfareCost / headcount : null;
+
   // 상세 카테고리 데이터
   const expenseDetails: ExpenseDetail[] = isCommon
     ? Array.from(categoryMap.entries())
@@ -180,6 +195,8 @@ export function BrandCard({
       ratio={costRatio != null ? formatPercent(costRatio) : null}
       headcount={headcount > 0 ? `${headcount.toLocaleString("ko-KR")}명` : null}
       salesAmount={sales > 0 ? formatK(sales) : null}
+      perPersonLaborCost={perPersonLaborCost != null ? formatK(perPersonLaborCost, 1) : null}
+      perPersonWelfareCost={perPersonWelfareCost != null ? formatK(perPersonWelfareCost, 1) : null}
       expenseDetails={expenseDetails}
       year={year}
       month={month}
