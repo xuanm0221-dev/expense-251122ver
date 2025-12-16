@@ -130,20 +130,47 @@ export function BrandCard({
   // const prevCostRatio = ...
 
   const headcount = current?.headcount ?? 0;
+  const prevHeadcount = previous?.headcount ?? 0;
 
-  // 인건비(기본급만), 복리후생비 금액 추출 (인당 비용 계산용)
+  // 인건비(기본급만), 복리후생비(5대보험+공적금만) 금액 추출 (인당 비용 계산용)
   // 인건비는 대분류 전체가 아닌 중분류 "기본급"만 사용 (성과급, 잡급 제외)
-  const categoryDetails = getCategoryDetail(bizUnit, year, month, "인건비", mode);
-  const basicSalary = categoryDetails
+  const laborDetails = getCategoryDetail(bizUnit, year, month, "인건비", mode);
+  const basicSalary = laborDetails
     .filter((item) => item.cost_lv2 === "기본급")
     .reduce((sum, item) => sum + (item.amount ?? 0), 0);
   
+  // 전년도 기본급
+  const prevLaborDetails = getCategoryDetail(bizUnit, year - 1, month, "인건비", mode);
+  const prevBasicSalary = prevLaborDetails
+    .filter((item) => item.cost_lv2 === "기본급")
+    .reduce((sum, item) => sum + (item.amount ?? 0), 0);
+  
+  // 복리후생비는 중분류 "5대보험" + "공적금"만 사용 (인당 비용 계산용)
+  const welfareDetails = getCategoryDetail(bizUnit, year, month, "복리후생비", mode);
+  const welfare5InsuranceAndFund = welfareDetails
+    .filter((item) => item.cost_lv2 === "5대보험" || item.cost_lv2 === "공적금")
+    .reduce((sum, item) => sum + (item.amount ?? 0), 0);
+  
+  // 전년도 5대보험 + 공적금
+  const prevWelfareDetails = getCategoryDetail(bizUnit, year - 1, month, "복리후생비", mode);
+  const prevWelfare5InsuranceAndFund = prevWelfareDetails
+    .filter((item) => item.cost_lv2 === "5대보험" || item.cost_lv2 === "공적금")
+    .reduce((sum, item) => sum + (item.amount ?? 0), 0);
+  
   const laborCost = basicSalary;  // 기본급만 사용
-  const welfareCost = categoryMap.get("복리후생비")?.amount ?? 0;
+  const welfareCost = welfare5InsuranceAndFund;  // 5대보험 + 공적금만 사용
 
   // 인당 비용 계산
   const perPersonLaborCost = headcount > 0 ? laborCost / headcount : null;
   const perPersonWelfareCost = headcount > 0 ? welfareCost / headcount : null;
+  
+  // 전년도 인당 비용 계산
+  const prevPerPersonLaborCost = prevHeadcount > 0 ? prevBasicSalary / prevHeadcount : null;
+  const prevPerPersonWelfareCost = prevHeadcount > 0 ? prevWelfare5InsuranceAndFund / prevHeadcount : null;
+  
+  // 인당 비용 YOY 계산
+  const perPersonLaborCostYOY = calculateYOY(perPersonLaborCost ?? 0, prevPerPersonLaborCost ?? 0);
+  const perPersonWelfareCostYOY = calculateYOY(perPersonWelfareCost ?? 0, prevPerPersonWelfareCost ?? 0);
 
   // 상세 카테고리 데이터
   const expenseDetails: ExpenseDetail[] = isCommon
@@ -197,6 +224,8 @@ export function BrandCard({
       salesAmount={sales > 0 ? formatK(sales) : null}
       perPersonLaborCost={perPersonLaborCost != null ? formatK(perPersonLaborCost, 1) : null}
       perPersonWelfareCost={perPersonWelfareCost != null ? formatK(perPersonWelfareCost, 1) : null}
+      perPersonLaborCostYOY={perPersonLaborCostYOY != null ? formatPercent(perPersonLaborCostYOY, 0) : null}
+      perPersonWelfareCostYOY={perPersonWelfareCostYOY != null ? formatPercent(perPersonWelfareCostYOY, 0) : null}
       expenseDetails={expenseDetails}
       year={year}
       month={month}

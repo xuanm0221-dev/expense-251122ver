@@ -58,6 +58,8 @@ export interface BizUnitCardProps {
   salesAmount: string | null; // 판매매출 (예: "896,299K")
   perPersonLaborCost: string | null; // 인당 인건비 (예: "30.5K")
   perPersonWelfareCost: string | null; // 인당 복리후생비 (예: "8.5K")
+  perPersonLaborCostYOY: string | null; // 인당 인건비 YOY (예: "105%")
+  perPersonWelfareCostYOY: string | null; // 인당 복리후생비 YOY (예: "98%")
   expenseDetails: ExpenseDetail[];
   year: number;
   month: number;
@@ -76,6 +78,8 @@ export function BizUnitCard({
   salesAmount,
   perPersonLaborCost,
   perPersonWelfareCost,
+  perPersonLaborCostYOY,
+  perPersonWelfareCostYOY,
   expenseDetails,
   year,
   month,
@@ -208,6 +212,9 @@ export function BizUnitCard({
                       <span>
                         <span className="text-gray-500">인당인건비</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
+                        {perPersonLaborCostYOY && (
+                          <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
+                        )}
                       </span>
                     )}
                     {perPersonLaborCost && perPersonWelfareCost && (
@@ -217,6 +224,9 @@ export function BizUnitCard({
                       <span>
                         <span className="text-gray-500">인당복후비</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
+                        {perPersonWelfareCostYOY && (
+                          <span className="text-gray-400 text-xs ml-1">({perPersonWelfareCostYOY})</span>
+                        )}
                       </span>
                     )}
                   </div>
@@ -240,6 +250,9 @@ export function BizUnitCard({
                       <span>
                         <span className="text-gray-500">인당인건비</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
+                        {perPersonLaborCostYOY && (
+                          <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
+                        )}
                       </span>
                     )}
                     {perPersonLaborCost && perPersonWelfareCost && (
@@ -249,6 +262,9 @@ export function BizUnitCard({
                       <span>
                         <span className="text-gray-500">인당복후비</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
+                        {perPersonWelfareCostYOY && (
+                          <span className="text-gray-400 text-xs ml-1">({perPersonWelfareCostYOY})</span>
+                        )}
                       </span>
                     )}
                   </div>
