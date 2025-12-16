@@ -210,7 +210,7 @@ export function BizUnitCard({
                   <div className="flex items-center justify-center gap-4 text-sm">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500">인당인건비</span>{" "}
+                        <span className="text-gray-500">인당기본급</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
                           <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
@@ -248,7 +248,7 @@ export function BizUnitCard({
                   <div className="flex items-center justify-center gap-4 text-sm">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500">인당인건비</span>{" "}
+                        <span className="text-gray-500">인당기본급</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
                           <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
