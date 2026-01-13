@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Redis } from "@upstash/redis";
+import fs from "fs";
+import path from "path";
 
 // 저장 로그 타입
 interface SaveLog {
@@ -19,96 +20,95 @@ interface CostDescription {
   description: string;
 }
 
-// Redis 클라이언트 초기화
-let redis: Redis | null = null;
+// 파일 경로 생성
+function getDescriptionFilePath(brand: string, ym: string, mode: string): string {
+  const dataDir = path.join(process.cwd(), "data", "cost-descriptions");
+  return path.join(dataDir, `${brand}-${ym}-${mode}.json`);
+}
 
-function getRedisClient(): Redis {
-  if (!redis) {
-    const url = process.env.KV_REST_API_URL;
-    const token = process.env.KV_REST_API_TOKEN;
+function getLogFilePath(brand: string, ym: string, mode: string): string {
+  const logDir = path.join(process.cwd(), "data", "cost-descriptions", "logs");
+  return path.join(logDir, `${brand}-${ym}-${mode}.json`);
+}
 
-    if (!url || !token) {
-      throw new Error("Redis 환경 변수가 설정되지 않았습니다. KV_REST_API_URL과 KV_REST_API_TOKEN을 확인하세요.");
-    }
-
-    redis = new Redis({
-      url,
-      token,
-    });
+// 디렉토리 생성 (없으면)
+function ensureDirectoryExists(filePath: string): void {
+  const dir = path.dirname(filePath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
   }
-  return redis;
 }
 
-// Redis 키 생성
-function getDescriptionKey(brand: string, ym: string, mode: string): string {
-  return `cost-desc:${brand}:${ym}:${mode}`;
-}
-
-function getLogKey(brand: string, ym: string, mode: string): string {
-  return `cost-log:${brand}:${ym}:${mode}`;
-}
-
-// Redis에서 설명 데이터 읽기
+// 파일에서 설명 데이터 읽기
 async function readDescriptions(
   brand: string,
   ym: string,
   mode: string
 ): Promise<Record<string, string>> {
   try {
-    const client = getRedisClient();
-    const key = getDescriptionKey(brand, ym, mode);
-    const data = await client.get<Record<string, string>>(key);
-    return data || {};
+    const filePath = getDescriptionFilePath(brand, ym, mode);
+    if (!fs.existsSync(filePath)) {
+      return {};
+    }
+    const content = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(content);
   } catch (error: any) {
-    console.error("Redis 읽기 오류:", error);
+    console.error("설명 파일 읽기 오류:", error);
     return {};
   }
 }
 
-// Redis에 설명 데이터 쓰기
+// 파일에 설명 데이터 쓰기
 async function writeDescriptions(
   brand: string,
   ym: string,
   mode: string,
   descriptions: Record<string, string>
 ): Promise<void> {
-  const client = getRedisClient();
-  const key = getDescriptionKey(brand, ym, mode);
-  await client.set(key, descriptions);
+  const filePath = getDescriptionFilePath(brand, ym, mode);
+  ensureDirectoryExists(filePath);
+  fs.writeFileSync(filePath, JSON.stringify(descriptions, null, 2), "utf-8");
 }
 
-// Redis에서 로그 읽기
+// 파일에서 로그 읽기
 async function readLogs(
   brand: string,
   ym: string,
   mode: string
 ): Promise<SaveLog[]> {
   try {
-    const client = getRedisClient();
-    const key = getLogKey(brand, ym, mode);
-    const logs = await client.lrange<SaveLog>(key, 0, 99); // 최근 100개
-    return logs || [];
+    const filePath = getLogFilePath(brand, ym, mode);
+    if (!fs.existsSync(filePath)) {
+      return [];
+    }
+    const content = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(content);
   } catch (error: any) {
-    console.error("로그 읽기 오류:", error);
+    console.error("로그 파일 읽기 오류:", error);
     return [];
   }
 }
 
-// Redis에 로그 쓰기
+// 파일에 로그 쓰기
 async function writeLogs(
   brand: string,
   ym: string,
   mode: string,
   log: SaveLog
 ): Promise<void> {
-  const client = getRedisClient();
-  const key = getLogKey(brand, ym, mode);
+  const filePath = getLogFilePath(brand, ym, mode);
+  ensureDirectoryExists(filePath);
   
-  // 새 로그를 리스트 앞에 추가
-  await client.lpush(key, log);
+  // 기존 로그 읽기
+  const logs = await readLogs(brand, ym, mode);
+  
+  // 새 로그를 앞에 추가
+  logs.unshift(log);
   
   // 최근 100개만 유지
-  await client.ltrim(key, 0, 99);
+  const recentLogs = logs.slice(0, 100);
+  
+  fs.writeFileSync(filePath, JSON.stringify(recentLogs, null, 2), "utf-8");
 }
 
 // GET: 설명 조회 (공개)
@@ -126,7 +126,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Redis에서 데이터 조회
+    // 파일에서 데이터 조회
     const descriptions = await readDescriptions(brand, ym, mode);
 
     return NextResponse.json({

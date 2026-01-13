@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": "2026-01-13T08:44:43.717Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "DX 광고비 +30M(계획비 , MLB 광고비 +21M(계획비 100%사용)",
+    "newValue": "DX 광고비 +30M , MLB 광고비 +21M",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:44:32.133Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "DX 광고비 +30M",
+    "newValue": "DX 광고비 +30M(계획비 , MLB 광고비 +21M(계획비 100%사용)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:43:55.969Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "DX 광고비 +",
+    "newValue": "DX 광고비 +30M",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:43:49.336Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "",
+    "newValue": "DX 광고비 +",
+    "userIdentifier": "anonymous"
+  }
+]

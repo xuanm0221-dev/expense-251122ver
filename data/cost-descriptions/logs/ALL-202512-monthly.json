@@ -1,0 +1,170 @@
+[
+  {
+    "timestamp": "2026-01-13T08:46:18.706Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "dd",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:43:21.779Z",
+    "accountPath": "l1-임차료",
+    "oldValue": "",
+    "newValue": "38층 사무실 신규임대",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:41:47.048Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K ④OMS 사용료 +43K ⑤ ",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K ④OMS 사용료 +43K ⑤ (신규)RMS반품 개발시스템 +30K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:41:39.090Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K ④OMS 사용료 +43K",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K ④OMS 사용료 +43K ⑤ ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:41:32.226Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K ④",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K ④OMS 사용료 +43K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:41:15.800Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K ④",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:47.760Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③Ali클라우드 사용료 +11K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:42.894Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K ③",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:35.819Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②(신규)DX 경쟁상품 데이터 구매 +235K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:31.945Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%)",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:24.983Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%)",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%) ②",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:16.022Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%)",
+    "newValue": "전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:11.376Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:40:00.684Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "①",
+    "newValue": "①전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:39:56.068Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "",
+    "newValue": "①",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:39:16.679Z",
+    "accountPath": "l2-IT수수료-재고실사 서비스비용",
+    "oldValue": "",
+    "newValue": "재고실사 비용 +257K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:38:59.231Z",
+    "accountPath": "l2-IT수수료-RMS 반품 개발 시스템 (항목 변경)",
+    "oldValue": "RMS반품 개발시스템 +30K",
+    "newValue": "(신규)RMS반품 개발시스템 +30K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:38:46.534Z",
+    "accountPath": "l2-IT수수료-RMS 반품 개발 시스템 (항목 변경)",
+    "oldValue": "RMS반품 개발시스템 +30K",
+    "newValue": "RMS반품 개발시스템 +30K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:38:42.193Z",
+    "accountPath": "l2-IT수수료-RMS 반품 개발 시스템 (항목 변경)",
+    "oldValue": "",
+    "newValue": "RMS반품 개발시스템 +30K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:38:25.024Z",
+    "accountPath": "l2-IT수수료-OMS",
+    "oldValue": "",
+    "newValue": "OMS 사용료 +43K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:38:13.692Z",
+    "accountPath": "l2-IT수수료-DX 경쟁상품 데이터 구매 (항목 변경)",
+    "oldValue": "",
+    "newValue": "(신규)DX 경쟁상품 데이터 구매 +235K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:37:57.934Z",
+    "accountPath": "l2-IT수수료-Data Server",
+    "oldValue": "",
+    "newValue": "Ali클라우드 사용료 +11K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:37:16.329Z",
+    "accountPath": "l3-IT수수료-CN SAP-업그레이드 비용(확장,인터페이스 등)",
+    "oldValue": "",
+    "newValue": "전년 SAP업그레이드 비용 과대인식 부분 12월 차감조정으로 +189K \n(연간기준 YOY 89%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-13T08:22:04.815Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "",
+    "newValue": "dd",
+    "userIdentifier": "anonymous"
+  }
+]
