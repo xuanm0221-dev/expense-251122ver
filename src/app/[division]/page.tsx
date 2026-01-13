@@ -98,7 +98,7 @@ export default function DivisionPage() {
     parseInt(searchParams.get("year") || availableYears[0]?.toString() || "2025")
   );
   const [month, setMonth] = useState<number>(
-    parseInt(searchParams.get("month") || "10")
+    parseInt(searchParams.get("month") || "12")
   );
   const [mode, setMode] = useState<Mode>(
     (searchParams.get("mode") as Mode) || "monthly"

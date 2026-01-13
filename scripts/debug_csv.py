@@ -4,7 +4,7 @@ CSV 파일 구조 확인 스크립트
 import pandas as pd
 import os
 
-CSV_BASE_PATH = r"C:\2.대시보드(파일)\비용엑셀"
+CSV_BASE_PATH = r"D:\dashboard\비용대시보드\비용엑셀"
 
 def check_csv_structure():
     """CSV 파일 구조 확인"""

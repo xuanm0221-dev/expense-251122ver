@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Dict, List, Any
 
 # CSV 파일 경로 설정
-CSV_BASE_PATH = r"D:\비용대시보드\비용엑셀"
+CSV_BASE_PATH = r"D:\dashboard\비용대시보드\비용엑셀"
 OUTPUT_DIR = Path(__file__).parent.parent / "data"
 OUTPUT_DIR.mkdir(exist_ok=True)
 

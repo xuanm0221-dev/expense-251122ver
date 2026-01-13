@@ -568,7 +568,7 @@
       "cost_lv1": "감가상각비",
       "amount": 0.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -578,7 +578,7 @@
       "cost_lv1": "광고비",
       "amount": 1410600.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -588,7 +588,7 @@
       "cost_lv1": "복리후생비",
       "amount": 79590.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -598,7 +598,7 @@
       "cost_lv1": "수주회",
       "amount": 979138.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -608,7 +608,7 @@
       "cost_lv1": "인건비",
       "amount": 293707.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -618,7 +618,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -628,7 +628,7 @@
       "cost_lv1": "출장비",
       "amount": -5076.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -638,7 +638,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -648,7 +648,7 @@
       "cost_lv1": "광고비",
       "amount": 3825289.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -658,7 +658,7 @@
       "cost_lv1": "복리후생비",
       "amount": 85427.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -668,7 +668,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -678,7 +678,7 @@
       "cost_lv1": "인건비",
       "amount": 335722.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -688,7 +688,7 @@
       "cost_lv1": "지급수수료",
       "amount": 15000.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -698,7 +698,7 @@
       "cost_lv1": "출장비",
       "amount": 78374.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -708,7 +708,7 @@
       "cost_lv1": "감가상각비",
       "amount": 18.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -718,7 +718,7 @@
       "cost_lv1": "광고비",
       "amount": 4746520.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -728,7 +728,7 @@
       "cost_lv1": "복리후생비",
       "amount": 159316.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -738,7 +738,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -748,7 +748,7 @@
       "cost_lv1": "인건비",
       "amount": 577756.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -758,7 +758,7 @@
       "cost_lv1": "지급수수료",
       "amount": 129800.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -768,7 +768,7 @@
       "cost_lv1": "출장비",
       "amount": 41752.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -778,7 +778,7 @@
       "cost_lv1": "감가상각비",
       "amount": 9.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -788,7 +788,7 @@
       "cost_lv1": "광고비",
       "amount": 2705735.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -798,7 +798,7 @@
       "cost_lv1": "복리후생비",
       "amount": 163202.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -808,7 +808,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -818,7 +818,7 @@
       "cost_lv1": "인건비",
       "amount": 589924.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -828,7 +828,7 @@
       "cost_lv1": "지급수수료",
       "amount": 11500.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -838,7 +838,7 @@
       "cost_lv1": "출장비",
       "amount": 114697.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -848,7 +848,7 @@
       "cost_lv1": "감가상각비",
       "amount": 0.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -858,7 +858,7 @@
       "cost_lv1": "광고비",
       "amount": 2040383.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -868,7 +868,7 @@
       "cost_lv1": "복리후생비",
       "amount": 202521.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -878,7 +878,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -888,7 +888,7 @@
       "cost_lv1": "인건비",
       "amount": 1250243.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -898,7 +898,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -908,7 +908,7 @@
       "cost_lv1": "출장비",
       "amount": 53530.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -918,7 +918,7 @@
       "cost_lv1": "감가상각비",
       "amount": 0.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -928,7 +928,7 @@
       "cost_lv1": "광고비",
       "amount": 1483170.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -938,7 +938,7 @@
       "cost_lv1": "복리후생비",
       "amount": 224371.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -948,7 +948,7 @@
       "cost_lv1": "수주회",
       "amount": 490551.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -958,7 +958,7 @@
       "cost_lv1": "인건비",
       "amount": 850129.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -968,7 +968,7 @@
       "cost_lv1": "지급수수료",
       "amount": 187194.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -978,7 +978,7 @@
       "cost_lv1": "출장비",
       "amount": 27978.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -988,7 +988,7 @@
       "cost_lv1": "감가상각비",
       "amount": 1354.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -998,7 +998,7 @@
       "cost_lv1": "광고비",
       "amount": 1521502.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1008,7 +1008,7 @@
       "cost_lv1": "복리후생비",
       "amount": 218229.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1018,7 +1018,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1028,7 +1028,7 @@
       "cost_lv1": "인건비",
       "amount": 1946487.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1038,7 +1038,7 @@
       "cost_lv1": "지급수수료",
       "amount": 502795.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1048,7 +1048,7 @@
       "cost_lv1": "출장비",
       "amount": 17251.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1058,7 +1058,7 @@
       "cost_lv1": "감가상각비",
       "amount": 504.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1068,7 +1068,7 @@
       "cost_lv1": "광고비",
       "amount": 1747705.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1078,7 +1078,7 @@
       "cost_lv1": "복리후생비",
       "amount": 232843.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1088,7 +1088,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1098,7 +1098,7 @@
       "cost_lv1": "인건비",
       "amount": 1053426.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1108,7 +1108,7 @@
       "cost_lv1": "지급수수료",
       "amount": 204528.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1118,7 +1118,7 @@
       "cost_lv1": "출장비",
       "amount": 28992.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1128,7 +1128,7 @@
       "cost_lv1": "감가상각비",
       "amount": 504.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1138,7 +1138,7 @@
       "cost_lv1": "광고비",
       "amount": 3532921.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1148,7 +1148,7 @@
       "cost_lv1": "복리후생비",
       "amount": 178826.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1158,7 +1158,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1168,7 +1168,7 @@
       "cost_lv1": "인건비",
       "amount": 764698.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1178,7 +1178,7 @@
       "cost_lv1": "지급수수료",
       "amount": 97000.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1188,7 +1188,7 @@
       "cost_lv1": "출장비",
       "amount": 12256.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1198,7 +1198,7 @@
       "cost_lv1": "감가상각비",
       "amount": 1000.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1208,7 +1208,7 @@
       "cost_lv1": "광고비",
       "amount": 3444343.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1218,7 +1218,7 @@
       "cost_lv1": "복리후생비",
       "amount": 187061.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1228,7 +1228,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1238,7 +1238,7 @@
       "cost_lv1": "인건비",
       "amount": 732904.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1248,7 +1248,7 @@
       "cost_lv1": "지급수수료",
       "amount": 150830.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1258,7 +1258,7 @@
       "cost_lv1": "출장비",
       "amount": 48540.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1268,7 +1268,7 @@
       "cost_lv1": "감가상각비",
       "amount": 504.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1278,7 +1278,7 @@
       "cost_lv1": "광고비",
       "amount": 564071.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1288,7 +1288,7 @@
       "cost_lv1": "복리후생비",
       "amount": 206515.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1298,7 +1298,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1308,7 +1308,7 @@
       "cost_lv1": "인건비",
       "amount": 920538.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1318,7 +1318,7 @@
       "cost_lv1": "지급수수료",
       "amount": 503800.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1328,7 +1328,7 @@
       "cost_lv1": "출장비",
       "amount": 91107.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1338,7 +1338,7 @@
       "cost_lv1": "감가상각비",
       "amount": 4328.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1348,7 +1348,7 @@
       "cost_lv1": "광고비",
       "amount": 2870926.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1358,7 +1358,7 @@
       "cost_lv1": "복리후생비",
       "amount": 287895.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1368,7 +1368,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1378,7 +1378,7 @@
       "cost_lv1": "인건비",
       "amount": 1076424.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1388,7 +1388,7 @@
       "cost_lv1": "지급수수료",
       "amount": 34600.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1398,7 +1398,7 @@
       "cost_lv1": "출장비",
       "amount": 77431.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1408,7 +1408,7 @@
       "cost_lv1": "감가상각비",
       "amount": 4328.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1418,7 +1418,7 @@
       "cost_lv1": "광고비",
       "amount": 9698892.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1428,7 +1428,7 @@
       "cost_lv1": "복리후생비",
       "amount": 249745.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1438,7 +1438,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1448,7 +1448,7 @@
       "cost_lv1": "인건비",
       "amount": 975646.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1458,7 +1458,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1468,7 +1468,7 @@
       "cost_lv1": "출장비",
       "amount": 67375.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1478,7 +1478,7 @@
       "cost_lv1": "감가상각비",
       "amount": 5704.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1488,7 +1488,7 @@
       "cost_lv1": "광고비",
       "amount": 5397476.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1498,7 +1498,7 @@
       "cost_lv1": "복리후생비",
       "amount": 245754.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1508,7 +1508,7 @@
       "cost_lv1": "수주회",
       "amount": 797026.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1518,7 +1518,7 @@
       "cost_lv1": "인건비",
       "amount": 1101517.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1528,7 +1528,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1538,7 +1538,7 @@
       "cost_lv1": "출장비",
       "amount": 52745.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1616,9 +1616,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "감가상각비",
-      "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "amount": 6016.17,
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1626,9 +1626,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "광고비",
-      "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "amount": 6039446.92,
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1636,9 +1636,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "amount": 285075.63,
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1647,8 +1647,8 @@
       "yyyymm": "202512",
       "cost_lv1": "수주회",
       "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1656,9 +1656,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "amount": 1159370.59,
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1666,9 +1666,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "amount": -307688.68,
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "DISCOVERY",
@@ -1676,9 +1676,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "출장비",
-      "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "amount": 68926.66,
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "KIDS",
@@ -1688,7 +1688,7 @@
       "cost_lv1": "감가상각비",
       "amount": 0.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -1698,7 +1698,7 @@
       "cost_lv1": "광고비",
       "amount": 893012.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -1708,7 +1708,7 @@
       "cost_lv1": "복리후생비",
       "amount": 134876.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -1718,7 +1718,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -1728,7 +1728,7 @@
       "cost_lv1": "인건비",
       "amount": 563620.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -1738,7 +1738,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -1748,7 +1748,7 @@
       "cost_lv1": "출장비",
       "amount": 213.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -1758,7 +1758,7 @@
       "cost_lv1": "감가상각비",
       "amount": 4297.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -1768,7 +1768,7 @@
       "cost_lv1": "광고비",
       "amount": 119836.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -1778,7 +1778,7 @@
       "cost_lv1": "복리후생비",
       "amount": 134876.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -1788,7 +1788,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -1798,7 +1798,7 @@
       "cost_lv1": "인건비",
       "amount": 876340.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -1808,7 +1808,7 @@
       "cost_lv1": "지급수수료",
       "amount": 100000.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -1818,7 +1818,7 @@
       "cost_lv1": "출장비",
       "amount": 2513.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -1828,7 +1828,7 @@
       "cost_lv1": "감가상각비",
       "amount": 4041.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -1838,7 +1838,7 @@
       "cost_lv1": "광고비",
       "amount": 2010256.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -1848,7 +1848,7 @@
       "cost_lv1": "복리후생비",
       "amount": 128675.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -1858,7 +1858,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -1868,7 +1868,7 @@
       "cost_lv1": "인건비",
       "amount": 2398184.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -1878,7 +1878,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -1888,7 +1888,7 @@
       "cost_lv1": "출장비",
       "amount": 5222.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -1898,7 +1898,7 @@
       "cost_lv1": "감가상각비",
       "amount": 4011.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -1908,7 +1908,7 @@
       "cost_lv1": "광고비",
       "amount": 438009.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -1918,7 +1918,7 @@
       "cost_lv1": "복리후생비",
       "amount": 124792.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -1928,7 +1928,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -1938,7 +1938,7 @@
       "cost_lv1": "인건비",
       "amount": 622297.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -1948,7 +1948,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -1958,7 +1958,7 @@
       "cost_lv1": "출장비",
       "amount": 7931.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -1968,7 +1968,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3936.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -1978,7 +1978,7 @@
       "cost_lv1": "광고비",
       "amount": 1163749.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -1988,7 +1988,7 @@
       "cost_lv1": "복리후생비",
       "amount": 127188.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -1998,7 +1998,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -2008,7 +2008,7 @@
       "cost_lv1": "인건비",
       "amount": 548771.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -2018,7 +2018,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -2028,7 +2028,7 @@
       "cost_lv1": "출장비",
       "amount": 8591.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -2038,7 +2038,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3929.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -2048,7 +2048,7 @@
       "cost_lv1": "광고비",
       "amount": 441728.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -2058,7 +2058,7 @@
       "cost_lv1": "복리후생비",
       "amount": 129250.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -2068,7 +2068,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -2078,7 +2078,7 @@
       "cost_lv1": "인건비",
       "amount": 528716.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -2088,7 +2088,7 @@
       "cost_lv1": "지급수수료",
       "amount": 21800.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -2098,7 +2098,7 @@
       "cost_lv1": "출장비",
       "amount": 7210.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -2108,7 +2108,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3970.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -2118,7 +2118,7 @@
       "cost_lv1": "광고비",
       "amount": 306213.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -2128,7 +2128,7 @@
       "cost_lv1": "복리후생비",
       "amount": 117287.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -2138,7 +2138,7 @@
       "cost_lv1": "수주회",
       "amount": 347068.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -2148,7 +2148,7 @@
       "cost_lv1": "인건비",
       "amount": 482712.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -2158,7 +2158,7 @@
       "cost_lv1": "지급수수료",
       "amount": 59300.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -2168,7 +2168,7 @@
       "cost_lv1": "출장비",
       "amount": 14927.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -2178,7 +2178,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3948.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -2188,7 +2188,7 @@
       "cost_lv1": "광고비",
       "amount": 759130.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -2198,7 +2198,7 @@
       "cost_lv1": "복리후생비",
       "amount": 185274.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -2208,7 +2208,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -2218,7 +2218,7 @@
       "cost_lv1": "인건비",
       "amount": 606973.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -2228,7 +2228,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -2238,7 +2238,7 @@
       "cost_lv1": "출장비",
       "amount": 6654.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -2248,7 +2248,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3503.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -2258,7 +2258,7 @@
       "cost_lv1": "광고비",
       "amount": 2779827.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -2268,7 +2268,7 @@
       "cost_lv1": "복리후생비",
       "amount": 181551.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -2278,7 +2278,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -2288,7 +2288,7 @@
       "cost_lv1": "인건비",
       "amount": 661730.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -2298,7 +2298,7 @@
       "cost_lv1": "지급수수료",
       "amount": 6000.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -2308,7 +2308,7 @@
       "cost_lv1": "출장비",
       "amount": 14767.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -2318,7 +2318,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3495.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -2328,7 +2328,7 @@
       "cost_lv1": "광고비",
       "amount": 1270649.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -2338,7 +2338,7 @@
       "cost_lv1": "복리후생비",
       "amount": 173284.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -2348,7 +2348,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -2358,7 +2358,7 @@
       "cost_lv1": "인건비",
       "amount": 817602.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -2368,7 +2368,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -2378,7 +2378,7 @@
       "cost_lv1": "출장비",
       "amount": 32751.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -2388,7 +2388,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3463.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -2398,7 +2398,7 @@
       "cost_lv1": "광고비",
       "amount": 798985.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -2408,7 +2408,7 @@
       "cost_lv1": "복리후생비",
       "amount": 186465.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -2418,7 +2418,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -2428,7 +2428,7 @@
       "cost_lv1": "인건비",
       "amount": 655998.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -2438,7 +2438,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -2448,7 +2448,7 @@
       "cost_lv1": "출장비",
       "amount": 19565.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -2458,7 +2458,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2506.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -2468,7 +2468,7 @@
       "cost_lv1": "광고비",
       "amount": 244001.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -2478,7 +2478,7 @@
       "cost_lv1": "복리후생비",
       "amount": 195691.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -2488,7 +2488,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -2498,7 +2498,7 @@
       "cost_lv1": "인건비",
       "amount": 668945.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -2508,7 +2508,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -2518,7 +2518,7 @@
       "cost_lv1": "출장비",
       "amount": 43935.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -2528,7 +2528,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2446.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -2538,7 +2538,7 @@
       "cost_lv1": "광고비",
       "amount": 1180412.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -2548,7 +2548,7 @@
       "cost_lv1": "복리후생비",
       "amount": 193669.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -2558,7 +2558,7 @@
       "cost_lv1": "수주회",
       "amount": 351520.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -2568,7 +2568,7 @@
       "cost_lv1": "인건비",
       "amount": 1144076.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -2578,7 +2578,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -2588,7 +2588,7 @@
       "cost_lv1": "출장비",
       "amount": 2041.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -2598,7 +2598,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2446.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -2608,7 +2608,7 @@
       "cost_lv1": "광고비",
       "amount": 1012786.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -2618,7 +2618,7 @@
       "cost_lv1": "복리후생비",
       "amount": 191929.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -2628,7 +2628,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -2638,7 +2638,7 @@
       "cost_lv1": "인건비",
       "amount": 781612.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -2648,7 +2648,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -2658,7 +2658,7 @@
       "cost_lv1": "출장비",
       "amount": 38246.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -2668,7 +2668,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2446.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -2678,7 +2678,7 @@
       "cost_lv1": "광고비",
       "amount": 1074655.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -2688,7 +2688,7 @@
       "cost_lv1": "복리후생비",
       "amount": 205458.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -2698,7 +2698,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -2708,7 +2708,7 @@
       "cost_lv1": "인건비",
       "amount": 1904447.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -2718,7 +2718,7 @@
       "cost_lv1": "지급수수료",
       "amount": 73012.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -2728,7 +2728,7 @@
       "cost_lv1": "출장비",
       "amount": 39365.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -2738,7 +2738,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2446.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -2748,7 +2748,7 @@
       "cost_lv1": "광고비",
       "amount": 1550411.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -2758,7 +2758,7 @@
       "cost_lv1": "복리후생비",
       "amount": 206382.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -2768,7 +2768,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -2778,7 +2778,7 @@
       "cost_lv1": "인건비",
       "amount": 841956.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -2788,7 +2788,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -2798,7 +2798,7 @@
       "cost_lv1": "출장비",
       "amount": 43064.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -2808,7 +2808,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2446.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -2818,7 +2818,7 @@
       "cost_lv1": "광고비",
       "amount": 1578007.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -2828,7 +2828,7 @@
       "cost_lv1": "복리후생비",
       "amount": 207236.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -2838,7 +2838,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -2848,7 +2848,7 @@
       "cost_lv1": "인건비",
       "amount": 813609.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -2858,7 +2858,7 @@
       "cost_lv1": "지급수수료",
       "amount": 62.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -2868,7 +2868,7 @@
       "cost_lv1": "출장비",
       "amount": 57404.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -2878,7 +2878,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2000.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -2888,7 +2888,7 @@
       "cost_lv1": "광고비",
       "amount": 1052266.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -2898,7 +2898,7 @@
       "cost_lv1": "복리후생비",
       "amount": 221123.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -2908,7 +2908,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -2918,7 +2918,7 @@
       "cost_lv1": "인건비",
       "amount": 810215.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -2928,7 +2928,7 @@
       "cost_lv1": "지급수수료",
       "amount": 112500.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -2938,7 +2938,7 @@
       "cost_lv1": "출장비",
       "amount": 37651.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -2948,7 +2948,7 @@
       "cost_lv1": "감가상각비",
       "amount": 2043.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -2958,7 +2958,7 @@
       "cost_lv1": "광고비",
       "amount": 1517196.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -2968,7 +2968,7 @@
       "cost_lv1": "복리후생비",
       "amount": 201932.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -2978,7 +2978,7 @@
       "cost_lv1": "수주회",
       "amount": 305030.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -2988,7 +2988,7 @@
       "cost_lv1": "인건비",
       "amount": 827410.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -2998,7 +2998,7 @@
       "cost_lv1": "지급수수료",
       "amount": 4600.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -3008,7 +3008,7 @@
       "cost_lv1": "출장비",
       "amount": 57134.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -3018,7 +3018,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3507.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -3028,7 +3028,7 @@
       "cost_lv1": "광고비",
       "amount": 1411958.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -3038,7 +3038,7 @@
       "cost_lv1": "복리후생비",
       "amount": 222311.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -3048,7 +3048,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -3058,7 +3058,7 @@
       "cost_lv1": "인건비",
       "amount": 827182.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -3068,7 +3068,7 @@
       "cost_lv1": "지급수수료",
       "amount": 0.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -3078,7 +3078,7 @@
       "cost_lv1": "출장비",
       "amount": 38944.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -3088,7 +3088,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3507.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -3098,7 +3098,7 @@
       "cost_lv1": "광고비",
       "amount": 1793239.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -3108,7 +3108,7 @@
       "cost_lv1": "복리후생비",
       "amount": 210861.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -3118,7 +3118,7 @@
       "cost_lv1": "수주회",
       "amount": 52497.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -3128,7 +3128,7 @@
       "cost_lv1": "인건비",
       "amount": 759300.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -3138,7 +3138,7 @@
       "cost_lv1": "지급수수료",
       "amount": 11000.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -3148,7 +3148,7 @@
       "cost_lv1": "출장비",
       "amount": 77479.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -3158,7 +3158,7 @@
       "cost_lv1": "감가상각비",
       "amount": 3507.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -3168,7 +3168,7 @@
       "cost_lv1": "광고비",
       "amount": 1828484.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -3178,7 +3178,7 @@
       "cost_lv1": "복리후생비",
       "amount": 215439.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -3188,7 +3188,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -3198,7 +3198,7 @@
       "cost_lv1": "인건비",
       "amount": 755769.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -3208,7 +3208,7 @@
       "cost_lv1": "지급수수료",
       "amount": 46417.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -3218,7 +3218,7 @@
       "cost_lv1": "출장비",
       "amount": 49373.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -3296,9 +3296,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "감가상각비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "amount": 3017.02,
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "KIDS",
@@ -3306,9 +3306,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "광고비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "amount": 1856400.64,
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "KIDS",
@@ -3316,9 +3316,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "amount": 207710.4,
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "KIDS",
@@ -3327,8 +3327,8 @@
       "yyyymm": "202512",
       "cost_lv1": "수주회",
       "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "KIDS",
@@ -3336,9 +3336,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "amount": 759461.62,
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "KIDS",
@@ -3346,9 +3346,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "amount": -48098.229999999996,
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "KIDS",
@@ -3356,9 +3356,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "출장비",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "amount": 23354.14,
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "MLB",
@@ -3368,7 +3368,7 @@
       "cost_lv1": "감가상각비",
       "amount": 499445.0,
       "headcount": 200.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -3378,7 +3378,7 @@
       "cost_lv1": "광고비",
       "amount": 22568832.0,
       "headcount": 200.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -3388,7 +3388,7 @@
       "cost_lv1": "복리후생비",
       "amount": 933423.0,
       "headcount": 127.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -3398,7 +3398,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 200.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -3408,7 +3408,7 @@
       "cost_lv1": "인건비",
       "amount": 3826973.0,
       "headcount": 127.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -3418,7 +3418,7 @@
       "cost_lv1": "지급수수료",
       "amount": 31785.0,
       "headcount": 200.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -3428,7 +3428,7 @@
       "cost_lv1": "출장비",
       "amount": 90703.0,
       "headcount": 200.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -3438,7 +3438,7 @@
       "cost_lv1": "감가상각비",
       "amount": 490706.0,
       "headcount": 197.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -3448,7 +3448,7 @@
       "cost_lv1": "광고비",
       "amount": 8097530.0,
       "headcount": 197.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -3458,7 +3458,7 @@
       "cost_lv1": "복리후생비",
       "amount": 897089.0,
       "headcount": 124.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -3468,7 +3468,7 @@
       "cost_lv1": "수주회",
       "amount": 210548.0,
       "headcount": 197.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -3478,7 +3478,7 @@
       "cost_lv1": "인건비",
       "amount": 5939543.0,
       "headcount": 124.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -3488,7 +3488,7 @@
       "cost_lv1": "지급수수료",
       "amount": 614000.0,
       "headcount": 197.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -3498,7 +3498,7 @@
       "cost_lv1": "출장비",
       "amount": 61368.0,
       "headcount": 197.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -3508,7 +3508,7 @@
       "cost_lv1": "감가상각비",
       "amount": 490824.0,
       "headcount": 200.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -3518,7 +3518,7 @@
       "cost_lv1": "광고비",
       "amount": 7501972.0,
       "headcount": 200.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -3528,7 +3528,7 @@
       "cost_lv1": "복리후생비",
       "amount": 871523.0,
       "headcount": 125.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -3538,7 +3538,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 200.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -3548,7 +3548,7 @@
       "cost_lv1": "인건비",
       "amount": -10333116.0,
       "headcount": 125.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -3558,7 +3558,7 @@
       "cost_lv1": "지급수수료",
       "amount": 50000.0,
       "headcount": 200.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -3568,7 +3568,7 @@
       "cost_lv1": "출장비",
       "amount": 162140.0,
       "headcount": 200.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -3578,7 +3578,7 @@
       "cost_lv1": "감가상각비",
       "amount": 478099.0,
       "headcount": 198.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -3588,7 +3588,7 @@
       "cost_lv1": "광고비",
       "amount": 9655615.0,
       "headcount": 198.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -3598,7 +3598,7 @@
       "cost_lv1": "복리후생비",
       "amount": 851329.0,
       "headcount": 125.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -3608,7 +3608,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 198.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -3618,7 +3618,7 @@
       "cost_lv1": "인건비",
       "amount": 4046193.0,
       "headcount": 125.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -3628,7 +3628,7 @@
       "cost_lv1": "지급수수료",
       "amount": 190100.0,
       "headcount": 198.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -3638,7 +3638,7 @@
       "cost_lv1": "출장비",
       "amount": 260448.0,
       "headcount": 198.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -3648,7 +3648,7 @@
       "cost_lv1": "감가상각비",
       "amount": 487895.0,
       "headcount": 198.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -3658,7 +3658,7 @@
       "cost_lv1": "광고비",
       "amount": 5176533.0,
       "headcount": 198.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -3668,7 +3668,7 @@
       "cost_lv1": "복리후생비",
       "amount": 864737.0,
       "headcount": 125.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -3678,7 +3678,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 198.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -3688,7 +3688,7 @@
       "cost_lv1": "인건비",
       "amount": 4176479.0,
       "headcount": 125.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -3698,7 +3698,7 @@
       "cost_lv1": "지급수수료",
       "amount": 280000.0,
       "headcount": 198.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -3708,7 +3708,7 @@
       "cost_lv1": "출장비",
       "amount": 7353.0,
       "headcount": 198.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -3718,7 +3718,7 @@
       "cost_lv1": "감가상각비",
       "amount": 475640.0,
       "headcount": 196.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -3728,7 +3728,7 @@
       "cost_lv1": "광고비",
       "amount": 3001910.0,
       "headcount": 196.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -3738,7 +3738,7 @@
       "cost_lv1": "복리후생비",
       "amount": 837418.0,
       "headcount": 122.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -3748,7 +3748,7 @@
       "cost_lv1": "수주회",
       "amount": 8657620.0,
       "headcount": 196.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -3758,7 +3758,7 @@
       "cost_lv1": "인건비",
       "amount": 3857107.0,
       "headcount": 122.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -3768,7 +3768,7 @@
       "cost_lv1": "지급수수료",
       "amount": 114800.0,
       "headcount": 196.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -3778,7 +3778,7 @@
       "cost_lv1": "출장비",
       "amount": 569435.0,
       "headcount": 196.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -3788,7 +3788,7 @@
       "cost_lv1": "감가상각비",
       "amount": 476435.0,
       "headcount": 193.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -3798,7 +3798,7 @@
       "cost_lv1": "광고비",
       "amount": 4058698.0,
       "headcount": 193.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -3808,7 +3808,7 @@
       "cost_lv1": "복리후생비",
       "amount": 838118.0,
       "headcount": 121.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -3818,7 +3818,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 193.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -3828,7 +3828,7 @@
       "cost_lv1": "인건비",
       "amount": 4154970.0,
       "headcount": 121.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -3838,7 +3838,7 @@
       "cost_lv1": "지급수수료",
       "amount": 51200.0,
       "headcount": 193.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -3848,7 +3848,7 @@
       "cost_lv1": "출장비",
       "amount": 187118.0,
       "headcount": 193.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -3858,7 +3858,7 @@
       "cost_lv1": "감가상각비",
       "amount": 501727.0,
       "headcount": 203.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -3868,7 +3868,7 @@
       "cost_lv1": "광고비",
       "amount": 18049789.0,
       "headcount": 203.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -3878,7 +3878,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1128981.0,
       "headcount": 131.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -3888,7 +3888,7 @@
       "cost_lv1": "수주회",
       "amount": -207503.0,
       "headcount": 203.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -3898,7 +3898,7 @@
       "cost_lv1": "인건비",
       "amount": 4217813.0,
       "headcount": 131.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -3908,7 +3908,7 @@
       "cost_lv1": "지급수수료",
       "amount": 64228.0,
       "headcount": 203.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -3918,7 +3918,7 @@
       "cost_lv1": "출장비",
       "amount": 66406.0,
       "headcount": 203.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -3928,7 +3928,7 @@
       "cost_lv1": "감가상각비",
       "amount": 506449.0,
       "headcount": 204.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -3938,7 +3938,7 @@
       "cost_lv1": "광고비",
       "amount": 15586842.0,
       "headcount": 204.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -3948,7 +3948,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1042213.0,
       "headcount": 133.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -3958,7 +3958,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 204.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -3968,7 +3968,7 @@
       "cost_lv1": "인건비",
       "amount": 4155916.0,
       "headcount": 133.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -3978,7 +3978,7 @@
       "cost_lv1": "지급수수료",
       "amount": 67800.0,
       "headcount": 204.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -3988,7 +3988,7 @@
       "cost_lv1": "출장비",
       "amount": 93565.0,
       "headcount": 204.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -3998,7 +3998,7 @@
       "cost_lv1": "감가상각비",
       "amount": 510931.0,
       "headcount": 206.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -4008,7 +4008,7 @@
       "cost_lv1": "광고비",
       "amount": 12842549.0,
       "headcount": 206.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -4018,7 +4018,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1057163.0,
       "headcount": 135.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -4028,7 +4028,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 206.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -4038,7 +4038,7 @@
       "cost_lv1": "인건비",
       "amount": 4164564.0,
       "headcount": 135.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -4048,7 +4048,7 @@
       "cost_lv1": "지급수수료",
       "amount": 17220.0,
       "headcount": 206.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -4058,7 +4058,7 @@
       "cost_lv1": "출장비",
       "amount": 181582.0,
       "headcount": 206.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -4068,7 +4068,7 @@
       "cost_lv1": "감가상각비",
       "amount": 510941.0,
       "headcount": 203.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -4078,7 +4078,7 @@
       "cost_lv1": "광고비",
       "amount": 11208832.0,
       "headcount": 203.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -4088,7 +4088,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1021718.0,
       "headcount": 133.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -4098,7 +4098,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 203.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -4108,7 +4108,7 @@
       "cost_lv1": "인건비",
       "amount": 4072422.0,
       "headcount": 133.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -4118,7 +4118,7 @@
       "cost_lv1": "지급수수료",
       "amount": 79963.0,
       "headcount": 203.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -4128,7 +4128,7 @@
       "cost_lv1": "출장비",
       "amount": 180370.0,
       "headcount": 203.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -4138,7 +4138,7 @@
       "cost_lv1": "감가상각비",
       "amount": 347190.0,
       "headcount": 203.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -4148,7 +4148,7 @@
       "cost_lv1": "광고비",
       "amount": 9273590.0,
       "headcount": 203.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -4158,7 +4158,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1022446.0,
       "headcount": 132.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -4168,7 +4168,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 203.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -4178,7 +4178,7 @@
       "cost_lv1": "인건비",
       "amount": 3999374.0,
       "headcount": 132.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -4188,7 +4188,7 @@
       "cost_lv1": "지급수수료",
       "amount": 169483.0,
       "headcount": 203.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -4198,7 +4198,7 @@
       "cost_lv1": "출장비",
       "amount": 213831.0,
       "headcount": 203.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -4208,7 +4208,7 @@
       "cost_lv1": "감가상각비",
       "amount": 349938.0,
       "headcount": 206.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -4218,7 +4218,7 @@
       "cost_lv1": "광고비",
       "amount": 14248195.0,
       "headcount": 206.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -4228,7 +4228,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1024650.0,
       "headcount": 133.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -4238,7 +4238,7 @@
       "cost_lv1": "수주회",
       "amount": 5786997.0,
       "headcount": 206.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -4248,7 +4248,7 @@
       "cost_lv1": "인건비",
       "amount": 7243202.0,
       "headcount": 133.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -4258,7 +4258,7 @@
       "cost_lv1": "지급수수료",
       "amount": 20600.0,
       "headcount": 206.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -4268,7 +4268,7 @@
       "cost_lv1": "출장비",
       "amount": 44146.0,
       "headcount": 206.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -4278,7 +4278,7 @@
       "cost_lv1": "감가상각비",
       "amount": 349939.0,
       "headcount": 205.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -4288,7 +4288,7 @@
       "cost_lv1": "광고비",
       "amount": 11935940.0,
       "headcount": 205.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -4298,7 +4298,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1016528.0,
       "headcount": 133.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -4308,7 +4308,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 205.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -4318,7 +4318,7 @@
       "cost_lv1": "인건비",
       "amount": 4119026.0,
       "headcount": 133.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -4328,7 +4328,7 @@
       "cost_lv1": "지급수수료",
       "amount": 1900.0,
       "headcount": 205.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -4338,7 +4338,7 @@
       "cost_lv1": "출장비",
       "amount": 31744.0,
       "headcount": 205.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -4348,7 +4348,7 @@
       "cost_lv1": "감가상각비",
       "amount": 355446.0,
       "headcount": 204.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -4358,7 +4358,7 @@
       "cost_lv1": "광고비",
       "amount": 12295921.0,
       "headcount": 204.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -4368,7 +4368,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1051427.0,
       "headcount": 132.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -4378,7 +4378,7 @@
       "cost_lv1": "수주회",
       "amount": 71222.0,
       "headcount": 204.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -4388,7 +4388,7 @@
       "cost_lv1": "인건비",
       "amount": -9295396.98,
       "headcount": 132.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -4398,7 +4398,7 @@
       "cost_lv1": "지급수수료",
       "amount": 65000.0,
       "headcount": 204.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -4408,7 +4408,7 @@
       "cost_lv1": "출장비",
       "amount": 102591.0,
       "headcount": 204.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -4418,7 +4418,7 @@
       "cost_lv1": "감가상각비",
       "amount": 359031.0,
       "headcount": 205.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -4428,7 +4428,7 @@
       "cost_lv1": "광고비",
       "amount": 8443131.0,
       "headcount": 205.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -4438,7 +4438,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1045928.0,
       "headcount": 133.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -4448,7 +4448,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 205.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -4458,7 +4458,7 @@
       "cost_lv1": "인건비",
       "amount": 4322896.0,
       "headcount": 133.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -4468,7 +4468,7 @@
       "cost_lv1": "지급수수료",
       "amount": 54400.0,
       "headcount": 205.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -4478,7 +4478,7 @@
       "cost_lv1": "출장비",
       "amount": 187880.0,
       "headcount": 205.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -4488,7 +4488,7 @@
       "cost_lv1": "감가상각비",
       "amount": 330302.0,
       "headcount": 204.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -4498,7 +4498,7 @@
       "cost_lv1": "광고비",
       "amount": 9755596.0,
       "headcount": 204.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -4508,7 +4508,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1008978.0,
       "headcount": 132.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -4518,7 +4518,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 204.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -4528,7 +4528,7 @@
       "cost_lv1": "인건비",
       "amount": 4186479.0,
       "headcount": 132.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -4538,7 +4538,7 @@
       "cost_lv1": "지급수수료",
       "amount": 926753.0,
       "headcount": 204.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -4548,7 +4548,7 @@
       "cost_lv1": "출장비",
       "amount": 95145.0,
       "headcount": 204.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -4558,7 +4558,7 @@
       "cost_lv1": "감가상각비",
       "amount": 339713.0,
       "headcount": 201.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -4568,7 +4568,7 @@
       "cost_lv1": "광고비",
       "amount": 7943187.0,
       "headcount": 201.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -4578,7 +4578,7 @@
       "cost_lv1": "복리후생비",
       "amount": 988392.0,
       "headcount": 130.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -4588,7 +4588,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 201.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -4598,7 +4598,7 @@
       "cost_lv1": "인건비",
       "amount": 4223633.0,
       "headcount": 130.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -4608,7 +4608,7 @@
       "cost_lv1": "지급수수료",
       "amount": 167342.0,
       "headcount": 201.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -4618,7 +4618,7 @@
       "cost_lv1": "출장비",
       "amount": 58587.0,
       "headcount": 201.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -4628,7 +4628,7 @@
       "cost_lv1": "감가상각비",
       "amount": 443970.0,
       "headcount": 204.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -4638,7 +4638,7 @@
       "cost_lv1": "광고비",
       "amount": 7798630.0,
       "headcount": 204.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -4648,7 +4648,7 @@
       "cost_lv1": "복리후생비",
       "amount": 992259.0,
       "headcount": 132.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -4658,7 +4658,7 @@
       "cost_lv1": "수주회",
       "amount": 5810606.0,
       "headcount": 204.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -4668,7 +4668,7 @@
       "cost_lv1": "인건비",
       "amount": 4270990.0,
       "headcount": 132.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -4678,7 +4678,7 @@
       "cost_lv1": "지급수수료",
       "amount": 286067.0,
       "headcount": 204.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -4688,7 +4688,7 @@
       "cost_lv1": "출장비",
       "amount": 181678.0,
       "headcount": 204.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -4698,7 +4698,7 @@
       "cost_lv1": "감가상각비",
       "amount": 459248.0,
       "headcount": 200.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -4708,7 +4708,7 @@
       "cost_lv1": "광고비",
       "amount": 15097422.0,
       "headcount": 200.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -4718,7 +4718,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1268571.0,
       "headcount": 128.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -4728,7 +4728,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 200.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -4738,7 +4738,7 @@
       "cost_lv1": "인건비",
       "amount": 4085287.0,
       "headcount": 128.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -4748,7 +4748,7 @@
       "cost_lv1": "지급수수료",
       "amount": 93700.0,
       "headcount": 200.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -4758,7 +4758,7 @@
       "cost_lv1": "출장비",
       "amount": 44598.0,
       "headcount": 200.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -4768,7 +4768,7 @@
       "cost_lv1": "감가상각비",
       "amount": 446646.0,
       "headcount": 199.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -4778,7 +4778,7 @@
       "cost_lv1": "광고비",
       "amount": 24676505.0,
       "headcount": 199.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -4788,7 +4788,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1078315.0,
       "headcount": 127.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -4798,7 +4798,7 @@
       "cost_lv1": "수주회",
       "amount": 298933.0,
       "headcount": 199.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -4808,7 +4808,7 @@
       "cost_lv1": "인건비",
       "amount": 4186179.0,
       "headcount": 127.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -4818,7 +4818,7 @@
       "cost_lv1": "지급수수료",
       "amount": 24733.0,
       "headcount": 199.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -4828,7 +4828,7 @@
       "cost_lv1": "출장비",
       "amount": 136561.0,
       "headcount": 199.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -4838,7 +4838,7 @@
       "cost_lv1": "감가상각비",
       "amount": 456201.0,
       "headcount": 199.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -4848,7 +4848,7 @@
       "cost_lv1": "광고비",
       "amount": 10408800.0,
       "headcount": 199.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -4858,7 +4858,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1078315.0,
       "headcount": 128.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -4868,7 +4868,7 @@
       "cost_lv1": "수주회",
       "amount": 0.0,
       "headcount": 199.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -4878,7 +4878,7 @@
       "cost_lv1": "인건비",
       "amount": 4184172.0,
       "headcount": 128.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -4888,7 +4888,7 @@
       "cost_lv1": "지급수수료",
       "amount": 40600.0,
       "headcount": 199.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -4898,7 +4898,7 @@
       "cost_lv1": "출장비",
       "amount": 52266.0,
       "headcount": 199.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -4976,9 +4976,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "감가상각비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 877748575.0
+      "amount": 385165.23,
+      "headcount": 200.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "MLB",
@@ -4986,9 +4986,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "광고비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 877748575.0
+      "amount": 15890855.71,
+      "headcount": 200.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "MLB",
@@ -4996,9 +4996,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
-      "headcount": 137.0,
-      "sales": 877748575.0
+      "amount": 1074338.4100000001,
+      "headcount": 128.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "MLB",
@@ -5007,8 +5007,8 @@
       "yyyymm": "202512",
       "cost_lv1": "수주회",
       "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 877748575.0
+      "headcount": 200.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "MLB",
@@ -5016,9 +5016,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "amount": 0.0,
-      "headcount": 137.0,
-      "sales": 877748575.0
+      "amount": 4039028.31,
+      "headcount": 128.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "MLB",
@@ -5026,9 +5026,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 877748575.0
+      "amount": -13915.68,
+      "headcount": 200.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "MLB",
@@ -5036,9 +5036,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "출장비",
-      "amount": 0.0,
-      "headcount": 210.0,
-      "sales": 877748575.0
+      "amount": 224259.79,
+      "headcount": 200.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "공통",
@@ -5068,7 +5068,7 @@
       "cost_lv1": "복리후생비",
       "amount": 2676998.0,
       "headcount": 73.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "공통",
@@ -5088,7 +5088,7 @@
       "cost_lv1": "인건비",
       "amount": 2413599.0,
       "headcount": 73.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "공통",
@@ -5148,7 +5148,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1235568.0,
       "headcount": 73.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "공통",
@@ -5168,7 +5168,7 @@
       "cost_lv1": "인건비",
       "amount": 3778321.0,
       "headcount": 73.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "공통",
@@ -5228,7 +5228,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1112328.0,
       "headcount": 75.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "공통",
@@ -5248,7 +5248,7 @@
       "cost_lv1": "인건비",
       "amount": 11796799.0,
       "headcount": 75.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "공통",
@@ -5308,7 +5308,7 @@
       "cost_lv1": "복리후생비",
       "amount": 941462.0,
       "headcount": 73.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "공통",
@@ -5328,7 +5328,7 @@
       "cost_lv1": "인건비",
       "amount": 2559281.0,
       "headcount": 73.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "공통",
@@ -5388,7 +5388,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1170175.0,
       "headcount": 73.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "공통",
@@ -5408,7 +5408,7 @@
       "cost_lv1": "인건비",
       "amount": 2672120.0,
       "headcount": 73.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "공통",
@@ -5468,7 +5468,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1345953.0,
       "headcount": 74.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "공통",
@@ -5488,7 +5488,7 @@
       "cost_lv1": "인건비",
       "amount": 3127259.0,
       "headcount": 74.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "공통",
@@ -5548,7 +5548,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1088542.0,
       "headcount": 72.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "공통",
@@ -5568,7 +5568,7 @@
       "cost_lv1": "인건비",
       "amount": 2524129.0,
       "headcount": 72.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "공통",
@@ -5628,7 +5628,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1117040.0,
       "headcount": 72.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "공통",
@@ -5648,7 +5648,7 @@
       "cost_lv1": "인건비",
       "amount": 2510483.0,
       "headcount": 72.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "공통",
@@ -5708,7 +5708,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1341688.0,
       "headcount": 71.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "공통",
@@ -5728,7 +5728,7 @@
       "cost_lv1": "인건비",
       "amount": 2502244.0,
       "headcount": 71.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "공통",
@@ -5788,7 +5788,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1207655.0,
       "headcount": 71.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "공통",
@@ -5808,7 +5808,7 @@
       "cost_lv1": "인건비",
       "amount": 2595201.0,
       "headcount": 71.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "공통",
@@ -5868,7 +5868,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1276885.0,
       "headcount": 70.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "공통",
@@ -5888,7 +5888,7 @@
       "cost_lv1": "인건비",
       "amount": 2555637.0,
       "headcount": 70.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "공통",
@@ -5948,7 +5948,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1896648.0,
       "headcount": 71.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "공통",
@@ -5968,7 +5968,7 @@
       "cost_lv1": "인건비",
       "amount": 2506792.0,
       "headcount": 71.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "공통",
@@ -6028,7 +6028,7 @@
       "cost_lv1": "복리후생비",
       "amount": 2958637.0,
       "headcount": 73.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "공통",
@@ -6048,7 +6048,7 @@
       "cost_lv1": "인건비",
       "amount": 4506840.0,
       "headcount": 73.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "공통",
@@ -6108,7 +6108,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1460699.0,
       "headcount": 72.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "공통",
@@ -6128,7 +6128,7 @@
       "cost_lv1": "인건비",
       "amount": 2487975.0,
       "headcount": 72.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "공통",
@@ -6188,7 +6188,7 @@
       "cost_lv1": "복리후생비",
       "amount": 961405.0,
       "headcount": 72.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "공통",
@@ -6208,7 +6208,7 @@
       "cost_lv1": "인건비",
       "amount": 8922401.0,
       "headcount": 72.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "공통",
@@ -6268,7 +6268,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1144545.0,
       "headcount": 72.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "공통",
@@ -6288,7 +6288,7 @@
       "cost_lv1": "인건비",
       "amount": 2866428.0,
       "headcount": 72.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "공통",
@@ -6348,7 +6348,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1945018.0,
       "headcount": 72.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "공통",
@@ -6368,7 +6368,7 @@
       "cost_lv1": "인건비",
       "amount": 2510869.0,
       "headcount": 72.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "공통",
@@ -6428,7 +6428,7 @@
       "cost_lv1": "복리후생비",
       "amount": 799301.0,
       "headcount": 71.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "공통",
@@ -6448,7 +6448,7 @@
       "cost_lv1": "인건비",
       "amount": 2529147.0,
       "headcount": 71.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "공통",
@@ -6508,7 +6508,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1312482.0,
       "headcount": 72.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "공통",
@@ -6528,7 +6528,7 @@
       "cost_lv1": "인건비",
       "amount": 2576621.0,
       "headcount": 72.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "공통",
@@ -6588,7 +6588,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1169533.0,
       "headcount": 72.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "공통",
@@ -6608,7 +6608,7 @@
       "cost_lv1": "인건비",
       "amount": 3062036.0,
       "headcount": 72.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "공통",
@@ -6668,7 +6668,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1307023.0,
       "headcount": 72.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "공통",
@@ -6688,7 +6688,7 @@
       "cost_lv1": "인건비",
       "amount": 2327569.0,
       "headcount": 72.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "공통",
@@ -6748,7 +6748,7 @@
       "cost_lv1": "복리후생비",
       "amount": 1296258.0,
       "headcount": 71.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "공통",
@@ -6768,7 +6768,7 @@
       "cost_lv1": "인건비",
       "amount": 2525575.0,
       "headcount": 71.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "공통",
@@ -6886,7 +6886,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "amount": 0.0,
+      "amount": 1168191.04,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6896,7 +6896,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "기타",
-      "amount": 0.0,
+      "amount": 114710.99000000002,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6906,9 +6906,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
-      "amount": 0.0,
-      "headcount": 73.0,
-      "sales": 877748575.0
+      "amount": 2194522.7,
+      "headcount": 72.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "공통",
@@ -6916,7 +6916,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "세금과공과",
-      "amount": 0.0,
+      "amount": -1187986.9,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6926,9 +6926,9 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "amount": 0.0,
-      "headcount": 73.0,
-      "sales": 877748575.0
+      "amount": 2254836.76,
+      "headcount": 72.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "공통",
@@ -6936,7 +6936,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "임차료",
-      "amount": 0.0,
+      "amount": 1912761.9300000002,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6946,7 +6946,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
+      "amount": 618710.54,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6956,7 +6956,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "차량렌트비",
-      "amount": 0.0,
+      "amount": 46089.67,
       "headcount": 0.0,
       "sales": 0.0
     }
@@ -7041,7 +7041,7 @@
       "yyyymm": "202409",
       "amount": 2757959.0,
       "headcount": 10.0,
-      "sales": 69073.0
+      "sales": 69073.41
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7050,7 +7050,7 @@
       "yyyymm": "202410",
       "amount": 4339815.0,
       "headcount": 12.0,
-      "sales": 780459.0
+      "sales": 780459.28
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7059,7 +7059,7 @@
       "yyyymm": "202411",
       "amount": 5655162.0,
       "headcount": 18.0,
-      "sales": 1546378.0
+      "sales": 1546377.8
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7068,7 +7068,7 @@
       "yyyymm": "202412",
       "amount": 3585067.0,
       "headcount": 18.0,
-      "sales": 3118746.0
+      "sales": 3118746.29
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7077,7 +7077,7 @@
       "yyyymm": "202501",
       "amount": 3546677.0,
       "headcount": 22.0,
-      "sales": 2490967.0
+      "sales": 2490966.63
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7086,7 +7086,7 @@
       "yyyymm": "202502",
       "amount": 3263393.0,
       "headcount": 22.0,
-      "sales": 2177011.0
+      "sales": 2177010.76
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7095,7 +7095,7 @@
       "yyyymm": "202503",
       "amount": 4207618.0,
       "headcount": 23.0,
-      "sales": 1977044.0
+      "sales": 1977043.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7104,7 +7104,7 @@
       "yyyymm": "202504",
       "amount": 3267998.0,
       "headcount": 28.0,
-      "sales": 2134276.0
+      "sales": 2134276.53
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7113,7 +7113,7 @@
       "yyyymm": "202505",
       "amount": 4586205.0,
       "headcount": 19.0,
-      "sales": 2982529.0
+      "sales": 2982528.77
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7122,7 +7122,7 @@
       "yyyymm": "202506",
       "amount": 4564678.0,
       "headcount": 20.0,
-      "sales": 2787183.0
+      "sales": 2787183.05
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7131,7 +7131,7 @@
       "yyyymm": "202507",
       "amount": 2286535.0,
       "headcount": 25.0,
-      "sales": 2983712.0
+      "sales": 2983712.39
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7140,7 +7140,7 @@
       "yyyymm": "202508",
       "amount": 4351604.0,
       "headcount": 26.0,
-      "sales": 7020646.0
+      "sales": 7020646.37
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7149,7 +7149,7 @@
       "yyyymm": "202509",
       "amount": 10995986.0,
       "headcount": 26.0,
-      "sales": 5366055.0
+      "sales": 5366055.14
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7158,7 +7158,7 @@
       "yyyymm": "202510",
       "amount": 7600222.0,
       "headcount": 26.0,
-      "sales": 9354282.0
+      "sales": 9356392.21
     },
     {
       "biz_unit": "DISCOVERY",
@@ -7174,9 +7174,9 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "amount": 0.0,
-      "headcount": 35.0,
-      "sales": 9656550.0
+      "amount": 7251147.29,
+      "headcount": 31.0,
+      "sales": 9299192.58
     },
     {
       "biz_unit": "KIDS",
@@ -7185,7 +7185,7 @@
       "yyyymm": "202401",
       "amount": 1591721.0,
       "headcount": 21.0,
-      "sales": 53832641.0
+      "sales": 57074776.57
     },
     {
       "biz_unit": "KIDS",
@@ -7194,7 +7194,7 @@
       "yyyymm": "202402",
       "amount": 1237862.0,
       "headcount": 21.0,
-      "sales": 47900448.0
+      "sales": 51151791.62
     },
     {
       "biz_unit": "KIDS",
@@ -7203,7 +7203,7 @@
       "yyyymm": "202403",
       "amount": 4546378.0,
       "headcount": 20.0,
-      "sales": 35336482.0
+      "sales": 36876911.11
     },
     {
       "biz_unit": "KIDS",
@@ -7212,7 +7212,7 @@
       "yyyymm": "202404",
       "amount": 1197040.0,
       "headcount": 21.0,
-      "sales": 33736156.0
+      "sales": 35969013.02
     },
     {
       "biz_unit": "KIDS",
@@ -7221,7 +7221,7 @@
       "yyyymm": "202405",
       "amount": 1852235.0,
       "headcount": 20.0,
-      "sales": 38411582.0
+      "sales": 40004608.66
     },
     {
       "biz_unit": "KIDS",
@@ -7230,7 +7230,7 @@
       "yyyymm": "202406",
       "amount": 1132633.0,
       "headcount": 20.0,
-      "sales": 29570076.0
+      "sales": 28393665.38
     },
     {
       "biz_unit": "KIDS",
@@ -7239,7 +7239,7 @@
       "yyyymm": "202407",
       "amount": 1331477.0,
       "headcount": 20.0,
-      "sales": 22575973.0
+      "sales": 23670871.81
     },
     {
       "biz_unit": "KIDS",
@@ -7248,7 +7248,7 @@
       "yyyymm": "202408",
       "amount": 1561979.0,
       "headcount": 23.0,
-      "sales": 28792367.0
+      "sales": 30916481.41
     },
     {
       "biz_unit": "KIDS",
@@ -7257,7 +7257,7 @@
       "yyyymm": "202409",
       "amount": 3647378.0,
       "headcount": 24.0,
-      "sales": 27657064.0
+      "sales": 29972283.22
     },
     {
       "biz_unit": "KIDS",
@@ -7266,7 +7266,7 @@
       "yyyymm": "202410",
       "amount": 2297781.0,
       "headcount": 26.0,
-      "sales": 41230414.0
+      "sales": 44303927.01
     },
     {
       "biz_unit": "KIDS",
@@ -7275,7 +7275,7 @@
       "yyyymm": "202411",
       "amount": 1664476.0,
       "headcount": 25.0,
-      "sales": 34626558.0
+      "sales": 34970476.57
     },
     {
       "biz_unit": "KIDS",
@@ -7284,7 +7284,7 @@
       "yyyymm": "202412",
       "amount": 1155078.0,
       "headcount": 25.0,
-      "sales": 39405018.0
+      "sales": 41456626.37
     },
     {
       "biz_unit": "KIDS",
@@ -7293,7 +7293,7 @@
       "yyyymm": "202501",
       "amount": 2874164.0,
       "headcount": 24.0,
-      "sales": 62590970.0
+      "sales": 66666619.32
     },
     {
       "biz_unit": "KIDS",
@@ -7302,7 +7302,7 @@
       "yyyymm": "202502",
       "amount": 2027019.0,
       "headcount": 25.0,
-      "sales": 19076664.0
+      "sales": 20261131.58
     },
     {
       "biz_unit": "KIDS",
@@ -7311,7 +7311,7 @@
       "yyyymm": "202503",
       "amount": 3299383.0,
       "headcount": 25.0,
-      "sales": 31745214.0
+      "sales": 33159432.01
     },
     {
       "biz_unit": "KIDS",
@@ -7320,7 +7320,7 @@
       "yyyymm": "202504",
       "amount": 2644259.0,
       "headcount": 27.0,
-      "sales": 29758591.0
+      "sales": 31702491.6
     },
     {
       "biz_unit": "KIDS",
@@ -7329,7 +7329,7 @@
       "yyyymm": "202505",
       "amount": 2658764.0,
       "headcount": 26.0,
-      "sales": 33135338.0
+      "sales": 35207540.58
     },
     {
       "biz_unit": "KIDS",
@@ -7338,7 +7338,7 @@
       "yyyymm": "202506",
       "amount": 2235755.0,
       "headcount": 27.0,
-      "sales": 22150946.0
+      "sales": 22754356.16
     },
     {
       "biz_unit": "KIDS",
@@ -7347,7 +7347,7 @@
       "yyyymm": "202507",
       "amount": 2915345.0,
       "headcount": 25.0,
-      "sales": 21020921.0
+      "sales": 22542637.57
     },
     {
       "biz_unit": "KIDS",
@@ -7356,7 +7356,7 @@
       "yyyymm": "202508",
       "amount": 2503902.0,
       "headcount": 26.0,
-      "sales": 29533459.0
+      "sales": 31192417.01
     },
     {
       "biz_unit": "KIDS",
@@ -7365,7 +7365,7 @@
       "yyyymm": "202509",
       "amount": 2907883.0,
       "headcount": 25.0,
-      "sales": 25058633.0
+      "sales": 25908394.14
     },
     {
       "biz_unit": "KIDS",
@@ -7374,7 +7374,7 @@
       "yyyymm": "202510",
       "amount": 2898989.0,
       "headcount": 25.0,
-      "sales": 42623351.0
+      "sales": 44511461.19
     },
     {
       "biz_unit": "KIDS",
@@ -7390,9 +7390,9 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "amount": 0.0,
-      "headcount": 25.0,
-      "sales": 40794050.0
+      "amount": 2801845.59,
+      "headcount": 24.0,
+      "sales": 34397480.8
     },
     {
       "biz_unit": "MLB",
@@ -7401,7 +7401,7 @@
       "yyyymm": "202401",
       "amount": 27951161.0,
       "headcount": 127.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "MLB",
@@ -7410,7 +7410,7 @@
       "yyyymm": "202402",
       "amount": 16310784.0,
       "headcount": 124.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "MLB",
@@ -7419,7 +7419,7 @@
       "yyyymm": "202403",
       "amount": -1256657.0,
       "headcount": 125.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "MLB",
@@ -7428,7 +7428,7 @@
       "yyyymm": "202404",
       "amount": 15481784.0,
       "headcount": 125.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "MLB",
@@ -7437,7 +7437,7 @@
       "yyyymm": "202405",
       "amount": 10992997.0,
       "headcount": 125.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "MLB",
@@ -7446,7 +7446,7 @@
       "yyyymm": "202406",
       "amount": 17513930.0,
       "headcount": 122.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "MLB",
@@ -7455,7 +7455,7 @@
       "yyyymm": "202407",
       "amount": 9766539.0,
       "headcount": 121.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "MLB",
@@ -7464,7 +7464,7 @@
       "yyyymm": "202408",
       "amount": 23821441.0,
       "headcount": 131.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "MLB",
@@ -7473,7 +7473,7 @@
       "yyyymm": "202409",
       "amount": 21452785.0,
       "headcount": 133.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "MLB",
@@ -7482,7 +7482,7 @@
       "yyyymm": "202410",
       "amount": 18774009.0,
       "headcount": 135.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "MLB",
@@ -7491,7 +7491,7 @@
       "yyyymm": "202411",
       "amount": 17074246.0,
       "headcount": 133.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "MLB",
@@ -7500,7 +7500,7 @@
       "yyyymm": "202412",
       "amount": 15025914.0,
       "headcount": 132.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "MLB",
@@ -7509,7 +7509,7 @@
       "yyyymm": "202501",
       "amount": 28717728.0,
       "headcount": 133.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "MLB",
@@ -7518,7 +7518,7 @@
       "yyyymm": "202502",
       "amount": 17455077.0,
       "headcount": 133.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "MLB",
@@ -7527,7 +7527,7 @@
       "yyyymm": "202503",
       "amount": 4646210.02,
       "headcount": 132.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "MLB",
@@ -7536,7 +7536,7 @@
       "yyyymm": "202504",
       "amount": 14413266.0,
       "headcount": 133.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "MLB",
@@ -7545,7 +7545,7 @@
       "yyyymm": "202505",
       "amount": 16303253.0,
       "headcount": 132.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "MLB",
@@ -7554,7 +7554,7 @@
       "yyyymm": "202506",
       "amount": 13720854.0,
       "headcount": 130.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "MLB",
@@ -7563,7 +7563,7 @@
       "yyyymm": "202507",
       "amount": 19784200.0,
       "headcount": 132.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "MLB",
@@ -7572,7 +7572,7 @@
       "yyyymm": "202508",
       "amount": 21048826.0,
       "headcount": 128.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "MLB",
@@ -7581,7 +7581,7 @@
       "yyyymm": "202509",
       "amount": 30847872.0,
       "headcount": 127.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "MLB",
@@ -7590,7 +7590,7 @@
       "yyyymm": "202510",
       "amount": 16220354.0,
       "headcount": 128.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "MLB",
@@ -7606,9 +7606,9 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "amount": 0.0,
-      "headcount": 137.0,
-      "sales": 877748575.0
+      "amount": 21599731.77,
+      "headcount": 128.0,
+      "sales": 792602129.7
     },
     {
       "biz_unit": "공통",
@@ -7617,7 +7617,7 @@
       "yyyymm": "202401",
       "amount": 11176113.0,
       "headcount": 73.0,
-      "sales": 775693012.0
+      "sales": 772449417.4
     },
     {
       "biz_unit": "공통",
@@ -7626,7 +7626,7 @@
       "yyyymm": "202402",
       "amount": 7785625.0,
       "headcount": 73.0,
-      "sales": 811312966.0
+      "sales": 808064940.7
     },
     {
       "biz_unit": "공통",
@@ -7635,7 +7635,7 @@
       "yyyymm": "202403",
       "amount": 16092997.0,
       "headcount": 75.0,
-      "sales": 659575345.0
+      "sales": 658021403.6
     },
     {
       "biz_unit": "공통",
@@ -7644,7 +7644,7 @@
       "yyyymm": "202404",
       "amount": 6647245.0,
       "headcount": 73.0,
-      "sales": 660729738.0
+      "sales": 658492290.2
     },
     {
       "biz_unit": "공통",
@@ -7653,7 +7653,7 @@
       "yyyymm": "202405",
       "amount": 8589379.0,
       "headcount": 73.0,
-      "sales": 680762984.0
+      "sales": 679145266.8
     },
     {
       "biz_unit": "공통",
@@ -7662,7 +7662,7 @@
       "yyyymm": "202406",
       "amount": 8888921.0,
       "headcount": 74.0,
-      "sales": 577505906.0
+      "sales": 578677595.9
     },
     {
       "biz_unit": "공통",
@@ -7671,7 +7671,7 @@
       "yyyymm": "202407",
       "amount": 7083718.0,
       "headcount": 72.0,
-      "sales": 513176438.0
+      "sales": 512070185.3
     },
     {
       "biz_unit": "공통",
@@ -7680,7 +7680,7 @@
       "yyyymm": "202408",
       "amount": 6533040.0,
       "headcount": 72.0,
-      "sales": 560099219.0
+      "sales": 557970224.6
     },
     {
       "biz_unit": "공통",
@@ -7689,7 +7689,7 @@
       "yyyymm": "202409",
       "amount": 8830657.0,
       "headcount": 71.0,
-      "sales": 564071023.0
+      "sales": 561753471.6
     },
     {
       "biz_unit": "공통",
@@ -7698,7 +7698,7 @@
       "yyyymm": "202410",
       "amount": 8109471.0,
       "headcount": 71.0,
-      "sales": 849376921.0
+      "sales": 846299199.3
     },
     {
       "biz_unit": "공통",
@@ -7707,7 +7707,7 @@
       "yyyymm": "202411",
       "amount": 7112208.0,
       "headcount": 70.0,
-      "sales": 816167738.0
+      "sales": 815823193.1
     },
     {
       "biz_unit": "공통",
@@ -7716,7 +7716,7 @@
       "yyyymm": "202412",
       "amount": 11713059.0,
       "headcount": 71.0,
-      "sales": 852812009.0
+      "sales": 850756492.2
     },
     {
       "biz_unit": "공통",
@@ -7725,7 +7725,7 @@
       "yyyymm": "202501",
       "amount": 11793275.54,
       "headcount": 73.0,
-      "sales": 1107450309.0
+      "sales": 1103377057.0
     },
     {
       "biz_unit": "공통",
@@ -7734,7 +7734,7 @@
       "yyyymm": "202502",
       "amount": 8623562.92,
       "headcount": 72.0,
-      "sales": 535372030.0
+      "sales": 534169507.2
     },
     {
       "biz_unit": "공통",
@@ -7743,7 +7743,7 @@
       "yyyymm": "202503",
       "amount": 14270556.84,
       "headcount": 72.0,
-      "sales": 665246475.0
+      "sales": 663832548.8
     },
     {
       "biz_unit": "공통",
@@ -7752,7 +7752,7 @@
       "yyyymm": "202504",
       "amount": 7499943.52,
       "headcount": 72.0,
-      "sales": 652833667.0
+      "sales": 649877479.6
     },
     {
       "biz_unit": "공통",
@@ -7761,7 +7761,7 @@
       "yyyymm": "202505",
       "amount": 8548437.89,
       "headcount": 72.0,
-      "sales": 721255069.0
+      "sales": 719632361.4
     },
     {
       "biz_unit": "공통",
@@ -7770,7 +7770,7 @@
       "yyyymm": "202506",
       "amount": 6200698.76,
       "headcount": 71.0,
-      "sales": 552730387.0
+      "sales": 552104329.4
     },
     {
       "biz_unit": "공통",
@@ -7779,7 +7779,7 @@
       "yyyymm": "202507",
       "amount": 8363776.44,
       "headcount": 72.0,
-      "sales": 522527235.0
+      "sales": 521452172.1
     },
     {
       "biz_unit": "공통",
@@ -7788,7 +7788,7 @@
       "yyyymm": "202508",
       "amount": 8335210.61,
       "headcount": 72.0,
-      "sales": 590182141.0
+      "sales": 588424885.3
     },
     {
       "biz_unit": "공통",
@@ -7797,7 +7797,7 @@
       "yyyymm": "202509",
       "amount": 7238714.54,
       "headcount": 72.0,
-      "sales": 552479892.0
+      "sales": 551628227.7
     },
     {
       "biz_unit": "공통",
@@ -7806,7 +7806,7 @@
       "yyyymm": "202510",
       "amount": 9525367.39,
       "headcount": 71.0,
-      "sales": 896298588.0
+      "sales": 894867988.2
     },
     {
       "biz_unit": "공통",
@@ -7822,9 +7822,9 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "amount": 0.0,
-      "headcount": 73.0,
-      "sales": 877748575.0
+      "amount": 7121836.73,
+      "headcount": 72.0,
+      "sales": 792602129.7
     }
   ],
   "category_detail": [
@@ -16692,7 +16692,7 @@
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "무형자산 상각비",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16702,8 +16702,8 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "유형자산 감가상각비",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 6016.17,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16714,7 +16714,7 @@
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "인테리어 상각비",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16724,8 +16724,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Branding",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 1304740.54,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16735,8 +16735,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "CAMPAIGN",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 4377777.03,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16746,8 +16746,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Product",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 206929.35,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16757,8 +16757,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Retailing",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 150000.0,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16768,8 +16768,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 194335.63,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16779,8 +16779,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 90740.0,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16791,7 +16791,7 @@
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "FW",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16802,7 +16802,7 @@
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "SS",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16813,7 +16813,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "DISCOVERY",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16823,8 +16823,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 977569.49,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16834,8 +16834,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 181801.1,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16846,7 +16846,7 @@
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DISCOVERY",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16856,8 +16856,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": -150788.68,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16868,7 +16868,7 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16878,8 +16878,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "VMD 개발",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": -95000.0,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16889,8 +16889,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "부분개발",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": -56200.0,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16900,8 +16900,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": -5700.0,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16912,7 +16912,7 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16922,8 +16922,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "MD",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 20961.84,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16933,8 +16933,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "VMD",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 9752.89,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16944,8 +16944,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 8074.15,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16956,7 +16956,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "리테일",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16966,8 +16966,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "마케팅",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 13482.58,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16978,7 +16978,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "온라인",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16988,8 +16988,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "인테리어",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 12766.82,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -16999,8 +16999,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
-      "amount": 0.0,
-      "headcount": 35.0
+      "amount": 3888.38,
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -17011,7 +17011,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "VMD",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -17022,7 +17022,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "Wholesale",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -17033,7 +17033,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "리테일",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -17044,7 +17044,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "마케팅",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -17055,7 +17055,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "온라인",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -17066,7 +17066,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "인테리어",
       "amount": 0.0,
-      "headcount": 35.0
+      "headcount": 31.0
     },
     {
       "biz_unit": "DUVETICA",
@@ -29661,7 +29661,7 @@
       "cost_lv2": "KIDS",
       "cost_lv3": "무형자산 상각비",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29671,8 +29671,8 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "KIDS",
       "cost_lv3": "유형자산 감가상각비",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 3017.02,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29683,7 +29683,7 @@
       "cost_lv2": "KIDS",
       "cost_lv3": "인테리어 상각비",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29693,8 +29693,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Branding",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 107000.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29704,8 +29704,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Campaign",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 1660000.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29715,8 +29715,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Product",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 22400.64,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29726,8 +29726,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Retailing",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 67000.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29737,8 +29737,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 141598.4,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29748,8 +29748,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 66112.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29760,7 +29760,7 @@
       "cost_lv2": "KIDS",
       "cost_lv3": "FW",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29771,7 +29771,7 @@
       "cost_lv2": "KIDS",
       "cost_lv3": "SS",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29782,7 +29782,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "KIDS",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29792,8 +29792,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 594874.88,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29803,8 +29803,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 164586.74,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29815,7 +29815,7 @@
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "KIDS",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29826,7 +29826,7 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29836,8 +29836,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "VMD 개발",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": -26198.23,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29847,8 +29847,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "부분개발",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": -5000.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29858,8 +29858,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": -16900.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29869,8 +29869,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Kids Department",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 3533.92,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29880,8 +29880,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "MD",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 539.63,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29891,8 +29891,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "VMD",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 614.96,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29902,8 +29902,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 4648.04,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29913,8 +29913,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "리테일",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 1679.74,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29924,8 +29924,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "마케팅",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 7372.27,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29935,8 +29935,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "인테리어",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 3033.38,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29947,7 +29947,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "Kids Department",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29957,8 +29957,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
-      "amount": 0.0,
-      "headcount": 25.0
+      "amount": 1932.2,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29969,7 +29969,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "VMD",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29980,7 +29980,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "Wholesale",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -29991,7 +29991,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "마케팅",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -30002,7 +30002,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "인테리어",
       "amount": 0.0,
-      "headcount": 25.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "MLB",
@@ -43927,8 +43927,8 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "무형자산 상각비",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 169303.6,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -43938,8 +43938,8 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "유형자산 감가상각비",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 73025.83,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -43949,8 +43949,8 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "인테리어 상각비",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 142835.8,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -43960,8 +43960,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "ACC",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 7301997.4,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -43971,8 +43971,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "APP",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 6020081.97,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -43982,8 +43982,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Branding",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 2074119.96,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -43994,7 +43994,7 @@
       "cost_lv2": "CRM",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44004,8 +44004,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Others Product requested",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 1203.81,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44015,8 +44015,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Products",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 201337.57,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44026,8 +44026,8 @@
       "cost_lv1": "광고비",
       "cost_lv2": "Retailing",
       "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 292115.0,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44037,8 +44037,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 137.0
+      "amount": 673685.41,
+      "headcount": 128.0
     },
     {
       "biz_unit": "MLB",
@@ -44048,8 +44048,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 137.0
+      "amount": 400653.0,
+      "headcount": 128.0
     },
     {
       "biz_unit": "MLB",
@@ -44060,7 +44060,7 @@
       "cost_lv2": "MLB",
       "cost_lv3": "FW",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44071,7 +44071,7 @@
       "cost_lv2": "MLB",
       "cost_lv3": "SS",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44082,7 +44082,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 137.0
+      "headcount": 128.0
     },
     {
       "biz_unit": "MLB",
@@ -44092,8 +44092,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 137.0
+      "amount": 3114037.9,
+      "headcount": 128.0
     },
     {
       "biz_unit": "MLB",
@@ -44103,8 +44103,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 137.0
+      "amount": 884689.66,
+      "headcount": 128.0
     },
     {
       "biz_unit": "MLB",
@@ -44115,7 +44115,7 @@
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 137.0
+      "headcount": 128.0
     },
     {
       "biz_unit": "MLB",
@@ -44125,8 +44125,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 137.0
+      "amount": 40300.75,
+      "headcount": 128.0
     },
     {
       "biz_unit": "MLB",
@@ -44137,7 +44137,7 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44148,7 +44148,7 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "VMD 개발",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44158,8 +44158,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "부분개발",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 7700.0,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44170,7 +44170,7 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "사무실개조",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44180,8 +44180,8 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": -21615.68,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44191,8 +44191,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "BD",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 315.08,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44202,8 +44202,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Business Operation",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 15229.09,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44213,8 +44213,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "MD",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 3754.84,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44224,8 +44224,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "MGT",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 21880.36,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44235,8 +44235,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Procurement",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 2333.83,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44246,8 +44246,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Supply Chain",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 314.86,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44257,8 +44257,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "VMD",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 7475.55,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44268,8 +44268,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 21848.34,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44279,8 +44279,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "리테일",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 928.43,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44290,8 +44290,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "마케팅",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 81993.76,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44302,7 +44302,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "법무",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44313,7 +44313,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "상품기획(MP)",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44323,8 +44323,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "온라인",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 378.0,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44334,8 +44334,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "유통MD(MO)",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 3165.15,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44345,8 +44345,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "인테리어",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 52644.69,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44356,8 +44356,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "재무",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 749.42,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44368,7 +44368,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "BD",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44379,7 +44379,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "BP",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44389,8 +44389,8 @@
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
-      "amount": 0.0,
-      "headcount": 210.0
+      "amount": 11248.39,
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44401,7 +44401,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "IT",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44412,7 +44412,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44423,7 +44423,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "MGT",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44434,7 +44434,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "Process Innovation",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44445,7 +44445,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "VMD",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44456,7 +44456,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "Wholesale",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44467,7 +44467,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "리테일",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44478,7 +44478,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "마케팅",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44489,7 +44489,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "상품기획(MP)",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44500,7 +44500,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "온라인",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44511,7 +44511,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "유통MD(MO)",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "MLB",
@@ -44522,7 +44522,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "인테리어",
       "amount": 0.0,
-      "headcount": 210.0
+      "headcount": 200.0
     },
     {
       "biz_unit": "SUPRA",
@@ -79435,7 +79435,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "CN SAP",
       "cost_lv3": "업그레이드 비용(확장,인터페이스 등)",
-      "amount": 0.0,
+      "amount": 23162.21,
       "headcount": 0.0
     },
     {
@@ -79446,7 +79446,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "CN SAP",
       "cost_lv3": "연간 유지보수비용 (IT)",
-      "amount": 0.0,
+      "amount": 254402.0,
       "headcount": 0.0
     },
     {
@@ -79468,7 +79468,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 234888.76,
       "headcount": 0.0
     },
     {
@@ -79479,7 +79479,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "Data Server",
       "cost_lv3": "Ali클라우드",
-      "amount": 0.0,
+      "amount": 29192.99,
       "headcount": 0.0
     },
     {
@@ -79501,7 +79501,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "Data Server",
       "cost_lv3": "anchnet서버",
-      "amount": 0.0,
+      "amount": 6920.8,
       "headcount": 0.0
     },
     {
@@ -79512,7 +79512,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "Data Server",
       "cost_lv3": "aws클라우드",
-      "amount": 0.0,
+      "amount": 1558.87,
       "headcount": 0.0
     },
     {
@@ -79556,7 +79556,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "OMS",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 91099.94,
       "headcount": 0.0
     },
     {
@@ -79567,7 +79567,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -79578,7 +79578,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "골프 회원 교환권",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 28338.18,
       "headcount": 0.0
     },
     {
@@ -79600,7 +79600,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
-      "amount": 0.0,
+      "amount": -141324.84,
       "headcount": 0.0
     },
     {
@@ -79644,7 +79644,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "매장 DP점검 외주용역",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 81783.02,
       "headcount": 0.0
     },
     {
@@ -79688,7 +79688,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "사무실 소프트웨어",
       "cost_lv3": "Adobe(PS/AI) license",
-      "amount": 0.0,
+      "amount": 6193.8,
       "headcount": 0.0
     },
     {
@@ -79699,7 +79699,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "사무실 소프트웨어",
       "cost_lv3": "MS office",
-      "amount": 0.0,
+      "amount": 17335.0,
       "headcount": 0.0
     },
     {
@@ -79721,7 +79721,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "사무실 소프트웨어",
       "cost_lv3": "VPN",
-      "amount": 0.0,
+      "amount": 10931.83,
       "headcount": 0.0
     },
     {
@@ -79743,7 +79743,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "BI",
-      "amount": 0.0,
+      "amount": 2000.0,
       "headcount": 0.0
     },
     {
@@ -79765,7 +79765,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "BOS(직영)",
-      "amount": 0.0,
+      "amount": 18867.92,
       "headcount": 0.0
     },
     {
@@ -79776,7 +79776,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "OA",
-      "amount": 0.0,
+      "amount": 6217.76,
       "headcount": 0.0
     },
     {
@@ -79798,7 +79798,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
-      "amount": 0.0,
+      "amount": 86362.75,
       "headcount": 0.0
     },
     {
@@ -79809,7 +79809,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "데이터 구매&운영",
-      "amount": 0.0,
+      "amount": 191113.59,
       "headcount": 0.0
     },
     {
@@ -79820,7 +79820,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "트랜드 데이터 구매",
-      "amount": 0.0,
+      "amount": 5929.92,
       "headcount": 0.0
     },
     {
@@ -79831,7 +79831,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 256520.64,
       "headcount": 0.0
     },
     {
@@ -79842,7 +79842,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": -3792.45,
       "headcount": 0.0
     },
     {
@@ -79853,7 +79853,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": -69700.33,
       "headcount": 0.0
     },
     {
@@ -79875,7 +79875,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "물류비",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 41287.62,
       "headcount": 0.0
     },
     {
@@ -79886,7 +79886,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "사무용품비",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 25473.2,
       "headcount": 0.0
     },
     {
@@ -79897,7 +79897,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "여비교통비",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 38624.73,
       "headcount": 0.0
     },
     {
@@ -79908,7 +79908,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "접대비",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 7824.33,
       "headcount": 0.0
     },
     {
@@ -79919,7 +79919,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "통신비",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 1501.11,
       "headcount": 0.0
     },
     {
@@ -79930,8 +79930,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
+      "amount": 503387.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -79941,7 +79941,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 465370.0,
       "headcount": 0.0
     },
     {
@@ -79952,8 +79952,8 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
+      "amount": 143274.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -79974,7 +79974,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "생일&명절",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 143755.37,
       "headcount": 0.0
     },
     {
@@ -80007,7 +80007,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
       "cost_lv3": "간식",
-      "amount": 0.0,
+      "amount": 60727.76,
       "headcount": 0.0
     },
     {
@@ -80029,7 +80029,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
       "cost_lv3": "야근식대",
-      "amount": 0.0,
+      "amount": 9510.0,
       "headcount": 0.0
     },
     {
@@ -80040,7 +80040,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
       "cost_lv3": "임원식대",
-      "amount": 0.0,
+      "amount": 23318.5,
       "headcount": 0.0
     },
     {
@@ -80051,7 +80051,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "워크샵",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 252164.86,
       "headcount": 0.0
     },
     {
@@ -80073,7 +80073,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "장기근속(여행티켓,숙박비)",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": -6010.7,
       "headcount": 0.0
     },
     {
@@ -80095,7 +80095,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "건강검진&보험",
-      "amount": 0.0,
+      "amount": -1831.59,
       "headcount": 0.0
     },
     {
@@ -80106,7 +80106,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "비자&이사비용",
-      "amount": 0.0,
+      "amount": 24403.2,
       "headcount": 0.0
     },
     {
@@ -80117,7 +80117,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "자기개발비(훈련비)",
-      "amount": 0.0,
+      "amount": 16940.85,
       "headcount": 0.0
     },
     {
@@ -80128,7 +80128,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "자녀교육비",
-      "amount": 0.0,
+      "amount": 132938.18,
       "headcount": 0.0
     },
     {
@@ -80139,7 +80139,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "전기,수도,통신비 등",
-      "amount": 0.0,
+      "amount": 13612.15,
       "headcount": 0.0
     },
     {
@@ -80150,7 +80150,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "주택임차료 (관리비포함)",
-      "amount": 0.0,
+      "amount": 223090.47,
       "headcount": 0.0
     },
     {
@@ -80161,7 +80161,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "항공권",
-      "amount": 0.0,
+      "amount": 77837.53,
       "headcount": 0.0
     },
     {
@@ -80172,7 +80172,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "팀빌딩",
       "cost_lv3": "팀빌딩-부서",
-      "amount": 0.0,
+      "amount": 112035.12,
       "headcount": 0.0
     },
     {
@@ -80194,7 +80194,7 @@
       "cost_lv1": "세금과공과",
       "cost_lv2": "인지세",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 254308.74,
       "headcount": 0.0
     },
     {
@@ -80205,7 +80205,7 @@
       "cost_lv1": "세금과공과",
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": -1442295.64,
       "headcount": 0.0
     },
     {
@@ -80217,7 +80217,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 73.0
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -80227,8 +80227,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
+      "amount": 2017108.0,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -80238,8 +80238,8 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
+      "amount": 237728.76,
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -80250,7 +80250,7 @@
       "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 73.0
+      "headcount": 72.0
     },
     {
       "biz_unit": "공통",
@@ -80260,7 +80260,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 213152.76,
       "headcount": 0.0
     },
     {
@@ -80271,7 +80271,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "35층",
-      "amount": 0.0,
+      "amount": 489398.02,
       "headcount": 0.0
     },
     {
@@ -80282,7 +80282,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "35층 (2024.10.15)",
-      "amount": 0.0,
+      "amount": 116282.05,
       "headcount": 0.0
     },
     {
@@ -80293,7 +80293,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "38층(25년 신규)",
-      "amount": 0.0,
+      "amount": 486809.19,
       "headcount": 0.0
     },
     {
@@ -80304,7 +80304,7 @@
       "cost_lv1": "임차료",
       "cost_lv2": "사무실임차료",
       "cost_lv3": "39층",
-      "amount": 0.0,
+      "amount": 607119.91,
       "headcount": 0.0
     },
     {
@@ -80326,7 +80326,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Office Service",
       "cost_lv3": "사무실 유지보수",
-      "amount": 0.0,
+      "amount": 4543.87,
       "headcount": 0.0
     },
     {
@@ -80381,7 +80381,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "QA 서비스",
-      "amount": 0.0,
+      "amount": 4919.55,
       "headcount": 0.0
     },
     {
@@ -80392,7 +80392,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "RFID 서비스",
-      "amount": 0.0,
+      "amount": 30881.37,
       "headcount": 0.0
     },
     {
@@ -80403,7 +80403,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
-      "amount": 0.0,
+      "amount": -43238.97,
       "headcount": 0.0
     },
     {
@@ -80480,7 +80480,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "법무",
       "cost_lv3": "샘플 구매",
-      "amount": 0.0,
+      "amount": 114024.11,
       "headcount": 0.0
     },
     {
@@ -80491,7 +80491,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "법무",
       "cost_lv3": "온라인 감시 비용",
-      "amount": 0.0,
+      "amount": 6471.84,
       "headcount": 0.0
     },
     {
@@ -80524,7 +80524,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "HR Platinum 시스템",
-      "amount": 0.0,
+      "amount": 1950.0,
       "headcount": 0.0
     },
     {
@@ -80535,7 +80535,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "사무실 직원 채용비",
-      "amount": 0.0,
+      "amount": 247333.18,
       "headcount": 0.0
     },
     {
@@ -80546,7 +80546,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "장애인 서비스 비용",
-      "amount": 0.0,
+      "amount": 5288.14,
       "headcount": 0.0
     },
     {
@@ -80601,7 +80601,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "SAP 유지보수 비용",
-      "amount": 0.0,
+      "amount": 39498.14,
       "headcount": 0.0
     },
     {
@@ -80612,7 +80612,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "Tax",
-      "amount": 0.0,
+      "amount": 10000.0,
       "headcount": 0.0
     },
     {
@@ -80623,7 +80623,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "감사비",
-      "amount": 0.0,
+      "amount": 195000.0,
       "headcount": 0.0
     },
     {
@@ -80634,7 +80634,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "계약서번역",
-      "amount": 0.0,
+      "amount": 2039.31,
       "headcount": 0.0
     },
     {
@@ -80667,7 +80667,7 @@
       "cost_lv1": "차량렌트비",
       "cost_lv2": "ALPHA",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 33168.32,
       "headcount": 0.0
     },
     {
@@ -80678,7 +80678,7 @@
       "cost_lv1": "차량렌트비",
       "cost_lv2": "KIA",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 9207.92,
       "headcount": 0.0
     },
     {
@@ -80689,7 +80689,7 @@
       "cost_lv1": "차량렌트비",
       "cost_lv2": "차량유지비",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 3713.43,
       "headcount": 0.0
     }
   ],

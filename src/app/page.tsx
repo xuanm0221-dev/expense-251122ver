@@ -91,7 +91,7 @@ export default function HomePage() {
   const [year, setYear] = useState<number>(
     availableYears.length > 0 ? availableYears[0] : 2025
   );
-  const [month, setMonth] = useState<number>(11);
+  const [month, setMonth] = useState<number>(12);
   const [mode, setMode] = useState<Mode>("monthly");
 
   const availableMonths = getAvailableMonths(year);
