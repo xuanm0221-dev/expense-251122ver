@@ -175,7 +175,6 @@ export function BrandCard({
   // 상세 카테고리 데이터
   const expenseDetails: ExpenseDetail[] = isCommon
     ? Array.from(categoryMap.entries())
-        .filter(([_, data]) => data.amount > 0)
         .sort(([_, a], [__, b]) => b.amount - a.amount)
         .map(([categoryName, cat]) => {
           const prev = prevCategoryMap.get(categoryName);
