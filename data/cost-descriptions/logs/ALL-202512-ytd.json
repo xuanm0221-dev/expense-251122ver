@@ -1,5 +1,12 @@
 [
   {
+    "timestamp": "2026-01-14T06:56:57.691Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "DX 광고비 +30M , MLB 광고비 +21M",
+    "newValue": "DX 광고비 +30M , MLB 광고비 +21M",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-13T08:44:43.717Z",
     "accountPath": "l1-광고비",
     "oldValue": "DX 광고비 +30M(계획비 , MLB 광고비 +21M(계획비 100%사용)",

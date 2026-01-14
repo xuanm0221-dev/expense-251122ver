@@ -1,5 +1,173 @@
 [
   {
+    "timestamp": "2026-01-14T07:10:15.555Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "연간 전년비 92%",
+    "newValue": "연간 전년비 93%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:10:07.588Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "",
+    "newValue": "연간 전년비 92%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:09:40.102Z",
+    "accountPath": "l1-차량렌트비",
+    "oldValue": "",
+    "newValue": "차량 2대 렌트 (전년과 동일)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:09:26.835Z",
+    "accountPath": "l1-기타",
+    "oldValue": "사용기준: 물류비 41K,  사무용품비 25K, 여비교통비 39K, 접대비 8K,  통신비 2K ",
+    "newValue": "[사용기준] 물류비 41K,  사무용품비 25K, 여비교통비 39K, 접대비 8K,  통신비 2K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:09:20.087Z",
+    "accountPath": "l1-기타",
+    "oldValue": "",
+    "newValue": "사용기준: 물류비 41K,  사무용품비 25K, 여비교통비 39K, 접대비 8K,  통신비 2K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:07:15.714Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "①헤드헌터 비용 △353K(연간 YOY100%), ②MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 △745K\n",
+    "newValue": "①헤드헌터 비용 △353K(연간 YOY100%), ②MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K ③vas repari(반품후 수선비) 과대인식 부분 상계처리 △745K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:06:57.379Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "헤드헌터 비용 △353K(연간 YOY100%), ②MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 △745K\n",
+    "newValue": "①헤드헌터 비용 △353K(연간 YOY100%), ②MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 △745K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:06:44.387Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "헤드헌터 비용 △353K(연간 YOY100%), MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 △745K\n",
+    "newValue": "헤드헌터 비용 △353K(연간 YOY100%), ②MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 △745K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:06:17.486Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "헤드헌터 비용 △353K(연간 YOY100%), MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 \n",
+    "newValue": "헤드헌터 비용 △353K(연간 YOY100%), MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 △745K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:06:06.151Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "헤드헌터 비용 △353K(연간 YOY100%), MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K\n",
+    "newValue": "헤드헌터 비용 △353K(연간 YOY100%), MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K, vas repari(반품후 수선비) 과대인식 부분 상계처리 \n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:05:31.425Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "헤드헌터 비용 △353K(연간 YOY100%), DX인테리어 개발비 과대인식부분 상계처리 ",
+    "newValue": "헤드헌터 비용 △353K(연간 YOY100%), MLB/DX인테리어 개발비 과대인식부분 상계처리 △551K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:05:08.986Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "헤드헌터 비용 △353K(연간 YOY100%)",
+    "newValue": "헤드헌터 비용 △353K(연간 YOY100%), DX인테리어 개발비 과대인식부분 상계처리 ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:04:47.107Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "과대인식 비용 상계처리 (헤드헌터 비용 △249K,",
+    "newValue": "헤드헌터 비용 △353K(연간 YOY100%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:02:59.431Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "과대인식 비용 상계처리",
+    "newValue": "과대인식 비용 상계처리 (헤드헌터 비용 △249K,",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:02:36.130Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "",
+    "newValue": "과대인식 비용 상계처리",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:01:03.630Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "5대보험 +211K, 워크샵 +250K (워크샵 연간2회)",
+    "newValue": "5대보험 +211K, 워크샵 +250K (워크샵 연간2회, 전년1회 진행)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T07:00:29.335Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "5대보험 +211K, 워크샵 +250K",
+    "newValue": "5대보험 +211K, 워크샵 +250K (워크샵 연간2회)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T06:58:34.925Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "",
+    "newValue": "5대보험 +211K, 워크샵 +250K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T06:57:25.316Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "①MLB +6,617K (연간 YOY 117%) ②KIDS +1,612K (연간 YOY 157%),\nDX +3,334K(연간 YOY 340%)",
+    "newValue": "①MLB +6,617K (연간 YOY 117%) ②KIDS +1,612K (연간 YOY 157%),\n③DX +3,334K(연간 YOY 340%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T06:57:16.940Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "①MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%),\nDX +3,334K(연간 YOY 340%)",
+    "newValue": "①MLB +6,617K (연간 YOY 117%) ②KIDS +1,612K (연간 YOY 157%),\nDX +3,334K(연간 YOY 340%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T06:57:07.006Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%),\nDX +3,334K(연간 YOY 340%)",
+    "newValue": "①MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%),\nDX +3,334K(연간 YOY 340%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T06:56:35.439Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%)\nDX +3,334K(연간 YOY 340%)",
+    "newValue": "MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%),\nDX +3,334K(연간 YOY 340%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T06:56:25.759Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%)",
+    "newValue": "MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%)\nDX +3,334K(연간 YOY 340%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-14T06:55:53.018Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "",
+    "newValue": "MLB +6,617K (연간 YOY 117%), KIDS +1,612K (연간 YOY 157%)",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-13T08:46:18.706Z",
     "accountPath": "l1-복리후생비",
     "oldValue": "dd",
