@@ -209,7 +209,7 @@ export default function DivisionPage() {
             </div>
           </div>
           
-          {/* 두 번째 줄: 기준일 + 전환 버튼 + 날짜 선택 + 편집 버튼 */}
+          {/* 두 번째 줄: 기준일 + 전환 버튼 + 날짜 선택 */}
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <p className="text-sm text-gray-500">
               {year}년 {month}월 기준
@@ -254,9 +254,6 @@ export default function DivisionPage() {
                   <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 pointer-events-none" />
                 </div>
               </div>
-              <Button variant="outline" size="sm">
-                편집
-              </Button>
             </div>
           </div>
         </div>

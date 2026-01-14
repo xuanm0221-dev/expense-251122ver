@@ -70,9 +70,9 @@ export function MonthlyStackedChart({
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
-      // YOY 값 찾기
-      const yoyPayload = payload.find((p: any) => p.dataKey === "yoy");
-      const yoyValue = yoyPayload?.value;
+      // chartData에서 직접 YOY 값 찾기 (payload에 Line 데이터가 포함되지 않을 수 있음)
+      const monthData = chartData.find((d: any) => d.month === label);
+      const yoyValue = monthData?.yoy;
       
       // 카테고리별 데이터 필터링 (yoy, current, previous 제외)
       const categoryPayloads = payload.filter(
@@ -176,6 +176,11 @@ export function MonthlyStackedChart({
             />
           </ComposedChart>
         </ResponsiveContainer>
+        {bizUnit === "MLB" && (
+          <p className="text-xs text-gray-400 mt-2 text-center">
+            전년 3월 성과급 조정 영향으로 영업비용이 일시적으로 마이너스 발생하여, YoY 비교가 불가함에 따라 추세선이 단절
+          </p>
+        )}
       </CardContent>
     </Card>
   );

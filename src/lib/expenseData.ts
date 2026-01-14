@@ -286,6 +286,7 @@ export function getMonthlyStackedData(
     const prevItem = prevYearMap.get(`${item.month}`);
     const previous = prevItem?.amount ?? null;
     // YOY 계산: 당년 / 전년 * 100 (예: 당년 1500 / 전년 100 = 1,500%)
+    // 전년도가 음수이거나 0이면 YOY를 null로 처리 (추세선 끊김)
     const yoy =
       previous !== null && previous > 0
         ? (item.amount / previous) * 100

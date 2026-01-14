@@ -275,9 +275,9 @@ export function BizUnitCard({
         </div>
 
         {/* 대분류별 요약 - 테이블 형식 */}
-        <div className="mt-auto pt-3 border-t">
+        <div className={`${isCommon ? 'mt-auto pt-3' : 'mt-2 pt-1'} border-t`}>
           <div className="text-xs font-semibold mb-3 text-gray-700">
-            영업비 상세분기
+            영업비 상세보기
           </div>
           {/* 테이블 헤더 */}
           <div className="grid grid-cols-12 gap-2 text-[10px] text-gray-500 mb-2 pb-1 border-b">
