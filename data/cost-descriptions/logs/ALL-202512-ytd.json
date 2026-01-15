@@ -1,5 +1,75 @@
 [
   {
+    "timestamp": "2026-01-15T04:46:12.962Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "[당월 인원수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "newValue": "[당월 인원수 72명, 전년비 (+1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:45:05.800Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "newValue": "[당월 인원수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:44:32.887Z",
+    "accountPath": "l2-인건비-기본급",
+    "oldValue": "",
+    "newValue": "[당월 인원수 255명, 전년비 (+6명), 인당 인건비 26.3K, 전년비 +5.4%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:44:16.712Z",
+    "accountPath": "l3-인건비-기본급-DISCOVERY",
+    "oldValue": "",
+    "newValue": "[당월 인원수 31명, 전년비 (+13명), 인당 인건비 31.5K, 전년비 +8.7%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:44:08.729Z",
+    "accountPath": "l3-인건비-기본급-MLB",
+    "oldValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "newValue": "[당월 인원수 128명, 전년비 (-4명), 인당 인건비 24.3K, 전년비 +1.5%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:43:59.762Z",
+    "accountPath": "l3-인건비-기본급-KIDS",
+    "oldValue": "",
+    "newValue": "[당월 인원수 24명, 전년비 (-1명), 인당 인건비 24.8K, 전년비 +7.7%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:43:50.477Z",
+    "accountPath": "l3-인건비-기본급-MLB",
+    "oldValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "newValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:43:00.249Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "[당월 인[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "newValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:42:45.197Z",
+    "accountPath": "l3-인건비-기본급-MLB",
+    "oldValue": "",
+    "newValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:42:34.771Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "",
+    "newValue": "[당월 인[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-15T04:25:06.189Z",
     "accountPath": "l1-기타",
     "oldValue": "25년 실제 발생: 교육비 96K, 물류비 377K, 사무용품비 380K, 여비교통비 389K, 접대비 334K, 통신비 18K ",
@@ -627,76 +697,6 @@
     "accountPath": "l2-IT수수료-온라인 스토어 오픈비용",
     "oldValue": "26년 DX온라인, ",
     "newValue": "온라인스토어 오픈비용(1회성), 25년 DX 온라인 등 신규 오픈으로 계획비 123K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:14:03.059Z",
-    "accountPath": "l2-IT수수료-네트워크&ASDL설치",
-    "oldValue": "38층 사무실 신규확장으로 IT설비/사무실 설치 비용 +227K",
-    "newValue": "38층 사무실 신규확장으로 IT설비/사무실 설치 비용 +227K\n(계획비 57%, 전년비 223%)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:13:43.776Z",
-    "accountPath": "l2-IT수수료-네트워크&ASDL설치",
-    "oldValue": "38층 사무실 신규확장",
-    "newValue": "38층 사무실 신규확장으로 IT설비/사무실 설치 비용 +227K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:13:01.146Z",
-    "accountPath": "l2-IT수수료-네트워크&ASDL설치",
-    "oldValue": "사무실 신규확장",
-    "newValue": "38층 사무실 신규확장",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:12:39.888Z",
-    "accountPath": "l2-IT수수료-네트워크&ASDL설치",
-    "oldValue": "",
-    "newValue": "사무실 신규확장",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:12:16.541Z",
-    "accountPath": "l2-IT수수료-구매 입찰 시스템 (기존 수기)",
-    "oldValue": "",
-    "newValue": "(신규)구매 입찰 시스템 +91K [계획비 57%]",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:08:40.900Z",
-    "accountPath": "l2-IT수수료-Data Server",
-    "oldValue": "①계획비 96%\n②전년비 118% (사용량 증가로 25년 계획 많이 잡음)",
-    "newValue": "①계획비 96%\n②전년비 118% (Ali 클라우스 사용량 증가로 전년비 118%, 예산내 사용)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:08:03.706Z",
-    "accountPath": "l2-IT수수료-Data Server",
-    "oldValue": "①계획비 96%\n전년비 118% (사용량 증가로 25년 계획 많이 잡음)",
-    "newValue": "①계획비 96%\n②전년비 118% (사용량 증가로 25년 계획 많이 잡음)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:07:54.749Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "①[계획비] 97% 사용, 전년비 114%\n②[전년비] 주요증가비용 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
-    "newValue": "①[계획비] 97% 사용, 전년비 114%\n②[전년비] 주요증가비용 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:07:43.294Z",
-    "accountPath": "l2-IT수수료-Data Server",
-    "oldValue": "계획비 96%\n전년비 118% (사용량 증가로 25년 계획 많이 잡음)",
-    "newValue": "①계획비 96%\n전년비 118% (사용량 증가로 25년 계획 많이 잡음)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:07:31.407Z",
-    "accountPath": "l2-IT수수료-시스템 유지보수비용",
-    "oldValue": "",
-    "newValue": "[전년비](신규)BOS시스템 대리상 데이터 연결 +370K",
     "userIdentifier": "anonymous"
   }
 ]

@@ -1569,7 +1569,21 @@ export function ExpenseAccountHierTable({
       }
 
       // 포맷팅
-      let result = `[당월 인원수 ${Math.round(currHeadcount)}명, 인당 인건비 ${currPerPersonCostK.toFixed(1)}K`;
+      let result = `[당월 인원수 ${Math.round(currHeadcount)}명`;
+
+      // 전년 동월 대비 인원수 증감 계산 및 표시
+      // prevHeadcount는 이미 1544번 라인에서 getHeadcountForPeriod(year - 1, month, ...)로 파일에서 읽어온 값
+      if (prevHeadcount !== null && prevHeadcount > 0 && !isNaN(prevHeadcount)) {
+        const headcountDiff = currHeadcount - prevHeadcount;
+        if (headcountDiff !== 0) {
+          const diffSign = headcountDiff > 0 ? "+" : "";
+          result += `, 전년비 (${diffSign}${Math.round(headcountDiff)}명)`;
+        } else {
+          result += `, 전년비 (0명)`;
+        }
+      }
+
+      result += `, 인당 인건비 ${currPerPersonCostK.toFixed(1)}K`;
 
       if (yoyPercent !== null && !isNaN(yoyPercent)) {
         // 전년비 표시

@@ -1,5 +1,19 @@
 [
   {
+    "timestamp": "2026-01-15T04:38:15.055Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "newValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:38:08.019Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "",
+    "newValue": "[당월 인우수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-15T02:07:57.257Z",
     "accountPath": "l1-복리후생비",
     "oldValue": "주요증가 비용: 5대보험 +211K, 워크샵 +250K (워크샵 연간2회, 전년1회 진행)",
