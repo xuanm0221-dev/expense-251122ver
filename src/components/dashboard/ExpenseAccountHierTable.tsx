@@ -41,7 +41,7 @@ export function ExpenseAccountHierTable({
   month,
   title,
 }: ExpenseAccountHierTableProps) {
-  const [viewMode, setViewMode] = useState<"monthly" | "ytd" | "annual">("monthly");
+  const [viewMode, setViewMode] = useState<"monthly" | "ytd" | "annual">("ytd");
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
   
   // 설명 편집을 위한 상태 관리
@@ -1635,6 +1635,7 @@ export function ExpenseAccountHierTable({
         currYtdTotal: null,
         diffYtdTotal: null,
         yoyYtdTotal: null,
+        planDiffTotal: null,
         annual2024Total: null,
         annual2025Total: null,
         diffAnnualTotal: null,
@@ -1653,6 +1654,7 @@ export function ExpenseAccountHierTable({
       const diffAnnualTotal = annual2025Total - annual2024Total;
       const yoyAnnualTotal = annual2024Total > 0 ? (annual2025Total / annual2024Total) * 100 : null;
       const progressTotal = annual2025Total > 0 ? (currYtdTotal / annual2025Total) * 100 : null;
+      const planDiffTotal = currYtdTotal - annual2025Total;
       
       return {
         prevTotal: null,
@@ -1663,6 +1665,7 @@ export function ExpenseAccountHierTable({
         currYtdTotal,
         diffYtdTotal,
         yoyYtdTotal,
+        planDiffTotal,
         annual2024Total,
         annual2025Total,
         diffAnnualTotal,
@@ -1788,21 +1791,22 @@ export function ExpenseAccountHierTable({
               </>
             ) : (
               <>
-                {/* 누적(YTD) 모드: 구분 15% + 숫자 데이터 9개 각 7% + 설명 22% */}
-                <col style={{ width: "15%" }} />
+                {/* 누적(YTD) 모드: 구분 13% + 숫자 데이터 10개 각 6% + 설명 27% */}
+                <col style={{ width: "13%" }} />
                 <col style={{ width: "0%" }} />
-                <col style={{ width: "7%" }} />
-                <col style={{ width: "7%" }} />
-                <col style={{ width: "7%" }} />
-                <col style={{ width: "7%" }} />
-                <col style={{ width: "7%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
                 <col style={{ width: "0%" }} />
-                <col style={{ width: "7%" }} />
-                <col style={{ width: "7%" }} />
-                <col style={{ width: "7%" }} />
-                <col style={{ width: "7%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
                 <col style={{ width: "0%" }} />
-                <col style={{ width: "22%" }} />
+                <col style={{ width: "27%" }} />
               </>
             )}
           </colgroup>
@@ -1825,7 +1829,7 @@ export function ExpenseAccountHierTable({
                 </>
               ) : (
                 <>
-                  <th colSpan={5} className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                  <th colSpan={6} className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
                     누적(YTD)
                   </th>
                   <th className="border-r border-slate-600"></th>
@@ -1873,7 +1877,10 @@ export function ExpenseAccountHierTable({
                     YOY (%)
                   </th>
                   <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
-                    진척률 (%)
+                    계획비 증감
+                  </th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
+                    계획비 (%)
                   </th>
                   <th className="border-r border-slate-600"></th>
                   <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
@@ -1940,7 +1947,10 @@ export function ExpenseAccountHierTable({
                       {formatYOY(computeTotals.yoyYtdTotal)}
                     </span>
                   </td>
-                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right">
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium bg-teal-50">
+                    {formatDifference(computeTotals.planDiffTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right bg-teal-50">
                     <span className={getYOYBadgeClass(computeTotals.progressTotal)}>
                       {formatYOY(computeTotals.progressTotal)}
                     </span>
@@ -2038,6 +2048,12 @@ export function ExpenseAccountHierTable({
               // 진척률(%) = 당년누적 / 2025년 연간 * 100
               const progressRate = viewMode === "ytd" 
                 ? getProgressRate(currValue, row.curr_year_annual)
+                : null;
+
+              // 계획비 증감 계산 (누적 모드에서만 사용)
+              // 계획비 증감 = 당년누적 - 2025년 연간
+              const planDiff = viewMode === "ytd" && row.curr_year_annual !== null
+                ? currValue - row.curr_year_annual
                 : null;
 
               // 연간 계획 데이터 계산 (누적 모드에서만 사용)
@@ -2187,7 +2203,7 @@ export function ExpenseAccountHierTable({
                     </>
                   ) : (
                     <>
-                      {/* 누적(YTD) 모드: 전년누적, 당년누적, 차이, YOY, 진척률 */}
+                      {/* 누적(YTD) 모드: 전년누적, 당년누적, 차이, YOY, 계획비 증감, 계획비(%) */}
                       <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
                         {formatK(prevValue)}
                       </td>
@@ -2200,7 +2216,10 @@ export function ExpenseAccountHierTable({
                       <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium ${getYOYColor(yoy)}`}>
                         {formatYOY(yoy)}
                       </td>
-                      <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium ${getYOYColor(progressRate)}`}>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium bg-teal-50">
+                        {formatDifference(planDiff)}
+                      </td>
+                      <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium bg-teal-50 ${getYOYColor(progressRate)}`}>
                         {formatYOY(progressRate)}
                       </td>
                       <td className="border-r border-gray-200"></td>

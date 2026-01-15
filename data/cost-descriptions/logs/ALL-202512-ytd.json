@@ -1,5 +1,145 @@
 [
   {
+    "timestamp": "2026-01-15T01:31:21.160Z",
+    "accountPath": "l2-IT수수료-Data Server",
+    "oldValue": "계획비 96%\n전년비 118% ",
+    "newValue": "계획비 96%\n전년비 118% (사용량 증가로 25년 계획 많이 잡음)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:30:28.720Z",
+    "accountPath": "l2-IT수수료-Data Server",
+    "oldValue": "",
+    "newValue": "계획비 96%\n전년비 118% ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:29:59.043Z",
+    "accountPath": "l2-IT수수료-DX 경쟁상품 데이터 구매 (항목 변경)",
+    "oldValue": "",
+    "newValue": "DX 경쟁상품 데이터 구매 계획비 390K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:29:31.831Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "",
+    "newValue": "계획비 89%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:29:23.945Z",
+    "accountPath": "l2-IT수수료-API (인터페이스 관련)",
+    "oldValue": "",
+    "newValue": "계획비 30%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:28:29.471Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "계획비 91%, 전년비 106%",
+    "newValue": "계획비 91%, 전년비 106%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:09:40.002Z",
+    "accountPath": "l2-복리후생비-주재원지원금",
+    "oldValue": "",
+    "newValue": "계획비 103%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:06:02.400Z",
+    "accountPath": "l2-복리후생비-인력 지인추천(사무실/매장직원)",
+    "oldValue": "",
+    "newValue": "퇴사자 증가로 신규채용 증가하면서 해당비용도 증가",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T01:00:07.729Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "",
+    "newValue": "계획비 97% 사용",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:59:07.451Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "",
+    "newValue": "계획비 91%, 전년비 106%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:58:47.599Z",
+    "accountPath": "l2-광고비-DISCOVERY",
+    "oldValue": "",
+    "newValue": "계획비 124% 사용",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:58:35.453Z",
+    "accountPath": "l2-광고비-MLB",
+    "oldValue": "계획비: 100% 사용",
+    "newValue": "계획비 100% 사용",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:58:32.588Z",
+    "accountPath": "l2-광고비-KIDS",
+    "oldValue": "",
+    "newValue": "계획비 99% 사용",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:58:19.294Z",
+    "accountPath": "l2-광고비-MLB",
+    "oldValue": "",
+    "newValue": "계획비: 100% 사용",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:57:45.889Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "①[전년비]DX 광고비 +30M , MLB 광고비 +21M ②[계획비] MLB 100%, KIDS 99%, DX 124%",
+    "newValue": "①[계획비] MLB 100%, KIDS 99%, DX 124%②[전년비]DX 광고비 +30M , MLB 광고비 +21M ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:57:35.760Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "①DX 광고비 +30M , MLB 광고비 +21M\n[계획비] MLB 100%, KIDS 99%, DX 124%",
+    "newValue": "①[전년비]DX 광고비 +30M , MLB 광고비 +21M ②[계획비] MLB 100%, KIDS 99%, DX 124%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:57:12.846Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "[전년비]DX 광고비 +30M , MLB 광고비 +21M\n[계획비] MLB 100%, KIDS 99%, DX 124%",
+    "newValue": "①DX 광고비 +30M , MLB 광고비 +21M\n[계획비] MLB 100%, KIDS 99%, DX 124%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:55:17.422Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "[전년비]DX 광고비 +30M , MLB 광고비 +21M\n[계획비] MLB 100%, KIDS 99%, DX 114%",
+    "newValue": "[전년비]DX 광고비 +30M , MLB 광고비 +21M\n[계획비] MLB 100%, KIDS 99%, DX 124%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:55:09.277Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "[전년비]DX 광고비 +30M , MLB 광고비 +21M\n[계획비] 104%",
+    "newValue": "[전년비]DX 광고비 +30M , MLB 광고비 +21M\n[계획비] MLB 100%, KIDS 99%, DX 114%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T00:54:47.786Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "DX 광고비 +30M , MLB 광고비 +21M",
+    "newValue": "[전년비]DX 광고비 +30M , MLB 광고비 +21M\n[계획비] 104%",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-14T06:56:57.691Z",
     "accountPath": "l1-광고비",
     "oldValue": "DX 광고비 +30M , MLB 광고비 +21M",
