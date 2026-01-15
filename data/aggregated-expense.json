@@ -65430,7 +65430,7 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 21000.0,
       "headcount": 0.0
@@ -66717,7 +66717,7 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 120000.0,
       "headcount": 0.0
@@ -68004,7 +68004,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -69291,7 +69291,7 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": -76415.0,
       "headcount": 0.0
@@ -70578,7 +70578,7 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 30189.0,
       "headcount": 0.0
@@ -71865,7 +71865,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 31314.0,
       "headcount": 0.0
@@ -73152,7 +73152,7 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 30189.0,
       "headcount": 0.0
@@ -74439,7 +74439,7 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 88727.0,
       "headcount": 0.0
@@ -75726,7 +75726,7 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 73859.0,
       "headcount": 0.0
@@ -77013,7 +77013,7 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 74495.0,
       "headcount": 0.0
@@ -78300,7 +78300,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 86589.44,
       "headcount": 0.0
@@ -79587,7 +79587,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "amount": 234888.76,
       "headcount": 0.0
@@ -84398,7 +84398,7 @@
       "biz_unit": "공통",
       "year": 2025,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
+      "cost_lv2": "DX 경쟁상품 데이터 구매",
       "cost_lv3": "",
       "annual_amount": 715680.0
     },

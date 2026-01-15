@@ -1,5 +1,285 @@
 [
   {
+    "timestamp": "2026-01-15T04:04:17.909Z",
+    "accountPath": "l2-지급수수료-재무",
+    "oldValue": "[계획비] 97% | [전년비] 128%",
+    "newValue": "[계획비] 97% | [전년비] 128% (사용내역: APA 199K, SAP 유지보수 비용 461K, 세무컨설팅 122K, 감사비 780K, 계약서 번역 40K, 폐기관련 감사 및 세무 컨설팅 비용 539K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:02:33.935Z",
+    "accountPath": "l2-지급수수료-재무",
+    "oldValue": "[계획비] ",
+    "newValue": "[계획비] 97% | [전년비] 128%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:02:21.259Z",
+    "accountPath": "l2-지급수수료-재무",
+    "oldValue": "",
+    "newValue": "[계획비] ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:00:17.864Z",
+    "accountPath": "l3-지급수수료-재무-SAP 유지보수 비용",
+    "oldValue": "본사 대납 SAP 유지보수 비용은, 연간 계획은 VAT 미포함 기준으로 수립되었으나, 실제 비용 집행 시 VAT는 본사 매입세액 불공제로 인해 VAT 포함 금액을 송금하면서 계획 대비 +14K",
+    "newValue": "본사 대납 SAP 유지보수 비용의 연간 계획은 VAT 미포함 기준으로 수립되었으나, 실제 비용 집행 시 VAT는 본사 매입세액 불공제로 인해 VAT 포함 금액을 송금하면서 계획 대비 +14K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:00:07.234Z",
+    "accountPath": "l3-지급수수료-재무-SAP 유지보수 비용",
+    "oldValue": "연간 계획은 VAT 미포함 기준으로 수립되었으나, 실제 비용 집행 시 VAT는 본사 매입세액 불공제로 인해 VAT 포함 금액을 송금하면서 계획 대비 +14K",
+    "newValue": "본사 대납 SAP 유지보수 비용은, 연간 계획은 VAT 미포함 기준으로 수립되었으나, 실제 비용 집행 시 VAT는 본사 매입세액 불공제로 인해 VAT 포함 금액을 송금하면서 계획 대비 +14K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:59:52.824Z",
+    "accountPath": "l3-지급수수료-재무-SAP 유지보수 비용",
+    "oldValue": "연간계획 금액 : 본사 SAP 비용 대납시 vat 미포함 작성 | 실제 본사 vat 불공제항목으로 vat부분까지 비용 청구하면서 계획비 +14K",
+    "newValue": "연간 계획은 VAT 미포함 기준으로 수립되었으나, 실제 비용 집행 시 VAT는 본사 매입세액 불공제로 인해 VAT 포함 금액을 송금하면서 계획 대비 +14K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:58:45.141Z",
+    "accountPath": "l3-지급수수료-재무-SAP 유지보수 비용",
+    "oldValue": "연간계획 금액 : 본사 SAP 비용 대납시 vat 미포함 작성 | 실제 본사 vat 불공제항목으로 vat부분까지 비용 청구하면서 예산초과",
+    "newValue": "연간계획 금액 : 본사 SAP 비용 대납시 vat 미포함 작성 | 실제 본사 vat 불공제항목으로 vat부분까지 비용 청구하면서 계획비 +14K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:58:30.517Z",
+    "accountPath": "l3-지급수수료-재무-SAP 유지보수 비용",
+    "oldValue": "",
+    "newValue": "연간계획 금액 : 본사 SAP 비용 대납시 vat 미포함 작성 | 실제 본사 vat 불공제항목으로 vat부분까지 비용 청구하면서 예산초과",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:55:58.793Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 918K, 월급여x3개월x21% ③장애인 서비스 비용 62K ④직영매장 채용비 55K 인사컨설팅비용 42K",
+    "newValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 918K, 월급여x3개월x21% ③장애인 서비스 비용 62K ④직영매장 채용비 55K ⑤인사컨설팅비용 42K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:55:53.204Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 918K, 월급여x3개월x21% ③장애인 서비스 비용 62K 직영매장 채용비 55K 인사컨설팅비용 42K",
+    "newValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 918K, 월급여x3개월x21% ③장애인 서비스 비용 62K ④직영매장 채용비 55K 인사컨설팅비용 42K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:55:44.927Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 918K, 월급여x3개월x21% ③",
+    "newValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 918K, 월급여x3개월x21% ③장애인 서비스 비용 62K 직영매장 채용비 55K 인사컨설팅비용 42K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:55:12.731Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 월급여x3개월x21% ③",
+    "newValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 918K, 월급여x3개월x21% ③",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:54:54.121Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 월급여x3개월x21%",
+    "newValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 월급여x3개월x21% ③",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:54:46.618Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "사용내역: ①온라인 인사관리 시스템 35K, 사무실 직원채용비(헤드헌터비용) 월급여x3개월x21%",
+    "newValue": "사용내역: ①온라인 인사관리 시스템 35K ②사무실 직원채용비(헤드헌터비용) 월급여x3개월x21%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:54:41.524Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "사용내역: 온라인 인사관리 시스템 35K, 사무실 직원채용비(헤드헌터비용) 월급여x3개월x21%",
+    "newValue": "사용내역: ①온라인 인사관리 시스템 35K, 사무실 직원채용비(헤드헌터비용) 월급여x3개월x21%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:54:34.938Z",
+    "accountPath": "l2-지급수수료-인사",
+    "oldValue": "",
+    "newValue": "사용내역: 온라인 인사관리 시스템 35K, 사무실 직원채용비(헤드헌터비용) 월급여x3개월x21%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:53:02.987Z",
+    "accountPath": "l3-지급수수료-인사-장애인 서비스 비용",
+    "oldValue": "",
+    "newValue": "인원 4명 (전년 3명)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:52:19.044Z",
+    "accountPath": "l3-지급수수료-인사-사무실 직원 채용비",
+    "oldValue": "①헤드헌터비용=월급여 x 3개월 x 21%",
+    "newValue": "헤드헌터비용=월급여 x 3개월 x 21%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:52:15.936Z",
+    "accountPath": "l3-지급수수료-인사-사무실 직원 채용비",
+    "oldValue": "①헤드헌터비용, 828K=26K/인x3개월x50명x21%\n   50명:(신규)20명+(대체)30명, 평균급여26K/인\n②온라인채용 플랫폼 수수료 109K/연",
+    "newValue": "①헤드헌터비용=월급여 x 3개월 x 21%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:50:38.157Z",
+    "accountPath": "l3-지급수수료-인사-사무실 직원 채용비",
+    "oldValue": "",
+    "newValue": "①헤드헌터비용, 828K=26K/인x3개월x50명x21%\n   50명:(신규)20명+(대체)30명, 평균급여26K/인\n②온라인채용 플랫폼 수수료 109K/연",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:49:18.044Z",
+    "accountPath": "l3-지급수수료-인사-HR Platinum 시스템",
+    "oldValue": "SaaS 기반 온라인 인사관리 시스템 사용료",
+    "newValue": "SaaS 기반 온라인 인사관리 시스템 사용료 (계획비 89%)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:49:00.324Z",
+    "accountPath": "l3-지급수수료-인사-HR Platinum 시스템",
+    "oldValue": "SaaS 기반 온라인 인사관리 시스템 사용료",
+    "newValue": "SaaS 기반 온라인 인사관리 시스템 사용료",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:48:51.181Z",
+    "accountPath": "l3-지급수수료-인사-HR Platinum 시스템",
+    "oldValue": "",
+    "newValue": "SaaS 기반 온라인 인사관리 시스템 사용료",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:47:00.346Z",
+    "accountPath": "l1-지급수수료",
+    "oldValue": "지급수수료 계획비 +78% (내역: 인테리어 개발 3,360K, Supply Chain 1,104K, 법무비용 1,011K, 인사비용 1,111K, 재무비용 2,145K, Office Service 104K, 임원배상책임보험 28K",
+    "newValue": "[계획비] 78% (내역: 인테리어 개발 3,360K, Supply Chain 1,104K, 법무비용 1,011K, 인사비용 1,111K, 재무비용 2,145K, Office Service 104K, 임원배상책임보험 28K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:46:43.902Z",
+    "accountPath": "l1-수주회",
+    "oldValue": "수주회 계획비 90% | 전년비 +3,428K (MLB +3,307K, KIDS +362K, DX +308K)",
+    "newValue": "[계획비] 90% | [전년비] 133%, +3,428K (MLB +3,307K, KIDS +362K, DX +308K)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:46:20.588Z",
+    "accountPath": "l1-기타",
+    "oldValue": "25년 실제 사용: 교육비 96K, 물류비 377K, 사무용품비 380K, 여비교통비 389K, 접대비 334K, 통신비 18K ",
+    "newValue": "25년 실제 발생: 교육비 96K, 물류비 377K, 사무용품비 380K, 여비교통비 389K, 접대비 334K, 통신비 18K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:46:13.840Z",
+    "accountPath": "l1-기타",
+    "oldValue": "사용기준: 교육비 96K, 물류비 377K, 사무용품비 380K, 여비교통비 389K, 접대비 334K, 통신비 18K ",
+    "newValue": "25년 실제 사용: 교육비 96K, 물류비 377K, 사무용품비 380K, 여비교통비 389K, 접대비 334K, 통신비 18K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:45:57.105Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "계획비 82%",
+    "newValue": "[계획비] 82% | [전년비] 93%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:45:42.463Z",
+    "accountPath": "l1-감가상각비",
+    "oldValue": "[계획비] 100%",
+    "newValue": "[계획비] 100% | [전년비] 81%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:45:30.218Z",
+    "accountPath": "l1-감가상각비",
+    "oldValue": "계획비 10%",
+    "newValue": "[계획비] 100%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:44:03.871Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "계획비 89%, 전년비 89% (업그레이드 비용 계획보다 적게 사용)",
+    "newValue": "[계획비] 89% | [전년비] 89% (업그레이드 비용 계획보다 적게 사용)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:43:40.030Z",
+    "accountPath": "l2-IT수수료-API (인터페이스 관련)",
+    "oldValue": "계획비 30% (25년 신규항목)",
+    "newValue": "[계획비] 30% (25년 신규항목)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:43:33.954Z",
+    "accountPath": "l1-IT수수료",
+    "oldValue": "계획비 88% | 전년비 117%",
+    "newValue": "[계획비] 88% | [전년비] 117%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:43:23.362Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "[계획비] 97% | [전년비 114%\n(전년비 주요증가) 5대보험/공적금 +3,859K, 워크샵 +180K (예산내 사용)",
+    "newValue": "[계획비] 97% | [전년비 114%\n(전년비) 5대보험/공적금 +3,859K, 워크샵 +180K (예산내 사용)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:43:16.832Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "[계획비] 97% | [전년비 114%\n(주요증가) 5대보험/공적금 +3,859K, 워크샵 +180K (예산내 사용)",
+    "newValue": "[계획비] 97% | [전년비 114%\n(전년비 주요증가) 5대보험/공적금 +3,859K, 워크샵 +180K (예산내 사용)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:43:02.261Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "[계획비] 97% | [전년비 114%\n(주요증가) 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
+    "newValue": "[계획비] 97% | [전년비 114%\n(주요증가) 5대보험/공적금 +3,859K, 워크샵 +180K (예산내 사용)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:42:49.426Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "[계획비] 97% 사용, 전년비 114% |\n [전년비] 주요증가비용 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
+    "newValue": "[계획비] 97% | [전년비 114%\n(주요증가) 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:42:25.332Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "[계획비] 91% [전년비] 106%",
+    "newValue": "[계획비] 91% | [전년비] 106%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:42:13.980Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "계획비 91%, 전년비 106%",
+    "newValue": "[계획비] 91% [전년비] 106%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T03:42:02.115Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "①[계획비] MLB 100%, KIDS 99%, DX 124%②[전년비]DX 광고비 +30M , MLB 광고비 +21M ",
+    "newValue": "[계획비] MLB 100%, KIDS 99%, DX 124% | [전년비]DX 광고비 +30M , MLB 광고비 +21M ",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-15T03:35:20.693Z",
     "accountPath": "l1-출장비",
     "oldValue": "",
@@ -417,286 +697,6 @@
     "accountPath": "l2-IT수수료-재고실사 서비스비용",
     "oldValue": "창고 불량품 확인을 위해 재고 전수조사 실행 (예산없음)",
     "newValue": "창고 불량품 확인을 위해 재고 전수조사 실행 (예산없음)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:01:38.485Z",
-    "accountPath": "l2-IT수수료-재고실사 서비스비용",
-    "oldValue": "",
-    "newValue": "창고 불량품 확인을 위해 재고 전수조사 실행 (예산없음)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:51:56.274Z",
-    "accountPath": "l2-IT수수료-임원배상책임보험",
-    "oldValue": "",
-    "newValue": "",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:19:23.444Z",
-    "accountPath": "l2-IT수수료-OMS",
-    "oldValue": "",
-    "newValue": "계획비 34% (25년 신규항목)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:19:10.095Z",
-    "accountPath": "l2-IT수수료-OA （AI, 페이퍼리스 등 기능 업그레이드)",
-    "oldValue": "25년 신규 항목",
-    "newValue": "계획비 86% (25년 신규 항목)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:19:02.191Z",
-    "accountPath": "l2-IT수수료-LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
-    "oldValue": "25년 신규 항목",
-    "newValue": "계획비 59% (25년 신규 항목)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:18:42.405Z",
-    "accountPath": "l2-IT수수료-OA （AI, 페이퍼리스 등 기능 업그레이드)",
-    "oldValue": "",
-    "newValue": "25년 신규 항목",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:18:24.158Z",
-    "accountPath": "l2-IT수수료-LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
-    "oldValue": "",
-    "newValue": "25년 신규 항목",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:13:17.352Z",
-    "accountPath": "l2-IT수수료-CN SAP",
-    "oldValue": "계획비 89%, 전년비 89%",
-    "newValue": "계획비 89%, 전년비 89% (업그레이드 비용 계획보다 적게 사용)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:12:42.484Z",
-    "accountPath": "l2-IT수수료-CN SAP",
-    "oldValue": "계획비 89%, 전년비 89%",
-    "newValue": "계획비 89%, 전년비 89%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:12:15.458Z",
-    "accountPath": "l2-IT수수료-CN SAP",
-    "oldValue": "계획비 89%",
-    "newValue": "계획비 89%, 전년비 89%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:11:50.631Z",
-    "accountPath": "l2-IT수수료-API (인터페이스 관련)",
-    "oldValue": "계획비 30%",
-    "newValue": "계획비 30% (25년 신규항목)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:11:14.944Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "①[계획비] 97% 사용, 전년비 114%\n②[전년비] 주요증가비용 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
-    "newValue": "①[계획비] 97% 사용, 전년비 114%\n②[전년비] 주요증가비용 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:11:08.037Z",
-    "accountPath": "l2-복리후생비-주재원지원금",
-    "oldValue": "DX사업부 LESLY 신규 입사 (예산이외 +1명), MLB 사업부 Sunny 연초 예산 잡지 않음",
-    "newValue": "DX사업부 LESLY 신규 입사 (예산이외 +1명), MLB 사업부 Sunny 연초 예산 잡지 않음",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:10:29.956Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "①[계획비] 97% 사용, 전년비 114%\n②[전년비] 주요증가비용 5대보험/공적금 3,859K",
-    "newValue": "①[계획비] 97% 사용, 전년비 114%\n②[전년비] 주요증가비용 5대보험/공적금 3,859K, 워크샵 +180K (예산내 사용)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:10:08.052Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "①[계획비] 97% 사용, 전년비 114%\n②주요증가비용 5대보험/공적금 3,859K",
-    "newValue": "①[계획비] 97% 사용, 전년비 114%\n②[전년비] 주요증가비용 5대보험/공적금 3,859K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:09:56.813Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "①계획비 97% 사용, 전년비 114%\n②주요증가비용 5대보험/공적금 3,859K",
-    "newValue": "①[계획비] 97% 사용, 전년비 114%\n②주요증가비용 5대보험/공적금 3,859K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:09:49.284Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "①계획비 97% 사용, 전년비 114%\n주요증가비용 5대보험/공적금 3,859K",
-    "newValue": "①계획비 97% 사용, 전년비 114%\n②주요증가비용 5대보험/공적금 3,859K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:09:42.661Z",
-    "accountPath": "l1-광고비",
-    "oldValue": "①[계획비] MLB 100%, KIDS 99%, DX 124%②[전년비]DX 광고비 +30M , MLB 광고비 +21M ",
-    "newValue": "①[계획비] MLB 100%, KIDS 99%, DX 124%②[전년비]DX 광고비 +30M , MLB 광고비 +21M ",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:09:40.319Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "계획비 97% 사용, 전년비 114%\n주요증가비용 5대보험/공적금 3,859K",
-    "newValue": "①계획비 97% 사용, 전년비 114%\n주요증가비용 5대보험/공적금 3,859K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:09:30.555Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "주요증가 비용: 5대보험/공적금 +305K",
-    "newValue": "계획비 97% 사용, 전년비 114%\n주요증가비용 5대보험/공적금 3,859K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:08:32.646Z",
-    "accountPath": "l2-복리후생비-주재원지원금",
-    "oldValue": "계획비 103%",
-    "newValue": "DX사업부 LESLY 신규 입사 (예산이외 +1명), MLB 사업부 Sunny 연초 예산 잡지 않음",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T02:08:09.997Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "계획비 97% 사용",
-    "newValue": "주요증가 비용: 5대보험/공적금 +305K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:59:58.353Z",
-    "accountPath": "l2-복리후생비-인력 지인추천(사무실/매장직원)",
-    "oldValue": "퇴사자 증가로 신규채용 증가하면서 해당비용도 증가",
-    "newValue": "퇴사자 증가로 신규채용 증가하면서 해당비용 계획비 +4K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:59:03.269Z",
-    "accountPath": "l1-광고비",
-    "oldValue": "①[계획비] MLB 100%, KIDS 99%, DX 124%②[전년비]DX 광고비 +30M , MLB 광고비 +21M ",
-    "newValue": "①[계획비] MLB 100%, KIDS 99%, DX 124%②[전년비]DX 광고비 +30M , MLB 광고비 +21M ",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:55:34.399Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "계획비 97% 사용",
-    "newValue": "계획비 97% 사용",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:31:21.160Z",
-    "accountPath": "l2-IT수수료-Data Server",
-    "oldValue": "계획비 96%\n전년비 118% ",
-    "newValue": "계획비 96%\n전년비 118% (사용량 증가로 25년 계획 많이 잡음)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:30:28.720Z",
-    "accountPath": "l2-IT수수료-Data Server",
-    "oldValue": "",
-    "newValue": "계획비 96%\n전년비 118% ",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:29:59.043Z",
-    "accountPath": "l2-IT수수료-DX 경쟁상품 데이터 구매 (항목 변경)",
-    "oldValue": "",
-    "newValue": "DX 경쟁상품 데이터 구매 계획비 390K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:29:31.831Z",
-    "accountPath": "l2-IT수수료-CN SAP",
-    "oldValue": "",
-    "newValue": "계획비 89%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:29:23.945Z",
-    "accountPath": "l2-IT수수료-API (인터페이스 관련)",
-    "oldValue": "",
-    "newValue": "계획비 30%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:28:29.471Z",
-    "accountPath": "l1-인건비",
-    "oldValue": "계획비 91%, 전년비 106%",
-    "newValue": "계획비 91%, 전년비 106%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:09:40.002Z",
-    "accountPath": "l2-복리후생비-주재원지원금",
-    "oldValue": "",
-    "newValue": "계획비 103%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:06:02.400Z",
-    "accountPath": "l2-복리후생비-인력 지인추천(사무실/매장직원)",
-    "oldValue": "",
-    "newValue": "퇴사자 증가로 신규채용 증가하면서 해당비용도 증가",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T01:00:07.729Z",
-    "accountPath": "l1-복리후생비",
-    "oldValue": "",
-    "newValue": "계획비 97% 사용",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T00:59:07.451Z",
-    "accountPath": "l1-인건비",
-    "oldValue": "",
-    "newValue": "계획비 91%, 전년비 106%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T00:58:47.599Z",
-    "accountPath": "l2-광고비-DISCOVERY",
-    "oldValue": "",
-    "newValue": "계획비 124% 사용",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T00:58:35.453Z",
-    "accountPath": "l2-광고비-MLB",
-    "oldValue": "계획비: 100% 사용",
-    "newValue": "계획비 100% 사용",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T00:58:32.588Z",
-    "accountPath": "l2-광고비-KIDS",
-    "oldValue": "",
-    "newValue": "계획비 99% 사용",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T00:58:19.294Z",
-    "accountPath": "l2-광고비-MLB",
-    "oldValue": "",
-    "newValue": "계획비: 100% 사용",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T00:57:45.889Z",
-    "accountPath": "l1-광고비",
-    "oldValue": "①[전년비]DX 광고비 +30M , MLB 광고비 +21M ②[계획비] MLB 100%, KIDS 99%, DX 124%",
-    "newValue": "①[계획비] MLB 100%, KIDS 99%, DX 124%②[전년비]DX 광고비 +30M , MLB 광고비 +21M ",
     "userIdentifier": "anonymous"
   }
 ]
