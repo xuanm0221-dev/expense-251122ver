@@ -1577,13 +1577,13 @@ export function ExpenseAccountHierTable({
         const headcountDiff = currHeadcount - prevHeadcount;
         if (headcountDiff !== 0) {
           const diffSign = headcountDiff > 0 ? "+" : "";
-          result += `, 전년비 (${diffSign}${Math.round(headcountDiff)}명)`;
+          result += `, 전년비 ${diffSign}${Math.round(headcountDiff)}명`;
         } else {
-          result += `, 전년비 (0명)`;
+          result += `, 전년비 0명`;
         }
       }
 
-      result += `, 인당 인건비 ${currPerPersonCostK.toFixed(1)}K`;
+      result += ` | 인당 인건비 ${currPerPersonCostK.toFixed(1)}K`;
 
       if (yoyPercent !== null && !isNaN(yoyPercent)) {
         // 전년비 표시

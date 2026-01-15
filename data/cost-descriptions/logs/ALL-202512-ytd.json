@@ -1,5 +1,40 @@
 [
   {
+    "timestamp": "2026-01-15T04:51:17.815Z",
+    "accountPath": "l3-인건비-기본급-DISCOVERY",
+    "oldValue": "[당월 인원수 31명, 전년비 (+13명), 인당 인건비 31.5K, 전년비 +8.7%]",
+    "newValue": "[당월 인원수 31명, 전년비 +13명 | 인당 인건비 31.5K, 전년비 +8.7%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:51:07.251Z",
+    "accountPath": "l3-인건비-기본급-KIDS",
+    "oldValue": "[당월 인원수 24명, 전년비 (-1명), 인당 인건비 24.8K, 전년비 +7.7%]",
+    "newValue": "[당월 인원수 24명, 전년비 -1명 | 인당 인건비 24.8K, 전년비 +7.7%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:50:56.430Z",
+    "accountPath": "l3-인건비-기본급-MLB",
+    "oldValue": "[당월 인원수 128명, 전년비 (-4명), 인당 인건비 24.3K, 전년비 +1.5%]",
+    "newValue": "[당월 인원수 128명, 전년비 -4명 | 인당 인건비 24.3K, 전년비 +1.5%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:49:45.038Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "[당월 인원수 72명, 전년비 (+1명), 인당인건비 28K (전년비 +6.6%)]",
+    "newValue": "[당월 인원수 72명, 전년비 +1명 | 인당 인건비 28.0K, 전년비 +6.6%]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:49:33.491Z",
+    "accountPath": "l2-인건비-기본급",
+    "oldValue": "[당월 인원수 255명, 전년비 (+6명), 인당 인건비 26.3K, 전년비 +5.4%]",
+    "newValue": "[당월 인원수 255명, 전년비 +6명 | 인당 인건비 26.3K, 전년비 +5.4%]",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-15T04:46:12.962Z",
     "accountPath": "l3-인건비-기본급-경영지원",
     "oldValue": "[당월 인원수 72명 (전년비 +1명), 인당인건비 28K (전년비 +6.6%)]",
@@ -662,41 +697,6 @@
     "accountPath": "l2-IT수수료-보안시스템 (방화벽)",
     "oldValue": "",
     "newValue": "계획비 90%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:20:00.238Z",
-    "accountPath": "l2-IT수수료-사무실 소프트웨어",
-    "oldValue": "",
-    "newValue": "계획비 85%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:19:34.794Z",
-    "accountPath": "l2-IT수수료-매장 DP점검 외주용역",
-    "oldValue": "",
-    "newValue": "매장 DP점검 외주용역 계획비 114%(+64K)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:19:02.648Z",
-    "accountPath": "l2-지급수수료-임원배상책임보험",
-    "oldValue": "25년4분기 신규발생 (113K 비용중 25년 비용 28K 인식)",
-    "newValue": "임원배상책임보험 25년4분기 신규발생 (113K 비용중 25년 비용 28K 인식)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:18:55.942Z",
-    "accountPath": "l2-지급수수료-임원배상책임보험",
-    "oldValue": "",
-    "newValue": "25년4분기 신규발생 (113K 비용중 25년 비용 28K 인식)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:15:36.611Z",
-    "accountPath": "l2-IT수수료-온라인 스토어 오픈비용",
-    "oldValue": "26년 DX온라인, ",
-    "newValue": "온라인스토어 오픈비용(1회성), 25년 DX 온라인 등 신규 오픈으로 계획비 123K",
     "userIdentifier": "anonymous"
   }
 ]
