@@ -6886,7 +6886,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "amount": 1168191.04,
+      "amount": 1139852.86,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -6946,7 +6946,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "지급수수료",
-      "amount": 618710.54,
+      "amount": 647048.72,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -66541,6 +66541,17 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "APA",
       "amount": 0.0,
@@ -67808,6 +67819,17 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "컨설팅 비용",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -69093,6 +69115,17 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "APA",
       "amount": 120000.0,
@@ -70360,6 +70393,17 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "컨설팅 비용",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -71645,6 +71689,17 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "APA",
       "amount": 0.0,
@@ -72912,6 +72967,17 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "컨설팅 비용",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -74197,6 +74263,17 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "APA",
       "amount": 0.0,
@@ -75473,6 +75550,17 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "APA",
       "amount": 0.0,
@@ -76740,6 +76828,17 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "컨설팅 비용",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -78025,6 +78124,17 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "APA",
       "amount": 0.0,
@@ -79301,6 +79411,17 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "APA",
       "amount": 0.0,
@@ -79578,7 +79699,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "골프 회원 교환권",
       "cost_lv3": "",
-      "amount": 28338.18,
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -80569,6 +80690,17 @@
       "cost_lv2": "인사",
       "cost_lv3": "컨설팅 비용",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "amount": 28338.18,
       "headcount": 0.0
     },
     {
@@ -81796,7 +81928,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "KIDS",
       "cost_lv3": "유형자산 감가상각비",
-      "annual_amount": 14676.0
+      "annual_amount": 33676.0
     },
     {
       "biz_unit": "KIDS",
@@ -82532,7 +82664,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "무형자산 상각비",
-      "annual_amount": 1931224.0
+      "annual_amount": 1962224.0
     },
     {
       "biz_unit": "MLB",
@@ -82540,7 +82672,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "유형자산 감가상각비",
-      "annual_amount": 854613.0277
+      "annual_amount": 984613.0277
     },
     {
       "biz_unit": "MLB",
@@ -82548,7 +82680,7 @@
       "cost_lv1": "감가상각비",
       "cost_lv2": "MLB",
       "cost_lv3": "인테리어 상각비",
-      "annual_amount": 1653046.201
+      "annual_amount": 1696046.201
     },
     {
       "biz_unit": "MLB",
@@ -84268,7 +84400,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "DX 경쟁상품 데이터 구매 (항목 변경)",
       "cost_lv3": "",
-      "annual_amount": 389680.0
+      "annual_amount": 715680.0
     },
     {
       "biz_unit": "공통",
@@ -84332,7 +84464,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "OMS",
       "cost_lv3": "",
-      "annual_amount": 1964706.0
+      "annual_amount": 1254706.0
     },
     {
       "biz_unit": "공통",
@@ -84340,7 +84472,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
       "cost_lv3": "",
-      "annual_amount": 466982.0
+      "annual_amount": 627982.0
     },
     {
       "biz_unit": "공통",
@@ -84604,7 +84736,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "건강검진",
       "cost_lv3": "",
-      "annual_amount": 533281.0
+      "annual_amount": 394681.0
     },
     {
       "biz_unit": "공통",
@@ -84676,7 +84808,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "워크샵",
       "cost_lv3": "",
-      "annual_amount": 361800.0
+      "annual_amount": 500400.0
     },
     {
       "biz_unit": "공통",
@@ -84716,7 +84848,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "비자&이사비용",
-      "annual_amount": 75200.0
+      "annual_amount": 115200.0
     },
     {
       "biz_unit": "공통",
@@ -84732,7 +84864,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "자녀교육비",
-      "annual_amount": 1491415.166
+      "annual_amount": 1451415.166
     },
     {
       "biz_unit": "공통",
@@ -85021,6 +85153,14 @@
       "cost_lv2": "인사",
       "cost_lv3": "컨설팅 비용",
       "annual_amount": 40094.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "임원배상책임보험",
+      "cost_lv3": "",
+      "annual_amount": 0.0
     },
     {
       "biz_unit": "공통",

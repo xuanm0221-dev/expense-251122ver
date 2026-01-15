@@ -1,5 +1,33 @@
 [
   {
+    "timestamp": "2026-01-15T02:07:57.257Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "주요증가 비용: 5대보험 +211K, 워크샵 +250K (워크샵 연간2회, 전년1회 진행)",
+    "newValue": "주요증가 비용: 5대보험/공적금 +305K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T02:07:28.894Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "5대보험 +211K, 워크샵 +250K (워크샵 연간2회, 전년1회 진행)",
+    "newValue": "주요증가 비용: 5대보험 +211K, 워크샵 +250K (워크샵 연간2회, 전년1회 진행)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T02:07:08.392Z",
+    "accountPath": "l2-복리후생비-주재원지원금",
+    "oldValue": "",
+    "newValue": "DX사업부 LESLY 신규 입사 (예산이외 +1명), MLB 사업부 Sunny 연초 예산 잡지 않음",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T02:07:02.456Z",
+    "accountPath": "l3-복리후생비-주재원지원금-주택임차료 (관리비포함)",
+    "oldValue": "",
+    "newValue": "DX사업부 LESLY 신규 입사 (예산이외 +1명), MLB 사업부 Sunny 연초 예산 잡지 않음",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-14T07:10:15.555Z",
     "accountPath": "l1-출장비",
     "oldValue": "연간 전년비 92%",
