@@ -7987,17 +7987,6 @@
       "year": 2024,
       "month": 1,
       "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -8363,17 +8352,6 @@
       "yyyymm": "202402",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DISCOVERY",
       "amount": 0.0,
       "headcount": 0.0
@@ -8757,17 +8735,6 @@
       "year": 2024,
       "month": 3,
       "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -9133,17 +9100,6 @@
       "yyyymm": "202404",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DISCOVERY",
       "amount": 0.0,
       "headcount": 0.0
@@ -9527,17 +9483,6 @@
       "year": 2024,
       "month": 5,
       "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -9912,17 +9857,6 @@
       "year": 2024,
       "month": 6,
       "yyyymm": "202406",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -10288,17 +10222,6 @@
       "yyyymm": "202407",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DISCOVERY",
       "amount": 0.0,
       "headcount": 0.0
@@ -10682,17 +10605,6 @@
       "year": 2024,
       "month": 8,
       "yyyymm": "202408",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 10.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -11060,17 +10972,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 7646.0,
-      "headcount": 10.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
       "headcount": 10.0
     },
     {
@@ -11452,17 +11353,6 @@
       "year": 2024,
       "month": 10,
       "yyyymm": "202410",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 12.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -11830,17 +11720,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 67524.0,
-      "headcount": 18.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
       "headcount": 18.0
     },
     {
@@ -12222,17 +12101,6 @@
       "year": 2024,
       "month": 12,
       "yyyymm": "202412",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 18.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -12600,17 +12468,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 209505.0,
-      "headcount": 22.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
       "headcount": 22.0
     },
     {
@@ -12992,17 +12849,6 @@
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 22.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -13369,18 +13215,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
-      "amount": 182511.0,
-      "headcount": 23.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 1072560.0,
+      "amount": 1255071.0,
       "headcount": 23.0
     },
     {
@@ -13762,17 +13597,6 @@
       "year": 2025,
       "month": 4,
       "yyyymm": "202504",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 28.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -14140,17 +13964,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 159310.0,
-      "headcount": 19.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
       "headcount": 19.0
     },
     {
@@ -14532,17 +14345,6 @@
       "year": 2025,
       "month": 6,
       "yyyymm": "202506",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 20.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -14910,17 +14712,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 189622.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
       "headcount": 25.0
     },
     {
@@ -15302,17 +15093,6 @@
       "year": 2025,
       "month": 8,
       "yyyymm": "202508",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 26.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -15680,17 +15460,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 157941.0,
-      "headcount": 26.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
       "headcount": 26.0
     },
     {
@@ -16072,17 +15841,6 @@
       "year": 2025,
       "month": 10,
       "yyyymm": "202510",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 26.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -16450,17 +16208,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 250766.26,
-      "headcount": 29.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
       "headcount": 29.0
     },
     {
@@ -16842,17 +16589,6 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "amount": 0.0,
-      "headcount": 31.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -17194,17 +16930,6 @@
       "year": 2024,
       "month": 1,
       "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 15.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -17381,17 +17106,6 @@
       "year": 2024,
       "month": 2,
       "yyyymm": "202402",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 15.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -17560,18 +17274,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DUVETICA",
-      "amount": 108639.0,
-      "headcount": 15.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 1251721.0,
+      "amount": 1360360.0,
       "headcount": 15.0
     },
     {
@@ -17755,17 +17458,6 @@
       "year": 2024,
       "month": 4,
       "yyyymm": "202404",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 15.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -17935,17 +17627,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DUVETICA",
       "amount": 105210.0,
-      "headcount": 14.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
       "headcount": 14.0
     },
     {
@@ -18129,17 +17810,6 @@
       "year": 2024,
       "month": 6,
       "yyyymm": "202406",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 14.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -18309,17 +17979,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DUVETICA",
       "amount": 72997.0,
-      "headcount": 14.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
       "headcount": 14.0
     },
     {
@@ -18503,17 +18162,6 @@
       "year": 2024,
       "month": 8,
       "yyyymm": "202408",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -18683,17 +18331,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DUVETICA",
       "amount": -3208.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -18877,17 +18514,6 @@
       "year": 2024,
       "month": 10,
       "yyyymm": "202410",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -19057,17 +18683,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DUVETICA",
       "amount": 2577.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -19251,17 +18866,6 @@
       "year": 2024,
       "month": 12,
       "yyyymm": "202412",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -19438,17 +19042,6 @@
       "year": 2025,
       "month": 1,
       "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -19625,17 +19218,6 @@
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -19812,17 +19394,6 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -19999,17 +19570,6 @@
       "year": 2025,
       "month": 4,
       "yyyymm": "202504",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -20186,17 +19746,6 @@
       "year": 2025,
       "month": 5,
       "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -20373,17 +19922,6 @@
       "year": 2025,
       "month": 6,
       "yyyymm": "202506",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -20560,17 +20098,6 @@
       "year": 2025,
       "month": 7,
       "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -20738,17 +20265,6 @@
       "yyyymm": "202508",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DUVETICA",
       "amount": 0.0,
       "headcount": 0.0
@@ -20934,17 +20450,6 @@
       "year": 2025,
       "month": 9,
       "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -21112,17 +20617,6 @@
       "yyyymm": "202510",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DUVETICA",
       "amount": 0.0,
       "headcount": 0.0
@@ -21308,17 +20802,6 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -21486,17 +20969,6 @@
       "yyyymm": "202512",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "DUVETICA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DUVETICA",
       "amount": 0.0,
       "headcount": 0.0
@@ -21708,17 +21180,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 127108.0,
-      "headcount": 21.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 21.0
     },
     {
@@ -22067,17 +21528,6 @@
       "year": 2024,
       "month": 2,
       "yyyymm": "202402",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 21.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -22411,18 +21861,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
-      "amount": 193484.0,
-      "headcount": 20.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 1822301.0,
+      "amount": 2015785.0,
       "headcount": 20.0
     },
     {
@@ -22771,17 +22210,6 @@
       "year": 2024,
       "month": 4,
       "yyyymm": "202404",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 21.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -23116,17 +22544,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 145973.0,
-      "headcount": 20.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 20.0
     },
     {
@@ -23475,17 +22892,6 @@
       "year": 2024,
       "month": 6,
       "yyyymm": "202406",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 20.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -23820,17 +23226,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 58273.0,
-      "headcount": 20.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 20.0
     },
     {
@@ -24179,17 +23574,6 @@
       "year": 2024,
       "month": 8,
       "yyyymm": "202408",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 23.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -24524,17 +23908,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 90768.0,
-      "headcount": 24.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 24.0
     },
     {
@@ -24883,17 +24256,6 @@
       "year": 2024,
       "month": 10,
       "yyyymm": "202410",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 26.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -25228,17 +24590,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 96371.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 25.0
     },
     {
@@ -25587,17 +24938,6 @@
       "year": 2024,
       "month": 12,
       "yyyymm": "202412",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -25932,17 +25272,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 110021.0,
-      "headcount": 24.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 24.0
     },
     {
@@ -26291,17 +25620,6 @@
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -26635,18 +25953,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
-      "amount": 157126.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 1149686.0,
+      "amount": 1306812.0,
       "headcount": 25.0
     },
     {
@@ -26995,17 +26302,6 @@
       "year": 2025,
       "month": 4,
       "yyyymm": "202504",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 27.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -27340,17 +26636,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 125156.0,
-      "headcount": 26.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 26.0
     },
     {
@@ -27699,17 +26984,6 @@
       "year": 2025,
       "month": 6,
       "yyyymm": "202506",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 27.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -28044,17 +27318,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 191630.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 25.0
     },
     {
@@ -28403,17 +27666,6 @@
       "year": 2025,
       "month": 8,
       "yyyymm": "202508",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 26.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -28748,17 +28000,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 173551.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 25.0
     },
     {
@@ -29107,17 +28348,6 @@
       "year": 2025,
       "month": 10,
       "yyyymm": "202510",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 25.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -29459,17 +28689,6 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
-      "headcount": 24.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
@@ -29804,17 +29023,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "amount": 164586.74,
-      "headcount": 24.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "amount": 0.0,
       "headcount": 24.0
     },
     {
@@ -30189,17 +29397,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 1019110.0,
-      "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 127.0
     },
     {
@@ -30802,17 +29999,6 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 124.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 36433.0,
@@ -31398,18 +30584,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "amount": 778458.0,
-      "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": -14069838.0,
+      "amount": -13291380.0,
       "headcount": 125.0
     },
     {
@@ -32012,17 +31187,6 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 36629.0,
@@ -32609,17 +31773,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 999206.0,
-      "headcount": 125.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 125.0
     },
     {
@@ -33222,17 +32375,6 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 122.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 36686.0,
@@ -33819,17 +32961,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 941079.0,
-      "headcount": 121.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 121.0
     },
     {
@@ -34432,17 +33563,6 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 131.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 38239.0,
@@ -35029,17 +34149,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 949318.0,
-      "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 133.0
     },
     {
@@ -35642,17 +34751,6 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 135.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 40022.0,
@@ -36239,17 +35337,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 913758.0,
-      "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 133.0
     },
     {
@@ -36852,17 +35939,6 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 34445.0,
@@ -37449,17 +36525,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 1108642.0,
-      "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 133.0
     },
     {
@@ -38062,17 +37127,6 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 45168.0,
@@ -38658,18 +37712,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "amount": 918849.0,
-      "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": -13637935.98,
+      "amount": -12719086.98,
       "headcount": 132.0
     },
     {
@@ -39272,17 +38315,6 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 133.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 39951.0,
@@ -39869,17 +38901,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 888006.0,
-      "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 132.0
     },
     {
@@ -40482,17 +39503,6 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 130.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 41097.0,
@@ -41079,17 +40089,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 931257.0,
-      "headcount": 132.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 132.0
     },
     {
@@ -41692,17 +40691,6 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 47740.0,
@@ -42289,17 +41277,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 918832.0,
-      "headcount": 127.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 127.0
     },
     {
@@ -42902,17 +41879,6 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 47927.0,
@@ -43499,17 +42465,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 864836.84,
-      "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
       "headcount": 128.0
     },
     {
@@ -44112,17 +43067,6 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "amount": 0.0,
-      "headcount": 128.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 40300.75,
@@ -44672,17 +43616,6 @@
       "year": 2024,
       "month": 1,
       "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 9.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -44903,17 +43836,6 @@
       "year": 2024,
       "month": 2,
       "yyyymm": "202402",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 9.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -45126,18 +44048,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "SUPRA",
-      "amount": 55451.0,
-      "headcount": 7.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 806553.0,
+      "amount": 862004.0,
       "headcount": 7.0
     },
     {
@@ -45365,17 +44276,6 @@
       "year": 2024,
       "month": 4,
       "yyyymm": "202404",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 7.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -45589,17 +44489,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "SUPRA",
       "amount": 62868.0,
-      "headcount": 7.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
       "headcount": 7.0
     },
     {
@@ -45827,17 +44716,6 @@
       "year": 2024,
       "month": 6,
       "yyyymm": "202406",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 7.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -46051,17 +44929,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "SUPRA",
       "amount": 52834.0,
-      "headcount": 7.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
       "headcount": 7.0
     },
     {
@@ -46289,17 +45156,6 @@
       "year": 2024,
       "month": 8,
       "yyyymm": "202408",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 6.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -46513,17 +45369,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "SUPRA",
       "amount": 8145.0,
-      "headcount": 5.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
       "headcount": 5.0
     },
     {
@@ -46751,17 +45596,6 @@
       "year": 2024,
       "month": 10,
       "yyyymm": "202410",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 5.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -46975,17 +45809,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "SUPRA",
       "amount": 72261.0,
-      "headcount": 5.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
       "headcount": 5.0
     },
     {
@@ -47213,17 +46036,6 @@
       "year": 2024,
       "month": 12,
       "yyyymm": "202412",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 3.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -47444,17 +46256,6 @@
       "year": 2025,
       "month": 1,
       "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -47675,17 +46476,6 @@
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -47906,17 +46696,6 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -48137,17 +46916,6 @@
       "year": 2025,
       "month": 4,
       "yyyymm": "202504",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -48368,17 +47136,6 @@
       "year": 2025,
       "month": 5,
       "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -48590,17 +47347,6 @@
       "yyyymm": "202506",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "SUPRA",
       "amount": 0.0,
       "headcount": 0.0
@@ -48830,17 +47576,6 @@
       "year": 2025,
       "month": 7,
       "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -49052,17 +47787,6 @@
       "yyyymm": "202508",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "SUPRA",
       "amount": 0.0,
       "headcount": 0.0
@@ -49292,17 +48016,6 @@
       "year": 2025,
       "month": 9,
       "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -49514,17 +48227,6 @@
       "yyyymm": "202510",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "SUPRA",
       "amount": 0.0,
       "headcount": 0.0
@@ -49754,17 +48456,6 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "인테리어",
@@ -49976,17 +48667,6 @@
       "yyyymm": "202512",
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "SUPRA",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "SUPRA",
       "amount": 0.0,
       "headcount": 0.0
@@ -50891,17 +49571,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 712879.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 73.0
     },
     {
@@ -52174,17 +50843,6 @@
       "year": 2024,
       "month": 2,
       "yyyymm": "202402",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -53442,18 +52100,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "amount": 1015498.0,
-      "headcount": 75.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 8847294.0,
+      "amount": 9862792.0,
       "headcount": 75.0
     },
     {
@@ -54726,17 +53373,6 @@
       "year": 2024,
       "month": 4,
       "yyyymm": "202404",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -55995,17 +54631,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 742606.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 73.0
     },
     {
@@ -57278,17 +55903,6 @@
       "year": 2024,
       "month": 6,
       "yyyymm": "202406",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 74.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -58547,17 +57161,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 649507.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 72.0
     },
     {
@@ -59830,17 +58433,6 @@
       "year": 2024,
       "month": 8,
       "yyyymm": "202408",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -61099,17 +59691,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 672396.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 71.0
     },
     {
@@ -62382,17 +60963,6 @@
       "year": 2024,
       "month": 10,
       "yyyymm": "202410",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -63651,17 +62221,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 706401.0,
-      "headcount": 70.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 70.0
     },
     {
@@ -64934,17 +63493,6 @@
       "year": 2024,
       "month": 12,
       "yyyymm": "202412",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -66203,17 +64751,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 773303.0,
-      "headcount": 73.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 73.0
     },
     {
@@ -67497,17 +66034,6 @@
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -68776,18 +67302,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "amount": 564197.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 6247705.0,
+      "amount": 6811902.0,
       "headcount": 72.0
     },
     {
@@ -70063,18 +68578,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "amount": 558895.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 255000.0,
+      "amount": 813895.0,
       "headcount": 72.0
     },
     {
@@ -71358,17 +69862,6 @@
       "year": 2025,
       "month": 5,
       "yyyymm": "202505",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -72638,17 +71131,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 565818.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 71.0
     },
     {
@@ -73932,17 +72414,6 @@
       "year": 2025,
       "month": 7,
       "yyyymm": "202507",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -75212,17 +73683,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 546698.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 72.0
     },
     {
@@ -76506,17 +74966,6 @@
       "year": 2025,
       "month": 9,
       "yyyymm": "202509",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -77786,17 +76235,6 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 680654.0,
-      "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
       "headcount": 71.0
     },
     {
@@ -79080,17 +77518,6 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -80367,17 +78794,6 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "amount": 0.0,
-      "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
       "cost_lv1": "임차료",
       "cost_lv2": "관리비",
       "cost_lv3": "",
@@ -80941,14 +79357,6 @@
     {
       "biz_unit": "DISCOVERY",
       "year": 2024,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "annual_amount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2024,
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
@@ -81216,15 +79624,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
-      "annual_amount": 2839400.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2025,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DISCOVERY",
-      "annual_amount": 1385121.6
+      "annual_amount": 4224521.6
     },
     {
       "biz_unit": "DISCOVERY",
@@ -81472,15 +79872,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DUVETICA",
-      "annual_amount": 599693.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2024,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "DUVETICA",
-      "annual_amount": 1251721.0
+      "annual_amount": 1851414.0
     },
     {
       "biz_unit": "DUVETICA",
@@ -81607,14 +79999,6 @@
       "year": 2025,
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "DUVETICA",
-      "annual_amount": 0.0
-    },
-    {
-      "biz_unit": "DUVETICA",
-      "year": 2025,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "DUVETICA",
       "annual_amount": 0.0
     },
@@ -81768,15 +80152,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
-      "annual_amount": 1341681.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2024,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "annual_amount": 1822301.0
+      "annual_amount": 3163982.0
     },
     {
       "biz_unit": "KIDS",
@@ -82024,15 +80400,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
-      "annual_amount": 1720609.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2025,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "KIDS",
-      "annual_amount": 1484723.383
+      "annual_amount": 3205332.383
     },
     {
       "biz_unit": "KIDS",
@@ -82336,7 +80704,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "annual_amount": 10844016.0
+      "annual_amount": -3225822.0
     },
     {
       "biz_unit": "MLB",
@@ -82344,23 +80712,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "annual_amount": 8848658.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "annual_amount": -14069838.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2024,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "annual_amount": 8847294.0
+      "annual_amount": 17695952.0
     },
     {
       "biz_unit": "MLB",
@@ -82824,7 +81176,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "annual_amount": 12401366.88
+      "annual_amount": 1463133.0500000007
     },
     {
       "biz_unit": "MLB",
@@ -82832,23 +81184,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "annual_amount": 7508485.122
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "MLB",
-      "annual_amount": -10938233.83
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2025,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "경영지원",
-      "annual_amount": 8068388.848
+      "annual_amount": 15576873.97
     },
     {
       "biz_unit": "MLB",
@@ -83248,15 +81584,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "SUPRA",
-      "annual_amount": 638660.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2024,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
-      "cost_lv3": "SUPRA",
-      "annual_amount": 806553.0
+      "annual_amount": 1445213.0
     },
     {
       "biz_unit": "SUPRA",
@@ -83415,14 +81743,6 @@
       "year": 2025,
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
-      "cost_lv3": "SUPRA",
-      "annual_amount": 0.0
-    },
-    {
-      "biz_unit": "SUPRA",
-      "year": 2025,
-      "cost_lv1": "인건비",
-      "cost_lv2": "실제 지급 성과급",
       "cost_lv3": "SUPRA",
       "annual_amount": 0.0
     },

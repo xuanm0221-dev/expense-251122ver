@@ -1,5 +1,33 @@
 [
   {
+    "timestamp": "2026-01-15T04:16:13.170Z",
+    "accountPath": "l2-IT수수료-재고실사 서비스비용",
+    "oldValue": "창고 불량 재고 현황 파악을 위해 전수조사 실시로 계획비 +278K (예산없음)",
+    "newValue": "창고 불량 재고 현황 파악을 위해 전수조사 실시로 계획비 +278K (전수조사 예산 미수립)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:09:22.652Z",
+    "accountPath": "l2-IT수수료-DX 경쟁상품 데이터 구매 (항목 변경)",
+    "oldValue": "DX 경쟁상품 데이터 구매 계획비 390K",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:09:18.739Z",
+    "accountPath": "l2-IT수수료-DX 경쟁상품 데이터 구매",
+    "oldValue": "",
+    "newValue": "DX 경쟁상품 데이터 구매 계획비 390K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:08:24.592Z",
+    "accountPath": "l2-복리후생비-주재원지원금",
+    "oldValue": "DX사업부 LESLY 신규 입사 (예산이외 +1명), MLB 사업부 Sunny 연초 예산 잡지 않음",
+    "newValue": "DX사업부 LESLY 신규 입사 (예산이외 +1명), MLB 사업부 Sunny 연초 주택임차료 예산 잡지 않음",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-15T04:04:17.909Z",
     "accountPath": "l2-지급수수료-재무",
     "oldValue": "[계획비] 97% | [전년비] 128%",
@@ -669,34 +697,6 @@
     "accountPath": "l2-IT수수료-임원배상책임보험",
     "oldValue": "25년 신규발생 (",
     "newValue": "25년 신규발생 (113K중 월할 계산으로 28K 인식)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:02:52.283Z",
-    "accountPath": "l2-IT수수료-임원배상책임보험",
-    "oldValue": "",
-    "newValue": "25년 신규발생 (",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:02:41.452Z",
-    "accountPath": "l2-IT수수료-재고실사 서비스비용",
-    "oldValue": "창고 불량 재고 현황 파악을 위해 전수조사 실시로 계획비 +278K (예산없음)",
-    "newValue": "창고 불량 재고 현황 파악을 위해 전수조사 실시로 계획비 +278K (예산없음)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:02:36.625Z",
-    "accountPath": "l2-IT수수료-재고실사 서비스비용",
-    "oldValue": "창고 불량품 확인을 위해 재고 전수조사 실행 (예산없음)",
-    "newValue": "창고 불량 재고 현황 파악을 위해 전수조사 실시로 계획비 +278K (예산없음)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:01:55.860Z",
-    "accountPath": "l2-IT수수료-재고실사 서비스비용",
-    "oldValue": "창고 불량품 확인을 위해 재고 전수조사 실행 (예산없음)",
-    "newValue": "창고 불량품 확인을 위해 재고 전수조사 실행 (예산없음)",
     "userIdentifier": "anonymous"
   }
 ]
