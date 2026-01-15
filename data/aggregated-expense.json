@@ -64077,7 +64077,7 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -64903,7 +64903,7 @@
       "yyyymm": "202501",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 69861.0,
       "headcount": 0.0
     },
@@ -65353,7 +65353,7 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -66179,7 +66179,7 @@
       "yyyymm": "202502",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 69861.0,
       "headcount": 0.0
     },
@@ -66629,7 +66629,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -67455,7 +67455,7 @@
       "yyyymm": "202503",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 385290.0,
       "headcount": 0.0
     },
@@ -67905,7 +67905,7 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -68731,7 +68731,7 @@
       "yyyymm": "202504",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 128864.0,
       "headcount": 0.0
     },
@@ -69181,7 +69181,7 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -70007,7 +70007,7 @@
       "yyyymm": "202505",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": -179073.0,
       "headcount": 0.0
     },
@@ -70457,7 +70457,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 135189.0,
       "headcount": 0.0
@@ -71283,7 +71283,7 @@
       "yyyymm": "202506",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 62772.0,
       "headcount": 0.0
     },
@@ -71733,7 +71733,7 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 130017.0,
       "headcount": 0.0
@@ -72559,7 +72559,7 @@
       "yyyymm": "202507",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": -120443.0,
       "headcount": 0.0
     },
@@ -73009,7 +73009,7 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -73835,7 +73835,7 @@
       "yyyymm": "202508",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 79450.0,
       "headcount": 0.0
     },
@@ -74285,7 +74285,7 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -75111,7 +75111,7 @@
       "yyyymm": "202509",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 19367.0,
       "headcount": 0.0
     },
@@ -75561,7 +75561,7 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 170000.0,
       "headcount": 0.0
@@ -76387,7 +76387,7 @@
       "yyyymm": "202510",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 131366.0,
       "headcount": 0.0
     },
@@ -76837,7 +76837,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 162034.28,
       "headcount": 0.0
@@ -77663,7 +77663,7 @@
       "yyyymm": "202511",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": 248736.37,
       "headcount": 0.0
     },
@@ -78113,7 +78113,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "amount": 30188.68,
       "headcount": 0.0
@@ -78939,7 +78939,7 @@
       "yyyymm": "202512",
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "amount": -43238.97,
       "headcount": 0.0
     },
@@ -82790,7 +82790,7 @@
       "biz_unit": "공통",
       "year": 2025,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "RMS 반품 개발 시스템 (항목 변경)",
+      "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
       "annual_amount": 627982.0
     },
@@ -83351,7 +83351,7 @@
       "year": 2025,
       "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
-      "cost_lv3": "VAS 수리비용 (Credit notes 반품)",
+      "cost_lv3": "VAS 수리비용 (반품상품 수선)",
       "annual_amount": 1016666.0
     },
     {

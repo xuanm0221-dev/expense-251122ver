@@ -1,5 +1,61 @@
 [
   {
+    "timestamp": "2026-01-15T04:25:06.189Z",
+    "accountPath": "l1-기타",
+    "oldValue": "25년 실제 발생: 교육비 96K, 물류비 377K, 사무용품비 380K, 여비교통비 389K, 접대비 334K, 통신비 18K ",
+    "newValue": "사용내역: ①교육비 96K ②물류비 377K ③사무용품비 380K ④여비교통비 389K ⑤접대비 334K ⑥통신비 18K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:23:52.580Z",
+    "accountPath": "l2-지급수수료-Supply Chain",
+    "oldValue": "①QA서비스 81K ②RFID 서비스 170K ③반품상품 수선비 853K ",
+    "newValue": "사용내역: ①QA서비스 81K ②RFID 서비스 170K ③반품상품 수선비 853K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:23:43.396Z",
+    "accountPath": "l2-지급수수료-법무",
+    "oldValue": "사용내역: ①샘플구매 850KK ②온라인 감시비용 68K ③법무 컨설팅 비용 79K ",
+    "newValue": "사용내역: ①샘플구매 850KK ②온라인 감시비용 68K ③법무 컨설팅 비용 79K ④기타 14K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:23:12.815Z",
+    "accountPath": "l2-지급수수료-법무",
+    "oldValue": "",
+    "newValue": "사용내역: ①샘플구매 850KK ②온라인 감시비용 68K ③법무 컨설팅 비용 79K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:20:25.770Z",
+    "accountPath": "l2-지급수수료-Supply Chain",
+    "oldValue": "",
+    "newValue": "①QA서비스 81K ②RFID 서비스 170K ③반품상품 수선비 853K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:19:14.641Z",
+    "accountPath": "l2-지급수수료-Office Service",
+    "oldValue": "사용내역: ",
+    "newValue": "사용내역: ①사무실 유지보수 61K ②사무실 시즌 클리닝 43K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:18:29.750Z",
+    "accountPath": "l2-지급수수료-Office Service",
+    "oldValue": "",
+    "newValue": "사용내역: ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-01-15T04:18:18.783Z",
+    "accountPath": "l2-IT수수료-RMS 반품 개발 시스템",
+    "oldValue": "",
+    "newValue": "계획비 100%",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-01-15T04:16:13.170Z",
     "accountPath": "l2-IT수수료-재고실사 서비스비용",
     "oldValue": "창고 불량 재고 현황 파악을 위해 전수조사 실시로 계획비 +278K (예산없음)",
@@ -641,62 +697,6 @@
     "accountPath": "l2-IT수수료-시스템 유지보수비용",
     "oldValue": "",
     "newValue": "[전년비](신규)BOS시스템 대리상 데이터 연결 +370K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:06:31.890Z",
-    "accountPath": "l2-IT수수료-온라인 스토어 오픈비용",
-    "oldValue": "",
-    "newValue": "26년 DX온라인, ",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:06:18.901Z",
-    "accountPath": "l3-IT수수료-온라인플랫폼 서비스 비용-데이터 구매&운영",
-    "oldValue": "",
-    "newValue": "",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:05:14.815Z",
-    "accountPath": "l2-IT수수료-온라인플랫폼 서비스 비용",
-    "oldValue": "",
-    "newValue": "온라인플랫폼 서비스 비용 계획비 93%, 전년비 63%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:04:51.449Z",
-    "accountPath": "l2-IT수수료-정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
-    "oldValue": "",
-    "newValue": "계획비 89%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:04:42.295Z",
-    "accountPath": "l2-IT수수료-하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
-    "oldValue": "",
-    "newValue": "계획비 49%",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:04:32.054Z",
-    "accountPath": "l2-IT수수료-임원배상책임보험",
-    "oldValue": "임원배상책임보험 25년4분기 신규발생 (113K중 월할 계산으로 28K 인식)",
-    "newValue": "임원배상책임보험 25년4분기 신규발생 (113K중 월할계산으로 28K 당년비용으로 인식)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:04:02.835Z",
-    "accountPath": "l2-IT수수료-임원배상책임보험",
-    "oldValue": "25년 신규발생 (113K중 월할 계산으로 28K 인식)",
-    "newValue": "임원배상책임보험 25년4분기 신규발생 (113K중 월할 계산으로 28K 인식)",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-01-15T03:03:31.346Z",
-    "accountPath": "l2-IT수수료-임원배상책임보험",
-    "oldValue": "25년 신규발생 (",
-    "newValue": "25년 신규발생 (113K중 월할 계산으로 28K 인식)",
     "userIdentifier": "anonymous"
   }
 ]
