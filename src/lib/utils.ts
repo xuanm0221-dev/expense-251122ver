@@ -22,6 +22,30 @@ export function formatK(value: number | null | undefined, decimals: number = 0):
   return `${integerPart}.${parts[1]}K`;
 }
 
+/** 구간 문자열에 천 단위 콤마 적용 (예: 9361-11014K → 9,361-11,014K) */
+export function formatRangeWithCommas(range: string): string {
+  if (!range || range === "N/A") return range;
+  const match = range.match(/^(\d+)-(\d+)K$/);
+  if (!match) return range;
+  const [, a, b] = match;
+  const fmt = (n: string) => Number(n).toLocaleString("en-US");
+  return `${fmt(a)}-${fmt(b)}K`;
+}
+
+/** 백만 단위 포맷 (축/요약용, 겹침 방지) */
+export function formatM(value: number | null | undefined, decimals: number = 1): string {
+  if (value === null || value === undefined || isNaN(value)) {
+    return "-";
+  }
+  if (value === 0) {
+    return "0";
+  }
+  const divided = value / 1_000_000;
+  const d = Math.abs(divided) >= 1 ? (decimals === 0 ? 0 : 1) : Math.max(1, decimals);
+  const s = divided.toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return `${s}M`;
+}
+
 export function formatNumber(value: number | null | undefined): string {
   if (value === null || value === undefined || isNaN(value)) {
     return "-";

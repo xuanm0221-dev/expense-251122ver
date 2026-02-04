@@ -30,7 +30,7 @@ export function KpiCard({
           ? formatK(value, title === "인당 비용" ? 1 : 0) 
           : title.includes("비용률")
             ? formatPercent(value, 1)
-            : title === "공통비용 YOY"
+            : (title === "공통비용 YOY" || title === "법인비용 YOY")
             ? formatPercent(value, 0)
             : value.toLocaleString("ko-KR")) 
       : value || "-";

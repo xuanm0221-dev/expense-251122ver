@@ -44,9 +44,18 @@ export function MonthlyStackedChart({
 
   // 범례 순서 정의 (사업부별로 다름)
   const isCommon = bizUnit === "공통";
-  const categoryOrder = isCommon
-    ? ["임차료", "IT수수료", "세금과공과", "복리후생비", "지급수수료", "차량렌트비", "기타"]
-    : ["광고비", "인건비", "복리후생비", "수주회", "지급수수료", "출장비", "감가상각비"];
+  const isCorporate = bizUnit === "법인";
+  
+  let categoryOrder: string[];
+  if (isCommon) {
+    categoryOrder = ["임차료", "IT수수료", "세금과공과", "복리후생비", "지급수수료", "차량렌트비", "기타"];
+  } else if (isCorporate) {
+    // 법인: 브랜드 + 공통 카테고리 포함
+    categoryOrder = ["광고비", "인건비", "복리후생비", "임차료", "IT수수료", "지급수수료", "출장비", "감가상각비"];
+  } else {
+    // 개별 브랜드
+    categoryOrder = ["광고비", "인건비", "복리후생비", "수주회", "지급수수료", "출장비", "감가상각비"];
+  }
   
   // 지정된 순서대로 정렬하고, 없는 카테고리는 뒤에 추가
   const categories = [

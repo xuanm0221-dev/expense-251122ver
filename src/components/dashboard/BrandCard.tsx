@@ -91,6 +91,7 @@ export function BrandCard({
   const previous = getPreviousYearTotal(bizUnit, year, month, mode);
 
   const isCommon = bizUnit === "공통";
+  const isCorporate = bizUnit === "법인";
 
   // 대분류별 데이터
   const categoryData = getMonthlyAggregatedByCategory(bizUnit, year, month, mode);
@@ -123,8 +124,8 @@ export function BrandCard({
   const prevSales = previous?.sales ?? 0;
   const salesYOY = calculateYOY(sales, prevSales);
 
-  // 비용율 계산
-  const costRatio = calculateCostRatio(totalCost, sales);
+  // 비용율 계산 (법인은 매출이 없으므로 비용율 계산 안함)
+  const costRatio = isCorporate ? null : calculateCostRatio(totalCost, sales);
 
   // 이전 비용율은 “아직 사용하지 않으므로 제거”
   // const prevCostRatio = ...
@@ -173,7 +174,7 @@ export function BrandCard({
   const perPersonWelfareCostYOY = calculateYOY(perPersonWelfareCost ?? 0, prevPerPersonWelfareCost ?? 0);
 
   // 상세 카테고리 데이터
-  const expenseDetails: ExpenseDetail[] = isCommon
+  const expenseDetails: ExpenseDetail[] = (isCommon || isCorporate)
     ? Array.from(categoryMap.entries())
         .sort(([_, a], [__, b]) => b.amount - a.amount)
         .map(([categoryName, cat]) => {
@@ -215,12 +216,12 @@ export function BrandCard({
     <BizUnitCard
       businessUnit={bizUnit}
       icon={<Icon className="w-5 h-5" />}
-      yoySales={salesYOY}
+      yoySales={isCorporate ? null : salesYOY}
       yoyExpense={totalCostYOY}
       totalExpense={formatK(totalCost)}
       ratio={costRatio != null ? formatPercent(costRatio) : null}
       headcount={headcount > 0 ? `${headcount.toLocaleString("ko-KR")}명` : null}
-      salesAmount={sales > 0 ? formatK(sales) : null}
+      salesAmount={isCorporate ? null : (sales > 0 ? formatK(sales) : null)}
       perPersonLaborCost={perPersonLaborCost != null ? formatK(perPersonLaborCost, 1) : null}
       perPersonWelfareCost={perPersonWelfareCost != null ? formatK(perPersonWelfareCost, 1) : null}
       perPersonLaborCostYOY={perPersonLaborCostYOY != null ? formatPercent(perPersonLaborCostYOY, 0) : null}

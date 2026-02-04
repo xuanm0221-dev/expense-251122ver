@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Sparkles } from "lucide-react";
+import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Sparkles, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getCategoryDetail, getAnnualData, data, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
@@ -46,9 +46,14 @@ export function ExpenseAccountHierTable({
   
   // 설명 편집을 위한 상태 관리
   const [descriptions, setDescriptions] = useState<Map<string, string>>(new Map());
+  const [basisMap, setBasisMap] = useState<Map<string, string>>(new Map());
   const [editingRowId, setEditingRowId] = useState<string | null>(null);
   const [editValue, setEditValue] = useState<string>("");
+  const [basisPopoverRowId, setBasisPopoverRowId] = useState<string | null>(null);
+  const [basisEditValue, setBasisEditValue] = useState<string>("");
   const { addToast } = useToast();
+
+  const is2026AnnualOnly = year === 2026;
 
   // API에서 설명 데이터 로드
   useEffect(() => {
@@ -63,6 +68,9 @@ export function ExpenseAccountHierTable({
           const result = await response.json();
           if (result.success && result.data) {
             setDescriptions(new Map(Object.entries(result.data)));
+          }
+          if (result.success && result.basis) {
+            setBasisMap(new Map(Object.entries(result.basis)));
           }
         }
       } catch (error) {
@@ -145,13 +153,53 @@ export function ExpenseAccountHierTable({
     }
   };
 
+  const openBasisPopover = (rowId: string) => {
+    setBasisPopoverRowId(rowId);
+    setBasisEditValue(basisMap.get(rowId) || "");
+  };
+
+  const closeBasisPopover = () => {
+    setBasisPopoverRowId(null);
+    setBasisEditValue("");
+  };
+
+  const saveBasis = async (rowId: string) => {
+    try {
+      const ym = `${year}${String(month).padStart(2, "0")}`;
+      const response = await fetch("/api/cost-descriptions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          brand: bizUnit,
+          ym,
+          mode: viewMode,
+          accountPath: rowId,
+          basis: basisEditValue,
+        }),
+      });
+      const result = await response.json();
+      if (response.ok && result.success) {
+        const newBasis = new Map(basisMap);
+        if (basisEditValue.trim()) newBasis.set(rowId, basisEditValue);
+        else newBasis.delete(rowId);
+        setBasisMap(newBasis);
+        addToast({ type: "success", message: "계산 근거가 저장되었습니다." });
+        closeBasisPopover();
+      } else {
+        throw new Error(result.error || "저장에 실패했습니다.");
+      }
+    } catch (error: any) {
+      addToast({ type: "error", message: error.message || "계산 근거 저장 중 오류가 발생했습니다." });
+    }
+  };
+
   // 계층 데이터 변환 및 집계
   const hierarchicalData = useMemo(() => {
     // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
     // 모든 대분류 가져오기 (costLv1을 빈 문자열로 전달하면 모든 대분류 반환)
     const bizUnitFilter: BizUnitOrAll = bizUnit || "ALL";
-    // viewMode가 "annual"이면 "ytd"로 변환 (연간 데이터는 YTD 모드로 가져옴)
-    const modeForDataFetch: "monthly" | "ytd" = viewMode === "annual" ? "ytd" : viewMode;
+    // 2026년이면 연간만 사용하므로 YTD로 가져옴. viewMode가 "annual"이면 "ytd"로 변환
+    const modeForDataFetch: "monthly" | "ytd" = (year === 2026 || viewMode === "annual") ? "ytd" : viewMode;
     const allDetails = getCategoryDetail(bizUnitFilter, year, month, "", modeForDataFetch);
     const prevYearDetails = getCategoryDetail(bizUnitFilter, year - 1, month, "", modeForDataFetch);
 
@@ -196,42 +244,20 @@ export function ExpenseAccountHierTable({
       const l1Row = l1Map.get(l1Key)!;
 
       if (isAdExpense) {
-        // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+        // 광고비인 경우
         const bizUnitKey = detail.biz_unit || "기타";
-        const l2Key = `${l1Key}|${bizUnitKey}`;
-        let l2Row = l2Map.get(l2Key);
-        if (!l2Row) {
-          l2Row = {
-            id: `l2-${l1Key}-${bizUnitKey}`,
-            level: 2,
-            category_l1: l1Key,
-            biz_unit: bizUnitKey,
-            category_l2: bizUnitKey,
-            category_l3: "",
-            prev_month: 0,
-            curr_month: 0,
-            prev_ytd: 0,
-            curr_ytd: 0,
-            prev_year_annual: null,
-            curr_year_annual: null,
-            description: "",
-            isExpanded: expandedRows.has(`l2-${l1Key}-${bizUnitKey}`),
-            children: [],
-          };
-          l2Map.set(l2Key, l2Row);
-          l1Row.children!.push(l2Row);
-        }
-
-        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
-          const l3Key = `${l2Key}|${detail.cost_lv2}`;
-          let l3Row = l3Map.get(l3Key);
-          if (!l3Row) {
-            l3Row = {
-              id: `l3-${l1Key}-${bizUnitKey}-${detail.cost_lv2}`,
-              level: 3,
+        
+        if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+          // 홈 페이지 & 법인 페이지: 대분류 → 사업부구분 → 중분류(L3). L3 합계 = L2
+          const l2Key = `${l1Key}|${bizUnitKey}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${bizUnitKey}`,
+              level: 2,
               category_l1: l1Key,
               biz_unit: bizUnitKey,
-              category_l2: detail.cost_lv2,
+              category_l2: bizUnitKey,
               category_l3: "",
               prev_month: 0,
               curr_month: 0,
@@ -240,25 +266,89 @@ export function ExpenseAccountHierTable({
               prev_year_annual: null,
               curr_year_annual: null,
               description: "",
-              isExpanded: false,
+              isExpanded: expandedRows.has(`l2-${l1Key}-${bizUnitKey}`),
+              children: [],
             };
-            l3Map.set(l3Key, l3Row);
-            l2Row.children!.push(l3Row);
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
           }
-          if (viewMode === "monthly") {
-            l3Row.prev_month += detail.amount;
+
+          if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+            const l3Key = `${l2Key}|${detail.cost_lv2}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${bizUnitKey}-${detail.cost_lv2}`,
+                level: 3,
+                category_l1: l1Key,
+                biz_unit: bizUnitKey,
+                category_l2: detail.cost_lv2,
+                category_l3: "",
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
+            }
+            if (viewMode === "monthly") {
+              l3Row.prev_month += detail.amount;
+            } else {
+              l3Row.prev_ytd += detail.amount;
+            }
           } else {
-            l3Row.prev_ytd += detail.amount;
+            if (viewMode === "monthly") {
+              l2Row.prev_month += detail.amount;
+            } else {
+              l2Row.prev_ytd += detail.amount;
+            }
           }
         } else {
-          if (viewMode === "monthly") {
-            l2Row.prev_month += detail.amount;
+          // 브랜드 페이지: 대분류 → 중분류 (사업부구분 스킵)
+          if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+            const l2Key = `${l1Key}|${detail.cost_lv2}`;
+            let l2Row = l2Map.get(l2Key);
+            if (!l2Row) {
+              l2Row = {
+                id: `l2-${l1Key}-${detail.cost_lv2}`,
+                level: 2,
+                category_l1: l1Key,
+                category_l2: detail.cost_lv2,
+                category_l3: "",
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+                children: [],
+              };
+              l2Map.set(l2Key, l2Row);
+              l1Row.children!.push(l2Row);
+            }
+            if (viewMode === "monthly") {
+              l2Row.prev_month += detail.amount;
+            } else {
+              l2Row.prev_ytd += detail.amount;
+            }
           } else {
-            l2Row.prev_ytd += detail.amount;
+            // 중분류가 없으면 대분류에 직접 집계
+            if (viewMode === "monthly") {
+              l1Row.prev_month += detail.amount;
+            } else {
+              l1Row.prev_ytd += detail.amount;
+            }
           }
         }
       } else if (isInteriorDev) {
-        // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류(인테리어 개발) → 사업부구분 → 소분류
+        // 지급수수료 > 인테리어 개발인 경우
         if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
           const l2Key = `${l1Key}|${detail.cost_lv2}`;
           let l2Row = l2Map.get(l2Key);
@@ -283,44 +373,20 @@ export function ExpenseAccountHierTable({
             l1Row.children!.push(l2Row);
           }
 
-          // 사업부구분 처리 (level 3)
           const bizUnitKey = detail.biz_unit || "기타";
-          const l3Key = `${l2Key}|${bizUnitKey}`;
-          let l3Row = l3Map.get(l3Key);
-          if (!l3Row) {
-            l3Row = {
-              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
-              level: 3,
-              category_l1: l1Key,
-              biz_unit: bizUnitKey,
-              category_l2: detail.cost_lv2,
-              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
-              prev_month: 0,
-              curr_month: 0,
-              prev_ytd: 0,
-              curr_ytd: 0,
-              prev_year_annual: null,
-              curr_year_annual: null,
-              description: "",
-              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
-              children: [],
-            };
-            l3Map.set(l3Key, l3Row);
-            l2Row.children!.push(l3Row);
-          }
-
-          // 소분류 처리 (level 4)
-          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
-            const l4Key = `${l3Key}|${detail.cost_lv3}`;
-            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
-            if (!l4Row) {
-              l4Row = {
-                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
-                level: 4,
+          
+          if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+            // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+            const l3Key = `${l2Key}|${bizUnitKey}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+                level: 3,
                 category_l1: l1Key,
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
-                category_l3: detail.cost_lv3,
+                category_l3: bizUnitKey,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -328,22 +394,83 @@ export function ExpenseAccountHierTable({
                 prev_year_annual: null,
                 curr_year_annual: null,
                 description: "",
-                isExpanded: false,
+                isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+                children: [],
               };
-              l3Map.set(l4Key, l4Row);
-              l3Row.children!.push(l4Row);
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
             }
-            if (viewMode === "monthly") {
-              l4Row.prev_month += detail.amount;
+
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l4Key = `${l3Key}|${detail.cost_lv3}`;
+              let l4Row = l3Map.get(l4Key);
+              if (!l4Row) {
+                l4Row = {
+                  id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                  level: 4,
+                  category_l1: l1Key,
+                  biz_unit: bizUnitKey,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l4Key, l4Row);
+                l3Row.children!.push(l4Row);
+              }
+              if (viewMode === "monthly") {
+                l4Row.prev_month += detail.amount;
+              } else {
+                l4Row.prev_ytd += detail.amount;
+              }
             } else {
-              l4Row.prev_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l3Row.prev_month += detail.amount;
+              } else {
+                l3Row.prev_ytd += detail.amount;
+              }
             }
           } else {
-            // 소분류가 없으면 사업부구분에 직접 추가
-            if (viewMode === "monthly") {
-              l3Row.prev_month += detail.amount;
+            // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l3Key = `${l2Key}|${detail.cost_lv3}`;
+              let l3Row = l3Map.get(l3Key);
+              if (!l3Row) {
+                l3Row = {
+                  id: `l3-${l1Key}-${detail.cost_lv2}-${detail.cost_lv3}`,
+                  level: 3,
+                  category_l1: l1Key,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l3Key, l3Row);
+                l2Row.children!.push(l3Row);
+              }
+              if (viewMode === "monthly") {
+                l3Row.prev_month += detail.amount;
+              } else {
+                l3Row.prev_ytd += detail.amount;
+              }
             } else {
-              l3Row.prev_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l2Row.prev_month += detail.amount;
+              } else {
+                l2Row.prev_ytd += detail.amount;
+              }
             }
           }
         } else {
@@ -354,7 +481,7 @@ export function ExpenseAccountHierTable({
           }
         }
       } else if (isTravelExpense) {
-        // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+        // 출장비 > 국내출장비/해외출장비인 경우
         if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
           const l2Key = `${l1Key}|${detail.cost_lv2}`;
           let l2Row = l2Map.get(l2Key);
@@ -379,44 +506,20 @@ export function ExpenseAccountHierTable({
             l1Row.children!.push(l2Row);
           }
 
-          // 사업부구분 처리 (level 3)
           const bizUnitKey = detail.biz_unit || "기타";
-          const l3Key = `${l2Key}|${bizUnitKey}`;
-          let l3Row = l3Map.get(l3Key);
-          if (!l3Row) {
-            l3Row = {
-              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
-              level: 3,
-              category_l1: l1Key,
-              biz_unit: bizUnitKey,
-              category_l2: detail.cost_lv2,
-              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
-              prev_month: 0,
-              curr_month: 0,
-              prev_ytd: 0,
-              curr_ytd: 0,
-              prev_year_annual: null,
-              curr_year_annual: null,
-              description: "",
-              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
-              children: [],
-            };
-            l3Map.set(l3Key, l3Row);
-            l2Row.children!.push(l3Row);
-          }
-
-          // 소분류 처리 (level 4)
-          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
-            const l4Key = `${l3Key}|${detail.cost_lv3}`;
-            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
-            if (!l4Row) {
-              l4Row = {
-                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
-                level: 4,
+          
+          if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+            // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+            const l3Key = `${l2Key}|${bizUnitKey}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+                level: 3,
                 category_l1: l1Key,
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
-                category_l3: detail.cost_lv3,
+                category_l3: bizUnitKey,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -424,22 +527,83 @@ export function ExpenseAccountHierTable({
                 prev_year_annual: null,
                 curr_year_annual: null,
                 description: "",
-                isExpanded: false,
+                isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+                children: [],
               };
-              l3Map.set(l4Key, l4Row);
-              l3Row.children!.push(l4Row);
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
             }
-            if (viewMode === "monthly") {
-              l4Row.prev_month += detail.amount;
+
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l4Key = `${l3Key}|${detail.cost_lv3}`;
+              let l4Row = l3Map.get(l4Key);
+              if (!l4Row) {
+                l4Row = {
+                  id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                  level: 4,
+                  category_l1: l1Key,
+                  biz_unit: bizUnitKey,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l4Key, l4Row);
+                l3Row.children!.push(l4Row);
+              }
+              if (viewMode === "monthly") {
+                l4Row.prev_month += detail.amount;
+              } else {
+                l4Row.prev_ytd += detail.amount;
+              }
             } else {
-              l4Row.prev_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l3Row.prev_month += detail.amount;
+              } else {
+                l3Row.prev_ytd += detail.amount;
+              }
             }
           } else {
-            // 소분류가 없으면 사업부구분에 직접 추가
-            if (viewMode === "monthly") {
-              l3Row.prev_month += detail.amount;
+            // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l3Key = `${l2Key}|${detail.cost_lv3}`;
+              let l3Row = l3Map.get(l3Key);
+              if (!l3Row) {
+                l3Row = {
+                  id: `l3-${l1Key}-${detail.cost_lv2}-${detail.cost_lv3}`,
+                  level: 3,
+                  category_l1: l1Key,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l3Key, l3Row);
+                l2Row.children!.push(l3Row);
+              }
+              if (viewMode === "monthly") {
+                l3Row.prev_month += detail.amount;
+              } else {
+                l3Row.prev_ytd += detail.amount;
+              }
             } else {
-              l3Row.prev_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l2Row.prev_month += detail.amount;
+              } else {
+                l2Row.prev_ytd += detail.amount;
+              }
             }
           }
         } else {
@@ -550,45 +714,21 @@ export function ExpenseAccountHierTable({
       }
       const l1Row = l1Map.get(l1Key)!;
 
-      // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+      // 광고비인 경우
       if (isAdExpense) {
-        // 사업부구분 처리 (level 2)
         const bizUnitKey = detail.biz_unit || "기타";
-        const l2Key = `${l1Key}|${bizUnitKey}`;
-        let l2Row = l2Map.get(l2Key);
-        if (!l2Row) {
-          l2Row = {
-            id: `l2-${l1Key}-${bizUnitKey}`,
-            level: 2,
-            category_l1: l1Key,
-            biz_unit: bizUnitKey,
-            category_l2: bizUnitKey, // 사업부구분을 category_l2에 저장
-            category_l3: "",
-            prev_month: 0,
-            curr_month: 0,
-            prev_ytd: 0,
-            curr_ytd: 0,
-            prev_year_annual: null,
-            curr_year_annual: null,
-            description: "",
-            isExpanded: expandedRows.has(`l2-${l1Key}-${bizUnitKey}`),
-            children: [],
-          };
-          l2Map.set(l2Key, l2Row);
-          l1Row.children!.push(l2Row);
-        }
-
-        // 중분류 처리 (level 3, 광고비의 경우 소분류 무시)
-        if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
-          const l3Key = `${l2Key}|${detail.cost_lv2}`;
-          let l3Row = l3Map.get(l3Key);
-          if (!l3Row) {
-            l3Row = {
-              id: `l3-${l1Key}-${bizUnitKey}-${detail.cost_lv2}`,
-              level: 3,
+        
+        if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+          // 홈/법인: 대분류 → 사업부구분(L2) → 중분류(L3). L3 하단에 별도 L2로 나오던 중복 제거(법인도 동일 구조)
+          const l2Key = `${l1Key}|${bizUnitKey}`;
+          let l2Row = l2Map.get(l2Key);
+          if (!l2Row) {
+            l2Row = {
+              id: `l2-${l1Key}-${bizUnitKey}`,
+              level: 2,
               category_l1: l1Key,
               biz_unit: bizUnitKey,
-              category_l2: detail.cost_lv2, // 중분류를 category_l2에 저장
+              category_l2: bizUnitKey,
               category_l3: "",
               prev_month: 0,
               curr_month: 0,
@@ -597,28 +737,89 @@ export function ExpenseAccountHierTable({
               prev_year_annual: null,
               curr_year_annual: null,
               description: "",
-              isExpanded: false,
+              isExpanded: expandedRows.has(`l2-${l1Key}-${bizUnitKey}`),
+              children: [],
             };
-            l3Map.set(l3Key, l3Row);
-            l2Row.children!.push(l3Row);
+            l2Map.set(l2Key, l2Row);
+            l1Row.children!.push(l2Row);
           }
 
-          // 중분류에 금액 추가
-          if (viewMode === "monthly") {
-            l3Row.curr_month += detail.amount;
+          if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+            const l3Key = `${l2Key}|${detail.cost_lv2}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${bizUnitKey}-${detail.cost_lv2}`,
+                level: 3,
+                category_l1: l1Key,
+                biz_unit: bizUnitKey,
+                category_l2: detail.cost_lv2,
+                category_l3: "",
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: false,
+              };
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
+            }
+            if (viewMode === "monthly") {
+              l3Row.curr_month += detail.amount;
+            } else {
+              l3Row.curr_ytd += detail.amount;
+            }
           } else {
-            l3Row.curr_ytd += detail.amount;
+            if (viewMode === "monthly") {
+              l2Row.curr_month += detail.amount;
+            } else {
+              l2Row.curr_ytd += detail.amount;
+            }
           }
         } else {
-          // 중분류가 없으면 사업부구분에 직접 추가
-          if (viewMode === "monthly") {
-            l2Row.curr_month += detail.amount;
+          // 브랜드 페이지: 대분류 → 중분류 (사업부구분 스킵)
+          if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+            const l2Key = `${l1Key}|${detail.cost_lv2}`;
+            let l2Row = l2Map.get(l2Key);
+            if (!l2Row) {
+              l2Row = {
+                id: `l2-${l1Key}-${detail.cost_lv2}`,
+                level: 2,
+                category_l1: l1Key,
+                category_l2: detail.cost_lv2,
+                category_l3: "",
+                prev_month: 0,
+                curr_month: 0,
+                prev_ytd: 0,
+                curr_ytd: 0,
+                prev_year_annual: null,
+                curr_year_annual: null,
+                description: "",
+                isExpanded: expandedRows.has(`l2-${l1Key}-${detail.cost_lv2}`),
+                children: [],
+              };
+              l2Map.set(l2Key, l2Row);
+              l1Row.children!.push(l2Row);
+            }
+            if (viewMode === "monthly") {
+              l2Row.curr_month += detail.amount;
+            } else {
+              l2Row.curr_ytd += detail.amount;
+            }
           } else {
-            l2Row.curr_ytd += detail.amount;
+            // 중분류가 없으면 대분류에 직접 집계
+            if (viewMode === "monthly") {
+              l1Row.curr_month += detail.amount;
+            } else {
+              l1Row.curr_ytd += detail.amount;
+            }
           }
         }
       } else if (isInteriorDev) {
-        // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류(인테리어 개발) → 사업부구분 → 소분류
+        // 지급수수료 > 인테리어 개발인 경우
         if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
           const l2Key = `${l1Key}|${detail.cost_lv2}`;
           let l2Row = l2Map.get(l2Key);
@@ -643,44 +844,20 @@ export function ExpenseAccountHierTable({
             l1Row.children!.push(l2Row);
           }
 
-          // 사업부구분 처리 (level 3)
           const bizUnitKey = detail.biz_unit || "기타";
-          const l3Key = `${l2Key}|${bizUnitKey}`;
-          let l3Row = l3Map.get(l3Key);
-          if (!l3Row) {
-            l3Row = {
-              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
-              level: 3,
-              category_l1: l1Key,
-              biz_unit: bizUnitKey,
-              category_l2: detail.cost_lv2,
-              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
-              prev_month: 0,
-              curr_month: 0,
-              prev_ytd: 0,
-              curr_ytd: 0,
-              prev_year_annual: null,
-              curr_year_annual: null,
-              description: "",
-              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
-              children: [],
-            };
-            l3Map.set(l3Key, l3Row);
-            l2Row.children!.push(l3Row);
-          }
-
-          // 소분류 처리 (level 4)
-          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
-            const l4Key = `${l3Key}|${detail.cost_lv3}`;
-            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
-            if (!l4Row) {
-              l4Row = {
-                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
-                level: 4,
+          
+          if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+            // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+            const l3Key = `${l2Key}|${bizUnitKey}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+                level: 3,
                 category_l1: l1Key,
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
-                category_l3: detail.cost_lv3,
+                category_l3: bizUnitKey,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -688,22 +865,83 @@ export function ExpenseAccountHierTable({
                 prev_year_annual: null,
                 curr_year_annual: null,
                 description: "",
-                isExpanded: false,
+                isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+                children: [],
               };
-              l3Map.set(l4Key, l4Row);
-              l3Row.children!.push(l4Row);
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
             }
-            if (viewMode === "monthly") {
-              l4Row.curr_month += detail.amount;
+
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l4Key = `${l3Key}|${detail.cost_lv3}`;
+              let l4Row = l3Map.get(l4Key);
+              if (!l4Row) {
+                l4Row = {
+                  id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                  level: 4,
+                  category_l1: l1Key,
+                  biz_unit: bizUnitKey,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l4Key, l4Row);
+                l3Row.children!.push(l4Row);
+              }
+              if (viewMode === "monthly") {
+                l4Row.curr_month += detail.amount;
+              } else {
+                l4Row.curr_ytd += detail.amount;
+              }
             } else {
-              l4Row.curr_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l3Row.curr_month += detail.amount;
+              } else {
+                l3Row.curr_ytd += detail.amount;
+              }
             }
           } else {
-            // 소분류가 없으면 사업부구분에 직접 추가
-            if (viewMode === "monthly") {
-              l3Row.curr_month += detail.amount;
+            // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l3Key = `${l2Key}|${detail.cost_lv3}`;
+              let l3Row = l3Map.get(l3Key);
+              if (!l3Row) {
+                l3Row = {
+                  id: `l3-${l1Key}-${detail.cost_lv2}-${detail.cost_lv3}`,
+                  level: 3,
+                  category_l1: l1Key,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l3Key, l3Row);
+                l2Row.children!.push(l3Row);
+              }
+              if (viewMode === "monthly") {
+                l3Row.curr_month += detail.amount;
+              } else {
+                l3Row.curr_ytd += detail.amount;
+              }
             } else {
-              l3Row.curr_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l2Row.curr_month += detail.amount;
+              } else {
+                l2Row.curr_ytd += detail.amount;
+              }
             }
           }
         } else {
@@ -714,7 +952,7 @@ export function ExpenseAccountHierTable({
           }
         }
       } else if (isTravelExpense) {
-        // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+        // 출장비 > 국내출장비/해외출장비인 경우
         if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
           const l2Key = `${l1Key}|${detail.cost_lv2}`;
           let l2Row = l2Map.get(l2Key);
@@ -739,44 +977,20 @@ export function ExpenseAccountHierTable({
             l1Row.children!.push(l2Row);
           }
 
-          // 사업부구분 처리 (level 3)
           const bizUnitKey = detail.biz_unit || "기타";
-          const l3Key = `${l2Key}|${bizUnitKey}`;
-          let l3Row = l3Map.get(l3Key);
-          if (!l3Row) {
-            l3Row = {
-              id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
-              level: 3,
-              category_l1: l1Key,
-              biz_unit: bizUnitKey,
-              category_l2: detail.cost_lv2,
-              category_l3: bizUnitKey, // 사업부구분을 category_l3에 저장
-              prev_month: 0,
-              curr_month: 0,
-              prev_ytd: 0,
-              curr_ytd: 0,
-              prev_year_annual: null,
-              curr_year_annual: null,
-              description: "",
-              isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
-              children: [],
-            };
-            l3Map.set(l3Key, l3Row);
-            l2Row.children!.push(l3Row);
-          }
-
-          // 소분류 처리 (level 4)
-          if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
-            const l4Key = `${l3Key}|${detail.cost_lv3}`;
-            let l4Row = l3Map.get(l4Key); // l4도 l3Map에 저장 (키만 다름)
-            if (!l4Row) {
-              l4Row = {
-                id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
-                level: 4,
+          
+          if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+            // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+            const l3Key = `${l2Key}|${bizUnitKey}`;
+            let l3Row = l3Map.get(l3Key);
+            if (!l3Row) {
+              l3Row = {
+                id: `l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`,
+                level: 3,
                 category_l1: l1Key,
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
-                category_l3: detail.cost_lv3,
+                category_l3: bizUnitKey,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -784,22 +998,83 @@ export function ExpenseAccountHierTable({
                 prev_year_annual: null,
                 curr_year_annual: null,
                 description: "",
-                isExpanded: false,
+                isExpanded: expandedRows.has(`l3-${l1Key}-${detail.cost_lv2}-${bizUnitKey}`),
+                children: [],
               };
-              l3Map.set(l4Key, l4Row);
-              l3Row.children!.push(l4Row);
+              l3Map.set(l3Key, l3Row);
+              l2Row.children!.push(l3Row);
             }
-            if (viewMode === "monthly") {
-              l4Row.curr_month += detail.amount;
+
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l4Key = `${l3Key}|${detail.cost_lv3}`;
+              let l4Row = l3Map.get(l4Key);
+              if (!l4Row) {
+                l4Row = {
+                  id: `l4-${l1Key}-${detail.cost_lv2}-${bizUnitKey}-${detail.cost_lv3}`,
+                  level: 4,
+                  category_l1: l1Key,
+                  biz_unit: bizUnitKey,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l4Key, l4Row);
+                l3Row.children!.push(l4Row);
+              }
+              if (viewMode === "monthly") {
+                l4Row.curr_month += detail.amount;
+              } else {
+                l4Row.curr_ytd += detail.amount;
+              }
             } else {
-              l4Row.curr_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l3Row.curr_month += detail.amount;
+              } else {
+                l3Row.curr_ytd += detail.amount;
+              }
             }
           } else {
-            // 소분류가 없으면 사업부구분에 직접 추가
-            if (viewMode === "monthly") {
-              l3Row.curr_month += detail.amount;
+            // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
+            if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+              const l3Key = `${l2Key}|${detail.cost_lv3}`;
+              let l3Row = l3Map.get(l3Key);
+              if (!l3Row) {
+                l3Row = {
+                  id: `l3-${l1Key}-${detail.cost_lv2}-${detail.cost_lv3}`,
+                  level: 3,
+                  category_l1: l1Key,
+                  category_l2: detail.cost_lv2,
+                  category_l3: detail.cost_lv3,
+                  prev_month: 0,
+                  curr_month: 0,
+                  prev_ytd: 0,
+                  curr_ytd: 0,
+                  prev_year_annual: null,
+                  curr_year_annual: null,
+                  description: "",
+                  isExpanded: false,
+                };
+                l3Map.set(l3Key, l3Row);
+                l2Row.children!.push(l3Row);
+              }
+              if (viewMode === "monthly") {
+                l3Row.curr_month += detail.amount;
+              } else {
+                l3Row.curr_ytd += detail.amount;
+              }
             } else {
-              l3Row.curr_ytd += detail.amount;
+              if (viewMode === "monthly") {
+                l2Row.curr_month += detail.amount;
+              } else {
+                l2Row.curr_ytd += detail.amount;
+              }
             }
           }
         } else {
@@ -932,61 +1207,105 @@ export function ExpenseAccountHierTable({
           const isTravelExpense = l1Key === "출장비" && (annual.cost_lv2 === "국내출장비" || annual.cost_lv2 === "해외출장비");
           
           if (isAdExpense) {
-            // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+            // 광고비인 경우: L2(브랜드) 하위 L3(비용상세)에 할당, L3 합계 = L2
             const bizUnitKey = annual.biz_unit || "기타";
-            const l2Key = `${l1Key}|${bizUnitKey}`;
-            const l2Row = l2Map.get(l2Key);
-            if (l2Row) {
+            
+            if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+              const l2Key = `${l1Key}|${bizUnitKey}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+                  const l3Key = `${l2Key}|${annual.cost_lv2}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    l3Row.curr_year_annual = annual.annual_amount;
+                  }
+                } else {
+                  l2Row.curr_year_annual = annual.annual_amount;
+                }
+              }
+            } else {
+              // 브랜드 페이지: 대분류 → 중분류 (사업부구분 스킵)
               if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
-                const l3Key = `${l2Key}|${annual.cost_lv2}`;
-                const l3Row = l3Map.get(l3Key);
-                if (l3Row) {
-                  l3Row.curr_year_annual = annual.annual_amount;
+                const l2Key = `${l1Key}|${annual.cost_lv2}`;
+                const l2Row = l2Map.get(l2Key);
+                if (l2Row) {
+                  l2Row.curr_year_annual = annual.annual_amount;
                 }
               } else {
-                l2Row.curr_year_annual = annual.annual_amount;
+                l1Row.curr_year_annual = (l1Row.curr_year_annual || 0) + annual.annual_amount;
               }
             }
           } else if (isInteriorDev) {
-            // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            // 지급수수료 > 인테리어 개발인 경우
             if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
               const l2Key = `${l1Key}|${annual.cost_lv2}`;
               const l2Row = l2Map.get(l2Key);
               if (l2Row) {
                 const bizUnitKey = annual.biz_unit || "기타";
-                const l3Key = `${l2Key}|${bizUnitKey}`;
-                const l3Row = l3Map.get(l3Key);
-                if (l3Row) {
+                
+                if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+                  // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+                  const l3Key = `${l2Key}|${bizUnitKey}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                      const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                      const l4Row = l3Map.get(l4Key);
+                      if (l4Row) {
+                        l4Row.curr_year_annual = annual.annual_amount;
+                      }
+                    } else {
+                      l3Row.curr_year_annual = annual.annual_amount;
+                    }
+                  }
+                } else {
+                  // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
                   if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
-                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
-                    const l4Row = l3Map.get(l4Key);
-                    if (l4Row) {
-                      l4Row.curr_year_annual = annual.annual_amount;
+                    const l3Key = `${l2Key}|${annual.cost_lv3}`;
+                    const l3Row = l3Map.get(l3Key);
+                    if (l3Row) {
+                      l3Row.curr_year_annual = annual.annual_amount;
                     }
                   } else {
-                    l3Row.curr_year_annual = annual.annual_amount;
+                    l2Row.curr_year_annual = (l2Row.curr_year_annual || 0) + annual.annual_amount;
                   }
                 }
               }
             }
           } else if (isTravelExpense) {
-            // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            // 출장비 > 국내출장비/해외출장비인 경우
             if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
               const l2Key = `${l1Key}|${annual.cost_lv2}`;
               const l2Row = l2Map.get(l2Key);
               if (l2Row) {
                 const bizUnitKey = annual.biz_unit || "기타";
-                const l3Key = `${l2Key}|${bizUnitKey}`;
-                const l3Row = l3Map.get(l3Key);
-                if (l3Row) {
+                
+                if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+                  // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+                  const l3Key = `${l2Key}|${bizUnitKey}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                      const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                      const l4Row = l3Map.get(l4Key);
+                      if (l4Row) {
+                        l4Row.curr_year_annual = annual.annual_amount;
+                      }
+                    } else {
+                      l3Row.curr_year_annual = annual.annual_amount;
+                    }
+                  }
+                } else {
+                  // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
                   if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
-                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
-                    const l4Row = l3Map.get(l4Key);
-                    if (l4Row) {
-                      l4Row.curr_year_annual = annual.annual_amount;
+                    const l3Key = `${l2Key}|${annual.cost_lv3}`;
+                    const l3Row = l3Map.get(l3Key);
+                    if (l3Row) {
+                      l3Row.curr_year_annual = annual.annual_amount;
                     }
                   } else {
-                    l3Row.curr_year_annual = annual.annual_amount;
+                    l2Row.curr_year_annual = (l2Row.curr_year_annual || 0) + annual.annual_amount;
                   }
                 }
               }
@@ -1014,8 +1333,8 @@ export function ExpenseAccountHierTable({
         }
       });
 
-      // 전년 연간 데이터
-      const prevAnnualData = getAnnualData(bizUnitFilter, year - 1);
+      // 전년 연간 데이터 (2026 연간 전용 뷰에서는 2025년 12월 YTD 실적 사용, 그 외에는 연간 계획 데이터 사용)
+      const prevAnnualData = year === 2026 ? [] : getAnnualData(bizUnitFilter, year - 1);
       prevAnnualData.forEach((annual) => {
         const l1Key = annual.cost_lv1 || "";
         const l1Row = l1Map.get(l1Key);
@@ -1025,61 +1344,105 @@ export function ExpenseAccountHierTable({
           const isTravelExpense = l1Key === "출장비" && (annual.cost_lv2 === "국내출장비" || annual.cost_lv2 === "해외출장비");
           
           if (isAdExpense) {
-            // 광고비인 경우: 대분류 → 사업부구분 → 중분류
+            // 광고비인 경우: L2(브랜드) 하위 L3(비용상세)에 할당, L3 합계 = L2
             const bizUnitKey = annual.biz_unit || "기타";
-            const l2Key = `${l1Key}|${bizUnitKey}`;
-            const l2Row = l2Map.get(l2Key);
-            if (l2Row) {
+            
+            if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+              const l2Key = `${l1Key}|${bizUnitKey}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) {
+                if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
+                  const l3Key = `${l2Key}|${annual.cost_lv2}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    l3Row.prev_year_annual = annual.annual_amount;
+                  }
+                } else {
+                  l2Row.prev_year_annual = annual.annual_amount;
+                }
+              }
+            } else {
+              // 브랜드 페이지: 대분류 → 중분류 (사업부구분 스킵)
               if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
-                const l3Key = `${l2Key}|${annual.cost_lv2}`;
-                const l3Row = l3Map.get(l3Key);
-                if (l3Row) {
-                  l3Row.prev_year_annual = annual.annual_amount;
+                const l2Key = `${l1Key}|${annual.cost_lv2}`;
+                const l2Row = l2Map.get(l2Key);
+                if (l2Row) {
+                  l2Row.prev_year_annual = annual.annual_amount;
                 }
               } else {
-                l2Row.prev_year_annual = annual.annual_amount;
+                l1Row.prev_year_annual = (l1Row.prev_year_annual || 0) + annual.annual_amount;
               }
             }
           } else if (isInteriorDev) {
-            // 지급수수료 > 인테리어 개발인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            // 지급수수료 > 인테리어 개발인 경우
             if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
               const l2Key = `${l1Key}|${annual.cost_lv2}`;
               const l2Row = l2Map.get(l2Key);
               if (l2Row) {
                 const bizUnitKey = annual.biz_unit || "기타";
-                const l3Key = `${l2Key}|${bizUnitKey}`;
-                const l3Row = l3Map.get(l3Key);
-                if (l3Row) {
+                
+                if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+                  // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+                  const l3Key = `${l2Key}|${bizUnitKey}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                      const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                      const l4Row = l3Map.get(l4Key);
+                      if (l4Row) {
+                        l4Row.prev_year_annual = annual.annual_amount;
+                      }
+                    } else {
+                      l3Row.prev_year_annual = annual.annual_amount;
+                    }
+                  }
+                } else {
+                  // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
                   if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
-                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
-                    const l4Row = l3Map.get(l4Key);
-                    if (l4Row) {
-                      l4Row.prev_year_annual = annual.annual_amount;
+                    const l3Key = `${l2Key}|${annual.cost_lv3}`;
+                    const l3Row = l3Map.get(l3Key);
+                    if (l3Row) {
+                      l3Row.prev_year_annual = annual.annual_amount;
                     }
                   } else {
-                    l3Row.prev_year_annual = annual.annual_amount;
+                    l2Row.prev_year_annual = (l2Row.prev_year_annual || 0) + annual.annual_amount;
                   }
                 }
               }
             }
           } else if (isTravelExpense) {
-            // 출장비 > 국내출장비/해외출장비인 경우: 대분류 → 중분류 → 사업부구분 → 소분류
+            // 출장비 > 국내출장비/해외출장비인 경우
             if (annual.cost_lv2 && annual.cost_lv2.trim() !== "") {
               const l2Key = `${l1Key}|${annual.cost_lv2}`;
               const l2Row = l2Map.get(l2Key);
               if (l2Row) {
                 const bizUnitKey = annual.biz_unit || "기타";
-                const l3Key = `${l2Key}|${bizUnitKey}`;
-                const l3Row = l3Map.get(l3Key);
-                if (l3Row) {
+                
+                if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+                  // 홈 페이지 & 법인 페이지: 대분류 → 중분류 → 사업부구분 → 소분류
+                  const l3Key = `${l2Key}|${bizUnitKey}`;
+                  const l3Row = l3Map.get(l3Key);
+                  if (l3Row) {
+                    if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
+                      const l4Key = `${l3Key}|${annual.cost_lv3}`;
+                      const l4Row = l3Map.get(l4Key);
+                      if (l4Row) {
+                        l4Row.prev_year_annual = annual.annual_amount;
+                      }
+                    } else {
+                      l3Row.prev_year_annual = annual.annual_amount;
+                    }
+                  }
+                } else {
+                  // 브랜드 페이지: 대분류 → 중분류 → 소분류 (사업부구분 스킵)
                   if (annual.cost_lv3 && annual.cost_lv3.trim() !== "") {
-                    const l4Key = `${l3Key}|${annual.cost_lv3}`;
-                    const l4Row = l3Map.get(l4Key);
-                    if (l4Row) {
-                      l4Row.prev_year_annual = annual.annual_amount;
+                    const l3Key = `${l2Key}|${annual.cost_lv3}`;
+                    const l3Row = l3Map.get(l3Key);
+                    if (l3Row) {
+                      l3Row.prev_year_annual = annual.annual_amount;
                     }
                   } else {
-                    l3Row.prev_year_annual = annual.annual_amount;
+                    l2Row.prev_year_annual = (l2Row.prev_year_annual || 0) + annual.annual_amount;
                   }
                 }
               }
@@ -1181,6 +1544,15 @@ export function ExpenseAccountHierTable({
         }
       }
     });
+
+    // 2026 연간 전용 뷰: 2025년 연간(실적) = 2025년 12월 YTD 실적로 통일 (prev_ytd 사용)
+    if (year === 2026 && !(viewMode === "monthly")) {
+      const setPrevYearAnnualFromYtd = (row: ExpenseAccountRow) => {
+        row.prev_year_annual = row.prev_ytd > 0 ? row.prev_ytd : null;
+        row.children?.forEach(setPrevYearAnnualFromYtd);
+      };
+      l1Map.forEach(setPrevYearAnnualFromYtd);
+    }
 
     // 대분류 순서 정의
     const categoryOrder = [
@@ -1755,24 +2127,31 @@ export function ExpenseAccountHierTable({
               </div>
             </div>
             
-            {/* 우측: 탭과 버튼 */}
+            {/* 우측: 탭과 버튼 (2026년은 연간만 사용하므로 탭 숨김) */}
             <div className="flex items-center gap-3">
-              <Tabs value={viewMode} onValueChange={(v) => setViewMode(v as "monthly" | "ytd" | "annual")}>
-                <TabsList className="bg-slate-700/50 p-1.5 rounded-xl border border-slate-600 shadow-md">
-                  <TabsTrigger 
-                    value="monthly"
-                    className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
-                  >
-                    당월
-                  </TabsTrigger>
-                  <TabsTrigger 
-                    value="ytd"
-                    className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
-                  >
-                    누적(YTD)
-                  </TabsTrigger>
-                </TabsList>
-              </Tabs>
+              {!is2026AnnualOnly && (
+                <Tabs value={viewMode} onValueChange={(v) => setViewMode(v as "monthly" | "ytd" | "annual")}>
+                  <TabsList className="bg-slate-700/50 p-1.5 rounded-xl border border-slate-600 shadow-md">
+                    <TabsTrigger 
+                      value="monthly"
+                      className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
+                    >
+                      당월
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="ytd"
+                      className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
+                    >
+                      누적(YTD)
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              )}
+              {is2026AnnualOnly && (
+                <span className="text-sm font-medium text-slate-200 px-4 py-2 rounded-lg border border-slate-600 bg-slate-700/50">
+                  연간 계획 (2025 실적 vs 2026 계획)
+                </span>
+              )}
               <Button
                 variant="outline"
                 size="sm"
@@ -1791,7 +2170,7 @@ export function ExpenseAccountHierTable({
       <div className="overflow-x-auto bg-white">
         <table className="w-full border-collapse" style={{ tableLayout: "fixed" }}>
           <colgroup>
-            {viewMode === "monthly" ? (
+            {viewMode === "monthly" && !is2026AnnualOnly ? (
               <>
                 {/* 당월 모드: 구분 15% + 당월 데이터 4개 각 10% + 설명 45% */}
                 <col style={{ width: "15%" }} />
@@ -1802,6 +2181,17 @@ export function ExpenseAccountHierTable({
                 <col style={{ width: "10%" }} />
                 <col style={{ width: "0%" }} />
                 <col style={{ width: "45%" }} />
+              </>
+            ) : is2026AnnualOnly ? (
+              <>
+                {/* 2026 연간만: 구분~YOY 각 10%, 계산근거·설명 각 25% */}
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "25%" }} />
+                <col style={{ width: "25%" }} />
               </>
             ) : (
               <>
@@ -1827,6 +2217,18 @@ export function ExpenseAccountHierTable({
           <thead className="sticky top-0 z-10">
             {/* 첫 번째 헤더 행 */}
             <tr className="bg-slate-800 border-b border-slate-600">
+              {is2026AnnualOnly ? (
+                <>
+                  <th className="border-r border-slate-600 px-3 py-3 text-left text-xs font-semibold text-slate-50">구분</th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">{year - 1}년 연간(실적)</th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">{year}년 연간(계획)</th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">차이(금액)</th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">YOY(%)</th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">계산근거</th>
+                  <th className="border-r border-slate-600 px-3 py-3 text-left text-xs font-semibold text-slate-50">설명</th>
+                </>
+              ) : (
+                <>
               <th rowSpan={2} className="border-r border-slate-600 px-3 py-3 text-left text-xs font-semibold text-slate-50">
                 구분
               </th>
@@ -1856,8 +2258,11 @@ export function ExpenseAccountHierTable({
                   </th>
                 </>
               )}
+                </>
+              )}
             </tr>
-            {/* 두 번째 헤더 행 */}
+            {/* 두 번째 헤더 행: 2026 연간만일 때는 렌더하지 않음 (헤더 1줄) */}
+            {!is2026AnnualOnly && (
             <tr className="bg-slate-800 border-b-2 border-slate-600">
               <th className="border-r border-slate-600"></th>
               {viewMode === "monthly" ? (
@@ -1898,10 +2303,10 @@ export function ExpenseAccountHierTable({
                   </th>
                   <th className="border-r border-slate-600"></th>
                   <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
-                    2024년 연간
+                    {year - 1}년 연간
                   </th>
                   <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
-                    2025년 연간
+                    {year}년 연간
                   </th>
                   <th className="border-r border-slate-600 px-3 py-3 text-center text-xs font-semibold text-slate-50">
                     차이(금액)
@@ -1913,6 +2318,7 @@ export function ExpenseAccountHierTable({
                 </>
               )}
             </tr>
+            )}
           </thead>
           <tbody>
             {/* 전체 합계 행 */}
@@ -1923,8 +2329,29 @@ export function ExpenseAccountHierTable({
                   <span>전체 합계</span>
                 </div>
               </td>
-              <td className="border-r border-gray-200"></td>
-              {viewMode === "monthly" ? (
+              {!is2026AnnualOnly && <td className="border-r border-gray-200"></td>}
+              {is2026AnnualOnly ? (
+                <>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.annual2024Total)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatK(computeTotals.annual2025Total)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
+                    {formatDifference(computeTotals.diffAnnualTotal)}
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-right">
+                    <span className={getYOYBadgeClass(computeTotals.yoyAnnualTotal)}>
+                      {formatYOY(computeTotals.yoyAnnualTotal)}
+                    </span>
+                  </td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-gray-500">-</td>
+                  <td className="border-r border-gray-200 px-3 py-2 text-sm text-gray-600">
+                    {totalDescription}
+                  </td>
+                </>
+              ) : viewMode === "monthly" ? (
                 <>
                   <td className="border-r border-gray-200 px-3 py-2 text-sm text-right font-medium">
                     {formatK(computeTotals.prevTotal)}
@@ -2110,7 +2537,7 @@ export function ExpenseAccountHierTable({
                       <span>{displayText}</span>
                     </div>
                   </td>
-                  <td className="border-r border-gray-200"></td>
+                  {!is2026AnnualOnly && <td className="border-r border-gray-200"></td>}
                   
                   {/* 당월/누적 데이터 영역 */}
                   {viewMode === "monthly" ? (
@@ -2215,6 +2642,107 @@ export function ExpenseAccountHierTable({
                         )}
                       </td>
                     </>
+                  ) : is2026AnnualOnly ? (
+                    <>
+                      {/* 2026 연간만: 2025 실적, 2026 계획(금액만), 차이, YOY, 계산근거, 설명 */}
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(row.prev_year_annual)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatK(row.curr_year_annual)}
+                      </td>
+                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
+                        {formatDifference(annualDiff)}
+                      </td>
+                      <td className={`border-r border-gray-100 px-4 py-3 text-sm text-right font-medium ${getYOYColor(annualYOY)}`}>
+                        {formatYOY(annualYOY)}
+                      </td>
+                      {/* 계산근거 (텍스트 편집 가능) */}
+                      <td
+                        className="border-r border-gray-100 px-4 py-3 text-sm text-gray-600 relative group"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {basisPopoverRowId === row.id ? (
+                          <div className="absolute left-0 top-0 z-20 min-w-[280px] rounded-lg border border-slate-200 bg-white p-3 shadow-lg">
+                            <p className="text-xs font-semibold text-slate-700 mb-2">계산 근거 (연간 계획)</p>
+                            <textarea
+                              value={basisEditValue}
+                              onChange={(e) => setBasisEditValue(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Escape") closeBasisPopover();
+                              }}
+                              className="w-full px-2 py-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none mb-2"
+                              rows={3}
+                              autoFocus
+                            />
+                            <div className="flex justify-end gap-2">
+                              <button
+                                type="button"
+                                onClick={() => closeBasisPopover()}
+                                className="px-2 py-1 text-sm text-slate-600 hover:bg-slate-100 rounded"
+                              >
+                                취소
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => saveBasis(row.id)}
+                                className="px-2 py-1 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded flex items-center gap-1"
+                              >
+                                <Check className="w-3.5 h-3.5" />
+                                저장
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="flex-1 min-w-0">{basisMap.get(row.id) || "-"}</span>
+                            <button
+                              type="button"
+                              title="계산 근거 편집 (클릭)"
+                              onClick={() => openBasisPopover(row.id)}
+                              className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </button>
+                          </div>
+                        )}
+                      </td>
+                      {/* 설명 (편집 가능) */}
+                      <td
+                        className="border-r border-gray-100 px-4 py-3 text-sm text-gray-600 relative group"
+                        onClick={(e) => {
+                          if (editingRowId !== row.id && !(e.target as HTMLElement).closest("button")) {
+                            startEdit(row.id, descriptions.get(row.id) || row.description || "");
+                          }
+                        }}
+                      >
+                        {editingRowId === row.id ? (
+                          <div className="flex items-center gap-2">
+                            <textarea
+                              value={editValue}
+                              onChange={(e) => setEditValue(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" && e.ctrlKey) saveEdit(row.id);
+                                else if (e.key === "Escape") cancelEdit();
+                              }}
+                              className="flex-1 px-2 py-1 text-sm border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                              rows={2}
+                              autoFocus
+                              onClick={(e) => e.stopPropagation()}
+                            />
+                            <div className="flex flex-col gap-1">
+                              <button onClick={(e) => { e.stopPropagation(); saveEdit(row.id); }} className="p-1 text-green-600 hover:bg-green-50 rounded" title="저장"><Check className="w-4 h-4" /></button>
+                              <button onClick={(e) => { e.stopPropagation(); cancelEdit(); }} className="p-1 text-red-600 hover:bg-red-50 rounded" title="취소"><X className="w-4 h-4" /></button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="flex-1 min-w-0">{descriptions.get(row.id) || row.description || "-"}</span>
+                            <button onClick={(e) => { e.stopPropagation(); startEdit(row.id, descriptions.get(row.id) || row.description || ""); }} className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity" title="편집"><Edit2 className="w-4 h-4" /></button>
+                          </div>
+                        )}
+                      </td>
+                    </>
                   ) : (
                     <>
                       {/* 누적(YTD) 모드: 전년누적, 당년누적, 차이, YOY, 계획비 증감, 계획비(%) */}
@@ -2241,8 +2769,54 @@ export function ExpenseAccountHierTable({
                       <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
                         {formatK(row.prev_year_annual)}
                       </td>
-                      <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
-                        {formatK(row.curr_year_annual)}
+                      <td
+                        className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium relative"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {basisPopoverRowId === row.id ? (
+                          <div className="absolute right-0 top-0 z-20 min-w-[280px] rounded-lg border border-slate-200 bg-white p-3 shadow-lg">
+                            <p className="text-xs font-semibold text-slate-700 mb-2">계산 근거 (연간 계획)</p>
+                            <textarea
+                              value={basisEditValue}
+                              onChange={(e) => setBasisEditValue(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Escape") closeBasisPopover();
+                              }}
+                              className="w-full px-2 py-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none mb-2"
+                              rows={3}
+                              autoFocus
+                            />
+                            <div className="flex justify-end gap-2">
+                              <button
+                                type="button"
+                                onClick={() => closeBasisPopover()}
+                                className="px-2 py-1 text-sm text-slate-600 hover:bg-slate-100 rounded"
+                              >
+                                취소
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => saveBasis(row.id)}
+                                className="px-2 py-1 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded flex items-center gap-1"
+                              >
+                                <Check className="w-3.5 h-3.5" />
+                                저장
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-end gap-1">
+                            <span>{formatK(row.curr_year_annual)}</span>
+                            <button
+                              type="button"
+                              title={basisMap.get(row.id) || "계산 근거 입력 (클릭)"}
+                              onClick={() => openBasisPopover(row.id)}
+                              className="p-0.5 text-slate-400 hover:text-blue-600 rounded"
+                            >
+                              <Info className="w-4 h-4" />
+                            </button>
+                          </div>
+                        )}
                       </td>
                       <td className="border-r border-gray-100 px-4 py-3 text-sm text-right font-medium">
                         {formatDifference(annualDiff)}

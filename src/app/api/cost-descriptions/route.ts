@@ -31,6 +31,11 @@ function getLogFilePath(brand: string, ym: string, mode: string): string {
   return path.join(logDir, `${brand}-${ym}-${mode}.json`);
 }
 
+function getBasisFilePath(brand: string, ym: string, mode: string): string {
+  const dataDir = path.join(process.cwd(), "data", "cost-descriptions");
+  return path.join(dataDir, `${brand}-${ym}-${mode}-basis.json`);
+}
+
 // 디렉토리 생성 (없으면)
 function ensureDirectoryExists(filePath: string): void {
   const dir = path.dirname(filePath);
@@ -68,6 +73,33 @@ async function writeDescriptions(
   const filePath = getDescriptionFilePath(brand, ym, mode);
   ensureDirectoryExists(filePath);
   fs.writeFileSync(filePath, JSON.stringify(descriptions, null, 2), "utf-8");
+}
+
+async function readBasis(
+  brand: string,
+  ym: string,
+  mode: string
+): Promise<Record<string, string>> {
+  try {
+    const filePath = getBasisFilePath(brand, ym, mode);
+    if (!fs.existsSync(filePath)) return {};
+    const content = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(content);
+  } catch (error: any) {
+    console.error("계산 근거 파일 읽기 오류:", error);
+    return {};
+  }
+}
+
+async function writeBasis(
+  brand: string,
+  ym: string,
+  mode: string,
+  basis: Record<string, string>
+): Promise<void> {
+  const filePath = getBasisFilePath(brand, ym, mode);
+  ensureDirectoryExists(filePath);
+  fs.writeFileSync(filePath, JSON.stringify(basis, null, 2), "utf-8");
 }
 
 // 파일에서 로그 읽기
@@ -126,12 +158,13 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 파일에서 데이터 조회
     const descriptions = await readDescriptions(brand, ym, mode);
+    const basis = await readBasis(brand, ym, mode);
 
     return NextResponse.json({
       success: true,
       data: descriptions || {},
+      basis: basis || {},
     });
   } catch (error: any) {
     console.error("설명 조회 오류:", error);
@@ -142,13 +175,12 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST: 설명 저장
+// POST: 설명 또는 계산 근거(basis) 저장
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { brand, ym, mode, accountPath, description } = body;
+    const { brand, ym, mode, accountPath, description, basis: basisValue } = body;
 
-    // 필수 파라미터 검증
     if (!brand || !ym || !mode || !accountPath) {
       return NextResponse.json(
         { error: "필수 파라미터가 누락되었습니다." },
@@ -156,24 +188,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 기존 값 조회 (로그용)
+    if (typeof basisValue !== "undefined") {
+      const existingBasis = await readBasis(brand, ym, mode);
+      const newBasis: Record<string, string> = {
+        ...existingBasis,
+        [accountPath]: typeof basisValue === "string" ? basisValue : "",
+      };
+      if (!newBasis[accountPath]?.trim()) delete newBasis[accountPath];
+      await writeBasis(brand, ym, mode, newBasis);
+      return NextResponse.json({
+        success: true,
+        message: "계산 근거가 저장되었습니다.",
+      });
+    }
+
     const existingDescriptions = await readDescriptions(brand, ym, mode);
     const oldValue = existingDescriptions[accountPath] || "";
-
-    // 새 값 저장
     const newDescriptions: Record<string, string> = {
       ...existingDescriptions,
       [accountPath]: description || "",
     };
-
-    // 빈 문자열인 경우 키 제거
     if (!description || description.trim() === "") {
       delete newDescriptions[accountPath];
     }
-
     await writeDescriptions(brand, ym, mode, newDescriptions);
 
-    // 저장 로그 기록
     const newLog: SaveLog = {
       timestamp: new Date().toISOString(),
       accountPath,
@@ -181,7 +220,6 @@ export async function POST(request: NextRequest) {
       newValue: description || "",
       userIdentifier: request.headers.get("x-user-identifier") || "anonymous",
     };
-
     await writeLogs(brand, ym, mode, newLog);
 
     return NextResponse.json({

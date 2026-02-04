@@ -83,6 +83,7 @@ def load_expense_data() -> pd.DataFrame:
     expense_files = [
         ("2024년비용.csv", 2024),
         ("2025년비용.csv", 2025),
+        ("2026년비용.csv", 2026),
     ]
 
     all_data: list[pd.DataFrame] = []

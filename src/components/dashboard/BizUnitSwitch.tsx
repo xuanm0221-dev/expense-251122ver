@@ -5,6 +5,7 @@ import { type BizUnit } from "@/lib/expenseData";
 import { cn } from "@/lib/utils";
 
 const DIVISION_NAMES: Record<BizUnit, string> = {
+  법인: "법인",
   MLB: "MLB",
   KIDS: "KIDS",
   DISCOVERY: "DISCOVERY",
@@ -15,6 +16,10 @@ const DIVISION_NAMES: Record<BizUnit, string> = {
 
 // 사업부별 브랜드 컬러 테마
 const BRAND_THEMES: Record<BizUnit, { border: string; text: string }> = {
+  법인: {
+    border: "border-purple-600",
+    text: "text-purple-600",
+  },
   MLB: {
     border: "border-blue-500",
     text: "text-blue-600",
@@ -54,7 +59,7 @@ export function BizUnitSwitch({
   month,
   mode,
 }: BizUnitSwitchProps) {
-  const allBizUnits: BizUnit[] = ["MLB", "KIDS", "DISCOVERY", "공통"];
+  const allBizUnits: BizUnit[] = ["법인", "MLB", "KIDS", "DISCOVERY", "공통"];
 
   return (
     <div className="flex items-center gap-2">

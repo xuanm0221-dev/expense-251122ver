@@ -10,6 +10,13 @@ import React from "react";
 
 // 사업부별 테마 설정
 const THEME = {
+  법인: {
+    headerGradient: "from-purple-600 to-indigo-600",
+    primaryColor: "text-purple-600",
+    borderColor: "border-purple-600",
+    buttonColor: "#7c3aed",
+    accentColor: "bg-purple-600",
+  },
   MLB: {
     headerGradient: "from-blue-500 to-blue-600",
     primaryColor: "text-blue-600",
@@ -86,7 +93,8 @@ export function BizUnitCard({
   mode,
   isCommon = false,
 }: BizUnitCardProps) {
-  const themeKey = isCommon ? "COMMON" : (businessUnit as keyof typeof THEME);
+  const isCorporate = businessUnit === "법인";
+  const themeKey = isCommon ? "COMMON" : isCorporate ? "법인" : (businessUnit as keyof typeof THEME);
   const theme = THEME[themeKey] || THEME.COMMON;
 
   return (
@@ -106,7 +114,7 @@ export function BizUnitCard({
         </div>
 
         {/* 하단: YOY 박스들 */}
-        {!isCommon && (
+        {!isCommon && !isCorporate && (
           <div className="flex gap-2">
             {yoySales !== null && (
               <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
@@ -144,6 +152,24 @@ export function BizUnitCard({
             )}
           </div>
         )}
+        {/* 법인 카드는 영업비 YOY만 표시 */}
+        {isCorporate && yoyExpense !== null && (
+          <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30">
+            <div className="flex flex-col">
+              <span className="text-[10px] text-white/90 mb-1">영업비 YOY</span>
+              <div className="flex items-center gap-1">
+                {yoyExpense >= 100 ? (
+                  <TrendingUp className="w-3 h-3 text-white" />
+                ) : (
+                  <TrendingDown className="w-3 h-3 text-white" />
+                )}
+                <span className="text-sm font-bold text-white">
+                  {formatPercent(yoyExpense, 0)}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
         {isCommon && yoyExpense !== null && (
           <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30">
             <div className="flex flex-col">
@@ -177,7 +203,7 @@ export function BizUnitCard({
             </div>
           </div>
 
-          {!isCommon && (
+          {!isCommon && !isCorporate && (
             <>
               <div className="grid grid-cols-3 gap-2">
                 {/* 영업비율 */}
@@ -234,8 +260,8 @@ export function BizUnitCard({
               )}
             </>
           )}
-          {/* 공통 카드에 인원수 및 인당 비용 표시 */}
-          {isCommon && (
+          {/* 공통 및 법인 카드에 인원수 및 인당 비용 표시 */}
+          {(isCommon || isCorporate) && (
             <div className="mt-2 space-y-2">
               {headcount !== null && (
                 <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 inline-block">
@@ -347,7 +373,7 @@ export function BizUnitCard({
                 border: "none",
               }}
             >
-              {isCommon ? "공통비용 상세보기" : "전체 대시보드 보기"} &gt;
+              {isCorporate ? "법인 대시보드 보기" : isCommon ? "공통비용 상세보기" : "전체 대시보드 보기"} &gt;
             </Button>
           </Link>
         </div>

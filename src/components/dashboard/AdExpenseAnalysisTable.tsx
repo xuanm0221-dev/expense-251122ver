@@ -69,6 +69,12 @@ const BRAND_COLORS: Record<BizUnit, {
     header: "bg-gray-800",
     headerLight: "bg-gray-700",
   },
+  법인: {
+    primary: "bg-slate-600",
+    light: "bg-slate-50",
+    header: "bg-slate-800",
+    headerLight: "bg-slate-700",
+  },
 };
 
 export function AdExpenseAnalysisTable({

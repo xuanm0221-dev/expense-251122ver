@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Baby, Mountain, Building2, BarChart3, Calendar, ChevronDown, Download, type LucideIcon } from "lucide-react";
+import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
@@ -47,7 +47,6 @@ const BaseballIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElemen
 
 BaseballIcon.displayName = "BaseballIcon";
 import { BrandCard } from "@/components/dashboard/BrandCard";
-import { ExpenseAccountHierTable } from "@/components/dashboard/ExpenseAccountHierTable";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   getAvailableYears,
@@ -56,6 +55,13 @@ import {
 } from "@/lib/expenseData";
 
 const BRAND_CONFIG = [
+  {
+    bizUnit: "법인" as const,
+    brandColor: "#7c3aed",
+    brandInitial: "법",
+    brandName: "법인",
+    icon: Building,
+  },
   {
     bizUnit: "MLB" as const,
     brandColor: "#3b82f6",
@@ -88,11 +94,13 @@ const BRAND_CONFIG = [
 
 export default function HomePage() {
   const availableYears = getAvailableYears();
-  const [year, setYear] = useState<number>(
-    availableYears.length > 0 ? availableYears[0] : 2025
+  const initialYear = availableYears.length > 0 ? availableYears[0] : 2025;
+  const initialMonth = 12;
+  const [year, setYear] = useState<number>(initialYear);
+  const [month, setMonth] = useState<number>(initialMonth);
+  const [mode, setMode] = useState<Mode>(
+    initialYear === 2026 && initialMonth === 12 ? "ytd" : "monthly"
   );
-  const [month, setMonth] = useState<number>(12);
-  const [mode, setMode] = useState<Mode>("monthly");
 
   const availableMonths = getAvailableMonths(year);
 
@@ -212,8 +220,8 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 브랜드 카드 그리드 - 4개 나란히 배치 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {/* 브랜드 카드 그리드 - 5개 나란히 배치 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
           {BRAND_CONFIG.map((config) => (
             <BrandCard
               key={config.bizUnit}
@@ -227,16 +235,6 @@ export default function HomePage() {
               icon={config.icon}
             />
           ))}
-        </div>
-
-        {/* 전체 비용 계정 상세 분석 (계층형) */}
-        <div className="mt-8">
-          <ExpenseAccountHierTable
-            bizUnit="ALL"
-            year={year}
-            month={month}
-            title="전체 비용 계정 상세 분석 (계층형)"
-          />
         </div>
       </div>
     </div>

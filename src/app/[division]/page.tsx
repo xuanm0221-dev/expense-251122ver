@@ -7,10 +7,11 @@ import { KpiCard } from "@/components/dashboard/KpiCard";
 import { MonthlyStackedChart } from "@/components/dashboard/MonthlyStackedChart";
 import { CategoryDrilldown } from "@/components/dashboard/CategoryDrilldown";
 import { BizUnitSwitch } from "@/components/dashboard/BizUnitSwitch";
-import { AdExpenseAnalysisTable } from "@/components/dashboard/AdExpenseAnalysisTable";
+import { ExpenseAccountHierTable } from "@/components/dashboard/ExpenseAccountHierTable";
+import { AdSalesEfficiencyAnalysis } from "@/components/dashboard/AdSalesEfficiencyAnalysis";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2 } from "lucide-react";
+import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2, Building } from "lucide-react";
 
 // 야구공 아이콘 컴포넌트
 const BaseballIcon = ({ className }: { className?: string }) => (
@@ -51,6 +52,7 @@ import {
   getMonthlyTotal,
   getPreviousYearTotal,
   getMonthlyAggregatedByCategory,
+  getAnnualData,
   calculateYOY,
   calculateCostRatio,
   calculatePerPersonCost,
@@ -62,6 +64,7 @@ import {
 import { formatK, formatPercent, formatPercentPoint } from "@/lib/utils";
 
 const DIVISION_NAMES: Record<string, string> = {
+  법인: "법인",
   MLB: "MLB",
   KIDS: "KIDS",
   DISCOVERY: "DISCOVERY",
@@ -70,6 +73,7 @@ const DIVISION_NAMES: Record<string, string> = {
 
 // 사업부별 아이콘 매핑
 const DIVISION_ICONS: Record<string, React.ElementType> = {
+  법인: Building,
   MLB: BaseballIcon,
   KIDS: Baby,
   DISCOVERY: Mountain,
@@ -94,14 +98,12 @@ export default function DivisionPage() {
   console.log("Valid bizUnits:", ["MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit));
 
   const availableYears = getAvailableYears();
-  const [year, setYear] = useState<number>(
-    parseInt(searchParams.get("year") || availableYears[0]?.toString() || "2025")
-  );
-  const [month, setMonth] = useState<number>(
-    parseInt(searchParams.get("month") || "12")
-  );
+  const initialYear = parseInt(searchParams.get("year") || availableYears[0]?.toString() || "2025");
+  const initialMonth = parseInt(searchParams.get("month") || "12");
+  const [year, setYear] = useState<number>(initialYear);
+  const [month, setMonth] = useState<number>(initialMonth);
   const [mode, setMode] = useState<Mode>(
-    (searchParams.get("mode") as Mode) || "monthly"
+    (searchParams.get("mode") as Mode) || (initialYear === 2026 && initialMonth === 12 ? "ytd" : "monthly")
   );
 
   const availableMonths = getAvailableMonths(year);
@@ -121,7 +123,7 @@ export default function DivisionPage() {
     router.replace(`/${division}?${searchParams.toString()}`, { scroll: false });
   }, [year, month, mode, division, router]);
 
-  if (!["MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit)) {
+  if (!["법인", "MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit)) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -134,8 +136,15 @@ export default function DivisionPage() {
     );
   }
 
+  const is2026Annual = year === 2026;
   const current = getMonthlyTotal(bizUnit, year, month, mode);
   const previous = getPreviousYearTotal(bizUnit, year, month, mode);
+
+  // 2026년 선택 시: 연간 계획(2026) vs 2025 실적 기준 KPI
+  const annual2025 = is2026Annual ? getAnnualData(bizUnit, 2025) : [];
+  const annual2026 = is2026Annual ? getAnnualData(bizUnit, 2026) : [];
+  const previousAnnualSum = annual2025.reduce((s, i) => s + i.annual_amount, 0);
+  const currentAnnualSum = annual2026.reduce((s, i) => s + i.annual_amount, 0);
 
   // 인건비 데이터 가져오기
   const currentCategories = getMonthlyAggregatedByCategory(bizUnit, year, month, mode);
@@ -144,16 +153,16 @@ export default function DivisionPage() {
   const previousLaborCost = previousCategories.find(cat => cat.cost_lv1 === "인건비");
 
   const isCommon = bizUnit === "공통";
+  const isCorporate = bizUnit === "법인";
 
-  const totalCost = current?.amount || 0;
-  const totalCostYOY = calculateYOY(
-    current?.amount || null,
-    previous?.amount || null
-  );
-  const totalCostChange =
-    current?.amount && previous?.amount
-      ? current.amount - previous.amount
-      : null;
+  const totalCost = is2026Annual ? currentAnnualSum : (current?.amount || 0);
+  const totalCostYOY = is2026Annual
+    ? calculateYOY(currentAnnualSum, previousAnnualSum)
+    : calculateYOY(current?.amount || null, previous?.amount || null);
+  const totalCostChange = is2026Annual
+    ? (currentAnnualSum - previousAnnualSum)
+    : (current?.amount && previous?.amount ? current.amount - previous.amount : null);
+  const previousAmountForKpi = is2026Annual ? previousAnnualSum : (previous?.amount ?? null);
 
   const sales = current?.sales || 0;
   const salesYOY = calculateYOY(current?.sales || null, previous?.sales || null);
@@ -215,13 +224,18 @@ export default function DivisionPage() {
               {year}년 {month}월 기준
             </p>
             <div className="flex items-center gap-3 whitespace-nowrap">
-              {/* 당월/누적 전환 버튼 */}
-              <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)}>
-                <TabsList>
-                  <TabsTrigger value="monthly">당월</TabsTrigger>
-                  <TabsTrigger value="ytd">누적 (YTD)</TabsTrigger>
-                </TabsList>
-              </Tabs>
+              {/* 당월/누적 전환 버튼 (2026년은 연간만 사용하므로 탭 숨김) */}
+              {!is2026Annual && (
+                <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)}>
+                  <TabsList>
+                    <TabsTrigger value="monthly">당월</TabsTrigger>
+                    <TabsTrigger value="ytd">누적 (YTD)</TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              )}
+              {is2026Annual && (
+                <span className="text-sm font-medium text-gray-600">연간 계획 (2025 실적 vs 2026 계획)</span>
+              )}
               {/* 날짜 선택 버튼 */}
               <div className="inline-flex items-center gap-3 px-4 py-2.5 bg-white rounded-lg shadow-sm border border-gray-200 whitespace-nowrap">
                 <Calendar className="w-5 h-5" style={{ color: '#3b82f6' }} />
@@ -267,10 +281,10 @@ export default function DivisionPage() {
             value={totalCost}
             unit="K"
             yoy={totalCostYOY}
-            yoyLabel="전년동월대비"
-            previousValue={previous?.amount ?? null}
+            yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
+            previousValue={previousAmountForKpi}
           />
-          {!isCommon && (
+          {!isCommon && !isCorporate && (
             <>
               <KpiCard
                 title="인당 비용"
@@ -299,28 +313,45 @@ export default function DivisionPage() {
               />
             </>
           )}
-          {isCommon && (
+          {(isCommon || isCorporate) && (
             <>
               <KpiCard
-                title="공통비용 YOY"
+                title={isCorporate ? "법인비용 YOY" : "공통비용 YOY"}
                 value={totalCostYOY}
                 yoy={null}
-                description="전년동월대비 증감률"
+                description={is2026Annual ? "전년(2025 실적) 대비 증감률" : "전년동월대비 증감률"}
               />
               <KpiCard
-                title="공통비용 변화액"
+                title={isCorporate ? "법인비용 변화액" : "공통비용 변화액"}
                 value={totalCostChange}
                 unit="K"
-                description="전년동월대비"
+                description={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
               />
             </>
           )}
           </div>
         </div>
 
+        {/* 비용 계정 상세 분석 (계층형) */}
+        <div className="mb-6">
+          <ExpenseAccountHierTable
+            bizUnit={bizUnit}
+            year={year}
+            month={month}
+            title={`${DIVISION_NAMES[bizUnit]} 비용 계정 상세 분석 (계층형)`}
+          />
+        </div>
+
+        {/* 광고비-매출 효율 분석 (브랜드 & 법인만) */}
+        {!isCommon && (
+          <div className="mb-6">
+            <AdSalesEfficiencyAnalysis bizUnit={bizUnit} year={year} mode="yoy" />
+          </div>
+        )}
+
         {/* 월별 추이 차트 */}
         <div className="mb-6">
-          <MonthlyStackedChart bizUnit={bizUnit} year={year} mode={mode} />
+          <MonthlyStackedChart bizUnit={bizUnit} year={year} mode="monthly" />
         </div>
 
         {/* 드릴다운 차트 */}
@@ -333,16 +364,6 @@ export default function DivisionPage() {
           />
         </div>
 
-        {/* 광고비 분석 표 (브랜드만) */}
-        {bizUnit !== "공통" && (
-          <div className="mb-6">
-            <AdExpenseAnalysisTable
-              bizUnit={bizUnit}
-              year={year}
-              month={month}
-            />
-          </div>
-        )}
       </div>
     </div>
   );

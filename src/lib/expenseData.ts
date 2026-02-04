@@ -1,9 +1,12 @@
 // @ts-ignore - JSON import
 import aggregatedDataRaw from "../../data/aggregated-expense.json";
 
-export type BizUnit = "MLB" | "KIDS" | "DISCOVERY" | "DUVETICA" | "SUPRA" | "공통";
+export type BizUnit = "법인" | "MLB" | "KIDS" | "DISCOVERY" | "DUVETICA" | "SUPRA" | "공통";
 
 export type Mode = "monthly" | "ytd";
+
+// 법인 합계 계산에 포함할 사업부 목록
+const CORPORATE_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통"] as const;
 
 export interface MonthlyAggregated {
   biz_unit: string;
@@ -73,6 +76,40 @@ export function getMonthlyTotal(
   month: number,
   mode: Mode = "monthly"
 ): MonthlyTotal | null {
+  // 법인인 경우 4개 사업부 합계 계산
+  if (bizUnit === "법인") {
+    const corporateData: MonthlyTotal[] = [];
+    for (const bu of CORPORATE_BIZ_UNITS) {
+      const buData = getMonthlyTotal(bu as BizUnit, year, month, mode);
+      if (buData) {
+        corporateData.push(buData);
+      }
+    }
+    
+    if (corporateData.length === 0) {
+      return null;
+    }
+    
+    // 4개 사업부 데이터 합산
+    return corporateData.reduce(
+      (acc, item) => ({
+        ...acc,
+        amount: acc.amount + (item.amount || 0),
+        headcount: acc.headcount + (item.headcount || 0),
+        sales: acc.sales + (item.sales || 0),
+      }),
+      {
+        biz_unit: "법인",
+        year,
+        month,
+        yyyymm: `${year}${String(month).padStart(2, "0")}`,
+        amount: 0,
+        headcount: 0,
+        sales: 0,
+      }
+    );
+  }
+
   let filtered = data.monthly_total.filter(
     (item) => item.biz_unit === bizUnit && item.year === year
   );
@@ -131,6 +168,32 @@ export function getMonthlyAggregatedByCategory(
   month: number,
   mode: Mode = "monthly"
 ): MonthlyAggregated[] {
+  // 법인인 경우 4개 사업부 합계 계산
+  if (bizUnit === "법인") {
+    const allCategories = new Map<string, MonthlyAggregated>();
+    
+    for (const bu of CORPORATE_BIZ_UNITS) {
+      const buCategories = getMonthlyAggregatedByCategory(bu as BizUnit, year, month, mode);
+      
+      buCategories.forEach((item) => {
+        const key = item.cost_lv1;
+        if (allCategories.has(key)) {
+          const existing = allCategories.get(key)!;
+          existing.amount += item.amount;
+          existing.headcount += item.headcount || 0;
+          existing.sales += item.sales || 0;
+        } else {
+          allCategories.set(key, {
+            ...item,
+            biz_unit: "법인",
+          });
+        }
+      });
+    }
+    
+    return Array.from(allCategories.values());
+  }
+
   let filtered = data.monthly_aggregated.filter(
     (item) => item.biz_unit === bizUnit && item.year === year
   );
@@ -166,6 +229,18 @@ export function getAnnualData(
     return [];
   }
 
+  // 법인인 경우 4개 사업부 데이터를 개별적으로 반환 (사업부 정보 유지)
+  if (bizUnit === "법인") {
+    const allAnnual: AnnualData[] = [];
+    
+    for (const bu of CORPORATE_BIZ_UNITS) {
+      const buAnnual = getAnnualData(bu as BizUnit, year, costLv1, costLv2, costLv3);
+      allAnnual.push(...buAnnual);
+    }
+    
+    return allAnnual;
+  }
+
   // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
   let filtered = data.annual_data.filter(
     (item) =>
@@ -186,6 +261,18 @@ export function getCategoryDetail(
   costLv1: string = "",
   mode: Mode = "monthly"
 ): CategoryDetail[] {
+  // 법인인 경우 4개 사업부 데이터를 개별적으로 반환 (사업부 정보 유지)
+  if (bizUnit === "법인") {
+    const allDetails: CategoryDetail[] = [];
+    
+    for (const bu of CORPORATE_BIZ_UNITS) {
+      const buDetails = getCategoryDetail(bu as BizUnit, year, month, costLv1, mode);
+      allDetails.push(...buDetails);
+    }
+    
+    return allDetails;
+  }
+
   // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
   let filtered = data.category_detail.filter(
     (item) =>
@@ -235,6 +322,31 @@ export function getMonthlyTrend(
   year: number,
   mode: Mode = "monthly"
 ): MonthlyTotal[] {
+  // 법인인 경우 4개 사업부 합계 계산
+  if (bizUnit === "법인") {
+    const allTrends = new Map<number, MonthlyTotal>();
+    
+    for (const bu of CORPORATE_BIZ_UNITS) {
+      const buTrends = getMonthlyTrend(bu as BizUnit, year, mode);
+      
+      buTrends.forEach((item) => {
+        if (allTrends.has(item.month)) {
+          const existing = allTrends.get(item.month)!;
+          existing.amount += item.amount;
+          existing.sales += item.sales;
+          existing.headcount = (existing.headcount || 0) + (item.headcount || 0);
+        } else {
+          allTrends.set(item.month, {
+            ...item,
+            biz_unit: "법인",
+          });
+        }
+      });
+    }
+    
+    return Array.from(allTrends.values()).sort((a, b) => a.month - b.month);
+  }
+
   let filtered = data.monthly_total.filter(
     (item) => item.biz_unit === bizUnit && item.year === year
   );
@@ -385,3 +497,139 @@ export function getAvailableMonths(year: number): number[] {
   return [...new Set(months)].sort((a, b) => a - b);
 }
 
+export interface AdSalesDataPoint {
+  month: number;
+  yyyymm: string;
+  adSpend: number; // 광고비
+  sales: number; // 매출
+  adSpendPrevYear: number | null;
+  salesPrevYear: number | null;
+}/**
+ * 광고비-매출 분석 데이터 추출
+ * @param bizUnit 사업부
+ * @param year 년도
+ * @returns 월별 광고비-매출 데이터 (광고비가 0이거나 null인 월 제외)
+ */
+export function getAdSalesAnalysisData(
+  bizUnit: BizUnit,
+  year: number
+): AdSalesDataPoint[] {
+  // 당해년도 및 전년도 월별 데이터 가져오기
+  const currentYearData = getMonthlyTrend(bizUnit, year, "monthly");
+  const prevYearData = getMonthlyTrend(bizUnit, year - 1, "monthly");
+
+  // 전년도 데이터를 Map으로 변환
+  const prevYearMap = new Map(
+    prevYearData.map((item) => [item.month, item])
+  );
+
+  // 각 월의 광고비 추출
+  const result: AdSalesDataPoint[] = [];
+
+  for (const monthData of currentYearData) {
+    // 해당 월의 광고비 추출
+    const adCategories = getMonthlyAggregatedByCategory(
+      bizUnit,
+      year,
+      monthData.month,
+      "monthly"
+    );
+    const adExpense = adCategories.find((cat) => cat.cost_lv1 === "광고비");
+    const adSpend = adExpense?.amount ?? 0;
+
+    // 전년도 광고비 추출
+    const prevYearMonth = prevYearMap.get(monthData.month);
+    let adSpendPrevYear: number | null = null;
+    if (prevYearMonth) {
+      const prevAdCategories = getMonthlyAggregatedByCategory(
+        bizUnit,
+        year - 1,
+        monthData.month,
+        "monthly"
+      );
+      const prevAdExpense = prevAdCategories.find(
+        (cat) => cat.cost_lv1 === "광고비"
+      );
+      adSpendPrevYear = prevAdExpense?.amount ?? null;
+    }
+
+    // 광고비가 0이거나 매출이 0인 경우 제외
+    if (adSpend > 0 && monthData.sales > 0) {
+      result.push({
+        month: monthData.month,
+        yyyymm: monthData.yyyymm,
+        adSpend,
+        sales: monthData.sales,
+        adSpendPrevYear,
+        salesPrevYear: prevYearMonth?.sales ?? null,
+      });
+    }
+  }
+
+  return result.sort((a, b) => a.month - b.month);
+}
+
+/** 채널(광고비 cost_lv2)별 월별 광고비 + 해당 월 전체 매출 */
+export interface AdSalesByChannelItem {
+  channel: string;
+  data: AdSalesDataPoint[];
+}
+
+export function getAdSalesByChannel(
+  bizUnit: BizUnit,
+  year: number
+): AdSalesByChannelItem[] {
+  const monthlyTrend = getMonthlyTrend(bizUnit, year, "monthly");
+  const prevYearTrend = getMonthlyTrend(bizUnit, year - 1, "monthly");
+  const prevYearMap = new Map(prevYearTrend.map((item) => [item.month, item]));
+
+  const channelMonths = new Map<string, Map<number, { adSpend: number; sales: number; salesPrevYear: number | null }>>();
+
+  for (const mt of monthlyTrend) {
+    const details = getCategoryDetail(bizUnit, year, mt.month, "광고비", "monthly");
+    const byLv2 = new Map<string, number>();
+    for (const d of details) {
+      const key = (d.cost_lv2 || "").trim() || "기타";
+      byLv2.set(key, (byLv2.get(key) ?? 0) + d.amount);
+    }
+    const prev = prevYearMap.get(mt.month);
+    for (const [channel, adSpend] of byLv2) {
+      if (adSpend <= 0 || mt.sales <= 0) continue;
+      if (!channelMonths.has(channel)) {
+        channelMonths.set(channel, new Map());
+      }
+      channelMonths.get(channel)!.set(mt.month, {
+        adSpend,
+        sales: mt.sales,
+        salesPrevYear: prev?.sales ?? null,
+      });
+    }
+  }
+
+  const result: AdSalesByChannelItem[] = [];
+  for (const [channel, monthMap] of channelMonths) {
+    const data: AdSalesDataPoint[] = [];
+    for (const [month, v] of monthMap) {
+      const prev = prevYearMap.get(month);
+      let adSpendPrevYear: number | null = null;
+      if (prev) {
+        const prevDetails = getCategoryDetail(bizUnit, year - 1, month, "광고비", "monthly");
+        const prevAd = prevDetails.find((d) => ((d.cost_lv2 || "").trim() || "기타") === channel);
+        adSpendPrevYear = prevAd?.amount ?? null;
+      }
+      data.push({
+        month,
+        yyyymm: `${year}${String(month).padStart(2, "0")}`,
+        adSpend: v.adSpend,
+        sales: v.sales,
+        adSpendPrevYear,
+        salesPrevYear: v.salesPrevYear,
+      });
+    }
+    data.sort((a, b) => a.month - b.month);
+    if (data.length >= 3) {
+      result.push({ channel, data });
+    }
+  }
+  return result.sort((a, b) => a.channel.localeCompare(b.channel));
+}
