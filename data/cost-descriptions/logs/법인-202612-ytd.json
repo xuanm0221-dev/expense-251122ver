@@ -1,0 +1,702 @@
+[
+  {
+    "timestamp": "2026-02-05T12:59:57.130Z",
+    "accountPath": "l2-IT수수료-OMS",
+    "oldValue": "",
+    "newValue": "43.5Kx3월+55.4x9월=624K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:56:21.026Z",
+    "accountPath": "l2-IT수수료-LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+    "oldValue": "",
+    "newValue": "(전년)4분기부터 시행\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:54:26.995Z",
+    "accountPath": "l2-IT수수료-Data Server",
+    "oldValue": "①Ali클라우스 사용량 증가로 484K ②NAS유지보수 8K ③anchnet서버 76K ④aws클라우스 사용량증가로 119K ",
+    "newValue": "①Ali클라우스 247K ②NAS유지보수 8K ③anchnet서버 71K ④aws클라우스 사용량증가로 39K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:54:01.911Z",
+    "accountPath": "l2-IT수수료-Data Server",
+    "oldValue": "",
+    "newValue": "①Ali클라우스 사용량 증가로 484K ②NAS유지보수 8K ③anchnet서버 76K ④aws클라우스 사용량증가로 119K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:52:50.466Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "①유지보수 254K/월x12월=3,053K ②③",
+    "newValue": "①유지보수 254K/월x12월=3,053K ②SAP확장비용: 23.1K/월x10월=241K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:52:42.838Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "①유지보수 254K/월x12월=3,053K",
+    "newValue": "①유지보수 254K/월x12월=3,053K ②③",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:52:36.959Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "254K/월x12월=3,053K",
+    "newValue": "①유지보수 254K/월x12월=3,053K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:52:31.405Z",
+    "accountPath": "l2-IT수수료-CN SAP",
+    "oldValue": "",
+    "newValue": "254K/월x12월=3,053K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:51:39.968Z",
+    "accountPath": "l3-IT수수료-CN SAP-업그레이드 비용(확장,인터페이스 등)",
+    "oldValue": "SAP확장비용: 23.1K/월x3월=69.3K",
+    "newValue": "SAP확장비용: 23.1K/월x10월=241K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:51:18.988Z",
+    "accountPath": "l3-IT수수료-CN SAP-업그레이드 비용(확장,인터페이스 등)",
+    "oldValue": "",
+    "newValue": "SAP확장비용: 23.1K/월x3월=69.3K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:50:17.596Z",
+    "accountPath": "l3-IT수수료-CN SAP-연간 유지보수비용 (IT)",
+    "oldValue": "",
+    "newValue": "254K/월x12월=3,053K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:23:52.052Z",
+    "accountPath": "l3-지급수수료-Office Service-시즌 클리닝",
+    "oldValue": "11K/분기 x 4회 = 43K",
+    "newValue": "10.87K/분기 x 4회 = 43K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:23:43.122Z",
+    "accountPath": "l3-지급수수료-Office Service-시즌 클리닝",
+    "oldValue": "",
+    "newValue": "11K/분기 x 4회 = 43K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:22:59.853Z",
+    "accountPath": "l3-지급수수료-Office Service-사무실 유지보수",
+    "oldValue": "",
+    "newValue": "￥600/월 x 12월 x 2개층 = 15K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:19:29.456Z",
+    "accountPath": "l3-지급수수료-Supply Chain-VAS 수리비용 (반품상품 수선)",
+    "oldValue": "",
+    "newValue": "(전년)Tag 교체, 수리, 불량품 수리 등 853K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:16:40.789Z",
+    "accountPath": "l3-지급수수료-Supply Chain-RFID 서비스",
+    "oldValue": "RFID 기계구매 37K, 11.1K/월 x 12월=133K",
+    "newValue": "①RFID 기계구매 37K ②11.1K/월 x 12월=133K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:16:28.515Z",
+    "accountPath": "l3-지급수수료-Supply Chain-RFID 서비스",
+    "oldValue": "",
+    "newValue": "RFID 기계구매 37K, 11.1K/월 x 12월=133K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:11:57.359Z",
+    "accountPath": "l3-지급수수료-법무-Wolters Kluwer 법률정보 데이터베이스",
+    "oldValue": "",
+    "newValue": "정보 데이터 사용료 23K/연",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:10:38.720Z",
+    "accountPath": "l3-지급수수료-법무-샘플 구매",
+    "oldValue": "",
+    "newValue": "샘플(가품)구매 계약 850K/연",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:09:28.743Z",
+    "accountPath": "l3-지급수수료-법무-온라인 감시 비용",
+    "oldValue": "",
+    "newValue": "①온라인감시바용 3.4K/월x11월=37.4K ②라이브 스트리밍 모니터(MLB) 3.2K/월x9월=28.8K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:05:42.841Z",
+    "accountPath": "l3-지급수수료-법무-법무 컨설팅 비용",
+    "oldValue": "",
+    "newValue": "6.2K/월x10월 + 8.6K/월x2월=79K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:02:47.953Z",
+    "accountPath": "l3-지급수수료-재무-폐기관련 세무 컨설팅 비용",
+    "oldValue": "",
+    "newValue": "102K/월 x 5월 = 511K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T12:02:33.307Z",
+    "accountPath": "l3-지급수수료-재무-폐기관련 세무 컨설팅 비용",
+    "oldValue": "",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:55:20.512Z",
+    "accountPath": "l3-지급수수료-인사-장애인 서비스 비용",
+    "oldValue": "",
+    "newValue": "1.9K x 2명 x 12월 +1.9K x 1명 x 9월 = 62K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:47:27.139Z",
+    "accountPath": "l3-지급수수료-인사-HR Platinum 시스템",
+    "oldValue": "",
+    "newValue": "(전년)①HR 데이터 서비스: 1.4Kx12월=17.1K ②HR 온라인 소프트웨어: 2.0Kx12월=23.4K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:42:25.936Z",
+    "accountPath": "l1-수주회",
+    "oldValue": "",
+    "newValue": "①MLB: 25FW 5.8M, 27SS 6M ②KIDS: 25FW 452K, 26SS 358K ③DX: 25FW 491K, 26SS 797K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:34:47.938Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "공적금, 5대보험 전년비 +13% ",
+    "newValue": "(전년)공적금, 5대보험 전년비 +13% ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:34:42.173Z",
+    "accountPath": "l1-복리후생비",
+    "oldValue": "",
+    "newValue": "공적금, 5대보험 전년비 +13% ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:28:14.965Z",
+    "accountPath": "l2-인건비-잡급",
+    "oldValue": "",
+    "newValue": "44Kx12월=528K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:28:01.490Z",
+    "accountPath": "l3-인건비-잡급-MLB",
+    "oldValue": "",
+    "newValue": "44Kx12월=528K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T11:23:22.790Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "[기말 72명, 평균 72명]",
+    "newValue": "①인원수: 기말 72명, 평균 72명 ②인당: 28.2K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:36:33.627Z",
+    "accountPath": "l1-광고비",
+    "oldValue": "",
+    "newValue": "전년비 ①MLB 108% ②KIDS 100% ③DX 80%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:35:41.298Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "①기본급 28.1K/인 ②성과충당금 69.9K/연 ③Red Pack 23.6K/연 ",
+    "newValue": "①기본급 26.3K/인 ②성과충당금 68.6K/연 ③Red Pack 21.0K/연 ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:35:13.850Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "①기본급 28.1K/인 YoY 106.8% ②성과충당금 69.9K/연, YoY 102% ③Red Pack 23.6K/연 112%",
+    "newValue": "①기본급 28.1K/인 ②성과충당금 69.9K/연 ③Red Pack 23.6K/연 ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:34:58.875Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "",
+    "newValue": "①기본급 28.1K/인 YoY 106.8% ②성과충당금 69.9K/연, YoY 102% ③Red Pack 23.6K/연 112%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:33:03.211Z",
+    "accountPath": "l2-인건비-기본급",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 255명, 평균 252명 ②인당: 26.3K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:31:05.069Z",
+    "accountPath": "l3-인건비-성과급충당금-DISCOVERY",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 31명, 평균 25명 ②인당: 128K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:30:06.921Z",
+    "accountPath": "l3-인건비-성과급충당금-KIDS",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 31명, 평균 25명 ②인당: 77K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:29:31.732Z",
+    "accountPath": "l3-인건비-성과급충당금-MLB",
+    "oldValue": "①인원수: 기말 128명, 평균 130명 ②인당: 57.95K",
+    "newValue": "①인원수: 기말 128명, 평균 130명 ②인당: 58.0K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:29:10.632Z",
+    "accountPath": "l3-인건비-성과급충당금-MLB",
+    "oldValue": "①인원수: 기말 128명, 평균 130명 ②인당: 4.8K",
+    "newValue": "①인원수: 기말 128명, 평균 130명 ②인당: 57.95K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:28:37.677Z",
+    "accountPath": "l3-인건비-성과급충당금-경영지원",
+    "oldValue": "①인원수: 기말 72명, 평균 72명 ②인당: 5.3K",
+    "newValue": "①인원수: 기말 72명, 평균 72명 ②인당: 64.1K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:28:12.997Z",
+    "accountPath": "l2-인건비-성과급충당금",
+    "oldValue": "①인원수: 기말 255명, 평균 252명 ②인당: 5.7K",
+    "newValue": "①인원수: 기말 255명, 평균 252명 ②인당: 68.6K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:27:38.565Z",
+    "accountPath": "l3-인건비-Red pack-DISCOVERY",
+    "oldValue": "①인원수: 기말 31명, 평균 25명 ②인당: 1.3K",
+    "newValue": "①인원수: 기말 31명, 평균 25명 ②인당: 15.9K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:27:03.746Z",
+    "accountPath": "l3-인건비-Red pack-KIDS",
+    "oldValue": "①인원수: 기말 24명, 평균 25명 ②인당: 1.34K",
+    "newValue": "①인원수: 기말 24명, 평균 25명 ②인당: 16.4K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:26:26.246Z",
+    "accountPath": "l3-인건비-Red pack-MLB",
+    "oldValue": "①인원수: 기말 128명, 평균 130명 ②인당: 1.8K",
+    "newValue": "①인원수: 기말 128명, 평균 130명 ②인당: 21.9K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:25:59.042Z",
+    "accountPath": "l3-인건비-Red pack-경영지원",
+    "oldValue": "①인원수: 기말 72명, 평균 72명 ②인당: 1.9K",
+    "newValue": "①인원수: 기말 72명, 평균 72명 ②인당: 22.9K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:25:32.186Z",
+    "accountPath": "l2-인건비-Red pack",
+    "oldValue": "①인원수: 기말 255명, 평균 252명 ②인당: 21.0K",
+    "newValue": "①인원수: 기말 255명, 평균 252명 ②인당: 21.0K/연",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:25:16.272Z",
+    "accountPath": "l2-인건비-Red pack",
+    "oldValue": "①인원수: 기말 255명, 평균 252명 ②인당: 1.75K",
+    "newValue": "①인원수: 기말 255명, 평균 252명 ②인당: 21.0K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:23:43.850Z",
+    "accountPath": "l3-인건비-성과급충당금-MLB",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 128명, 평균 130명 ②인당: 4.8K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:22:57.628Z",
+    "accountPath": "l3-인건비-성과급충당금-경영지원",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 72명, 평균 72명 ②인당: 5.3K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:22:00.140Z",
+    "accountPath": "l2-인건비-성과급충당금",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 255명, 평균 252명 ②인당: 5.7K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:21:02.477Z",
+    "accountPath": "l2-인건비-Red pack",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 255명, 평균 252명 ②인당: 1.75K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:19:43.444Z",
+    "accountPath": "l3-인건비-Red pack-DISCOVERY",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 31명, 평균 25명 ②인당: 1.3K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:18:23.549Z",
+    "accountPath": "l3-인건비-Red pack-KIDS",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 24명, 평균 25명 ②인당: 1.34K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:17:23.056Z",
+    "accountPath": "l3-인건비-Red pack-MLB",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 128명, 평균 130명 ②인당: 1.8K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:16:02.567Z",
+    "accountPath": "l3-인건비-Red pack-경영지원",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 72명, 평균 72명 ②인당: 1.9K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T10:00:32.281Z",
+    "accountPath": "l3-인건비-기본급-KIDS",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 24명, 평균 25명 ②인당: 24.6K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:57:20.499Z",
+    "accountPath": "l3-인건비-기본급-DISCOVERY",
+    "oldValue": "①인원수: 기말 31명, 평균 25명 ②인당: 33.1K, YoY 111%",
+    "newValue": "①인원수: 기말 31명, 평균 25명 ②인당: 30.5K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:57:02.740Z",
+    "accountPath": "l3-인건비-기본급-DISCOVERY",
+    "oldValue": "",
+    "newValue": "①인원수: 기말 31명, 평균 25명 ②인당: 33.1K, YoY 111%",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:31:24.852Z",
+    "accountPath": "l3-인건비-기본급-MLB",
+    "oldValue": "[기말 128명, 평균 130명]",
+    "newValue": "①인원수: 기말 128명, 평균 130명 ②인당: 24.8K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:27:48.088Z",
+    "accountPath": "l3-인건비-기본급-MLB",
+    "oldValue": "",
+    "newValue": "[기말 128명, 평균 130명]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:25:47.916Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "[72명]",
+    "newValue": "[기말 72명, 평균 72명]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:24:39.351Z",
+    "accountPath": "l3-인건비-기본급-경영지원",
+    "oldValue": "",
+    "newValue": "[72명]",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:16:09.438Z",
+    "accountPath": "l3-복리후생비-팀빌딩-팀빌딩-사무실",
+    "oldValue": "",
+    "newValue": "￥300/회x1회x245명=73K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:13:09.926Z",
+    "accountPath": "l3-복리후생비-주재원지원금-비자&이사비용",
+    "oldValue": "①비자 38K ②이사비용 57K",
+    "newValue": "①비자 38K ②이사비용 57K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:09:02.153Z",
+    "accountPath": "l3-복리후생비-주재원지원금-비자&이사비용",
+    "oldValue": "①비자 38K",
+    "newValue": "①비자 38K ②이사비용 57K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:08:42.061Z",
+    "accountPath": "l3-복리후생비-주재원지원금-비자&이사비용",
+    "oldValue": "",
+    "newValue": "①비자 38K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T09:00:50.176Z",
+    "accountPath": "l3-복리후생비-주재원지원금-전기,수도,통신비 등",
+    "oldValue": "",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:36:08.937Z",
+    "accountPath": "l2-복리후생비-팀빌딩",
+    "oldValue": "(전년)28명x4회x4K=463K",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:36:06.486Z",
+    "accountPath": "l3-복리후생비-주재원지원금-항공권",
+    "oldValue": "",
+    "newValue": "(전년)28명x4회x4K=463K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:35:50.599Z",
+    "accountPath": "l2-복리후생비-팀빌딩",
+    "oldValue": "28명x4회x4K=463K",
+    "newValue": "(전년)28명x4회x4K=463K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:35:45.579Z",
+    "accountPath": "l2-복리후생비-팀빌딩",
+    "oldValue": "",
+    "newValue": "28명x4회x4K=463K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:27:29.695Z",
+    "accountPath": "l2-복리후생비-장기근속(여행티켓,숙박비)",
+    "oldValue": "①3년: 5K/회 x 47명=235K ②5년: 10K/회 x 27명 =270K ③7년 18K/회 x 3명 = 54K (미사용 -78K)",
+    "newValue": "(전년)①3년: 5K/회 x 47명=235K ②5년: 10K/회 x 27명 =270K ③7년 18K/회 x 3명 = 54K (미사용 -78K)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:27:22.143Z",
+    "accountPath": "l2-복리후생비-장기근속(여행티켓,숙박비)",
+    "oldValue": "",
+    "newValue": "①3년: 5K/회 x 47명=235K ②5년: 10K/회 x 27명 =270K ③7년 18K/회 x 3명 = 54K (미사용 -78K)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:22:27.077Z",
+    "accountPath": "l2-복리후생비-워크샵",
+    "oldValue": "①SS워크샵: ￥1,000/회 x 248명=248K ②FW워크샵: ￥1,000/회 x 252명=252K",
+    "newValue": "(전년)①SS워크샵: ￥1,000/회 x 248명=248K ②FW워크샵: ￥1,000/회 x 252명=252K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:22:22.695Z",
+    "accountPath": "l2-복리후생비-인력 지인추천(사무실/매장직원)",
+    "oldValue": "￥4K/회 x 6회성공 = 24K ",
+    "newValue": "(전년)￥4K/회 x 6회성공 = 24K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:22:15.489Z",
+    "accountPath": "l2-복리후생비-인력 지인추천(사무실/매장직원)",
+    "oldValue": "",
+    "newValue": "￥4K/회 x 6회성공 = 24K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:21:11.452Z",
+    "accountPath": "l2-복리후생비-워크샵",
+    "oldValue": "",
+    "newValue": "①SS워크샵: ￥1,000/회 x 248명=248K ②FW워크샵: ￥1,000/회 x 252명=252K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:18:53.626Z",
+    "accountPath": "l3-복리후생비-식대-교육식대",
+    "oldValue": "",
+    "newValue": "(전년) MLB 교육식대 6.3K , KIDS 교육식대 4.5K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:10:17.677Z",
+    "accountPath": "l3-복리후생비-식대-임원식대",
+    "oldValue": "(전년)①미팅: 20K=￥2,000x10회\n②매장라운딩: 12K=￥200x5명x12회\n③회장님 방문시: 67K=￥500x11명x12회\n④기타 부서와 회식: 70K (24년 수준)",
+    "newValue": "(전년)①미팅: 20K=￥2,000x10회\n②매장라운딩: 12K=￥200x5명x12회\n③회장님 방문시: 67K=￥500x11명x12회\n④기타 부서와 회식: 70K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:09:46.185Z",
+    "accountPath": "l3-복리후생비-식대-임원식대",
+    "oldValue": "",
+    "newValue": "(전년)①미팅: 20K=￥2,000x10회\n②매장라운딩: 12K=￥200x5명x12회\n③회장님 방문시: 67K=￥500x11명x12회\n④기타 부서와 회식: 70K (24년 수준)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:07:22.683Z",
+    "accountPath": "l3-복리후생비-식대-야근식대",
+    "oldValue": "",
+    "newValue": "(전년)①기사 야근식대 30K ②사무실 직원 야근식대: ￥40/회 x 2,075회 x 69%= 83K ",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T08:02:25.844Z",
+    "accountPath": "l3-복리후생비-식대-간식",
+    "oldValue": "",
+    "newValue": "(전년)588K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:55:51.356Z",
+    "accountPath": "l3-복리후생비-팀빌딩-팀빌딩-부서",
+    "oldValue": "￥100/인/월 x 12월 x 250명 x 92% =272K (92%는 전년 사용률)",
+    "newValue": "(전년)￥100/인/월 x 12월 x 253명 x 92% =279K (92%는 전년 사용률)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:51:23.594Z",
+    "accountPath": "l3-복리후생비-팀빌딩-팀빌딩-부서",
+    "oldValue": "",
+    "newValue": "￥100/인/월 x 12월 x 250명 x 92% =272K (92%는 전년 사용률)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:46:05.760Z",
+    "accountPath": "l2-복리후생비-보험비",
+    "oldValue": "",
+    "newValue": "(전년)￥1,685 x 341명 = 581K (가족포함 인원수)",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:31:12.672Z",
+    "accountPath": "l2-복리후생비-건강검진",
+    "oldValue": "(전년) 건강검진 단가는 동일, 미참석 인원이 많아서 308K 발생",
+    "newValue": "(전년) 건강검진 단가는 동일, 미참석 인원이 많아서 308K 발생①사무실 단가  ￥1,000/인, 239명中 51명 미참석  ②매장 단가 ￥600, 465명中 175미참석",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:29:57.615Z",
+    "accountPath": "l2-복리후생비-건강검진",
+    "oldValue": "",
+    "newValue": "(전년) 건강검진 단가는 동일, 미참석 인원이 많아서 308K 발생",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:25:06.300Z",
+    "accountPath": "l2-복리후생비-송년회",
+    "oldValue": "",
+    "newValue": "사무실 송년회: 1,506K , 매장송년회: 391K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:24:12.900Z",
+    "accountPath": "l3-복리후생비-송년회-송년회-매장",
+    "oldValue": "파티&저녁식사 38K\n송년회 선물 353K",
+    "newValue": "(전년)파티&저녁식사 38K\n송년회 선물 353K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:24:02.527Z",
+    "accountPath": "l3-복리후생비-송년회-송년회-매장",
+    "oldValue": "",
+    "newValue": "파티&저녁식사 38K\n송년회 선물 353K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T07:23:14.409Z",
+    "accountPath": "l3-복리후생비-송년회-송년회-사무실",
+    "oldValue": "",
+    "newValue": "(전년)파티&저녁식사 506K\n송년회 선물 1,000K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:35:22.131Z",
+    "accountPath": "l3-임차료-사무실임차료-38층(25년 신규)",
+    "oldValue": "",
+    "newValue": "(전년)25.07부터 임차",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:34:02.340Z",
+    "accountPath": "l2-차량렌트비-차량유지비",
+    "oldValue": "",
+    "newValue": "(전년)2.5K/월 x 12개월 x 2대 = 65K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:33:06.796Z",
+    "accountPath": "l2-차량렌트비-ALPHA",
+    "oldValue": "",
+    "newValue": "(전년)33K x 12월 = 398K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:32:23.486Z",
+    "accountPath": "l2-차량렌트비-KIA",
+    "oldValue": "9.8K/월 x 12월 = 118K",
+    "newValue": "(전년)9.8K/월 x 12월 = 118K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:32:16.882Z",
+    "accountPath": "l2-차량렌트비-KIA",
+    "oldValue": "",
+    "newValue": "9.8K/월 x 12월 = 118K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:23:19.566Z",
+    "accountPath": "l2-기타-통신비",
+    "oldValue": "",
+    "newValue": "(전년) ￥2.1K/월 x 12월 = 25K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:21:44.610Z",
+    "accountPath": "l2-기타-여비교통비",
+    "oldValue": "",
+    "newValue": "(전년)야근택시비 평균 ￥130x3,025=383K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T06:17:52.566Z",
+    "accountPath": "l2-기타-사무용품비",
+    "oldValue": "(전년) ",
+    "newValue": "(전년) ￥124/인/월, 전년비 94%",
+    "userIdentifier": "anonymous"
+  }
+]

@@ -14,15 +14,16 @@ CSV_BASE_PATH = r"D:\dashboard\비용대시보드\비용엑셀"
 OUTPUT_DIR = Path(__file__).parent.parent / "data"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# 분석 대상 사업부 (DUVETICA, SUPRA 제외)
-TARGET_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통"]
+# 분석 대상 사업부 (MLB, KIDS, DISCOVERY, 공통, DUVETICA, SUPRA)
+TARGET_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"]
 
 
 def parse_month_column(col: str) -> tuple[int, int] | None:
-    """월 컬럼명(예: '24년1월', '24년10월', 'Jan-24', '24-Jan', '2024-01') → (year, month)로 파싱"""
+    """월 컬럼명(예: '24년1월', '24년10월', ' 25년1월 ', 'Jan-24', '2024-01') → (year, month)로 파싱"""
     try:
         import re
-        
+        col = (col or "").strip()
+
         # 형식 1: "24년1월", "25년10월" (한글 형식) - 최우선 처리
         match = re.match(r'(\d{2})년(\d{1,2})월', col)
         if match:
@@ -820,7 +821,7 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
         
         print(f"     매핑 규칙: {subcategory_to_bizunit}")
         # 디버깅: 매핑 결과 확인
-        for biz in ["공통", "MLB", "KIDS", "DISCOVERY"]:
+        for biz in ["공통", "MLB", "KIDS", "DISCOVERY", "DUVETICA", "SUPRA"]:
             sample = monthly_total[(monthly_total["biz_unit"] == biz) & (monthly_total["yyyymm"] == "202511")]
             if len(sample) > 0:
                 print(f"     {biz} 202511: headcount={sample['headcount'].values[0]}")

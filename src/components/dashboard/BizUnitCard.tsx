@@ -38,6 +38,20 @@ const THEME = {
     buttonColor: "#10b981",
     accentColor: "bg-green-500",
   },
+  DUVETICA: {
+    headerGradient: "from-violet-500 to-purple-600",
+    primaryColor: "text-violet-600",
+    borderColor: "border-violet-500",
+    buttonColor: "#8b5cf6",
+    accentColor: "bg-violet-500",
+  },
+  SUPRA: {
+    headerGradient: "from-amber-500 to-orange-600",
+    primaryColor: "text-amber-600",
+    borderColor: "border-amber-500",
+    buttonColor: "#f59e0b",
+    accentColor: "bg-amber-500",
+  },
   COMMON: {
     headerGradient: "from-gray-700 to-gray-800",
     primaryColor: "text-gray-700",
@@ -62,6 +76,7 @@ export interface BizUnitCardProps {
   totalExpense: string; // 총비용 (예: "19,393K")
   ratio: string | null; // 영업비율 (예: "2.2%")
   headcount: string | null; // 인원수 (예: "199명")
+  headcountChange: string | null; // 전년비 증감 (예: "-2명", "+3명")
   salesAmount: string | null; // 판매매출 (예: "896,299K")
   perPersonLaborCost: string | null; // 인당 인건비 (예: "30.5K")
   perPersonWelfareCost: string | null; // 인당 복리후생비 (예: "8.5K")
@@ -82,6 +97,7 @@ export function BizUnitCard({
   totalExpense,
   ratio,
   headcount,
+  headcountChange = null,
   salesAmount,
   perPersonLaborCost,
   perPersonWelfareCost,
@@ -113,80 +129,43 @@ export function BizUnitCard({
           <span className="text-lg font-bold">{businessUnit}</span>
         </div>
 
-        {/* 하단: YOY 박스들 */}
-        {!isCommon && !isCorporate && (
-          <div className="flex gap-2">
-            {yoySales !== null && (
-              <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
-                <div className="flex flex-col">
-                  <span className="text-[10px] text-white/90 mb-1">판매매출 YOY</span>
-                  <div className="flex items-center gap-1">
-                    {yoySales >= 100 ? (
-                      <TrendingUp className="w-3 h-3 text-white" />
-                    ) : (
-                      <TrendingDown className="w-3 h-3 text-white" />
-                    )}
-                    <span className="text-sm font-bold text-white">
-                      {formatPercent(yoySales, 0)}
-                    </span>
-                  </div>
+        {/* 하단: YOY 박스들 - 브랜드/법인/공통 모두 판매매출 YOY + 영업비 YOY 표시 */}
+        <div className="flex gap-2">
+          {yoySales !== null && (
+            <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
+              <div className="flex flex-col">
+                <span className="text-[10px] text-white/90 mb-1">판매매출 YOY</span>
+                <div className="flex items-center gap-1">
+                  {yoySales >= 100 ? (
+                    <TrendingUp className="w-3 h-3 text-white" />
+                  ) : (
+                    <TrendingDown className="w-3 h-3 text-white" />
+                  )}
+                  <span className="text-sm font-bold text-white">
+                    {formatPercent(yoySales, 0)}
+                  </span>
                 </div>
               </div>
-            )}
-            {yoyExpense !== null && (
-              <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
-                <div className="flex flex-col">
-                  <span className="text-[10px] text-white/90 mb-1">영업비 YOY</span>
-                  <div className="flex items-center gap-1">
-                    {yoyExpense >= 100 ? (
-                      <TrendingUp className="w-3 h-3 text-white" />
-                    ) : (
-                      <TrendingDown className="w-3 h-3 text-white" />
-                    )}
-                    <span className="text-sm font-bold text-white">
-                      {formatPercent(yoyExpense, 0)}
-                    </span>
-                  </div>
+            </div>
+          )}
+          {yoyExpense !== null && (
+            <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
+              <div className="flex flex-col">
+                <span className="text-[10px] text-white/90 mb-1">영업비 YOY</span>
+                <div className="flex items-center gap-1">
+                  {yoyExpense >= 100 ? (
+                    <TrendingUp className="w-3 h-3 text-white" />
+                  ) : (
+                    <TrendingDown className="w-3 h-3 text-white" />
+                  )}
+                  <span className="text-sm font-bold text-white">
+                    {formatPercent(yoyExpense, 0)}
+                  </span>
                 </div>
               </div>
-            )}
-          </div>
-        )}
-        {/* 법인 카드는 영업비 YOY만 표시 */}
-        {isCorporate && yoyExpense !== null && (
-          <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30">
-            <div className="flex flex-col">
-              <span className="text-[10px] text-white/90 mb-1">영업비 YOY</span>
-              <div className="flex items-center gap-1">
-                {yoyExpense >= 100 ? (
-                  <TrendingUp className="w-3 h-3 text-white" />
-                ) : (
-                  <TrendingDown className="w-3 h-3 text-white" />
-                )}
-                <span className="text-sm font-bold text-white">
-                  {formatPercent(yoyExpense, 0)}
-                </span>
-              </div>
             </div>
-          </div>
-        )}
-        {isCommon && yoyExpense !== null && (
-          <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30">
-            <div className="flex flex-col">
-              <span className="text-[10px] text-white/90 mb-1">영업비 YOY</span>
-              <div className="flex items-center gap-1">
-                {yoyExpense >= 100 ? (
-                  <TrendingUp className="w-3 h-3 text-white" />
-                ) : (
-                  <TrendingDown className="w-3 h-3 text-white" />
-                )}
-                <span className="text-sm font-bold text-white">
-                  {formatPercent(yoyExpense)}
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       <CardContent className="flex-1 flex flex-col p-4 bg-white">
@@ -210,7 +189,7 @@ export function BizUnitCard({
                 {ratio !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
                     <div className="text-sm font-semibold text-blue-600">{ratio}</div>
-                    <div className="text-[10px] text-gray-500 mt-0.5">영업비율</div>
+                    <div className="text-[15px] text-gray-500 mt-0.5">영업비율</div>
                   </div>
                 )}
 
@@ -218,7 +197,9 @@ export function BizUnitCard({
                 {headcount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
                     <div className="text-sm font-semibold text-purple-600">{headcount}</div>
-                    <div className="text-[10px] text-gray-500 mt-0.5">인원수</div>
+                    {headcountChange != null && (
+                      <div className="text-[0.667em] text-gray-500 mt-0.5">{headcountChange}</div>
+                    )}
                   </div>
                 )}
 
@@ -226,7 +207,7 @@ export function BizUnitCard({
                 {salesAmount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
                     <div className="text-sm font-semibold text-teal-600">{salesAmount}</div>
-                    <div className="text-[10px] text-gray-500 mt-0.5">판매매출</div>
+                    <div className="text-[15px] text-gray-500 mt-0.5">판매매출</div>
                   </div>
                 )}
               </div>
@@ -236,7 +217,7 @@ export function BizUnitCard({
                   <div className="flex items-center justify-center gap-4 text-sm">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500">인당기본급</span>{" "}
+                        <span className="text-gray-500 text-[0.7em]">인당기본급</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
                           <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
@@ -248,7 +229,7 @@ export function BizUnitCard({
                     )}
                     {perPersonWelfareCost && (
                       <span>
-                        <span className="text-gray-500">인당복후비</span>{" "}
+                        <span className="text-gray-500 text-[0.7em]">인당복후비</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
                         {perPersonWelfareCostYOY && (
                           <span className="text-gray-400 text-xs ml-1">({perPersonWelfareCostYOY})</span>
@@ -260,21 +241,37 @@ export function BizUnitCard({
               )}
             </>
           )}
-          {/* 공통 및 법인 카드에 인원수 및 인당 비용 표시 */}
+          {/* 공통 및 법인 카드: 브랜드와 동일 3칸 그리드 (영업비율 | 인원수 | 판매매출) */}
           {(isCommon || isCorporate) && (
-            <div className="mt-2 space-y-2">
-              {headcount !== null && (
-                <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 inline-block">
-                  <div className="text-sm font-semibold text-purple-600">{headcount}</div>
-                  <div className="text-[10px] text-gray-500 mt-0.5">인원수</div>
-                </div>
-              )}
+            <>
+              <div className="grid grid-cols-3 gap-2">
+                {ratio !== null && (
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
+                    <div className="text-sm font-semibold text-blue-600">{ratio}</div>
+                    <div className="text-[15px] text-gray-500 mt-0.5">영업비율</div>
+                  </div>
+                )}
+                {headcount !== null && (
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
+                    <div className="text-sm font-semibold text-purple-600">{headcount}</div>
+                    {headcountChange != null && (
+                      <div className="text-[0.667em] text-gray-500 mt-0.5">{headcountChange}</div>
+                    )}
+                  </div>
+                )}
+                {salesAmount !== null && (
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
+                    <div className="text-sm font-semibold text-teal-600">{salesAmount}</div>
+                    <div className="text-[15px] text-gray-500 mt-0.5">판매매출</div>
+                  </div>
+                )}
+              </div>
               {(perPersonLaborCost || perPersonWelfareCost) && (
                 <div className="border-t border-gray-200 mt-3 pt-2">
                   <div className="flex items-center justify-center gap-4 text-sm">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500">인당기본급</span>{" "}
+                        <span className="text-gray-500 text-[0.7em]">인당기본급</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
                           <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
@@ -286,7 +283,7 @@ export function BizUnitCard({
                     )}
                     {perPersonWelfareCost && (
                       <span>
-                        <span className="text-gray-500">인당복후비</span>{" "}
+                        <span className="text-gray-500 text-[0.7em]">인당복후비</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
                         {perPersonWelfareCostYOY && (
                           <span className="text-gray-400 text-xs ml-1">({perPersonWelfareCostYOY})</span>
@@ -296,17 +293,17 @@ export function BizUnitCard({
                   </div>
                 </div>
               )}
-            </div>
+            </>
           )}
         </div>
 
         {/* 대분류별 요약 - 테이블 형식 */}
-        <div className={`${isCommon ? 'mt-auto pt-3' : 'mt-2 pt-1'} border-t`}>
+        <div className="mt-2 pt-1 border-t">
           <div className="text-xs font-semibold mb-3 text-gray-700">
             영업비 상세보기
           </div>
-          {/* 테이블 헤더 */}
-          <div className="grid grid-cols-12 gap-2 text-[10px] text-gray-500 mb-2 pb-1 border-b">
+          {/* 테이블 헤더 (글씨 크기 데이터 행과 동일: text-xs) */}
+          <div className="grid grid-cols-12 gap-2 text-xs text-gray-500 mb-2 pb-1 border-b">
             <div className="col-span-3">영업비</div>
             <div className="col-span-2 text-right">금액</div>
             <div className="col-span-3 text-right">YOY</div>
@@ -341,21 +338,23 @@ export function BizUnitCard({
                   )}
                 </div>
                 <div className="col-span-4 text-right">
-                  {detail.change !== null ? (
-                    <span
-                      className={
-                        detail.change > 0
-                          ? "text-red-600"
-                          : detail.change < 0
-                          ? "text-red-600"
-                          : "text-gray-500"
-                      }
-                    >
-                      {formatPercentPoint(detail.change)}
-                    </span>
-                  ) : (
-                    <span className="text-gray-500">0.0%p</span>
-                  )}
+                  <span className="text-[0.75em]">
+                    {detail.change !== null ? (
+                      <span
+                        className={
+                          detail.change > 0
+                            ? "text-red-600"
+                            : detail.change < 0
+                            ? "text-red-600"
+                            : "text-gray-500"
+                        }
+                      >
+                        {formatPercentPoint(detail.change, 3)}
+                      </span>
+                    ) : (
+                      <span className="text-gray-500">0.000%p</span>
+                    )}
+                  </span>
                 </div>
               </div>
             ))}

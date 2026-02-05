@@ -1026,7 +1026,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "인건비",
-      "amount": 1946487.0,
+      "amount": 1738196.0,
       "headcount": 23.0,
       "sales": 1977043.77
     },
@@ -1736,7 +1736,7 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
-      "amount": 53500.0,
+      "amount": 133500.0,
       "headcount": 31.0,
       "sales": 12890000.0
     },
@@ -1806,7 +1806,7 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
-      "amount": 0.0,
+      "amount": 20000.0,
       "headcount": 31.0,
       "sales": 11370000.0
     },
@@ -1876,7 +1876,7 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
-      "amount": 89250.0,
+      "amount": 179250.0,
       "headcount": 32.0,
       "sales": 10975000.0
     },
@@ -1946,7 +1946,7 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
-      "amount": 149850.0,
+      "amount": 169850.0,
       "headcount": 32.0,
       "sales": 8183106.0
     },
@@ -2016,7 +2016,7 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
-      "amount": 225750.0,
+      "amount": 245750.0,
       "headcount": 32.0,
       "sales": 9871681.0
     },
@@ -2156,7 +2156,7 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
-      "amount": 68416.66667,
+      "amount": 153416.66667,
       "headcount": 36.0,
       "sales": 8107738.0
     },
@@ -2226,7 +2226,7 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
-      "amount": 22016.66667,
+      "amount": 92016.66667,
       "headcount": 36.0,
       "sales": 11862211.0
     },
@@ -2296,7 +2296,7 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
-      "amount": 68416.66667,
+      "amount": 188416.66667,
       "headcount": 37.0,
       "sales": 12230637.0
     },
@@ -2366,7 +2366,7 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
-      "amount": 14916.66667,
+      "amount": 84916.66667,
       "headcount": 37.0,
       "sales": 30137628.0
     },
@@ -2436,7 +2436,7 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
-      "amount": 64916.66667,
+      "amount": 159916.66667,
       "headcount": 37.0,
       "sales": 22068543.0
     },
@@ -2506,7 +2506,7 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
-      "amount": 25516.66667,
+      "amount": 45516.66667,
       "headcount": 37.0,
       "sales": 28429276.0
     },
@@ -2519,6 +2519,1926 @@
       "amount": 43910.0,
       "headcount": 37.0,
       "sales": 28429276.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "광고비",
+      "amount": 1822791.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "복리후생비",
+      "amount": 106249.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "수주회",
+      "amount": 307370.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "인건비",
+      "amount": 366361.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "지급수수료",
+      "amount": 90000.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "출장비",
+      "amount": 10433.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "감가상각비",
+      "amount": 1482.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "광고비",
+      "amount": 1853161.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "복리후생비",
+      "amount": 106249.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "인건비",
+      "amount": 612903.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "지급수수료",
+      "amount": 120000.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "출장비",
+      "amount": 392.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "감가상각비",
+      "amount": 1482.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "광고비",
+      "amount": 684171.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "복리후생비",
+      "amount": 112793.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "인건비",
+      "amount": 1729851.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "지급수수료",
+      "amount": 30000.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "출장비",
+      "amount": 6452.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "감가상각비",
+      "amount": 1482.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "광고비",
+      "amount": 475817.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "복리후생비",
+      "amount": 102820.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "인건비",
+      "amount": 473273.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "출장비",
+      "amount": 34282.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "감가상각비",
+      "amount": 1482.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "광고비",
+      "amount": 450187.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "복리후생비",
+      "amount": 106343.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "인건비",
+      "amount": 461172.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "지급수수료",
+      "amount": 15000.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "출장비",
+      "amount": 23377.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "감가상각비",
+      "amount": 1482.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "복리후생비",
+      "amount": 106138.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "인건비",
+      "amount": 441510.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "출장비",
+      "amount": 22.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "감가상각비",
+      "amount": 741.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "복리후생비",
+      "amount": 105730.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "인건비",
+      "amount": 428959.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "출장비",
+      "amount": 3881.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "감가상각비",
+      "amount": 741.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "광고비",
+      "amount": -5428.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "복리후생비",
+      "amount": 3121.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "인건비",
+      "amount": -7147.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "출장비",
+      "amount": 7046.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "감가상각비",
+      "amount": 741.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "광고비",
+      "amount": -10.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "인건비",
+      "amount": -3208.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "지급수수료",
+      "amount": -8500.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "출장비",
+      "amount": -2313.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "감가상각비",
+      "amount": 741.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "광고비",
+      "amount": 48516.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "인건비",
+      "amount": -1110.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "지급수수료",
+      "amount": -17000.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "감가상각비",
+      "amount": 741.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "인건비",
+      "amount": 2577.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "감가상각비",
+      "amount": 741.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "광고비",
+      "amount": 25.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "인건비",
+      "amount": 5970.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -3546,7 +5466,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "인건비",
-      "amount": 1904447.0,
+      "amount": 741692.0,
       "headcount": 25.0,
       "sales": 33159432.01
     },
@@ -6066,7 +7986,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "인건비",
-      "amount": -9295396.98,
+      "amount": 832719.0,
       "headcount": 132.0,
       "sales": 663832548.8
     },
@@ -6626,7 +8546,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "인건비",
-      "amount": 3908404.5,
+      "amount": 3908404.66,
       "headcount": 128.0,
       "sales": 804211750.6
     },
@@ -6696,7 +8616,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "인건비",
-      "amount": 4039028.31,
+      "amount": 4039028.65,
       "headcount": 128.0,
       "sales": 792602129.7
     },
@@ -6776,7 +8696,7 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
-      "amount": 80000.0,
+      "amount": 0.0,
       "headcount": 201.0,
       "sales": 875535276.0
     },
@@ -6846,7 +8766,7 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
-      "amount": 20000.0,
+      "amount": 0.0,
       "headcount": 201.0,
       "sales": 827285916.0
     },
@@ -6887,7 +8807,7 @@
       "yyyymm": "202603",
       "cost_lv1": "복리후생비",
       "amount": 1117020.3475000001,
-      "headcount": 129.0,
+      "headcount": 130.0,
       "sales": 691377777.0
     },
     {
@@ -6907,7 +8827,7 @@
       "yyyymm": "202603",
       "cost_lv1": "인건비",
       "amount": 2064842.2674999982,
-      "headcount": 129.0,
+      "headcount": 130.0,
       "sales": 691377777.0
     },
     {
@@ -6916,7 +8836,7 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
-      "amount": 296775.0,
+      "amount": 206775.0,
       "headcount": 201.0,
       "sales": 691377777.0
     },
@@ -6957,7 +8877,7 @@
       "yyyymm": "202604",
       "cost_lv1": "복리후생비",
       "amount": 1117020.3475000001,
-      "headcount": 129.0,
+      "headcount": 130.0,
       "sales": 676179714.0
     },
     {
@@ -6977,7 +8897,7 @@
       "yyyymm": "202604",
       "cost_lv1": "인건비",
       "amount": 4561927.371499999,
-      "headcount": 129.0,
+      "headcount": 130.0,
       "sales": 676179714.0
     },
     {
@@ -6986,7 +8906,7 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
-      "amount": 198800.0,
+      "amount": 178800.0,
       "headcount": 201.0,
       "sales": 676179714.0
     },
@@ -7027,7 +8947,7 @@
       "yyyymm": "202605",
       "cost_lv1": "복리후생비",
       "amount": 1117020.3475000001,
-      "headcount": 129.0,
+      "headcount": 130.0,
       "sales": 749659504.0
     },
     {
@@ -7047,7 +8967,7 @@
       "yyyymm": "202605",
       "cost_lv1": "인건비",
       "amount": 4567825.4215,
-      "headcount": 129.0,
+      "headcount": 130.0,
       "sales": 749659504.0
     },
     {
@@ -7056,7 +8976,7 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
-      "amount": 180875.0,
+      "amount": 160875.0,
       "headcount": 201.0,
       "sales": 749659504.0
     },
@@ -7097,7 +9017,7 @@
       "yyyymm": "202606",
       "cost_lv1": "복리후생비",
       "amount": 1044256.5055999999,
-      "headcount": 121.0,
+      "headcount": 123.0,
       "sales": 584864001.0
     },
     {
@@ -7117,7 +9037,7 @@
       "yyyymm": "202606",
       "cost_lv1": "인건비",
       "amount": 4314547.6576000005,
-      "headcount": 121.0,
+      "headcount": 123.0,
       "sales": 584864001.0
     },
     {
@@ -7167,7 +9087,7 @@
       "yyyymm": "202607",
       "cost_lv1": "복리후생비",
       "amount": 1149031.921,
-      "headcount": 121.0,
+      "headcount": 123.0,
       "sales": 551347696.0
     },
     {
@@ -7187,7 +9107,7 @@
       "yyyymm": "202607",
       "cost_lv1": "인건비",
       "amount": 4315200.8876,
-      "headcount": 121.0,
+      "headcount": 123.0,
       "sales": 551347696.0
     },
     {
@@ -7196,7 +9116,7 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
-      "amount": 133166.66667,
+      "amount": 48166.66667,
       "headcount": 193.0,
       "sales": 551347696.0
     },
@@ -7237,7 +9157,7 @@
       "yyyymm": "202608",
       "cost_lv1": "복리후생비",
       "amount": 1148346.1042,
-      "headcount": 121.0,
+      "headcount": 123.0,
       "sales": 630504257.0
     },
     {
@@ -7257,7 +9177,7 @@
       "yyyymm": "202608",
       "cost_lv1": "인건비",
       "amount": 4313423.5076,
-      "headcount": 121.0,
+      "headcount": 123.0,
       "sales": 630504257.0
     },
     {
@@ -7266,7 +9186,7 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
-      "amount": 136091.66667,
+      "amount": 66091.66667,
       "headcount": 193.0,
       "sales": 630504257.0
     },
@@ -7307,7 +9227,7 @@
       "yyyymm": "202609",
       "cost_lv1": "복리후생비",
       "amount": 1022152.4611,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 641310716.0
     },
     {
@@ -7327,7 +9247,7 @@
       "yyyymm": "202609",
       "cost_lv1": "인건비",
       "amount": 4066786.2075,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 641310716.0
     },
     {
@@ -7336,7 +9256,7 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
-      "amount": 214066.66667,
+      "amount": 94066.66667,
       "headcount": 180.0,
       "sales": 641310716.0
     },
@@ -7377,7 +9297,7 @@
       "yyyymm": "202610",
       "cost_lv1": "복리후생비",
       "amount": 1022152.4611,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 946331723.0
     },
     {
@@ -7397,7 +9317,7 @@
       "yyyymm": "202610",
       "cost_lv1": "인건비",
       "amount": 4056342.2975,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 946331723.0
     },
     {
@@ -7406,7 +9326,7 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
-      "amount": 118166.66667,
+      "amount": 48166.66667,
       "headcount": 180.0,
       "sales": 946331723.0
     },
@@ -7447,7 +9367,7 @@
       "yyyymm": "202611",
       "cost_lv1": "복리후생비",
       "amount": 1022152.4611,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 844906975.0
     },
     {
@@ -7467,7 +9387,7 @@
       "yyyymm": "202611",
       "cost_lv1": "인건비",
       "amount": 4051814.3175,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 844906975.0
     },
     {
@@ -7476,7 +9396,7 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
-      "amount": 161091.66667,
+      "amount": 66091.66667,
       "headcount": 180.0,
       "sales": 844906975.0
     },
@@ -7517,7 +9437,7 @@
       "yyyymm": "202612",
       "cost_lv1": "복리후생비",
       "amount": 1022152.4611,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 889206175.0
     },
     {
@@ -7537,7 +9457,7 @@
       "yyyymm": "202612",
       "cost_lv1": "인건비",
       "amount": 4059130.6875,
-      "headcount": 108.0,
+      "headcount": 114.0,
       "sales": 889206175.0
     },
     {
@@ -7546,7 +9466,7 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
-      "amount": 114066.66667,
+      "amount": 94066.66667,
       "headcount": 180.0,
       "sales": 889206175.0
     },
@@ -7559,6 +9479,1926 @@
       "amount": 72112.746668,
       "headcount": 180.0,
       "sales": 889206175.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "광고비",
+      "amount": 120037.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "복리후생비",
+      "amount": 60533.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "인건비",
+      "amount": 249139.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "지급수수료",
+      "amount": 50000.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "출장비",
+      "amount": 38996.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "감가상각비",
+      "amount": 942.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "광고비",
+      "amount": 1536553.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "복리후생비",
+      "amount": 69060.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "수주회",
+      "amount": 241911.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "인건비",
+      "amount": 333626.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "지급수수료",
+      "amount": 200000.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "출장비",
+      "amount": 4638.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "감가상각비",
+      "amount": 930.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "광고비",
+      "amount": 63764.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "복리후생비",
+      "amount": 54780.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "인건비",
+      "amount": 1010075.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "출장비",
+      "amount": 4946.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "감가상각비",
+      "amount": 913.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "광고비",
+      "amount": 778120.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "복리후생비",
+      "amount": 51953.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "인건비",
+      "amount": 202765.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "지급수수료",
+      "amount": 158000.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "출장비",
+      "amount": 5635.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "감가상각비",
+      "amount": 951.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "광고비",
+      "amount": 81467.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "복리후생비",
+      "amount": 53971.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "인건비",
+      "amount": 210939.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "지급수수료",
+      "amount": 68800.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "출장비",
+      "amount": 969.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "감가상각비",
+      "amount": 915.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "광고비",
+      "amount": 117854.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "복리후생비",
+      "amount": 52950.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "인건비",
+      "amount": 192246.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "지급수수료",
+      "amount": 50000.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "출장비",
+      "amount": 11290.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "감가상각비",
+      "amount": 1546.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "복리후생비",
+      "amount": 60729.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "인건비",
+      "amount": 220405.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "지급수수료",
+      "amount": 30000.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "출장비",
+      "amount": 7498.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "감가상각비",
+      "amount": 1552.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "광고비",
+      "amount": 189416.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "복리후생비",
+      "amount": 46842.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "인건비",
+      "amount": 205419.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "감가상각비",
+      "amount": 1553.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "광고비",
+      "amount": 381751.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "복리후생비",
+      "amount": 43120.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "인건비",
+      "amount": 168263.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "출장비",
+      "amount": 2178.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "감가상각비",
+      "amount": 1556.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "광고비",
+      "amount": 80002.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "복리후생비",
+      "amount": 43120.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "인건비",
+      "amount": 178138.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "지급수수료",
+      "amount": 38500.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "감가상각비",
+      "amount": 1554.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "복리후생비",
+      "amount": 41018.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "인건비",
+      "amount": 181655.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "출장비",
+      "amount": 223.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "감가상각비",
+      "amount": 1558.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "광고비",
+      "amount": 11.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "복리후생비",
+      "amount": 24071.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "인건비",
+      "amount": 113326.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "광고비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "복리후생비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "수주회",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "인건비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "출장비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "감가상각비",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "지급수수료",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
     },
     {
       "biz_unit": "공통",
@@ -8726,7 +12566,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "인건비",
-      "amount": 8922401.0,
+      "amount": 165330.0,
       "headcount": 72.0,
       "sales": 663832548.8
     },
@@ -8986,7 +12826,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "지급수수료",
-      "amount": 542965.0,
+      "amount": 554385.11321,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -9416,7 +13256,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "기타",
-      "amount": 114710.99000000002,
+      "amount": 121306.79000000001,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -9426,7 +13266,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
-      "amount": 2194522.7,
+      "amount": 2223890.7,
       "headcount": 72.0,
       "sales": 792602129.7
     },
@@ -9466,7 +13306,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "지급수수료",
-      "amount": 647048.72,
+      "amount": 652048.72,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -9626,7 +13466,7 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
-      "amount": 511223.74144899996,
+      "amount": 511053.74144899996,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -9667,7 +13507,7 @@
       "yyyymm": "202603",
       "cost_lv1": "복리후생비",
       "amount": 1167534.4239,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 691377777.0
     },
     {
@@ -9687,7 +13527,7 @@
       "yyyymm": "202603",
       "cost_lv1": "인건비",
       "amount": 1570909.7707999982,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 691377777.0
     },
     {
@@ -9747,7 +13587,7 @@
       "yyyymm": "202604",
       "cost_lv1": "복리후생비",
       "amount": 1305307.91417,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 676179714.0
     },
     {
@@ -9767,7 +13607,7 @@
       "yyyymm": "202604",
       "cost_lv1": "인건비",
       "amount": 2650331.4528,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 676179714.0
     },
     {
@@ -9827,7 +13667,7 @@
       "yyyymm": "202605",
       "cost_lv1": "복리후생비",
       "amount": 2255453.3239,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 749659504.0
     },
     {
@@ -9847,7 +13687,7 @@
       "yyyymm": "202605",
       "cost_lv1": "인건비",
       "amount": 2648894.2328000003,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 749659504.0
     },
     {
@@ -9907,7 +13747,7 @@
       "yyyymm": "202606",
       "cost_lv1": "복리후생비",
       "amount": 1088575.0585699999,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 584864001.0
     },
     {
@@ -9927,7 +13767,7 @@
       "yyyymm": "202606",
       "cost_lv1": "인건비",
       "amount": 2614291.6788,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 584864001.0
     },
     {
@@ -9987,7 +13827,7 @@
       "yyyymm": "202607",
       "cost_lv1": "복리후생비",
       "amount": 1520619.56611,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 551347696.0
     },
     {
@@ -10007,7 +13847,7 @@
       "yyyymm": "202607",
       "cost_lv1": "인건비",
       "amount": 2614291.6788,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 551347696.0
     },
     {
@@ -10067,7 +13907,7 @@
       "yyyymm": "202608",
       "cost_lv1": "복리후생비",
       "amount": 1231921.37623,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 630504257.0
     },
     {
@@ -10087,7 +13927,7 @@
       "yyyymm": "202608",
       "cost_lv1": "인건비",
       "amount": 2614291.6788,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 630504257.0
     },
     {
@@ -10147,7 +13987,7 @@
       "yyyymm": "202609",
       "cost_lv1": "복리후생비",
       "amount": 1434764.9023,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 641310716.0
     },
     {
@@ -10167,7 +14007,7 @@
       "yyyymm": "202609",
       "cost_lv1": "인건비",
       "amount": 2507799.7869,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 641310716.0
     },
     {
@@ -10227,7 +14067,7 @@
       "yyyymm": "202610",
       "cost_lv1": "복리후생비",
       "amount": 1679279.59257,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 946331723.0
     },
     {
@@ -10247,7 +14087,7 @@
       "yyyymm": "202610",
       "cost_lv1": "인건비",
       "amount": 2504510.6269,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 946331723.0
     },
     {
@@ -10307,7 +14147,7 @@
       "yyyymm": "202611",
       "cost_lv1": "복리후생비",
       "amount": 1175484.9023,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 844906975.0
     },
     {
@@ -10327,7 +14167,7 @@
       "yyyymm": "202611",
       "cost_lv1": "인건비",
       "amount": 2504057.0869,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 844906975.0
     },
     {
@@ -10387,7 +14227,7 @@
       "yyyymm": "202612",
       "cost_lv1": "복리후생비",
       "amount": 1819584.9023,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 889206175.0
     },
     {
@@ -10407,7 +14247,7 @@
       "yyyymm": "202612",
       "cost_lv1": "인건비",
       "amount": 2501156.5069,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 889206175.0
     },
     {
@@ -10573,7 +14413,7 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "amount": 4207618.0,
+      "amount": 3999327.0,
       "headcount": 23.0,
       "sales": 1977043.77
     },
@@ -10663,7 +14503,7 @@
       "year": 2026,
       "month": 1,
       "yyyymm": "202601",
-      "amount": 4207510.664743,
+      "amount": 4287510.664743,
       "headcount": 31.0,
       "sales": 12890000.0
     },
@@ -10672,7 +14512,7 @@
       "year": 2026,
       "month": 2,
       "yyyymm": "202602",
-      "amount": 5264941.47681,
+      "amount": 5284941.47681,
       "headcount": 31.0,
       "sales": 11370000.0
     },
@@ -10681,7 +14521,7 @@
       "year": 2026,
       "month": 3,
       "yyyymm": "202603",
-      "amount": 2923504.5981840002,
+      "amount": 3013504.5981840002,
       "headcount": 32.0,
       "sales": 10975000.0
     },
@@ -10690,7 +14530,7 @@
       "year": 2026,
       "month": 4,
       "yyyymm": "202604",
-      "amount": 4938502.826184,
+      "amount": 4958502.826184,
       "headcount": 32.0,
       "sales": 8183106.0
     },
@@ -10699,7 +14539,7 @@
       "year": 2026,
       "month": 5,
       "yyyymm": "202605",
-      "amount": 5267084.34615,
+      "amount": 5287084.34615,
       "headcount": 32.0,
       "sales": 9871681.0
     },
@@ -10717,7 +14557,7 @@
       "year": 2026,
       "month": 7,
       "yyyymm": "202607",
-      "amount": 4213930.7827,
+      "amount": 4298930.7827,
       "headcount": 36.0,
       "sales": 8107738.0
     },
@@ -10726,7 +14566,7 @@
       "year": 2026,
       "month": 8,
       "yyyymm": "202608",
-      "amount": 5050909.662703,
+      "amount": 5120909.662703,
       "headcount": 36.0,
       "sales": 11862211.0
     },
@@ -10735,7 +14575,7 @@
       "year": 2026,
       "month": 9,
       "yyyymm": "202609",
-      "amount": 4152080.97357,
+      "amount": 4272080.97357,
       "headcount": 37.0,
       "sales": 12230637.0
     },
@@ -10744,7 +14584,7 @@
       "year": 2026,
       "month": 10,
       "yyyymm": "202610",
-      "amount": 7129726.577636,
+      "amount": 7199726.577636,
       "headcount": 37.0,
       "sales": 30137628.0
     },
@@ -10753,7 +14593,7 @@
       "year": 2026,
       "month": 11,
       "yyyymm": "202611",
-      "amount": 5430727.247637,
+      "amount": 5525727.247637,
       "headcount": 37.0,
       "sales": 22068543.0
     },
@@ -10762,9 +14602,333 @@
       "year": 2026,
       "month": 12,
       "yyyymm": "202612",
-      "amount": 5259355.35097,
+      "amount": 5279355.35097,
       "headcount": 37.0,
       "sales": 28429276.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "amount": 2703204.0,
+      "headcount": 15.0,
+      "sales": 3444380.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "amount": 2694187.0,
+      "headcount": 15.0,
+      "sales": 2045730.64
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "amount": 2564749.0,
+      "headcount": 15.0,
+      "sales": 1523013.76
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "amount": 1087674.0,
+      "headcount": 15.0,
+      "sales": 1484100.46
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "amount": 1057561.0,
+      "headcount": 14.0,
+      "sales": 1756490.8
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "amount": 549152.0,
+      "headcount": 14.0,
+      "sales": 1291592.48
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "amount": 539311.0,
+      "headcount": 14.0,
+      "sales": 1250718.13
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "amount": -1667.0,
+      "headcount": 0.0,
+      "sales": 910169.54
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "amount": -13290.0,
+      "headcount": 0.0,
+      "sales": 1121902.68
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "amount": 31147.0,
+      "headcount": 0.0,
+      "sales": 2033700.96
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "amount": 3318.0,
+      "headcount": 0.0,
+      "sales": 2563368.03
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "amount": 6736.0,
+      "headcount": 0.0,
+      "sales": 4438068.58
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 3421253.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1722309.97
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1131759.82
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1515722.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 836516.09
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 449948.84
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 395538.9
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 219743.31
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 112540.29
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 824528.3
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1911111.42
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1097286.83
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "DUVETICA",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -10897,7 +15061,7 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "amount": 3299383.0,
+      "amount": 2136628.0,
       "headcount": 25.0,
       "sales": 33159432.01
     },
@@ -11221,7 +15385,7 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "amount": 4646210.02,
+      "amount": 14774326.0,
       "headcount": 132.0,
       "sales": 663832548.8
     },
@@ -11293,7 +15457,7 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 15484595.89,
+      "amount": 15484596.05,
       "headcount": 128.0,
       "sales": 804211750.6
     },
@@ -11302,7 +15466,7 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "amount": 21599731.77,
+      "amount": 21599732.11,
       "headcount": 128.0,
       "sales": 792602129.7
     },
@@ -11311,7 +15475,7 @@
       "year": 2026,
       "month": 1,
       "yyyymm": "202601",
-      "amount": 28667632.684841,
+      "amount": 28587632.684841,
       "headcount": 129.0,
       "sales": 875535276.0
     },
@@ -11320,7 +15484,7 @@
       "year": 2026,
       "month": 2,
       "yyyymm": "202602",
-      "amount": 24446970.3951703,
+      "amount": 24426970.3951703,
       "headcount": 129.0,
       "sales": 827285916.0
     },
@@ -11329,8 +15493,8 @@
       "year": 2026,
       "month": 3,
       "yyyymm": "202603",
-      "amount": 16209912.661472999,
-      "headcount": 129.0,
+      "amount": 16119912.661472999,
+      "headcount": 130.0,
       "sales": 691377777.0
     },
     {
@@ -11338,8 +15502,8 @@
       "year": 2026,
       "month": 4,
       "yyyymm": "202604",
-      "amount": 18991847.9144609,
-      "headcount": 129.0,
+      "amount": 18971847.9144609,
+      "headcount": 130.0,
       "sales": 676179714.0
     },
     {
@@ -11347,8 +15511,8 @@
       "year": 2026,
       "month": 5,
       "yyyymm": "202605",
-      "amount": 19044744.5112767,
-      "headcount": 129.0,
+      "amount": 19024744.5112767,
+      "headcount": 130.0,
       "sales": 749659504.0
     },
     {
@@ -11357,7 +15521,7 @@
       "month": 6,
       "yyyymm": "202606",
       "amount": 17014556.284731,
-      "headcount": 121.0,
+      "headcount": 123.0,
       "sales": 584864001.0
     },
     {
@@ -11365,8 +15529,8 @@
       "year": 2026,
       "month": 7,
       "yyyymm": "202607",
-      "amount": 17529826.19385,
-      "headcount": 121.0,
+      "amount": 17444826.19385,
+      "headcount": 123.0,
       "sales": 551347696.0
     },
     {
@@ -11374,8 +15538,8 @@
       "year": 2026,
       "month": 8,
       "yyyymm": "202608",
-      "amount": 29761063.556254,
-      "headcount": 121.0,
+      "amount": 29691063.556254,
+      "headcount": 123.0,
       "sales": 630504257.0
     },
     {
@@ -11383,8 +15547,8 @@
       "year": 2026,
       "month": 9,
       "yyyymm": "202609",
-      "amount": 21231413.929304,
-      "headcount": 108.0,
+      "amount": 21111413.929304,
+      "headcount": 114.0,
       "sales": 641310716.0
     },
     {
@@ -11392,8 +15556,8 @@
       "year": 2026,
       "month": 10,
       "yyyymm": "202610",
-      "amount": 17959944.47917,
-      "headcount": 108.0,
+      "amount": 17889944.47917,
+      "headcount": 114.0,
       "sales": 946331723.0
     },
     {
@@ -11401,8 +15565,8 @@
       "year": 2026,
       "month": 11,
       "yyyymm": "202611",
-      "amount": 20281492.518061,
-      "headcount": 108.0,
+      "amount": 20186492.518061,
+      "headcount": 114.0,
       "sales": 844906975.0
     },
     {
@@ -11410,9 +15574,333 @@
       "year": 2026,
       "month": 12,
       "yyyymm": "202612",
-      "amount": 14967732.427778,
-      "headcount": 108.0,
+      "amount": 14947732.427778,
+      "headcount": 114.0,
       "sales": 889206175.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "amount": 518705.0,
+      "headcount": 9.0,
+      "sales": 1758549.29
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "amount": 2386730.0,
+      "headcount": 9.0,
+      "sales": 1723951.14
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "amount": 1134495.0,
+      "headcount": 7.0,
+      "sales": 1206442.31
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "amount": 1197386.0,
+      "headcount": 7.0,
+      "sales": 1249237.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "amount": 417097.0,
+      "headcount": 7.0,
+      "sales": 1077796.01
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "amount": 425255.0,
+      "headcount": 7.0,
+      "sales": 1030964.95
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "amount": 320178.0,
+      "headcount": 7.0,
+      "sales": 1183894.93
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "amount": 443229.0,
+      "headcount": 6.0,
+      "sales": 1086253.89
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "amount": 596865.0,
+      "headcount": 5.0,
+      "sales": 837933.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "amount": 341316.0,
+      "headcount": 5.0,
+      "sales": 1344367.06
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "amount": 224450.0,
+      "headcount": 5.0,
+      "sales": 1369733.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "amount": 138966.0,
+      "headcount": 3.0,
+      "sales": 1962335.46
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 1834488.03
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 818779.07
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 324785.13
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 469241.26
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 418741.58
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 287728.9467
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 483453.5
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 573012.25
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 261332.55
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 275096.79
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 682640.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 170751.34
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
+    },
+    {
+      "biz_unit": "SUPRA",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "amount": 0.0,
+      "headcount": 0.0,
+      "sales": 0.0
     },
     {
       "biz_unit": "공통",
@@ -11545,7 +16033,7 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "amount": 14270556.84,
+      "amount": 5513485.84,
       "headcount": 72.0,
       "sales": 663832548.8
     },
@@ -11572,7 +16060,7 @@
       "year": 2025,
       "month": 6,
       "yyyymm": "202506",
-      "amount": 6200698.76,
+      "amount": 6212118.87321,
       "headcount": 71.0,
       "sales": 552104329.4
     },
@@ -11626,7 +16114,7 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "amount": 7121836.73,
+      "amount": 7162800.53,
       "headcount": 72.0,
       "sales": 792602129.7
     },
@@ -11644,7 +16132,7 @@
       "year": 2026,
       "month": 2,
       "yyyymm": "202602",
-      "amount": 9684326.811280001,
+      "amount": 9684156.811280001,
       "headcount": 72.0,
       "sales": 827285916.0
     },
@@ -11654,7 +16142,7 @@
       "month": 3,
       "yyyymm": "202603",
       "amount": 11195087.062128998,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 691377777.0
     },
     {
@@ -11663,7 +16151,7 @@
       "month": 4,
       "yyyymm": "202604",
       "amount": 7889255.846493,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 676179714.0
     },
     {
@@ -11672,7 +16160,7 @@
       "month": 5,
       "yyyymm": "202605",
       "amount": 9809070.369786,
-      "headcount": 72.0,
+      "headcount": 71.0,
       "sales": 749659504.0
     },
     {
@@ -11681,7 +16169,7 @@
       "month": 6,
       "yyyymm": "202606",
       "amount": 9456651.117502,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 584864001.0
     },
     {
@@ -11690,7 +16178,7 @@
       "month": 7,
       "yyyymm": "202607",
       "amount": 8027709.831076,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 551347696.0
     },
     {
@@ -11699,7 +16187,7 @@
       "month": 8,
       "yyyymm": "202608",
       "amount": 8947349.212725,
-      "headcount": 72.0,
+      "headcount": 70.0,
       "sales": 630504257.0
     },
     {
@@ -11708,7 +16196,7 @@
       "month": 9,
       "yyyymm": "202609",
       "amount": 8747608.420562001,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 641310716.0
     },
     {
@@ -11717,7 +16205,7 @@
       "month": 10,
       "yyyymm": "202610",
       "amount": 10337812.399746,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 946331723.0
     },
     {
@@ -11726,7 +16214,7 @@
       "month": 11,
       "yyyymm": "202611",
       "amount": 7884701.293486,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 844906975.0
     },
     {
@@ -11735,7 +16223,7 @@
       "month": 12,
       "yyyymm": "202612",
       "amount": 11981090.697996,
-      "headcount": 72.0,
+      "headcount": 66.0,
       "sales": 889206175.0
     }
   ],
@@ -17127,7 +21615,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
-      "amount": 1255071.0,
+      "amount": 1046780.0,
       "headcount": 23.0
     },
     {
@@ -20877,6 +25365,17 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 80000.0,
+      "headcount": 31.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
       "amount": 0.0,
       "headcount": 31.0
@@ -21197,7 +25696,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "FW",
-      "amount": 0.0,
+      "amount": 700000.0,
       "headcount": 31.0
     },
     {
@@ -21208,7 +25707,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "SS",
-      "amount": 700000.0,
+      "amount": 0.0,
       "headcount": 31.0
     },
     {
@@ -21242,6 +25741,17 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 275559.258,
+      "headcount": 31.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 20000.0,
       "headcount": 31.0
     },
     {
@@ -21625,6 +26135,17 @@
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 90000.0,
+      "headcount": 32.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
       "amount": 0.0,
       "headcount": 32.0
@@ -21990,6 +26511,17 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 283505.616,
+      "headcount": 32.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 20000.0,
       "headcount": 32.0
     },
     {
@@ -22373,6 +26905,17 @@
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 20000.0,
+      "headcount": 32.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
       "amount": 0.0,
       "headcount": 32.0
@@ -22738,6 +27281,17 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 307223.6945,
+      "headcount": 36.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 0.0,
       "headcount": 36.0
     },
     {
@@ -23121,6 +27675,17 @@
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 85000.0,
+      "headcount": 36.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
       "amount": 0.0,
       "headcount": 36.0
@@ -23486,6 +28051,17 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 307223.6945,
+      "headcount": 36.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 70000.0,
       "headcount": 36.0
     },
     {
@@ -23869,6 +28445,17 @@
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 120000.0,
+      "headcount": 37.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
       "amount": 0.0,
       "headcount": 37.0
@@ -24189,7 +28776,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "FW",
-      "amount": 700000.0,
+      "amount": 0.0,
       "headcount": 37.0
     },
     {
@@ -24200,7 +28787,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "SS",
-      "amount": 0.0,
+      "amount": 700000.0,
       "headcount": 37.0
     },
     {
@@ -24234,6 +28821,17 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 295664.3199,
+      "headcount": 37.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 70000.0,
       "headcount": 37.0
     },
     {
@@ -24617,6 +29215,17 @@
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 95000.0,
+      "headcount": 37.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
       "amount": 0.0,
       "headcount": 37.0
@@ -24982,6 +29591,17 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "amount": 295664.3199,
+      "headcount": 37.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "amount": 20000.0,
       "headcount": 37.0
     },
     {
@@ -34617,7 +39237,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
-      "amount": 1306812.0,
+      "amount": 144057.0,
       "headcount": 25.0
     },
     {
@@ -37983,7 +42603,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "FW",
-      "amount": 0.0,
+      "amount": 452000.0,
       "headcount": 23.0
     },
     {
@@ -37994,7 +42614,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "SS",
-      "amount": 452000.0,
+      "amount": 0.0,
       "headcount": 23.0
     },
     {
@@ -38665,7 +43285,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "FW",
-      "amount": 0.0,
+      "amount": 60000.0,
       "headcount": 23.0
     },
     {
@@ -38676,7 +43296,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "SS",
-      "amount": 60000.0,
+      "amount": 0.0,
       "headcount": 23.0
     },
     {
@@ -40029,7 +44649,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "FW",
-      "amount": 300000.0,
+      "amount": 0.0,
       "headcount": 23.0
     },
     {
@@ -40040,7 +44660,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "SS",
-      "amount": 0.0,
+      "amount": 300000.0,
       "headcount": 23.0
     },
     {
@@ -40711,7 +45331,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "FW",
-      "amount": 60000.0,
+      "amount": 0.0,
       "headcount": 23.0
     },
     {
@@ -40722,7 +45342,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "SS",
-      "amount": 0.0,
+      "amount": 60000.0,
       "headcount": 23.0
     },
     {
@@ -50468,7 +55088,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "amount": -12719086.98,
+      "amount": -2590971.0,
       "headcount": 132.0
     },
     {
@@ -55220,7 +59840,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "amount": 864836.84,
+      "amount": 864837.0,
       "headcount": 128.0
     },
     {
@@ -55814,7 +60434,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "amount": 884689.66,
+      "amount": 884690.0,
       "headcount": 128.0
     },
     {
@@ -56364,7 +60984,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "FW",
-      "amount": 0.0,
+      "amount": 7058868.0,
       "headcount": 201.0
     },
     {
@@ -56375,7 +60995,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "SS",
-      "amount": 7058868.0,
+      "amount": 0.0,
       "headcount": 201.0
     },
     {
@@ -56421,17 +61041,6 @@
       "cost_lv3": "MLB",
       "amount": 43500.0,
       "headcount": 129.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 80000.0,
-      "headcount": 201.0
     },
     {
       "biz_unit": "MLB",
@@ -57056,17 +61665,6 @@
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 20000.0,
-      "headcount": 201.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "amount": 0.0,
       "headcount": 201.0
@@ -57597,7 +62195,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 761655.5272,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -57608,7 +62206,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 355364.8203,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -57618,7 +62216,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "FW",
-      "amount": 0.0,
+      "amount": 200000.0,
       "headcount": 201.0
     },
     {
@@ -57629,7 +62227,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "SS",
-      "amount": 200000.0,
+      "amount": 0.0,
       "headcount": 201.0
     },
     {
@@ -57641,7 +62239,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -57652,7 +62250,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3538088.655,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -57663,7 +62261,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": -1516746.3875000011,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -57674,18 +62272,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 43500.0,
-      "headcount": 129.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 90000.0,
-      "headcount": 201.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58224,7 +62811,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 761655.5272,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58235,7 +62822,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 355364.8203,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58268,7 +62855,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58279,7 +62866,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3542985.135,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58290,7 +62877,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 975442.2365,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58301,18 +62888,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 43500.0,
-      "headcount": 129.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 20000.0,
-      "headcount": 201.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58851,7 +63427,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 761655.5272,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58862,7 +63438,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 355364.8203,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58895,7 +63471,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58906,7 +63482,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3548883.185,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58917,7 +63493,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 975442.2365,
-      "headcount": 129.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -58928,18 +63504,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 43500.0,
-      "headcount": 129.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 20000.0,
-      "headcount": 201.0
+      "headcount": 130.0
     },
     {
       "biz_unit": "MLB",
@@ -59478,7 +64043,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 712048.0393,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -59489,7 +64054,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 332208.4663,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -59522,7 +64087,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -59533,7 +64098,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3343542.679,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -59544,7 +64109,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 927504.9786,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -59555,18 +64120,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 43500.0,
-      "headcount": 121.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 0.0,
-      "headcount": 193.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60105,7 +64659,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 783252.8432,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60116,7 +64670,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 365779.0778,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60149,7 +64703,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60160,7 +64714,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3342673.409,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60171,7 +64725,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 927504.9786,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60182,18 +64736,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 45022.5,
-      "headcount": 121.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 85000.0,
-      "headcount": 193.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60732,7 +65275,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 782785.5826,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60743,7 +65286,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 365560.5216,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60753,7 +65296,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "FW",
-      "amount": 6000000.0,
+      "amount": 0.0,
       "headcount": 193.0
     },
     {
@@ -60764,7 +65307,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "SS",
-      "amount": 0.0,
+      "amount": 6000000.0,
       "headcount": 193.0
     },
     {
@@ -60776,7 +65319,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60787,7 +65330,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3340896.029,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60798,7 +65341,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 927504.9786,
-      "headcount": 121.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -60809,18 +65352,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 45022.5,
-      "headcount": 121.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 70000.0,
-      "headcount": 193.0
+      "headcount": 123.0
     },
     {
       "biz_unit": "MLB",
@@ -61359,7 +65891,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 696764.0025,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -61370,7 +65902,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 325388.4586,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -61403,7 +65935,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -61414,7 +65946,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3144192.58,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -61425,7 +65957,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 877571.1275,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -61436,18 +65968,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 45022.5,
-      "headcount": 108.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 120000.0,
-      "headcount": 180.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -61986,7 +66507,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 696764.0025,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -61997,7 +66518,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 325388.4586,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62007,7 +66528,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "FW",
-      "amount": 200000.0,
+      "amount": 0.0,
       "headcount": 180.0
     },
     {
@@ -62018,7 +66539,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "SS",
-      "amount": 0.0,
+      "amount": 200000.0,
       "headcount": 180.0
     },
     {
@@ -62030,7 +66551,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62041,7 +66562,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3133748.67,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62052,7 +66573,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 877571.1275,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62063,18 +66584,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 45022.5,
-      "headcount": 108.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 70000.0,
-      "headcount": 180.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62613,7 +67123,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 696764.0025,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62624,7 +67134,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 325388.4586,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62657,7 +67167,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62668,7 +67178,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3129220.69,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62679,7 +67189,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 877571.1275,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -62690,18 +67200,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 45022.5,
-      "headcount": 108.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 95000.0,
-      "headcount": 180.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -63240,7 +67739,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "amount": 696764.0025,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -63251,7 +67750,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "amount": 325388.4586,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -63284,7 +67783,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "MLB",
       "amount": 0.0,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -63295,7 +67794,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "amount": 3136537.06,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -63306,7 +67805,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "amount": 877571.1275,
-      "headcount": 108.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -63317,18 +67816,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "amount": 45022.5,
-      "headcount": 108.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "amount": 20000.0,
-      "headcount": 180.0
+      "headcount": 114.0
     },
     {
       "biz_unit": "MLB",
@@ -69672,7 +74160,7 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -70222,7 +74710,7 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -70937,7 +75425,7 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -71487,7 +75975,7 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -72202,7 +76690,7 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -72752,7 +77240,7 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -73467,7 +77955,7 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -74017,7 +78505,7 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -74732,7 +79220,7 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -75282,7 +79770,7 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -75997,7 +80485,7 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -76547,7 +81035,7 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -77262,7 +81750,7 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -77812,7 +82300,7 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -78527,7 +83015,7 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -79077,7 +83565,7 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -79792,7 +84280,7 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -80342,7 +84830,7 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 16457.0,
       "headcount": 0.0
@@ -81057,7 +85545,7 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -81607,7 +86095,7 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -82322,7 +86810,7 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -82872,7 +87360,7 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -83587,7 +88075,7 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -84137,7 +88625,7 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -84852,7 +89340,7 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -85359,6 +89847,17 @@
       "yyyymm": "202501",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 20981.0,
       "headcount": 0.0
@@ -85402,7 +89901,7 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -86128,7 +90627,7 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 61321.0,
       "headcount": 0.0
@@ -86635,6 +91134,17 @@
       "yyyymm": "202502",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 15433.0,
       "headcount": 0.0
@@ -86678,7 +91188,7 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -87404,7 +91914,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 5110.0,
       "headcount": 0.0
@@ -87911,6 +92421,17 @@
       "yyyymm": "202503",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 17691.0,
       "headcount": 0.0
@@ -87954,7 +92475,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -88110,7 +92631,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "amount": 6811902.0,
+      "amount": -1945169.0,
       "headcount": 72.0
     },
     {
@@ -88680,7 +93201,7 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -89187,6 +93708,17 @@
       "yyyymm": "202504",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 1928.0,
       "headcount": 0.0
@@ -89230,7 +93762,7 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -89956,7 +94488,7 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -90463,6 +94995,17 @@
       "yyyymm": "202505",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 23904.0,
       "headcount": 0.0
@@ -90506,7 +95049,7 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -91232,7 +95775,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -91739,6 +96282,17 @@
       "yyyymm": "202506",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 15844.0,
       "headcount": 0.0
@@ -91782,7 +96336,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -92136,7 +96690,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "법무",
       "cost_lv3": "Wolters Kluwer 법률정보 데이터베이스",
-      "amount": 11278.0,
+      "amount": 22698.11321,
       "headcount": 0.0
     },
     {
@@ -92508,7 +97062,7 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -93015,6 +97569,17 @@
       "yyyymm": "202507",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 8931.0,
       "headcount": 0.0
@@ -93058,7 +97623,7 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -93784,7 +98349,7 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -94291,6 +98856,17 @@
       "yyyymm": "202508",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 11576.0,
       "headcount": 0.0
@@ -94334,7 +98910,7 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -95060,7 +99636,7 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -95567,6 +100143,17 @@
       "yyyymm": "202509",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 33749.0,
       "headcount": 0.0
@@ -95610,7 +100197,7 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -96336,7 +100923,7 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -96843,6 +101430,17 @@
       "yyyymm": "202510",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 8206.0,
       "headcount": 0.0
@@ -96886,7 +101484,7 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 54438.0,
       "headcount": 0.0
@@ -97612,7 +102210,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -98119,6 +102717,17 @@
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 24767.36,
       "headcount": 0.0
@@ -98162,7 +102771,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -98888,7 +103497,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -99275,7 +103884,7 @@
       "cost_lv1": "기타",
       "cost_lv2": "통신비",
       "cost_lv3": "",
-      "amount": 1501.11,
+      "amount": 8096.91,
       "headcount": 0.0
     },
     {
@@ -99395,6 +104004,17 @@
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "amount": 5000.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "amount": 23318.5,
       "headcount": 0.0
@@ -99438,7 +104058,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -99462,7 +104082,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "주재원지원금",
       "cost_lv3": "비자&이사비용",
-      "amount": 24403.2,
+      "amount": 9903.2,
       "headcount": 0.0
     },
     {
@@ -99528,7 +104148,7 @@
       "cost_lv1": "복리후생비",
       "cost_lv2": "팀빌딩",
       "cost_lv3": "팀빌딩-부서",
-      "amount": 112035.12,
+      "amount": 150903.12,
       "headcount": 0.0
     },
     {
@@ -99869,7 +104489,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "인사",
       "cost_lv3": "HR Platinum 시스템",
-      "amount": 1950.0,
+      "amount": 6950.0,
       "headcount": 0.0
     },
     {
@@ -100186,7 +104806,7 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -100791,7 +105411,7 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -101561,7 +106181,7 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -102166,7 +106786,7 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -102685,7 +107305,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "G3 연간 유지보수 비용",
-      "amount": 3000.0,
+      "amount": 2830.0,
       "headcount": 0.0
     },
     {
@@ -102936,7 +107556,7 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 44811.32075,
       "headcount": 0.0
@@ -103379,7 +107999,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 425110.0617,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -103401,7 +108021,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 198343.1555,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -103541,7 +108161,7 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -103676,7 +108296,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -103687,7 +108307,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 2242942.11,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -103698,7 +108318,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": -672032.3391999993,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -104311,7 +108931,7 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -104754,7 +109374,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 425110.0617,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -104776,7 +109396,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 198343.1555,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -104916,7 +109536,7 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -105051,7 +109671,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -105062,7 +109682,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 2080567.702,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -105073,7 +109693,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 569763.7508,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -105686,7 +110306,7 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -106129,7 +110749,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 425110.0617,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -106151,7 +110771,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 198343.1555,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -106291,7 +110911,7 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -106426,7 +111046,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -106437,7 +111057,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 2079130.482,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -106448,7 +111068,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 569763.7508,
-      "headcount": 72.0
+      "headcount": 71.0
     },
     {
       "biz_unit": "공통",
@@ -107061,7 +111681,7 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 44811.32075,
       "headcount": 0.0
@@ -107504,7 +112124,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 423698.0068,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -107526,7 +112146,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 197677.7651,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -107666,7 +112286,7 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -107801,7 +112421,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -107812,7 +112432,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 2051595.293,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -107823,7 +112443,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 562696.3858,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -108436,7 +113056,7 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -108879,7 +113499,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 466067.8075,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -108901,7 +113521,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 217653.6661,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -109041,7 +113661,7 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -109176,7 +113796,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -109187,7 +113807,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 2051595.293,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -109198,7 +113818,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 562696.3858,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -109811,7 +114431,7 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -110254,7 +114874,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 465789.7681,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -110276,7 +114896,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 217523.6162,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -110416,7 +115036,7 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -110551,7 +115171,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -110562,7 +115182,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 2051595.293,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -110573,7 +115193,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 562696.3858,
-      "headcount": 72.0
+      "headcount": 70.0
     },
     {
       "biz_unit": "공통",
@@ -111186,7 +115806,7 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 44811.32075,
       "headcount": 0.0
@@ -111629,7 +116249,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 464509.335,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -111651,7 +116271,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 216925.639,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -111791,7 +116411,7 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -111926,7 +116546,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -111937,7 +116557,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 1968096.968,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -111948,7 +116568,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 539702.8189,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -112561,7 +117181,7 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -113004,7 +117624,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 464509.335,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -113026,7 +117646,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 216925.639,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -113166,7 +117786,7 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -113301,7 +117921,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -113312,7 +117932,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 1964807.808,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -113323,7 +117943,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 539702.8189,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -113936,7 +118556,7 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 150943.3962,
       "headcount": 0.0
@@ -114379,7 +118999,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 464509.335,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -114401,7 +119021,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 216925.639,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -114541,7 +119161,7 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -114676,7 +119296,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -114687,7 +119307,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 1964354.268,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -114698,7 +119318,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 539702.8189,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -115311,7 +119931,7 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "amount": 44811.32075,
       "headcount": 0.0
@@ -115754,7 +120374,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "amount": 464509.335,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -115776,7 +120396,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "amount": 216925.639,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -115916,7 +120536,7 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -116051,7 +120671,7 @@
       "cost_lv2": "Red pack",
       "cost_lv3": "경영지원",
       "amount": 0.0,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -116062,7 +120682,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "amount": 1961453.688,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -116073,7 +120693,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "amount": 539702.8189,
-      "headcount": 72.0
+      "headcount": 66.0
     },
     {
       "biz_unit": "공통",
@@ -117211,6 +121831,14 @@
       "year": 2026,
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
+      "cost_lv3": "MD금형개발",
+      "annual_amount": 690000.0
+    },
+    {
+      "biz_unit": "DISCOVERY",
+      "year": 2026,
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "인테리어 개발",
       "cost_lv3": "SI 개념 전력",
       "annual_amount": 0.0
     },
@@ -118212,7 +122840,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "FW",
-      "annual_amount": 360000.0
+      "annual_amount": 512000.0
     },
     {
       "biz_unit": "KIDS",
@@ -118220,7 +122848,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "KIDS",
       "cost_lv3": "SS",
-      "annual_amount": 512000.0
+      "annual_amount": 360000.0
     },
     {
       "biz_unit": "KIDS",
@@ -119020,7 +123648,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
-      "annual_amount": 1463133.0500000007
+      "annual_amount": 24365139.0
     },
     {
       "biz_unit": "MLB",
@@ -119028,7 +123656,7 @@
       "cost_lv1": "인건비",
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
-      "annual_amount": 15576873.97
+      "annual_amount": -7325132.029999999
     },
     {
       "biz_unit": "MLB",
@@ -119444,7 +124072,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "FW",
-      "annual_amount": 6200000.0
+      "annual_amount": 7258868.0
     },
     {
       "biz_unit": "MLB",
@@ -119452,7 +124080,7 @@
       "cost_lv1": "수주회",
       "cost_lv2": "MLB",
       "cost_lv3": "SS",
-      "annual_amount": 7258868.0
+      "annual_amount": 6200000.0
     },
     {
       "biz_unit": "MLB",
@@ -119509,14 +124137,6 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "annual_amount": 531135.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "MD",
-      "annual_amount": 690000.0
     },
     {
       "biz_unit": "MLB",
@@ -120258,7 +124878,7 @@
       "biz_unit": "공통",
       "year": 2024,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "annual_amount": 0.0
     },
@@ -120642,7 +125262,7 @@
       "biz_unit": "공통",
       "year": 2024,
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "annual_amount": 16457.0
     },
@@ -121138,7 +125758,7 @@
       "biz_unit": "공통",
       "year": 2025,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "annual_amount": 112421.0
     },
@@ -121491,6 +126111,14 @@
       "year": 2025,
       "cost_lv1": "복리후생비",
       "cost_lv2": "식대",
+      "cost_lv3": "외근식대",
+      "annual_amount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "cost_lv1": "복리후생비",
+      "cost_lv2": "식대",
       "cost_lv3": "임원식대",
       "annual_amount": 171744.0
     },
@@ -121522,7 +126150,7 @@
       "biz_unit": "공통",
       "year": 2025,
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "annual_amount": 63847.0
     },
@@ -121756,7 +126384,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "법무",
       "cost_lv3": "Wolters Kluwer 법률정보 데이터베이스",
-      "annual_amount": 11500.0
+      "annual_amount": 22698.11321
     },
     {
       "biz_unit": "공통",
@@ -122042,7 +126670,7 @@
       "biz_unit": "공통",
       "year": 2026,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 제출 (연간발생->4분기부터 발생)",
+      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
       "cost_lv3": "",
       "annual_amount": 330188.6792
     },
@@ -122466,7 +127094,7 @@
       "biz_unit": "공통",
       "year": 2026,
       "cost_lv1": "복리후생비",
-      "cost_lv2": "장애인고용 미달비용(2명)",
+      "cost_lv2": "장애인고용 미달비용",
       "cost_lv3": "",
       "annual_amount": 0.0
     },
@@ -122820,7 +127448,7 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "재무",
       "cost_lv3": "G3 연간 유지보수 비용",
-      "annual_amount": 3000.0
+      "annual_amount": 2830.0
     },
     {
       "biz_unit": "공통",
@@ -122908,7 +127536,9 @@
       "MLB",
       "KIDS",
       "DISCOVERY",
-      "공통"
+      "공통",
+      "DUVETICA",
+      "SUPRA"
     ],
     "years": [
       2024,

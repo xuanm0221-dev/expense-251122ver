@@ -69,6 +69,8 @@ const DIVISION_NAMES: Record<string, string> = {
   KIDS: "KIDS",
   DISCOVERY: "DISCOVERY",
   공통: "공통",
+  DUVETICA: "DUVETICA",
+  SUPRA: "SUPRA",
 };
 
 // 사업부별 아이콘 매핑
@@ -78,6 +80,8 @@ const DIVISION_ICONS: Record<string, React.ElementType> = {
   KIDS: Baby,
   DISCOVERY: Mountain,
   공통: Building2,
+  DUVETICA: Building2,
+  SUPRA: Building2,
 };
 
 export default function DivisionPage() {
@@ -95,7 +99,7 @@ export default function DivisionPage() {
   console.log("Division from params (raw):", divisionRaw);
   console.log("Division (decoded):", division);
   console.log("BizUnit:", bizUnit);
-  console.log("Valid bizUnits:", ["MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit));
+  console.log("Valid bizUnits:", ["MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"].includes(bizUnit));
 
   const availableYears = getAvailableYears();
   const initialYear = parseInt(searchParams.get("year") || availableYears[0]?.toString() || "2025");
@@ -123,7 +127,7 @@ export default function DivisionPage() {
     router.replace(`/${division}?${searchParams.toString()}`, { scroll: false });
   }, [year, month, mode, division, router]);
 
-  if (!["법인", "MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit)) {
+  if (!["법인", "MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"].includes(bizUnit)) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -140,11 +144,13 @@ export default function DivisionPage() {
   const current = getMonthlyTotal(bizUnit, year, month, mode);
   const previous = getPreviousYearTotal(bizUnit, year, month, mode);
 
-  // 2026년 선택 시: 연간 계획(2026) vs 2025 실적 기준 KPI
-  const annual2025 = is2026Annual ? getAnnualData(bizUnit, 2025) : [];
+  // 2026년 선택 시: 연간 계획(2026) vs 2025 실적(12월 YTD) 기준 KPI
   const annual2026 = is2026Annual ? getAnnualData(bizUnit, 2026) : [];
-  const previousAnnualSum = annual2025.reduce((s, i) => s + i.annual_amount, 0);
   const currentAnnualSum = annual2026.reduce((s, i) => s + i.annual_amount, 0);
+  // 25년 합계는 2025년 12월 YTD(실적 누적)로 통일
+  const previousAnnualSum = is2026Annual
+    ? (getPreviousYearTotal(bizUnit, 2026, 12, "ytd")?.amount ?? 0)
+    : 0;
 
   // 인건비 데이터 가져오기
   const currentCategories = getMonthlyAggregatedByCategory(bizUnit, year, month, mode);

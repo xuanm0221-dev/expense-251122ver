@@ -6,7 +6,7 @@ export type BizUnit = "법인" | "MLB" | "KIDS" | "DISCOVERY" | "DUVETICA" | "SU
 export type Mode = "monthly" | "ytd";
 
 // 법인 합계 계산에 포함할 사업부 목록
-const CORPORATE_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통"] as const;
+const CORPORATE_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"] as const;
 
 export interface MonthlyAggregated {
   biz_unit: string;
@@ -68,7 +68,7 @@ const data = aggregatedDataRaw as AggregatedData;
 export { data };
 
 // 분석 대상 사업부만 필터링
-const TARGET_BIZ_UNITS: BizUnit[] = ["MLB", "KIDS", "DISCOVERY", "공통"];
+const TARGET_BIZ_UNITS: BizUnit[] = ["MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"];
 
 export function getMonthlyTotal(
   bizUnit: BizUnit,
@@ -160,6 +160,16 @@ export function getPreviousYearTotal(
   mode: Mode = "monthly"
 ): MonthlyTotal | null {
   return getMonthlyTotal(bizUnit, year - 1, month, mode);
+}
+
+/** 해당 연도 1~12월 인원수 합계 (인당 비용 계산용: 연간 비용 합계 / 연간 인원수 합계) */
+export function getAnnualHeadcountSum(bizUnit: BizUnit, year: number): number {
+  let sum = 0;
+  for (let m = 1; m <= 12; m++) {
+    const t = getMonthlyTotal(bizUnit, year, m, "monthly");
+    sum += t?.headcount ?? 0;
+  }
+  return sum;
 }
 
 export function getMonthlyAggregatedByCategory(
@@ -604,9 +614,7 @@ export function getAdSalesByChannel(
         salesPrevYear: prev?.sales ?? null,
       });
     }
-  }
-
-  const result: AdSalesByChannelItem[] = [];
+  }  const result: AdSalesByChannelItem[] = [];
   for (const [channel, monthMap] of channelMonths) {
     const data: AdSalesDataPoint[] = [];
     for (const [month, v] of monthMap) {

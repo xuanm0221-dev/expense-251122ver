@@ -2029,14 +2029,14 @@ export function ExpenseAccountHierTable({
         progressTotal: null,
       };
     } else {
-      // 누적(YTD) 모드
-      const prevYtdTotal = leaves.reduce((sum, leaf) => sum + leaf.prev_ytd, 0);
-      const currYtdTotal = leaves.reduce((sum, leaf) => sum + leaf.curr_ytd, 0);
+      // 누적(YTD) 모드: 전체 합계 = 표시되는 L1(대분류) 행 합계와 정확히 일치하도록 L1 기준으로 계산
+      const prevYtdTotal = hierarchicalData.reduce((sum, row) => sum + row.prev_ytd, 0);
+      const currYtdTotal = hierarchicalData.reduce((sum, row) => sum + row.curr_ytd, 0);
       const diffYtdTotal = currYtdTotal - prevYtdTotal;
       const yoyYtdTotal = prevYtdTotal > 0 ? (currYtdTotal / prevYtdTotal) * 100 : null;
-      
-      const annual2024Total = leaves.reduce((sum, leaf) => sum + (leaf.prev_year_annual || 0), 0);
-      const annual2025Total = leaves.reduce((sum, leaf) => sum + (leaf.curr_year_annual || 0), 0);
+
+      const annual2024Total = hierarchicalData.reduce((sum, row) => sum + (row.prev_year_annual ?? 0), 0);
+      const annual2025Total = hierarchicalData.reduce((sum, row) => sum + (row.curr_year_annual ?? 0), 0);
       const diffAnnualTotal = annual2025Total - annual2024Total;
       const yoyAnnualTotal = annual2024Total > 0 ? (annual2025Total / annual2024Total) * 100 : null;
       const progressTotal = annual2025Total > 0 ? (currYtdTotal / annual2025Total) * 100 : null;

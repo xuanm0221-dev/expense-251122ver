@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, type LucideIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, ChevronUp, Shirt, Zap, type LucideIcon } from "lucide-react";
 import React from "react";
 
 // 야구공 아이콘 컴포넌트 (LucideIcon 타입과 호환)
@@ -54,42 +53,17 @@ import {
   type Mode,
 } from "@/lib/expenseData";
 
-const BRAND_CONFIG = [
-  {
-    bizUnit: "법인" as const,
-    brandColor: "#7c3aed",
-    brandInitial: "법",
-    brandName: "법인",
-    icon: Building,
-  },
-  {
-    bizUnit: "MLB" as const,
-    brandColor: "#3b82f6",
-    brandInitial: "M",
-    brandName: "MLB",
-    icon: BaseballIcon,
-  },
-  {
-    bizUnit: "KIDS" as const,
-    brandColor: "#ef4444",
-    brandInitial: "K",
-    brandName: "KIDS",
-    icon: Baby,
-  },
-  {
-    bizUnit: "DISCOVERY" as const,
-    brandColor: "#10b981",
-    brandInitial: "D",
-    brandName: "DISCOVERY",
-    icon: Mountain,
-  },
-  {
-    bizUnit: "공통" as const,
-    brandColor: "#6b7280",
-    brandInitial: "공",
-    brandName: "공통",
-    icon: Building2,
-  },
+const MAIN_BRAND_CONFIG = [
+  { bizUnit: "법인" as const, brandColor: "#7c3aed", brandInitial: "법", brandName: "법인", icon: Building },
+  { bizUnit: "MLB" as const, brandColor: "#3b82f6", brandInitial: "M", brandName: "MLB", icon: BaseballIcon },
+  { bizUnit: "KIDS" as const, brandColor: "#ef4444", brandInitial: "K", brandName: "KIDS", icon: Baby },
+  { bizUnit: "DISCOVERY" as const, brandColor: "#10b981", brandInitial: "D", brandName: "DISCOVERY", icon: Mountain },
+  { bizUnit: "공통" as const, brandColor: "#6b7280", brandInitial: "공", brandName: "공통", icon: Building2 },
+];
+
+const EXTRA_BRAND_CONFIG = [
+  { bizUnit: "DUVETICA" as const, brandColor: "#8b5cf6", brandInitial: "D", brandName: "DUVETICA", icon: Shirt },
+  { bizUnit: "SUPRA" as const, brandColor: "#f59e0b", brandInitial: "S", brandName: "SUPRA", icon: Zap },
 ];
 
 export default function HomePage() {
@@ -101,6 +75,7 @@ export default function HomePage() {
   const [mode, setMode] = useState<Mode>(
     initialYear === 2026 && initialMonth === 12 ? "ytd" : "monthly"
   );
+  const [showExtraCards, setShowExtraCards] = useState(false);
 
   const availableMonths = getAvailableMonths(year);
 
@@ -109,37 +84,6 @@ export default function HomePage() {
       setMonth(availableMonths[availableMonths.length - 1]);
     }
   }, [year, availableMonths, month]);
-
-  // CSV 다운로드 함수
-  const handleCsvDownload = async () => {
-    try {
-      const response = await fetch("/api/export/kpi");
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        alert(`다운로드 실패: ${errorData.error || "알 수 없는 오류"}`);
-        return;
-      }
-      
-      // Blob으로 변환
-      const blob = await response.blob();
-      
-      // 다운로드 링크 생성
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "kpi_for_claude_detailed.csv";
-      document.body.appendChild(a);
-      a.click();
-      
-      // 정리
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error("CSV download error:", error);
-      alert("CSV 다운로드 중 오류가 발생했습니다.");
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -200,29 +144,28 @@ export default function HomePage() {
               </div>
               <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)} className="flex-shrink-0">
                 <TabsList>
-                  <TabsTrigger value="monthly">당월</TabsTrigger>
-                  <TabsTrigger value="ytd">누적(YTD)</TabsTrigger>
+                  <TabsTrigger value="monthly">{year === 2026 ? "월" : "당월"}</TabsTrigger>
+                  <TabsTrigger value="ytd">{year === 2026 ? "연간" : "누적(YTD)"}</TabsTrigger>
                 </TabsList>
               </Tabs>
             </div>
-            {/* CSV 다운로드 버튼 - 우측 정렬 */}
-            <Button
-              onClick={handleCsvDownload}
-              variant="outline"
-              className="flex items-center gap-2 whitespace-nowrap flex-shrink-0"
-            >
-              <Download className="w-4 h-4" />
-              CSV 다운로드
-            </Button>
           </div>
           <p className="text-sm text-muted-foreground mt-4">
             브랜드를 클릭하면 상세 대시보드로 이동합니다.
           </p>
+          <button
+            type="button"
+            onClick={() => setShowExtraCards((v) => !v)}
+            className="mt-2 text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
+          >
+            {showExtraCards ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            {showExtraCards ? "DUVETICA·SUPRA 카드 숨기기" : "DUVETICA·SUPRA 카드 표시"}
+          </button>
         </div>
 
-        {/* 브랜드 카드 그리드 - 5개 나란히 배치 */}
+        {/* 브랜드 카드 그리드 - 기본 5개 + 토글로 DUVETICA·SUPRA */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-          {BRAND_CONFIG.map((config) => (
+          {MAIN_BRAND_CONFIG.map((config) => (
             <BrandCard
               key={config.bizUnit}
               bizUnit={config.bizUnit}
@@ -235,6 +178,20 @@ export default function HomePage() {
               icon={config.icon}
             />
           ))}
+          {showExtraCards &&
+            EXTRA_BRAND_CONFIG.map((config) => (
+              <BrandCard
+                key={config.bizUnit}
+                bizUnit={config.bizUnit}
+                year={year}
+                month={month}
+                mode={mode}
+                brandColor={config.brandColor}
+                brandInitial={config.brandInitial}
+                brandName={config.brandName}
+                icon={config.icon}
+              />
+            ))}
         </div>
       </div>
     </div>

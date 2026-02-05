@@ -59,7 +59,7 @@ export function BizUnitSwitch({
   month,
   mode,
 }: BizUnitSwitchProps) {
-  const allBizUnits: BizUnit[] = ["법인", "MLB", "KIDS", "DISCOVERY", "공통"];
+  const allBizUnits: BizUnit[] = ["법인", "MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"];
 
   return (
     <div className="flex items-center gap-2">

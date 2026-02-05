@@ -3,6 +3,7 @@
 import { LucideIcon } from "lucide-react";
 import {
   formatK,
+  formatM,
   formatPercent,
   calculateYOY,
 } from "@/lib/utils";
@@ -13,6 +14,7 @@ import {
   getMonthlyAggregatedByCategory,
   getCategoryDetail,
   calculateCostRatio,
+  getAnnualHeadcountSum,
   type BizUnit,
   type Mode,
 } from "@/lib/expenseData";
@@ -30,14 +32,20 @@ interface BrandCardProps {
   icon: LucideIcon;
 }
 
-const FIXED_COST_CATEGORIES = [
-  "광고비",
+/** 영업비 상세보기 표시 순서 */
+const EXPENSE_DETAIL_ORDER = [
   "인건비",
   "복리후생비",
+  "광고비",
   "수주회",
-  "지급수수료",
   "출장비",
+  "지급수수료",
+  "IT수수료",
   "감가상각비",
+  "임차료",
+  "세금과공과",
+  "기타",
+  "차량렌트비",
 ];
 
 const CATEGORY_DISPLAY_NAME: Record<string, string> = {
@@ -48,6 +56,11 @@ const CATEGORY_DISPLAY_NAME: Record<string, string> = {
   지급수수료: "지급수수료",
   출장비: "출장비",
   감가상각비: "감가상각비",
+  IT수수료: "IT수수료",
+  임차료: "임차료",
+  세금과공과: "세금과공과",
+  기타: "기타",
+  차량렌트비: "차량렌트비",
 };
 
 function getCategoryDisplayName(categoryName: string): string {
@@ -93,6 +106,10 @@ export function BrandCard({
   const isCommon = bizUnit === "공통";
   const isCorporate = bizUnit === "법인";
 
+  // 공통 카드: 전체 법인 매출 기준 YOY 및 매출대비%용
+  const corporateTotal = isCommon ? getMonthlyTotal("법인", year, month, mode) : null;
+  const prevCorporateTotal = isCommon ? getPreviousYearTotal("법인", year, month, mode) : null;
+
   // 대분류별 데이터
   const categoryData = getMonthlyAggregatedByCategory(bizUnit, year, month, mode);
   const categoryMap = new Map(categoryData.map((item) => [item.cost_lv1, item]));
@@ -119,19 +136,37 @@ export function BrandCard({
   // YOY
   const totalCostYOY = calculateYOY(totalCost, prevTotalCost);
 
-  // 매출
+  // 매출 (법인은 4개 사업부 합산 매출 있음)
   const sales = current?.sales ?? 0;
   const prevSales = previous?.sales ?? 0;
   const salesYOY = calculateYOY(sales, prevSales);
+  // 공통: 전체 법인 매출 YOY 표시
+  const corporateSalesYOY =
+    isCommon && corporateTotal != null && prevCorporateTotal != null
+      ? calculateYOY(corporateTotal.sales ?? 0, prevCorporateTotal.sales ?? 0)
+      : null;
 
-  // 비용율 계산 (법인은 매출이 없으므로 비용율 계산 안함)
-  const costRatio = isCorporate ? null : calculateCostRatio(totalCost, sales);
+  // 비용율 계산 (법인: 법인 매출 기준, 공통: 전체 법인 매출 기준)
+  const costRatio = isCorporate
+    ? calculateCostRatio(totalCost, sales)
+    : isCommon
+      ? calculateCostRatio(totalCost, corporateTotal?.sales ?? 0)
+      : calculateCostRatio(totalCost, sales);
 
   // 이전 비용율은 “아직 사용하지 않으므로 제거”
   // const prevCostRatio = ...
 
   const headcount = current?.headcount ?? 0;
   const prevHeadcount = previous?.headcount ?? 0;
+  const headcountDiff = headcount - prevHeadcount;
+  const headcountChangeStr =
+    headcount > 0 || prevHeadcount > 0
+      ? headcountDiff === 0
+        ? "0명"
+        : headcountDiff > 0
+          ? `+${headcountDiff}명`
+          : `${headcountDiff}명`
+      : null;
 
   // 인건비(기본급만), 복리후생비(5대보험+공적금만) 금액 추출 (인당 비용 계산용)
   // 인건비는 대분류 전체가 아닌 중분류 "기본급"만 사용 (성과급, 잡급 제외)
@@ -162,48 +197,59 @@ export function BrandCard({
   const welfareCost = welfare5InsuranceAndFund;  // 5대보험 + 공적금만 사용
 
   // 인당 비용 계산
-  const perPersonLaborCost = headcount > 0 ? laborCost / headcount : null;
-  const perPersonWelfareCost = headcount > 0 ? welfareCost / headcount : null;
-  
-  // 전년도 인당 비용 계산
-  const prevPerPersonLaborCost = prevHeadcount > 0 ? prevBasicSalary / prevHeadcount : null;
-  const prevPerPersonWelfareCost = prevHeadcount > 0 ? prevWelfare5InsuranceAndFund / prevHeadcount : null;
+  // YTD(연간): 합계 / 연간 인원수 합계 | 당월: 당월 비용 / 당월 인원수
+  const annualHeadcountSum = mode === "ytd" ? getAnnualHeadcountSum(bizUnit, year) : 0;
+  const prevAnnualHeadcountSum = mode === "ytd" ? getAnnualHeadcountSum(bizUnit, year - 1) : 0;
+  const denom = mode === "ytd" ? annualHeadcountSum : headcount;
+  const prevDenom = mode === "ytd" ? prevAnnualHeadcountSum : prevHeadcount;
+  const perPersonLaborCost = denom > 0 ? laborCost / denom : null;
+  const perPersonWelfareCost = denom > 0 ? welfareCost / denom : null;
+  const prevPerPersonLaborCost = prevDenom > 0 ? prevBasicSalary / prevDenom : null;
+  const prevPerPersonWelfareCost = prevDenom > 0 ? prevWelfare5InsuranceAndFund / prevDenom : null;
   
   // 인당 비용 YOY 계산
   const perPersonLaborCostYOY = calculateYOY(perPersonLaborCost ?? 0, prevPerPersonLaborCost ?? 0);
   const perPersonWelfareCostYOY = calculateYOY(perPersonWelfareCost ?? 0, prevPerPersonWelfareCost ?? 0);
 
-  // 상세 카테고리 데이터
+  // 법인/공통 카드용 매출 기준 (매출대비%증감 계산)
+  const salesForRatio = isCorporate ? sales : (isCommon ? (corporateTotal?.sales ?? 0) : sales);
+  const prevSalesForRatio = isCorporate ? prevSales : (isCommon ? (prevCorporateTotal?.sales ?? 0) : prevSales);
+
+  // 상세 카테고리 데이터 (순서: EXPENSE_DETAIL_ORDER)
   const expenseDetails: ExpenseDetail[] = (isCommon || isCorporate)
-    ? Array.from(categoryMap.entries())
-        .sort(([_, a], [__, b]) => b.amount - a.amount)
-        .map(([categoryName, cat]) => {
+    ? EXPENSE_DETAIL_ORDER.filter((name) => categoryMap.has(name))
+        .map((categoryName) => {
+          const cat = categoryMap.get(categoryName)!;
           const prev = prevCategoryMap.get(categoryName);
           const yoy = calculateYOY(cat?.amount ?? 0, prev?.amount ?? 0);
-
+          const ratioChange = calculateCostRatioChange(
+            cat?.amount ?? 0,
+            salesForRatio,
+            prev?.amount ?? 0,
+            prevSalesForRatio
+          );
           return {
             label: categoryName,
             amount: formatK(cat.amount),
             yoy,
-            change: null,
+            change: ratioChange,
           };
         })
-    : FIXED_COST_CATEGORIES.map((categoryName) => {
+    : EXPENSE_DETAIL_ORDER.filter((categoryName) => {
+        const amount = categoryMap.get(categoryName)?.amount ?? 0;
+        return amount > 0; // 브랜드 카드: 연간(또는 당월) 0인 항목은 미표시
+      }).map((categoryName) => {
         const cat = categoryMap.get(categoryName);
         const prev = prevCategoryMap.get(categoryName);
-
         const amount = cat?.amount ?? 0;
         const prevAmount = prev?.amount ?? 0;
-
         const yoy = calculateYOY(amount, prevAmount);
-
         const ratioChange = calculateCostRatioChange(
           amount,
           sales,
           prevAmount,
           prevSales
         );
-
         return {
           label: getCategoryDisplayName(categoryName),
           amount: formatK(amount),
@@ -216,12 +262,19 @@ export function BrandCard({
     <BizUnitCard
       businessUnit={bizUnit}
       icon={<Icon className="w-5 h-5" />}
-      yoySales={isCorporate ? null : salesYOY}
+      yoySales={isCommon ? corporateSalesYOY : salesYOY}
       yoyExpense={totalCostYOY}
       totalExpense={formatK(totalCost)}
       ratio={costRatio != null ? formatPercent(costRatio) : null}
       headcount={headcount > 0 ? `${headcount.toLocaleString("ko-KR")}명` : null}
-      salesAmount={isCorporate ? null : (sales > 0 ? formatK(sales) : null)}
+      headcountChange={headcountChangeStr}
+      salesAmount={
+        isCorporate
+          ? (sales > 0 ? formatM(sales, 0) : null)
+          : isCommon
+            ? (corporateTotal && (corporateTotal.sales ?? 0) > 0 ? formatM(corporateTotal.sales!, 0) : null)
+            : (sales > 0 ? formatM(sales, 0) : null)
+      }
       perPersonLaborCost={perPersonLaborCost != null ? formatK(perPersonLaborCost, 1) : null}
       perPersonWelfareCost={perPersonWelfareCost != null ? formatK(perPersonWelfareCost, 1) : null}
       perPersonLaborCostYOY={perPersonLaborCostYOY != null ? formatPercent(perPersonLaborCostYOY, 0) : null}
