@@ -161,7 +161,7 @@ export function AdSalesEfficiencyAnalysis({
           style={{ backgroundColor: navyColor }}
         />
         <CardHeader className="pl-5 flex flex-row justify-between items-center">
-          <CardTitle style={{ color: navyColor }}>
+          <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
             광고비 효율분석
           </CardTitle>
           <button
@@ -258,7 +258,7 @@ export function AdSalesEfficiencyAnalysis({
           style={{ backgroundColor: navyColor }}
         />
         <CardHeader className="pl-5">
-          <CardTitle style={{ color: navyColor }}>
+          <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
             월별 ROAS 추이 (광고비 1CNY당 매출 추이) | 평균 {avgROAS.toFixed(2)}
           </CardTitle>
         </CardHeader>
@@ -370,7 +370,7 @@ export function AdSalesEfficiencyAnalysis({
           <CardHeader className="pl-5">
             <div className="flex items-center gap-2">
               <Target className="w-5 h-5" style={{ color: navyColor }} />
-              <CardTitle style={{ color: navyColor }}>
+              <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
                 광고비 구간별 효율 분석
               </CardTitle>
             </div>
@@ -431,7 +431,7 @@ export function AdSalesEfficiencyAnalysis({
         <Card style={{ borderColor: navyColor, borderWidth: "1px" }}>
           <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: navyColor }} />
           <CardHeader className="pl-5">
-            <CardTitle style={{ color: navyColor }}>광고비 구간별 분석</CardTitle>
+            <CardTitle style={{ color: navyColor, fontSize: "28px" }}>광고비 구간별 분석</CardTitle>
           </CardHeader>
           <CardContent className="pl-5">
             <div className="overflow-x-auto mb-4">
@@ -500,7 +500,7 @@ export function AdSalesEfficiencyAnalysis({
             style={{ backgroundColor: navyColor }}
           ></div>
           <CardHeader className="pl-5">
-            <CardTitle style={{ color: navyColor }}>
+            <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
               광고비-매출 증감률 비교 (YoY)
               {elasticity !== 0 && (
                 <span className="text-sm font-normal text-gray-600 ml-4">

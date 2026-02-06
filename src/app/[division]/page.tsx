@@ -9,6 +9,10 @@ import { CategoryDrilldown } from "@/components/dashboard/CategoryDrilldown";
 import { BizUnitSwitch } from "@/components/dashboard/BizUnitSwitch";
 import { ExpenseAccountHierTable } from "@/components/dashboard/ExpenseAccountHierTable";
 import { AdSalesEfficiencyAnalysis } from "@/components/dashboard/AdSalesEfficiencyAnalysis";
+import { LaborCostPerCapitaCard } from "@/components/dashboard/LaborCostPerCapitaCard";
+import { AdExpenseCard } from "@/components/dashboard/AdExpenseCard";
+import { ITFeeCard } from "@/components/dashboard/ITFeeCard";
+import { ExpenseAccountRow } from "@/types/expense";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2, Building } from "lucide-react";
@@ -109,6 +113,8 @@ export default function DivisionPage() {
   const [mode, setMode] = useState<Mode>(
     (searchParams.get("mode") as Mode) || (initialYear === 2026 && initialMonth === 12 ? "ytd" : "monthly")
   );
+  const [adExpenseNode, setAdExpenseNode] = useState<ExpenseAccountRow | null>(null);
+  const [itFeeNode, setITFeeNode] = useState<ExpenseAccountRow | null>(null);
 
   const availableMonths = getAvailableMonths(year);
 
@@ -160,6 +166,14 @@ export default function DivisionPage() {
 
   const isCommon = bizUnit === "공통";
   const isCorporate = bizUnit === "법인";
+
+  // 계층형 표에서 광고비, IT수수료 노드 추출
+  const handleHierarchyReady = (rows: ExpenseAccountRow[]) => {
+    const adNode = rows.find(row => row.category_l1 === "광고비");
+    const itNode = rows.find(row => row.category_l1 === "IT수수료");
+    setAdExpenseNode(adNode || null);
+    setITFeeNode(itNode || null);
+  };
 
   const totalCost = is2026Annual ? currentAnnualSum : (current?.amount || 0);
   const totalCostYOY = is2026Annual
@@ -280,7 +294,7 @@ export default function DivisionPage() {
 
         {/* KPI 카드 */}
         <div className="mb-6">
-          <h2 className="text-xl font-bold mb-4">주요 지표 (KPI)</h2>
+          <h2 className="font-bold mb-4" style={{ fontSize: "28px" }}>주요 지표 (KPI)</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <KpiCard
             title="총비용"
@@ -338,13 +352,21 @@ export default function DivisionPage() {
           </div>
         </div>
 
-        {/* 비용 계정 상세 분석 (계층형) */}
+        {/* 인건비 · 광고비 · IT수수료 카드 */}
+        <div className="flex flex-wrap gap-4 mb-6">
+          <LaborCostPerCapitaCard bizUnit={bizUnit} year={year} month={month} />
+          <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} />
+          <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} />
+        </div>
+
+        {/* 비용 계정 상세 분석 */}
         <div className="mb-6">
           <ExpenseAccountHierTable
             bizUnit={bizUnit}
             year={year}
             month={month}
-            title={`${DIVISION_NAMES[bizUnit]} 비용 계정 상세 분석 (계층형)`}
+            title={`${DIVISION_NAMES[bizUnit]} 비용 계정 상세 분석`}
+            onHierarchyReady={handleHierarchyReady}
           />
         </div>
 

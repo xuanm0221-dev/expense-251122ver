@@ -175,7 +175,7 @@ export function BizUnitCard({
           <div className="flex items-start gap-2 mb-3">
             <div className={`w-1 h-12 ${theme.accentColor} rounded-full`}></div>
             <div>
-              <div className={`text-3xl font-bold ${theme.primaryColor}`}>
+              <div className={`text-lg font-bold ${theme.primaryColor}`}>
                 {totalExpense}
               </div>
               <div className="text-xs text-gray-500 mt-1">총 비용</div>

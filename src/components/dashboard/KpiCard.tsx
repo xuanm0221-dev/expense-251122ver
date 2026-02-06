@@ -53,7 +53,7 @@ export function KpiCard({
         {/* 주요 숫자와 YOY 버블을 나란히 배치 */}
         <div className="flex items-start justify-between gap-3 mb-2">
           {/* 주요 숫자 - 큰 글씨, 네이비 */}
-          <div className="text-3xl font-bold" style={{ color: navyColor }}>
+          <div className="font-bold" style={{ color: navyColor, fontSize: "30px" }}>
             {displayValue}
           </div>
 

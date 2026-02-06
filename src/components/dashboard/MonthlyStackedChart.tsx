@@ -117,7 +117,7 @@ export function MonthlyStackedChart({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-xl font-bold">월별 비용 추이 및 YOY 비교</CardTitle>
+        <CardTitle className="font-bold" style={{ fontSize: "28px" }}>월별 비용 추이 및 YOY 비교</CardTitle>
         <p className="text-sm text-gray-500 mt-1">
           카테고리별 비용 구성 및 전년 대비 증감률
         </p>
@@ -131,12 +131,12 @@ export function MonthlyStackedChart({
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis 
               dataKey="month" 
-              tick={{ fill: "#6b7280" }}
+              tick={{ fill: "#6b7280", fontSize: 20 }}
               axisLine={{ stroke: "#e5e7eb" }}
             />
             <YAxis
               yAxisId="left"
-              tick={{ fill: "#6b7280" }}
+              tick={{ fill: "#6b7280", fontSize: 20 }}
               axisLine={{ stroke: "#e5e7eb" }}
               tickFormatter={(value) => formatK(value)}
               width={80}
@@ -144,7 +144,7 @@ export function MonthlyStackedChart({
             <YAxis
               yAxisId="right"
               orientation="right"
-              tick={{ fill: "#6b7280" }}
+              tick={{ fill: "#6b7280", fontSize: 20 }}
               axisLine={{ stroke: "#e5e7eb" }}
               domain={[0, 'dataMax + 10']}
               tickFormatter={(value) => `${Math.round(value)}%`}

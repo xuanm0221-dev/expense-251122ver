@@ -98,7 +98,7 @@ export default function HomePage() {
                 <BarChart3 className="w-6 h-6 text-white" />
               </div>
               {/* 제목 */}
-              <h1 className="text-5xl font-bold text-slate-800">F&F CHINA 비용 대시보드</h1>
+              <h1 className="text-[2rem] font-bold text-slate-800">F&F CHINA 비용 대시보드</h1>
             </div>
             {/* 제목 아래 구분선 */}
             <div className="h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 rounded-full mx-auto" style={{ maxWidth: '600px' }}></div>

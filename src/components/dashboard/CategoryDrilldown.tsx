@@ -335,7 +335,7 @@ export function CategoryDrilldown({
       {/* 좌측: 대분류 */}
       <Card>
         <CardHeader>
-          <CardTitle>대분류별 비용</CardTitle>
+          <CardTitle style={{ fontSize: "28px" }}>대분류별 비용</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={400}>
@@ -353,11 +353,13 @@ export function CategoryDrilldown({
               <XAxis 
                 type="number" 
                 tickFormatter={(value) => formatK(value)}
+                tick={{ fontSize: 20 }}
               />
               <YAxis
                 dataKey="category"
                 type="category"
                 width={100}
+                tick={{ fontSize: 20, textAnchor: "end" }}
                 onClick={(data) => {
                   setSelectedCategory(data.value);
                 }}
@@ -402,7 +404,7 @@ export function CategoryDrilldown({
       {/* 우측: 중분류/소분류 */}
       <Card>
         <CardHeader>
-          <CardTitle>
+          <CardTitle style={{ fontSize: "28px" }}>
             {selectedCategory
               ? `${selectedCategory} 상세 내역`
               : "대분류를 선택하세요"}
@@ -417,12 +419,13 @@ export function CategoryDrilldown({
                   <XAxis 
                     type="number" 
                     tickFormatter={(value) => formatK(value)}
+                    tick={{ fontSize: 20 }}
                   />
                   <YAxis
                     dataKey="label"
                     type="category"
                     width={150}
-                    tick={{ fontSize: 12 }}
+                    tick={{ fontSize: 20, textAnchor: "end" }}
                   />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend />
