@@ -12,6 +12,7 @@ import { AdSalesEfficiencyAnalysis } from "@/components/dashboard/AdSalesEfficie
 import { LaborCostPerCapitaCard } from "@/components/dashboard/LaborCostPerCapitaCard";
 import { AdExpenseCard } from "@/components/dashboard/AdExpenseCard";
 import { ITFeeCard } from "@/components/dashboard/ITFeeCard";
+import { PaymentFeeCard } from "@/components/dashboard/PaymentFeeCard";
 import { ExpenseAccountRow } from "@/types/expense";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -115,6 +116,7 @@ export default function DivisionPage() {
   );
   const [adExpenseNode, setAdExpenseNode] = useState<ExpenseAccountRow | null>(null);
   const [itFeeNode, setITFeeNode] = useState<ExpenseAccountRow | null>(null);
+  const [paymentFeeNode, setPaymentFeeNode] = useState<ExpenseAccountRow | null>(null);
 
   const availableMonths = getAvailableMonths(year);
 
@@ -167,12 +169,14 @@ export default function DivisionPage() {
   const isCommon = bizUnit === "공통";
   const isCorporate = bizUnit === "법인";
 
-  // 계층형 표에서 광고비, IT수수료 노드 추출
+  // 계층형 표에서 광고비, IT수수료, 지급수수료 노드 추출
   const handleHierarchyReady = (rows: ExpenseAccountRow[]) => {
     const adNode = rows.find(row => row.category_l1 === "광고비");
     const itNode = rows.find(row => row.category_l1 === "IT수수료");
+    const paymentNode = rows.find(row => row.category_l1 === "지급수수료");
     setAdExpenseNode(adNode || null);
     setITFeeNode(itNode || null);
+    setPaymentFeeNode(paymentNode || null);
   };
 
   const totalCost = is2026Annual ? currentAnnualSum : (current?.amount || 0);
@@ -352,11 +356,12 @@ export default function DivisionPage() {
           </div>
         </div>
 
-        {/* 인건비 · 광고비 · IT수수료 카드 */}
+        {/* 인건비 · 광고비 · IT수수료 · 지급수수료 카드 */}
         <div className="flex flex-wrap gap-4 mb-6">
           <LaborCostPerCapitaCard bizUnit={bizUnit} year={year} month={month} />
           <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} />
           <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} />
+          <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} />
         </div>
 
         {/* 비용 계정 상세 분석 */}

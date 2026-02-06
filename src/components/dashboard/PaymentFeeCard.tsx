@@ -6,21 +6,20 @@ import { getCategoryDetail, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
 import { ExpenseAccountRow } from "@/types/expense";
 
-const AD_ROW_ORDER = ["MLB", "KIDS", "DISCOVERY"] as const;
 const navyColor = "#001f3f";
 const navyBarColor = "#5b7cba";
 
-interface AdExpenseCardProps {
+interface PaymentFeeCardProps {
   bizUnit: BizUnit;
   year: number;
   month: number;
-  adNode?: ExpenseAccountRow | null;
+  paymentNode?: ExpenseAccountRow | null;
 }
 
-function sumByBizUnit(details: { biz_unit: string; amount: number }[]): Map<string, number> {
+function sumByKey(details: { cost_lv2: string; amount: number }[]): Map<string, number> {
   const map = new Map<string, number>();
   details.forEach((d) => {
-    const key = d.biz_unit || "";
+    const key = d.cost_lv2 || "";
     if (key.trim() !== "") {
       map.set(key, (map.get(key) || 0) + d.amount);
     }
@@ -28,49 +27,53 @@ function sumByBizUnit(details: { biz_unit: string; amount: number }[]): Map<stri
   return map;
 }
 
-function totalAdExpense(details: { amount: number }[]): number {
+function totalExpense(details: { amount: number }[]): number {
   return details.reduce((s, d) => s + d.amount, 0);
 }
 
-export function AdExpenseCard({ bizUnit, year, month, adNode }: AdExpenseCardProps) {
+export function PaymentFeeCard({ bizUnit, year, month, paymentNode }: PaymentFeeCardProps) {
   const [showDetail, setShowDetail] = useState(false);
 
-  // adNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
+  // paymentNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
   let totalCurrent: number;
   let totalPrev: number;
-  let byBizCurrent: Map<string, number>;
-  let byBizPrev: Map<string, number>;
+  let l2Children: ExpenseAccountRow[] = [];
 
-  if (adNode) {
+  if (paymentNode) {
     // 계층형 표에서 받은 데이터 사용
-    totalCurrent = adNode.curr_ytd;
-    totalPrev = adNode.prev_ytd;
-
-    // L2 children에서 브랜드별 금액 추출
-    const currMap = new Map<string, number>();
-    const prevMap = new Map<string, number>();
-    
-    adNode.children?.forEach(child => {
-      // biz_unit 또는 category_l2를 키로 사용 (법인/ALL은 biz_unit, 브랜드는 category_l2)
-      const key = child.biz_unit || child.category_l2;
-      if (key && key.trim() !== "") {
-        currMap.set(key, child.curr_ytd);
-        prevMap.set(key, child.prev_ytd);
-      }
-    });
-
-    byBizCurrent = currMap;
-    byBizPrev = prevMap;
+    totalCurrent = paymentNode.curr_ytd;
+    totalPrev = paymentNode.prev_ytd;
+    l2Children = paymentNode.children || [];
   } else {
     // 기존 로직: getCategoryDetail 사용
-    const detailCurrent = getCategoryDetail(bizUnit, year, month, "광고비", "ytd");
-    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "광고비", "ytd");
+    const detailCurrent = getCategoryDetail(bizUnit, year, month, "지급수수료", "ytd");
+    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "지급수수료", "ytd");
 
-    totalCurrent = totalAdExpense(detailCurrent);
-    totalPrev = totalAdExpense(detailPrev);
+    totalCurrent = totalExpense(detailCurrent);
+    totalPrev = totalExpense(detailPrev);
 
-    byBizCurrent = sumByBizUnit(detailCurrent);
-    byBizPrev = sumByBizUnit(detailPrev);
+    // L2로 그룹화
+    const currMap = sumByKey(detailCurrent);
+    const prevMap = sumByKey(detailPrev);
+    
+    // L2를 ExpenseAccountRow 형태로 변환
+    const allKeys = new Set([...currMap.keys(), ...prevMap.keys()]);
+    l2Children = Array.from(allKeys).map(key => ({
+      id: `payment-l2-${key}`,
+      level: 2 as const,
+      category_l1: "지급수수료",
+      category_l2: key,
+      category_l3: "",
+      prev_month: 0,
+      curr_month: 0,
+      prev_ytd: prevMap.get(key) || 0,
+      curr_ytd: currMap.get(key) || 0,
+      prev_year_annual: null,
+      curr_year_annual: null,
+      description: "",
+      isExpanded: false,
+      children: [],
+    }));
   }
 
   const yoy = totalPrev > 0 ? (totalCurrent / totalPrev) * 100 : null;
@@ -83,7 +86,7 @@ export function AdExpenseCard({ bizUnit, year, month, adNode }: AdExpenseCardPro
           <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
-              광고비
+              지급수수료
             </span>
             <span className="font-bold">{totalCurrent > 0 ? formatK(totalCurrent, 0) : "-"}</span>
           </CardTitle>
@@ -101,7 +104,7 @@ export function AdExpenseCard({ bizUnit, year, month, adNode }: AdExpenseCardPro
               <thead>
                 <tr>
                   <th className="text-left py-1 pr-2 font-semibold">
-                    {adNode && (
+                    {paymentNode && (
                       <button
                         onClick={() => setShowDetail(!showDetail)}
                         className="text-blue-600 hover:text-blue-800"
@@ -116,39 +119,35 @@ export function AdExpenseCard({ bizUnit, year, month, adNode }: AdExpenseCardPro
                 </tr>
               </thead>
               <tbody>
-                {AD_ROW_ORDER.map((key) => {
-                  const curr = byBizCurrent.get(key) ?? 0;
-                  const prev = byBizPrev.get(key) ?? 0;
+                {l2Children.map((l2Child, idx) => {
+                  const curr = l2Child.curr_ytd;
+                  const prev = l2Child.prev_ytd;
                   const yoyRow = prev > 0 ? (curr / prev) * 100 : null;
                   const currStr = curr > 0 ? formatK(curr, 0) : "-";
                   const prevStr = prev > 0 ? formatK(prev, 0) : "-";
                   const yoyStr = yoyRow != null ? formatPercent(yoyRow, 0) : "-";
-                  
-                  // L2 노드 찾기 (소분류 데이터용)
-                  const l2Node = adNode?.children?.find(
-                    c => (c.biz_unit || c.category_l2) === key
-                  );
-                  
+                  const label = l2Child.category_l2 || l2Child.biz_unit || "-";
+
                   // L3 children 필터링 (curr_ytd > 0, showDetail === true일 때만)
-                  const l3Children = showDetail && l2Node?.children 
-                    ? l2Node.children.filter(c => c.curr_ytd > 0)
+                  const l3Children = showDetail && l2Child.children 
+                    ? l2Child.children.filter(c => c.curr_ytd > 0)
                     : [];
 
                   return (
-                    <React.Fragment key={key}>
-                      {/* L2 행 (브랜드 합계) */}
+                    <React.Fragment key={idx}>
+                      {/* L2 행 (중분류) */}
                       <tr>
-                        <td className="text-left py-0.5 pr-2 font-semibold">{key}</td>
+                        <td className="text-left py-0.5 pr-2 font-semibold">{label}</td>
                         <td className="text-right py-0.5 px-1">{currStr}</td>
                         <td className="text-right py-0.5 px-1">{prevStr}</td>
                         <td className="text-right py-0.5 pl-1">{yoyStr}</td>
                       </tr>
-                      
+
                       {/* L3 행들 (소분류) - showDetail이 true면 자동으로 표시 */}
-                      {l3Children.map((l3, idx) => {
+                      {l3Children.map((l3, l3Idx) => {
                         const l3Yoy = l3.prev_ytd > 0 ? (l3.curr_ytd / l3.prev_ytd) * 100 : null;
                         return (
-                          <tr key={`${key}-${idx}`} className="text-gray-600">
+                          <tr key={`${idx}-${l3Idx}`} className="text-gray-600">
                             <td className="text-left py-0.5 pr-2 pl-4">
                               - {l3.category_l3 || "-"}
                             </td>
