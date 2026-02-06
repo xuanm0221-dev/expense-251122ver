@@ -1,5 +1,96 @@
 [
   {
+    "timestamp": "2026-02-06T00:01:02.872Z",
+    "accountPath": "l2-IT수수료-데이터 수집 허가비용",
+    "oldValue": "",
+    "newValue": "①Zhiyi tech 데이터구매 151K ②red note 데이터 구매 93.6K ③DX경쟁상 데이터 구매 241K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:55:51.040Z",
+    "accountPath": "l2-IT수수료-네트워크&ASDL설치",
+    "oldValue": "",
+    "newValue": "(전년)신규 사무실 이전시 발생비용",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:55:22.472Z",
+    "accountPath": "l2-IT수수료-온라인 스토어 오픈비용",
+    "oldValue": "",
+    "newValue": "(전년)DX 온라인 스토어 오픈 1회성 비용",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:55:03.658Z",
+    "accountPath": "l2-IT수수료-정보보안 감사, 원격 백업서비스",
+    "oldValue": "",
+    "newValue": "①정보보안 감사 92K ②원격 백업서비스 133K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:51:29.414Z",
+    "accountPath": "l2-IT수수료-하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+    "oldValue": "(전년) 混合云架构优化",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:51:24.612Z",
+    "accountPath": "l2-IT수수료-하이브리드 클라우드 아키텍처 최적화",
+    "oldValue": "",
+    "newValue": "(전년) 混合云架构优化",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:48:46.500Z",
+    "accountPath": "l2-IT수수료-정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+    "oldValue": "①보안감사 92K ②원격백업서비스 133K",
+    "newValue": "①정보보안감사 92K ②원격백업서비스 133K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:48:24.449Z",
+    "accountPath": "l2-IT수수료-하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+    "oldValue": "",
+    "newValue": "(전년) 混合云架构优化",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:45:28.260Z",
+    "accountPath": "l2-IT수수료-RMS 반품 개발 시스템",
+    "oldValue": "(전년)RMS 반품시스템 개발 비용포함 619K\n",
+    "newValue": "(전년)RMS 반품시스템 개발 비용포함 627K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:45:11.352Z",
+    "accountPath": "l2-IT수수료-RMS 반품 개발 시스템",
+    "oldValue": "",
+    "newValue": "(전년)RMS 반품시스템 개발 비용포함 619K\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:32:14.480Z",
+    "accountPath": "l2-IT수수료-정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+    "oldValue": "①보안설계 66KK ②원격백업서비스 133K",
+    "newValue": "①보안감사 92K ②원격백업서비스 133K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:31:37.745Z",
+    "accountPath": "l2-IT수수료-정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+    "oldValue": "",
+    "newValue": "①보안설계 66KK ②원격백업서비스 133K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-05T23:29:43.586Z",
+    "accountPath": "l2-IT수수료-재고실사 서비스비용",
+    "oldValue": "",
+    "newValue": "①2.5K/매장x11매장1=28K ②BZ창고실사 250K",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-02-05T12:59:57.130Z",
     "accountPath": "l2-IT수수료-OMS",
     "oldValue": "",
@@ -606,97 +697,6 @@
     "accountPath": "l2-복리후생비-건강검진",
     "oldValue": "(전년) 건강검진 단가는 동일, 미참석 인원이 많아서 308K 발생",
     "newValue": "(전년) 건강검진 단가는 동일, 미참석 인원이 많아서 308K 발생①사무실 단가  ￥1,000/인, 239명中 51명 미참석  ②매장 단가 ￥600, 465명中 175미참석",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T07:29:57.615Z",
-    "accountPath": "l2-복리후생비-건강검진",
-    "oldValue": "",
-    "newValue": "(전년) 건강검진 단가는 동일, 미참석 인원이 많아서 308K 발생",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T07:25:06.300Z",
-    "accountPath": "l2-복리후생비-송년회",
-    "oldValue": "",
-    "newValue": "사무실 송년회: 1,506K , 매장송년회: 391K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T07:24:12.900Z",
-    "accountPath": "l3-복리후생비-송년회-송년회-매장",
-    "oldValue": "파티&저녁식사 38K\n송년회 선물 353K",
-    "newValue": "(전년)파티&저녁식사 38K\n송년회 선물 353K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T07:24:02.527Z",
-    "accountPath": "l3-복리후생비-송년회-송년회-매장",
-    "oldValue": "",
-    "newValue": "파티&저녁식사 38K\n송년회 선물 353K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T07:23:14.409Z",
-    "accountPath": "l3-복리후생비-송년회-송년회-사무실",
-    "oldValue": "",
-    "newValue": "(전년)파티&저녁식사 506K\n송년회 선물 1,000K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:35:22.131Z",
-    "accountPath": "l3-임차료-사무실임차료-38층(25년 신규)",
-    "oldValue": "",
-    "newValue": "(전년)25.07부터 임차",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:34:02.340Z",
-    "accountPath": "l2-차량렌트비-차량유지비",
-    "oldValue": "",
-    "newValue": "(전년)2.5K/월 x 12개월 x 2대 = 65K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:33:06.796Z",
-    "accountPath": "l2-차량렌트비-ALPHA",
-    "oldValue": "",
-    "newValue": "(전년)33K x 12월 = 398K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:32:23.486Z",
-    "accountPath": "l2-차량렌트비-KIA",
-    "oldValue": "9.8K/월 x 12월 = 118K",
-    "newValue": "(전년)9.8K/월 x 12월 = 118K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:32:16.882Z",
-    "accountPath": "l2-차량렌트비-KIA",
-    "oldValue": "",
-    "newValue": "9.8K/월 x 12월 = 118K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:23:19.566Z",
-    "accountPath": "l2-기타-통신비",
-    "oldValue": "",
-    "newValue": "(전년) ￥2.1K/월 x 12월 = 25K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:21:44.610Z",
-    "accountPath": "l2-기타-여비교통비",
-    "oldValue": "",
-    "newValue": "(전년)야근택시비 평균 ￥130x3,025=383K",
-    "userIdentifier": "anonymous"
-  },
-  {
-    "timestamp": "2026-02-05T06:17:52.566Z",
-    "accountPath": "l2-기타-사무용품비",
-    "oldValue": "(전년) ",
-    "newValue": "(전년) ￥124/인/월, 전년비 94%",
     "userIdentifier": "anonymous"
   }
 ]

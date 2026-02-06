@@ -12446,7 +12446,7 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "IT수수료",
-      "amount": 935483.0,
+      "amount": 874162.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -12526,7 +12526,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "IT수수료",
-      "amount": 1281673.0,
+      "amount": 1276563.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -12686,7 +12686,7 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "IT수수료",
-      "amount": 1336762.0,
+      "amount": 1366950.68,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -12766,7 +12766,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "IT수수료",
-      "amount": 516679.0,
+      "amount": 546867.6799999999,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -12846,7 +12846,7 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "IT수수료",
-      "amount": 1529803.0,
+      "amount": 1559991.68,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -12926,7 +12926,7 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "IT수수료",
-      "amount": 1000850.0,
+      "amount": 1031038.6799999999,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13006,7 +13006,7 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "IT수수료",
-      "amount": 663033.0,
+      "amount": 693221.6799999999,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13086,7 +13086,7 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "IT수수료",
-      "amount": 1463329.0,
+      "amount": 1493517.68,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13166,7 +13166,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "amount": 965789.07,
+      "amount": 995977.75,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13246,7 +13246,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "amount": 1139852.86,
+      "amount": 1414396.26,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -16024,7 +16024,7 @@
       "year": 2025,
       "month": 2,
       "yyyymm": "202502",
-      "amount": 8623562.92,
+      "amount": 8562241.92,
       "headcount": 72.0,
       "sales": 534169507.2
     },
@@ -16033,7 +16033,7 @@
       "year": 2025,
       "month": 3,
       "yyyymm": "202503",
-      "amount": 5513485.84,
+      "amount": 5508375.84,
       "headcount": 72.0,
       "sales": 663832548.8
     },
@@ -16051,7 +16051,7 @@
       "year": 2025,
       "month": 5,
       "yyyymm": "202505",
-      "amount": 8548437.89,
+      "amount": 8578626.57,
       "headcount": 72.0,
       "sales": 719632361.4
     },
@@ -16060,7 +16060,7 @@
       "year": 2025,
       "month": 6,
       "yyyymm": "202506",
-      "amount": 6212118.87321,
+      "amount": 6242307.55321,
       "headcount": 71.0,
       "sales": 552104329.4
     },
@@ -16069,7 +16069,7 @@
       "year": 2025,
       "month": 7,
       "yyyymm": "202507",
-      "amount": 8363776.44,
+      "amount": 8393965.12,
       "headcount": 72.0,
       "sales": 521452172.1
     },
@@ -16078,7 +16078,7 @@
       "year": 2025,
       "month": 8,
       "yyyymm": "202508",
-      "amount": 8335210.61,
+      "amount": 8365399.29,
       "headcount": 72.0,
       "sales": 588424885.3
     },
@@ -16087,7 +16087,7 @@
       "year": 2025,
       "month": 9,
       "yyyymm": "202509",
-      "amount": 7238714.54,
+      "amount": 7268903.22,
       "headcount": 72.0,
       "sales": 551628227.7
     },
@@ -16096,7 +16096,7 @@
       "year": 2025,
       "month": 10,
       "yyyymm": "202510",
-      "amount": 9525367.39,
+      "amount": 9555556.07,
       "headcount": 71.0,
       "sales": 894867988.2
     },
@@ -16105,7 +16105,7 @@
       "year": 2025,
       "month": 11,
       "yyyymm": "202511",
-      "amount": 9336600.6,
+      "amount": 9366789.28,
       "headcount": 72.0,
       "sales": 804211750.6
     },
@@ -16114,7 +16114,7 @@
       "year": 2025,
       "month": 12,
       "yyyymm": "202512",
-      "amount": 7162800.53,
+      "amount": 7437343.930000001,
       "headcount": 72.0,
       "sales": 792602129.7
     },
@@ -74160,17 +74160,6 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 1,
-      "yyyymm": "202401",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -74261,6 +74250,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 1,
+      "yyyymm": "202401",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -74468,7 +74468,7 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -74479,7 +74479,7 @@
       "month": 1,
       "yyyymm": "202401",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -75425,17 +75425,6 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 2,
-      "yyyymm": "202402",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 20000.0,
@@ -75526,6 +75515,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 2,
+      "yyyymm": "202402",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -75733,7 +75733,7 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -75744,7 +75744,7 @@
       "month": 2,
       "yyyymm": "202402",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -76690,17 +76690,6 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 3,
-      "yyyymm": "202403",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -76791,6 +76780,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 3,
+      "yyyymm": "202403",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -76998,7 +76998,7 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -77009,7 +77009,7 @@
       "month": 3,
       "yyyymm": "202403",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -77955,17 +77955,6 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 4,
-      "yyyymm": "202404",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -78056,6 +78045,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 4,
+      "yyyymm": "202404",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -78263,7 +78263,7 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -78274,7 +78274,7 @@
       "month": 4,
       "yyyymm": "202404",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -79220,17 +79220,6 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 5,
-      "yyyymm": "202405",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -79321,6 +79310,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 5,
+      "yyyymm": "202405",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -79528,7 +79528,7 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -79539,7 +79539,7 @@
       "month": 5,
       "yyyymm": "202405",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -80485,17 +80485,6 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 6,
-      "yyyymm": "202406",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -80587,6 +80576,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 48300.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 6,
+      "yyyymm": "202406",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -80793,7 +80793,7 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -80804,7 +80804,7 @@
       "month": 6,
       "yyyymm": "202406",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -81750,17 +81750,6 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 7,
-      "yyyymm": "202407",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -81851,6 +81840,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 7,
+      "yyyymm": "202407",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -82058,7 +82058,7 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -82069,7 +82069,7 @@
       "month": 7,
       "yyyymm": "202407",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -83015,17 +83015,6 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 8,
-      "yyyymm": "202408",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -83116,6 +83105,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 8,
+      "yyyymm": "202408",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -83323,7 +83323,7 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -83334,7 +83334,7 @@
       "month": 8,
       "yyyymm": "202408",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -84280,17 +84280,6 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 9,
-      "yyyymm": "202409",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 9245.0,
@@ -84381,6 +84370,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 9,
+      "yyyymm": "202409",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -84588,7 +84588,7 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -84599,7 +84599,7 @@
       "month": 9,
       "yyyymm": "202409",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -85545,17 +85545,6 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 10,
-      "yyyymm": "202410",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -85646,6 +85635,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 10,
+      "yyyymm": "202410",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -85853,7 +85853,7 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -85864,7 +85864,7 @@
       "month": 10,
       "yyyymm": "202410",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -86810,17 +86810,6 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 11,
-      "yyyymm": "202411",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -86911,6 +86900,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 11,
+      "yyyymm": "202411",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -87118,7 +87118,7 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -87129,7 +87129,7 @@
       "month": 11,
       "yyyymm": "202411",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -88075,17 +88075,6 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "month": 12,
-      "yyyymm": "202412",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -88176,6 +88165,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "month": 12,
+      "yyyymm": "202412",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -88383,7 +88383,7 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -88394,7 +88394,7 @@
       "month": 12,
       "yyyymm": "202412",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -89340,17 +89340,6 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 1,
-      "yyyymm": "202501",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -89441,6 +89430,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 1,
+      "yyyymm": "202501",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -89648,7 +89648,7 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -89659,7 +89659,7 @@
       "month": 1,
       "yyyymm": "202501",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -90627,17 +90627,6 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 61321.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 2,
-      "yyyymm": "202502",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -90728,6 +90717,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 2,
+      "yyyymm": "202502",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -90935,7 +90935,7 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -90946,7 +90946,7 @@
       "month": 2,
       "yyyymm": "202502",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -91914,17 +91914,6 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 5110.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 3,
-      "yyyymm": "202503",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 188679.0,
@@ -92015,6 +92004,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 3,
+      "yyyymm": "202503",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -92222,7 +92222,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 30000.0,
       "headcount": 0.0
@@ -92233,7 +92233,7 @@
       "month": 3,
       "yyyymm": "202503",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -93201,17 +93201,6 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 4,
-      "yyyymm": "202504",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 269516.0,
@@ -93302,6 +93291,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 4,
+      "yyyymm": "202504",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -93509,7 +93509,7 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": -1698.0,
       "headcount": 0.0
@@ -93520,7 +93520,7 @@
       "month": 4,
       "yyyymm": "202504",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -94488,17 +94488,6 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 5,
-      "yyyymm": "202505",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 120925.0,
@@ -94590,6 +94579,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 5,
+      "yyyymm": "202505",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -94796,7 +94796,7 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 120000.0,
       "headcount": 0.0
@@ -94807,7 +94807,7 @@
       "month": 5,
       "yyyymm": "202505",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -95775,17 +95775,6 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 6,
-      "yyyymm": "202506",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -95877,6 +95866,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 6,
+      "yyyymm": "202506",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -96083,7 +96083,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -96094,7 +96094,7 @@
       "month": 6,
       "yyyymm": "202506",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 62000.0,
       "headcount": 0.0
@@ -97062,17 +97062,6 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 7,
-      "yyyymm": "202507",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -97164,6 +97153,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 7,
+      "yyyymm": "202507",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -97370,7 +97370,7 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 160000.0,
       "headcount": 0.0
@@ -97381,7 +97381,7 @@
       "month": 7,
       "yyyymm": "202507",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -98349,17 +98349,6 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 8,
-      "yyyymm": "202508",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 9582.0,
@@ -98451,6 +98440,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 8,
+      "yyyymm": "202508",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -98657,7 +98657,7 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -98668,7 +98668,7 @@
       "month": 8,
       "yyyymm": "202508",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 36792.0,
       "headcount": 0.0
@@ -99636,17 +99636,6 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 9,
-      "yyyymm": "202509",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -99738,6 +99727,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 9,
+      "yyyymm": "202509",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -99944,7 +99944,7 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -99955,7 +99955,7 @@
       "month": 9,
       "yyyymm": "202509",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 36792.0,
       "headcount": 0.0
@@ -100923,17 +100923,6 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 10,
-      "yyyymm": "202510",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 9245.0,
@@ -101025,6 +101014,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 10,
+      "yyyymm": "202510",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -101231,7 +101231,7 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -101242,7 +101242,7 @@
       "month": 10,
       "yyyymm": "202510",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 36792.0,
       "headcount": 0.0
@@ -102210,17 +102210,6 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 11,
-      "yyyymm": "202511",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -102312,6 +102301,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 11,
+      "yyyymm": "202511",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 30188.68,
       "headcount": 0.0
     },
     {
@@ -102518,7 +102518,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": -27245.28,
       "headcount": 0.0
@@ -102529,7 +102529,7 @@
       "month": 11,
       "yyyymm": "202511",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 36792.45,
       "headcount": 0.0
@@ -103497,17 +103497,6 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "month": 12,
-      "yyyymm": "202512",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -103599,6 +103588,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "month": 12,
+      "yyyymm": "202512",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 274543.4,
       "headcount": 0.0
     },
     {
@@ -103805,7 +103805,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": -3792.45,
       "headcount": 0.0
@@ -103816,7 +103816,7 @@
       "month": 12,
       "yyyymm": "202512",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": -69700.33,
       "headcount": 0.0
@@ -104674,6 +104674,17 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 56476.0,
@@ -104686,17 +104697,6 @@
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -104806,17 +104806,6 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -104864,28 +104853,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 94339.62264,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -104951,6 +104918,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -105158,7 +105136,7 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -105169,7 +105147,18 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -106049,6 +106038,17 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 56476.0,
@@ -106061,17 +106061,6 @@
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -106181,17 +106170,6 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -106239,28 +106217,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 94339.62264,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -106326,6 +106282,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -106533,7 +106500,7 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -106544,7 +106511,18 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -107424,6 +107402,17 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 56476.0,
@@ -107436,17 +107425,6 @@
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -107556,17 +107534,6 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 44811.32075,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 80974.84277,
@@ -107614,28 +107581,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 94339.62264,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -107702,6 +107647,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 44811.32075,
       "headcount": 0.0
     },
     {
@@ -107908,7 +107864,7 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -107919,7 +107875,18 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -108799,6 +108766,17 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 56476.0,
@@ -108813,17 +108791,6 @@
       "cost_lv2": "API (인터페이스 관련)",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
-      "cost_lv3": "",
-      "amount": 33333.33333,
       "headcount": 0.0
     },
     {
@@ -108931,17 +108898,6 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 80974.84277,
@@ -108977,7 +108933,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 33333.33333,
       "headcount": 0.0
     },
     {
@@ -108989,28 +108945,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 113207.5472,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -109076,6 +109010,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -109283,7 +109228,7 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -109294,7 +109239,18 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -110174,6 +110130,17 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 81876.0,
@@ -110188,17 +110155,6 @@
       "cost_lv2": "API (인터페이스 관련)",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
-      "cost_lv3": "",
-      "amount": 33333.33333,
       "headcount": 0.0
     },
     {
@@ -110306,17 +110262,6 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 80974.84277,
@@ -110352,7 +110297,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 33333.33333,
       "headcount": 0.0
     },
     {
@@ -110364,28 +110309,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -110451,6 +110374,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -110658,7 +110592,7 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -110669,7 +110603,18 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -111549,6 +111494,17 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 81876.0,
@@ -111563,17 +111519,6 @@
       "cost_lv2": "API (인터페이스 관련)",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
-      "cost_lv3": "",
-      "amount": 33333.33333,
       "headcount": 0.0
     },
     {
@@ -111681,17 +111626,6 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 44811.32075,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 47169.81132,
@@ -111727,7 +111661,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
-      "amount": 0.0,
+      "amount": 33333.33333,
       "headcount": 0.0
     },
     {
@@ -111739,28 +111673,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -111827,6 +111739,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 44811.32075,
       "headcount": 0.0
     },
     {
@@ -112033,7 +111956,7 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -112044,7 +111967,18 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -112924,6 +112858,17 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 183076.0,
@@ -112936,17 +112881,6 @@
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -113056,17 +112990,6 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 47169.81132,
@@ -113114,28 +113037,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 47169.81132,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -113201,6 +113102,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -113408,7 +113320,7 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 78616.3522,
       "headcount": 0.0
@@ -113419,7 +113331,18 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 47169.81132,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -114299,6 +114222,17 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 183076.0,
@@ -114311,17 +114245,6 @@
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -114431,17 +114354,6 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 9245.283019,
@@ -114489,28 +114401,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -114576,6 +114466,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -114783,7 +114684,7 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -114794,7 +114695,18 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -115674,6 +115586,17 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 16823.89937,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 183076.0,
@@ -115686,17 +115609,6 @@
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -115806,17 +115718,6 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 44811.32075,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -115864,28 +115765,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 16823.89937,
       "headcount": 0.0
     },
     {
@@ -115952,6 +115831,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 44811.32075,
       "headcount": 0.0
     },
     {
@@ -116158,7 +116048,7 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -116169,7 +116059,18 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -117049,6 +116950,17 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 83076.0,
@@ -117061,17 +116973,6 @@
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -117181,17 +117082,6 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -117239,28 +117129,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -117326,6 +117194,17 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -117533,7 +117412,7 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -117544,7 +117423,18 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -118424,6 +118314,17 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 83076.0,
@@ -118436,17 +118337,6 @@
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -118556,17 +118446,6 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 150943.3962,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -118614,28 +118493,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -118702,6 +118559,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 150943.3962,
       "headcount": 0.0
     },
     {
@@ -118908,7 +118776,7 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -118919,7 +118787,18 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -119799,6 +119678,17 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "amount": 5503.144654,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "amount": 83076.0,
@@ -119811,17 +119701,6 @@
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
       "cost_lv2": "API (인터페이스 관련)",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -119931,17 +119810,6 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "amount": 44811.32075,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "amount": 0.0,
@@ -119989,28 +119857,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "amount": 5503.144654,
       "headcount": 0.0
     },
     {
@@ -120077,6 +119923,17 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "amount": 44811.32075,
       "headcount": 0.0
     },
     {
@@ -120283,7 +120140,7 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "amount": 12578.61635,
       "headcount": 0.0
@@ -120294,7 +120151,18 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "amount": 0.0,
       "headcount": 0.0
@@ -124878,14 +124746,6 @@
       "biz_unit": "공통",
       "year": 2024,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "annual_amount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2024,
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "annual_amount": 29245.0
@@ -124953,6 +124813,14 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "annual_amount": 48300.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2024,
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "annual_amount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -125102,7 +124970,7 @@
       "biz_unit": "공통",
       "year": 2024,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "annual_amount": 0.0
     },
@@ -125110,7 +124978,7 @@
       "biz_unit": "공통",
       "year": 2024,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "annual_amount": 0.0
     },
@@ -125758,14 +125626,6 @@
       "biz_unit": "공통",
       "year": 2025,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "annual_amount": 112421.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2025,
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "annual_amount": 698260.0
@@ -125833,6 +125693,14 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "annual_amount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2025,
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "annual_amount": 485864.16
     },
     {
       "biz_unit": "공통",
@@ -125982,7 +125850,7 @@
       "biz_unit": "공통",
       "year": 2025,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "annual_amount": 310000.0
     },
@@ -125990,7 +125858,7 @@
       "biz_unit": "공통",
       "year": 2025,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "annual_amount": 282344.0
     },
@@ -126574,6 +126442,14 @@
       "biz_unit": "공통",
       "year": 2026,
       "cost_lv1": "IT수수료",
+      "cost_lv2": "(신규)유지보수",
+      "cost_lv3": "",
+      "annual_amount": 60849.0566
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "cost_lv1": "IT수수료",
       "cost_lv2": "AI실벽시스템",
       "cost_lv3": "",
       "annual_amount": 1188112.0
@@ -126585,14 +126461,6 @@
       "cost_lv2": "API (인터페이스 관련)",
       "cost_lv3": "",
       "annual_amount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "BD 店铺信息系统",
-      "cost_lv3": "",
-      "annual_amount": 99999.99999
     },
     {
       "biz_unit": "공통",
@@ -126670,14 +126538,6 @@
       "biz_unit": "공통",
       "year": 2026,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "LEGAL 가품 & 모방매장 관련 제보 보상금",
-      "cost_lv3": "",
-      "annual_amount": 330188.6792
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "cost_lv1": "IT수수료",
       "cost_lv2": "OA （AI, 페이퍼리스 등 기능 업그레이드)",
       "cost_lv3": "",
       "annual_amount": 346509.434
@@ -126704,7 +126564,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "RMS 반품 개발 시스템",
       "cost_lv3": "",
-      "annual_amount": 0.0
+      "annual_amount": 99999.99999
     },
     {
       "biz_unit": "공통",
@@ -126713,22 +126573,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "annual_amount": 396226.4151
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "搬仓相关",
-      "cost_lv3": "",
-      "annual_amount": 47169.81132
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "新增维保",
-      "cost_lv3": "",
-      "annual_amount": 60849.0566
     },
     {
       "biz_unit": "공통",
@@ -126777,6 +126621,14 @@
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "인터페이스",
       "annual_amount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "데이터 수집 허가비용",
+      "cost_lv3": "",
+      "annual_amount": 330188.6792
     },
     {
       "biz_unit": "공통",
@@ -126926,7 +126778,7 @@
       "biz_unit": "공통",
       "year": 2026,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "정보보안 감사, 등록(비안) 준수, 원격 백업(클라우드 보안 점검) 등",
+      "cost_lv2": "정보보안 감사, 원격 백업서비스",
       "cost_lv3": "",
       "annual_amount": 191823.8994
     },
@@ -126934,7 +126786,15 @@
       "biz_unit": "공통",
       "year": 2026,
       "cost_lv1": "IT수수료",
-      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화 ('混合云架构优化)",
+      "cost_lv2": "창고이전 후 인터페이스",
+      "cost_lv3": "",
+      "annual_amount": 47169.81132
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "cost_lv1": "IT수수료",
+      "cost_lv2": "하이브리드 클라우드 아키텍처 최적화",
       "cost_lv3": "",
       "annual_amount": 0.0
     },
