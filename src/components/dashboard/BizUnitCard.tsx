@@ -38,20 +38,6 @@ const THEME = {
     buttonColor: "#10b981",
     accentColor: "bg-green-500",
   },
-  DUVETICA: {
-    headerGradient: "from-violet-500 to-purple-600",
-    primaryColor: "text-violet-600",
-    borderColor: "border-violet-500",
-    buttonColor: "#8b5cf6",
-    accentColor: "bg-violet-500",
-  },
-  SUPRA: {
-    headerGradient: "from-amber-500 to-orange-600",
-    primaryColor: "text-amber-600",
-    borderColor: "border-amber-500",
-    buttonColor: "#f59e0b",
-    accentColor: "bg-amber-500",
-  },
   COMMON: {
     headerGradient: "from-gray-700 to-gray-800",
     primaryColor: "text-gray-700",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -16,6 +16,7 @@ import { formatK, formatPercent } from "@/lib/utils";
 import {
   getMonthlyAggregatedByCategory,
   getCategoryDetail,
+  getAnnualData,
   getPreviousYearTotal,
   type BizUnit,
   type Mode,
@@ -28,6 +29,7 @@ interface CategoryDrilldownProps {
   year: number;
   month: number;
   mode: Mode;
+  yearType?: 'actual' | 'plan';
 }
 
 export function CategoryDrilldown({
@@ -35,18 +37,53 @@ export function CategoryDrilldown({
   year,
   month,
   mode,
+  yearType = 'actual',
 }: CategoryDrilldownProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [axisFontSize, setAxisFontSize] = useState(16);
+  useEffect(() => {
+    const update = () => setAxisFontSize(window.innerWidth < 640 ? 12 : window.innerWidth < 1024 ? 16 : 20);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
-  const currentCategories = getMonthlyAggregatedByCategory(
+  const is2026Plan = year === 2026 && yearType === "plan";
+  let currentCategories = getMonthlyAggregatedByCategory(
     bizUnit,
     year,
     month,
-    mode
+    mode,
+    yearType
   );
-  const prevCategories = mode === "monthly"
-    ? getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode)
-    : getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode);
+  if (is2026Plan && currentCategories.length === 0) {
+    const annualRows = getAnnualData(bizUnit, year, "", "", "", yearType);
+    const yyyymm = `${year}12`;
+    const byLv1 = new Map<string, { cost_lv1: string; amount: number; biz_unit: string; year: number; month: number; yyyymm: string; headcount: number; sales: number }>();
+    annualRows.forEach((row) => {
+      const key = row.cost_lv1;
+      if (byLv1.has(key)) {
+        const existing = byLv1.get(key)!;
+        existing.amount += row.annual_amount;
+      } else {
+        byLv1.set(key, {
+          cost_lv1: key,
+          amount: row.annual_amount,
+          biz_unit: row.biz_unit,
+          year,
+          month: 12,
+          yyyymm,
+          headcount: 0,
+          sales: 0,
+        });
+      }
+    });
+    currentCategories = Array.from(byLv1.values());
+  }
+  const prevCategories =
+    mode === "monthly"
+      ? getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode, "actual")
+      : getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode, "actual");
 
   const categoryMap = new Map(
     currentCategories.map((item) => [item.cost_lv1, item])
@@ -101,14 +138,36 @@ export function CategoryDrilldown({
   // 우측 차트 데이터 (중분류/소분류별)
   let level2Data: any[] = [];
   if (selectedCategory) {
-    const details = getCategoryDetail(bizUnit, year, month, selectedCategory, mode);
-    const prevDetails = getCategoryDetail(
-      bizUnit,
-      year - 1,
-      month,
-      selectedCategory,
-      mode
-    );
+    const is2026Plan = year === 2026 && yearType === "plan";
+    let details: CategoryDetail[];
+    let prevDetails: CategoryDetail[];
+    if (is2026Plan) {
+      // 2026년(예산): 상세 내역은 연간 합계 기준, 전년은 2025년 실적 1~12월 합계
+      const annualCurrent = getAnnualData(bizUnit, year, selectedCategory, "", "", yearType);
+      const annualPrev = getAnnualData(bizUnit, year - 1, selectedCategory, "", "", "actual");
+      details = annualCurrent.map(({ annual_amount, ...rest }) => ({
+        ...rest,
+        month: 12,
+        yyyymm: `${rest.year}12`,
+        amount: annual_amount,
+      }));
+      prevDetails = annualPrev.map(({ annual_amount, ...rest }) => ({
+        ...rest,
+        month: 12,
+        yyyymm: `${rest.year}12`,
+        amount: annual_amount,
+      }));
+    } else {
+      details = getCategoryDetail(bizUnit, year, month, selectedCategory, mode, yearType);
+      prevDetails = getCategoryDetail(
+        bizUnit,
+        year - 1,
+        month,
+        selectedCategory,
+        mode,
+        yearType
+      );
+    }
 
     // 디버깅: 데이터 확인
     console.log(`[CategoryDrilldown] Selected: ${selectedCategory}, Details count: ${details.length}`);
@@ -335,7 +394,7 @@ export function CategoryDrilldown({
       {/* 좌측: 대분류 */}
       <Card>
         <CardHeader>
-          <CardTitle style={{ fontSize: "28px" }}>대분류별 비용</CardTitle>
+          <CardTitle className="text-xs sm:text-sm lg:text-lg">대분류별 비용</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={400}>
@@ -353,20 +412,20 @@ export function CategoryDrilldown({
               <XAxis 
                 type="number" 
                 tickFormatter={(value) => formatK(value)}
-                tick={{ fontSize: 20 }}
+                tick={{ fontSize: axisFontSize }}
               />
               <YAxis
                 dataKey="category"
                 type="category"
                 width={100}
-                tick={{ fontSize: 20, textAnchor: "end" }}
+                tick={{ fontSize: axisFontSize, textAnchor: "end" }}
                 onClick={(data) => {
                   setSelectedCategory(data.value);
                 }}
                 style={{ cursor: "pointer" }}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Legend />
+              <Legend wrapperStyle={{ fontSize: axisFontSize }} iconSize={Math.min(14, axisFontSize)} />
               <Bar
                 dataKey="current"
                 name="당년"
@@ -404,7 +463,7 @@ export function CategoryDrilldown({
       {/* 우측: 중분류/소분류 */}
       <Card>
         <CardHeader>
-          <CardTitle style={{ fontSize: "28px" }}>
+          <CardTitle className="text-xs sm:text-sm lg:text-lg">
             {selectedCategory
               ? `${selectedCategory} 상세 내역`
               : "대분류를 선택하세요"}
@@ -419,16 +478,16 @@ export function CategoryDrilldown({
                   <XAxis 
                     type="number" 
                     tickFormatter={(value) => formatK(value)}
-                    tick={{ fontSize: 20 }}
+                    tick={{ fontSize: axisFontSize }}
                   />
                   <YAxis
                     dataKey="label"
                     type="category"
                     width={150}
-                    tick={{ fontSize: 20, textAnchor: "end" }}
+                    tick={{ fontSize: axisFontSize, textAnchor: "end" }}
                   />
                   <Tooltip content={<CustomTooltip />} />
-                  <Legend />
+                  <Legend wrapperStyle={{ fontSize: axisFontSize }} iconSize={Math.min(14, axisFontSize)} />
                   <Bar
                     dataKey="current"
                     name="당년"

@@ -14,17 +14,24 @@ CSV_BASE_PATH = r"D:\dashboard\비용대시보드\비용엑셀"
 OUTPUT_DIR = Path(__file__).parent.parent / "data"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# 분석 대상 사업부 (MLB, KIDS, DISCOVERY, 공통, DUVETICA, SUPRA)
-TARGET_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"]
+# 분석 대상 사업부 (MLB, KIDS, DISCOVERY, 공통)
+TARGET_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통"]
 
 
-def parse_month_column(col: str) -> tuple[int, int] | None:
-    """월 컬럼명(예: '24년1월', '24년10월', ' 25년1월 ', 'Jan-24', '2024-01') → (year, month)로 파싱"""
+def parse_month_column(col: str, year: int = None) -> tuple[int, int] | None:
+    """월 컬럼명(예: '1월', '2월', '24년1월', 'Jan-24', '2024-01') → (year, month)로 파싱"""
     try:
         import re
         col = (col or "").strip()
 
-        # 형식 1: "24년1월", "25년10월" (한글 형식) - 최우선 처리
+        # 형식 0: "1월", "2월", "12월" (연도는 파라미터로 전달받음)
+        match = re.match(r'^(\d{1,2})월$', col)
+        if match and year is not None:
+            month = int(match.group(1))
+            if 1 <= month <= 12:
+                return (year, month)
+
+        # 형식 1: "24년1월", "25년10월" (한글 형식)
         match = re.match(r'(\d{2})년(\d{1,2})월', col)
         if match:
             year_str, month_str = match.groups()
@@ -82,14 +89,15 @@ _annual_data_list: list[pd.DataFrame] = []
 def load_expense_data() -> pd.DataFrame:
     """비용 CSV 파일들을 읽어서 long-format으로 변환"""
     expense_files = [
-        ("2024년비용.csv", 2024),
-        ("2025년비용.csv", 2025),
-        ("2026년비용.csv", 2026),
+        ("2024년비용_actual.csv", 2024, "actual"),
+        ("2025년비용_actual.csv", 2025, "actual"),
+        ("2026년비용_plan.csv", 2026, "plan"),
+        ("2026년비용_actual.csv", 2026, "actual"),
     ]
 
     all_data: list[pd.DataFrame] = []
 
-    for filename, default_year in expense_files:
+    for filename, default_year, year_type in expense_files:
         filepath = os.path.join(CSV_BASE_PATH, filename)
         if not os.path.exists(filepath):
             print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
@@ -171,6 +179,7 @@ def load_expense_data() -> pd.DataFrame:
                     df_annual = df[id_cols + [col]].copy()
                     df_annual = df_annual.rename(columns={col: "annual_amount"})
                     df_annual["year"] = year_match
+                    df_annual["year_type"] = year_type
                     annual_data.append(df_annual)
             
             if annual_data:
@@ -207,6 +216,9 @@ def load_expense_data() -> pd.DataFrame:
             df_melted["year"].astype(str)
             + df_melted["month"].astype(str).str.zfill(2)
         )
+        
+        # year_type 필드 추가
+        df_melted["year_type"] = year_type
 
         # 컬럼명 변경 (실제 컬럼명에 맞게)
         rename_map = {}
@@ -342,6 +354,7 @@ def load_expense_data() -> pd.DataFrame:
                 "cost_lv2",
                 "cost_lv3",
                 "amount",
+                "year_type",
             ]
         ]
 
@@ -426,196 +439,244 @@ def get_annual_data() -> pd.DataFrame | None:
 
 
 def load_headcount_data() -> tuple[pd.DataFrame, pd.DataFrame]:
-    """인원수 CSV를 읽어서 biz_unit & yyyymm 기준으로 집계
+    """인원수 CSV 파일들을 연도별로 읽어서 biz_unit & yyyymm 기준으로 집계
     반환값: (사업부 기준 인원수, 사업부(소분류) 기준 인원수)
     """
-    filepath = os.path.join(CSV_BASE_PATH, "인원수.csv")
-    if not os.path.exists(filepath):
-        print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
-        empty_df = pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
-        return empty_df, empty_df
-
-    df = pd.read_csv(filepath, encoding="utf-8-sig")
-
-    # 사업부 기준으로 집계
-    id_cols = ["사업부"]
-    # "사업부(소분류)" 컬럼 확인
-    has_subcategory = "사업부(소분류)" in df.columns
+    import re
     
-    # "사업부(소분류)" 같은 컬럼 제외 (사업부 기준 집계용)
-    exclude_cols = [col for col in df.columns if "사업부" in col and col != "사업부"]
-    month_cols = [col for col in df.columns if col not in id_cols and col not in exclude_cols]
-
-    df_melted = df.melt(
-        id_vars=id_cols,
-        value_vars=month_cols,
-        var_name="month_col",
-        value_name="headcount",
-    )
-
-    # 연도/월 파싱
-    parsed = df_melted["month_col"].apply(parse_month_column)
-
-    # (year, month) 튜플만 남기기
-    mask = parsed.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
-
-    # 잘못된 값 제거
-    df_melted = df_melted[mask].copy()
+    headcount_files = [
+        ("2024년인원수_actual.csv", 2024, "actual"),
+        ("2025년인원수_actual.csv", 2025, "actual"),
+        ("2026년인원수_plan.csv", 2026, "plan"),
+        ("2026년인원수_actual.csv", 2026, "actual"),
+    ]
     
-    if len(df_melted) == 0:
-        empty_df = pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount"])
-        return empty_df, empty_df
-
-    # year, month 컬럼 분리
-    parsed_filtered = parsed[mask].tolist()
-    df_melted["year"] = [p[0] for p in parsed_filtered]
-    df_melted["month"] = [p[1] for p in parsed_filtered]
-
-    df_melted["yyyymm"] = (
-        df_melted["year"].astype(str)
-        + df_melted["month"].astype(str).str.zfill(2)
-    )
-
-    # headcount를 먼저 숫자로 변환 (천 단위 구분자 처리)
-    if df_melted["headcount"].dtype == "object":
-        df_melted["headcount"] = df_melted["headcount"].astype(str)
-        df_melted["headcount"] = df_melted["headcount"].replace(["nan", "NaN", "None", "", " ", "-"], "0")
-        df_melted["headcount"] = df_melted["headcount"].str.replace(",", "", regex=False).str.replace(" ", "", regex=False).str.strip()
+    all_headcount = []
+    all_headcount_sub = []
     
-    df_melted["headcount"] = pd.to_numeric(
-        df_melted["headcount"], errors="coerce"
-    ).fillna(0)
-
-    # 사업부 기준으로 집계 (숫자로 변환한 후 sum)
-    headcount_df = df_melted.groupby(
-        ["사업부", "yyyymm"], as_index=False
-    )["headcount"].sum()
-    headcount_df = headcount_df.rename(columns={"사업부": "biz_unit"})
-    
-    # 사업부(소분류) 기준 인원수 처리
-    headcount_subcategory_df = pd.DataFrame(columns=["biz_unit", "subcategory", "yyyymm", "headcount"])
-    if has_subcategory:
-        # 사업부(소분류) 기준으로 집계
-        id_cols_sub = ["사업부", "사업부(소분류)"]
-        exclude_cols_sub = [col for col in df.columns if "사업부" in col and col not in id_cols_sub]
-        month_cols_sub = [col for col in df.columns if col not in id_cols_sub and col not in exclude_cols_sub]
+    for filename, year, year_type in headcount_files:
+        filepath = os.path.join(CSV_BASE_PATH, filename)
+        if not os.path.exists(filepath):
+            print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
+            continue
         
-        df_melted_sub = df.melt(
-            id_vars=id_cols_sub,
-            value_vars=month_cols_sub,
+        df = pd.read_csv(filepath, encoding="utf-8-sig")
+        
+        # 사업부 기준으로 집계
+        id_cols = ["사업부"]
+        has_subcategory = "사업부(소분류)" in df.columns
+        
+        # 월 컬럼 찾기: "1월", "2월", ... "12월"
+        exclude_cols = [col for col in df.columns if "사업부" in col and col != "사업부"]
+        month_cols = [col for col in df.columns 
+                      if col not in id_cols 
+                      and col not in exclude_cols
+                      and re.match(r'^\d{1,2}월$', col.strip())]
+        
+        print(f"   - {filename} 월 컬럼: {month_cols[:5]}...")
+        
+        df_melted = df.melt(
+            id_vars=id_cols,
+            value_vars=month_cols,
             var_name="month_col",
             value_name="headcount",
         )
         
-        # 연도/월 파싱
-        parsed_sub = df_melted_sub["month_col"].apply(parse_month_column)
-        mask_sub = parsed_sub.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
-        df_melted_sub = df_melted_sub[mask_sub].copy()
+        # 연도/월 파싱 (파일명에서 추출한 year 전달)
+        parsed = df_melted["month_col"].apply(lambda col: parse_month_column(col, year))
+        mask = parsed.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
+        df_melted = df_melted[mask].copy()
         
-        if len(df_melted_sub) > 0:
-            parsed_filtered_sub = parsed_sub[mask_sub].tolist()
-            df_melted_sub["year"] = [p[0] for p in parsed_filtered_sub]
-            df_melted_sub["month"] = [p[1] for p in parsed_filtered_sub]
-            df_melted_sub["yyyymm"] = (
-                df_melted_sub["year"].astype(str)
-                + df_melted_sub["month"].astype(str).str.zfill(2)
+        if len(df_melted) == 0:
+            print(f"경고: {filename}에서 유효한 월 컬럼을 찾을 수 없습니다.")
+            continue
+        
+        # year, month 컬럼 분리
+        parsed_filtered = parsed[mask].tolist()
+        df_melted["year"] = [p[0] for p in parsed_filtered]
+        df_melted["month"] = [p[1] for p in parsed_filtered]
+        df_melted["yyyymm"] = (
+            df_melted["year"].astype(str)
+            + df_melted["month"].astype(str).str.zfill(2)
+        )
+        df_melted["year_type"] = year_type
+        
+        # headcount 숫자 변환
+        if df_melted["headcount"].dtype == "object":
+            df_melted["headcount"] = df_melted["headcount"].astype(str)
+            df_melted["headcount"] = df_melted["headcount"].replace(["nan", "NaN", "None", "", " ", "-"], "0")
+            df_melted["headcount"] = df_melted["headcount"].str.replace(",", "", regex=False).str.replace(" ", "", regex=False).str.strip()
+        
+        df_melted["headcount"] = pd.to_numeric(
+            df_melted["headcount"], errors="coerce"
+        ).fillna(0)
+        
+        # 사업부 기준 집계
+        headcount_df = df_melted.groupby(
+            ["사업부", "yyyymm", "year_type"], as_index=False
+        )["headcount"].sum()
+        headcount_df = headcount_df.rename(columns={"사업부": "biz_unit"})
+        all_headcount.append(headcount_df)
+        
+        print(f"   - {filename} 처리 완료: {len(headcount_df)} 행")
+        
+        # 사업부(소분류) 기준 인원수 처리
+        if has_subcategory:
+            id_cols_sub = ["사업부", "사업부(소분류)"]
+            exclude_cols_sub = [col for col in df.columns if "사업부" in col and col not in id_cols_sub]
+            month_cols_sub = [col for col in df.columns 
+                            if col not in id_cols_sub 
+                            and col not in exclude_cols_sub
+                            and re.match(r'^\d{1,2}월$', col.strip())]
+            
+            df_melted_sub = df.melt(
+                id_vars=id_cols_sub,
+                value_vars=month_cols_sub,
+                var_name="month_col",
+                value_name="headcount",
             )
             
-            # headcount 숫자 변환
-            if df_melted_sub["headcount"].dtype == "object":
-                df_melted_sub["headcount"] = df_melted_sub["headcount"].astype(str)
-                df_melted_sub["headcount"] = df_melted_sub["headcount"].replace(["nan", "NaN", "None", "", " ", "-"], "0")
-                df_melted_sub["headcount"] = df_melted_sub["headcount"].str.replace(",", "", regex=False).str.replace(" ", "", regex=False).str.strip()
+            # 연도/월 파싱
+            parsed_sub = df_melted_sub["month_col"].apply(lambda col: parse_month_column(col, year))
+            mask_sub = parsed_sub.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
+            df_melted_sub = df_melted_sub[mask_sub].copy()
             
-            df_melted_sub["headcount"] = pd.to_numeric(
-                df_melted_sub["headcount"], errors="coerce"
-            ).fillna(0)
-            
-            # 사업부 컬럼이 비어있으면 "사업부(소분류)" 값을 사용
-            df_melted_sub["사업부"] = df_melted_sub["사업부"].fillna(df_melted_sub["사업부(소분류)"])
-            df_melted_sub["사업부"] = df_melted_sub.apply(
-                lambda row: row["사업부(소분류)"] if pd.isna(row["사업부"]) or str(row["사업부"]).strip() == "" else row["사업부"],
-                axis=1
-            )
-            
-            # 사업부(소분류) 기준으로 집계
-            headcount_subcategory_df = df_melted_sub.groupby(
-                ["사업부", "사업부(소분류)", "yyyymm"], as_index=False
-            )["headcount"].sum()
-            headcount_subcategory_df = headcount_subcategory_df.rename(columns={"사업부": "biz_unit", "사업부(소분류)": "subcategory"})
-            print(f"   - 사업부(소분류) 기준 인원수: {len(headcount_subcategory_df)} 행")
-            if len(headcount_subcategory_df) > 0:
-                print(f"     샘플: {headcount_subcategory_df.head(5).to_dict('records')}")
+            if len(df_melted_sub) > 0:
+                parsed_filtered_sub = parsed_sub[mask_sub].tolist()
+                df_melted_sub["year"] = [p[0] for p in parsed_filtered_sub]
+                df_melted_sub["month"] = [p[1] for p in parsed_filtered_sub]
+                df_melted_sub["yyyymm"] = (
+                    df_melted_sub["year"].astype(str)
+                    + df_melted_sub["month"].astype(str).str.zfill(2)
+                )
+                df_melted_sub["year_type"] = year_type
+                
+                # headcount 숫자 변환
+                if df_melted_sub["headcount"].dtype == "object":
+                    df_melted_sub["headcount"] = df_melted_sub["headcount"].astype(str)
+                    df_melted_sub["headcount"] = df_melted_sub["headcount"].replace(["nan", "NaN", "None", "", " ", "-"], "0")
+                    df_melted_sub["headcount"] = df_melted_sub["headcount"].str.replace(",", "", regex=False).str.replace(" ", "", regex=False).str.strip()
+                
+                df_melted_sub["headcount"] = pd.to_numeric(
+                    df_melted_sub["headcount"], errors="coerce"
+                ).fillna(0)
+                
+                # 사업부 컬럼이 비어있으면 "사업부(소분류)" 값을 사용
+                df_melted_sub["사업부"] = df_melted_sub["사업부"].fillna(df_melted_sub["사업부(소분류)"])
+                df_melted_sub["사업부"] = df_melted_sub.apply(
+                    lambda row: row["사업부(소분류)"] if pd.isna(row["사업부"]) or str(row["사업부"]).strip() == "" else row["사업부"],
+                    axis=1
+                )
+                
+                # 사업부(소분류) 기준으로 집계
+                headcount_subcategory_df = df_melted_sub.groupby(
+                    ["사업부", "사업부(소분류)", "yyyymm", "year_type"], as_index=False
+                )["headcount"].sum()
+                headcount_subcategory_df = headcount_subcategory_df.rename(columns={"사업부": "biz_unit", "사업부(소분류)": "subcategory"})
+                all_headcount_sub.append(headcount_subcategory_df)
+                print(f"   - {filename} 사업부(소분류) 기준: {len(headcount_subcategory_df)} 행")
+    
+    # 모든 연도 데이터 결합
+    if all_headcount:
+        final_headcount_df = pd.concat(all_headcount, ignore_index=True)
+    else:
+        final_headcount_df = pd.DataFrame(columns=["biz_unit", "yyyymm", "headcount", "year_type"])
+    
+    if all_headcount_sub:
+        final_headcount_sub_df = pd.concat(all_headcount_sub, ignore_index=True)
+    else:
+        final_headcount_sub_df = pd.DataFrame(columns=["biz_unit", "subcategory", "yyyymm", "headcount", "year_type"])
 
-    return headcount_df[["biz_unit", "yyyymm", "headcount"]], headcount_subcategory_df
+    return final_headcount_df[["biz_unit", "yyyymm", "headcount", "year_type"]], final_headcount_sub_df
 
 
 def load_sales_data() -> pd.DataFrame:
-    """판매매출 CSV를 읽어서 biz_unit & yyyymm 기준으로 변환"""
-    filepath = os.path.join(CSV_BASE_PATH, "판매매출.csv")
-    if not os.path.exists(filepath):
-        print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
-        return pd.DataFrame(columns=["biz_unit", "yyyymm", "sales"])
-
-    df = pd.read_csv(filepath, encoding="utf-8-sig")
+    """판매매출 CSV 파일들을 연도별로 읽어서 biz_unit & yyyymm 기준으로 변환"""
+    import re
     
-    # 컬럼명 공백 제거
-    df.columns = df.columns.str.strip()
+    sales_files = [
+        ("2024년판매매출_actual.csv", 2024, "actual"),
+        ("2025년판매매출_actual.csv", 2025, "actual"),
+        ("2026년판매매출_plan.csv", 2026, "plan"),
+        ("2026년판매매출_actual.csv", 2026, "actual"),
+    ]
     
-    # "합계" 행 제외
-    df = df[df["사업부"] != "합계"]
+    all_sales = []
     
-    # 빈 행 제거
-    df = df.dropna(subset=["사업부"])
-
-    id_cols = ["사업부"]
-    month_cols = [col for col in df.columns if col not in id_cols]
-
-    df_melted = df.melt(
-        id_vars=id_cols,
-        value_vars=month_cols,
-        var_name="month_col",
-        value_name="sales",
-    )
-
-    # 연도/월 파싱
-    parsed = df_melted["month_col"].apply(parse_month_column)
-
-    # (year, month) 튜플만 남기기
-    mask = parsed.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
-
-    # 이상한 값(파싱 실패, 기타 문자열)은 모두 제거
-    df_melted = df_melted[mask].copy()
+    for filename, year, year_type in sales_files:
+        filepath = os.path.join(CSV_BASE_PATH, filename)
+        if not os.path.exists(filepath):
+            print(f"경고: {filepath} 파일을 찾을 수 없습니다.")
+            continue
+        
+        df = pd.read_csv(filepath, encoding="utf-8-sig")
+        
+        # 컬럼명 공백 제거
+        df.columns = df.columns.str.strip()
+        
+        # "합계" 행 제외
+        df = df[df["사업부"] != "합계"]
+        
+        # 빈 행 제거
+        df = df.dropna(subset=["사업부"])
+        
+        # 월 컬럼 찾기: "1월", "2월", ... "12월"
+        id_cols = ["사업부"]
+        month_cols = [col for col in df.columns 
+                      if col not in id_cols
+                      and re.match(r'^\d{1,2}월$', col.strip())]
+        
+        print(f"   - {filename} 월 컬럼: {month_cols[:5]}...")
+        
+        df_melted = df.melt(
+            id_vars=id_cols,
+            value_vars=month_cols,
+            var_name="month_col",
+            value_name="sales",
+        )
+        
+        # 연도/월 파싱 (파일명에서 추출한 year 전달)
+        parsed = df_melted["month_col"].apply(lambda col: parse_month_column(col, year))
+        mask = parsed.apply(lambda x: isinstance(x, tuple) and len(x) == 2)
+        df_melted = df_melted[mask].copy()
+        
+        if len(df_melted) == 0:
+            print(f"경고: {filename}에서 유효한 월 컬럼을 찾을 수 없습니다.")
+            continue
+        
+        # year, month 컬럼 분리
+        parsed_filtered = parsed[mask].tolist()
+        df_melted["year"] = [p[0] for p in parsed_filtered]
+        df_melted["month"] = [p[1] for p in parsed_filtered]
+        df_melted["yyyymm"] = (
+            df_melted["year"].astype(str)
+            + df_melted["month"].astype(str).str.zfill(2)
+        )
+        df_melted["year_type"] = year_type
+        
+        sales_df = df_melted.rename(columns={"사업부": "biz_unit"})
+        
+        # sales 숫자 변환
+        if sales_df["sales"].dtype == "object":
+            sales_df["sales"] = sales_df["sales"].fillna("0")
+            sales_df["sales"] = sales_df["sales"].astype(str)
+            sales_df["sales"] = sales_df["sales"].replace(["nan", "NaN", "None", "", " "], "0")
+            sales_df["sales"] = sales_df["sales"].str.replace(",", "", regex=False)
+            sales_df["sales"] = sales_df["sales"].str.replace(" ", "", regex=False)
+            sales_df["sales"] = sales_df["sales"].str.strip()
+        
+        sales_df["sales"] = pd.to_numeric(
+            sales_df["sales"], errors="coerce"
+        ).fillna(0)
+        
+        all_sales.append(sales_df[["biz_unit", "yyyymm", "sales", "year_type"]])
+        print(f"   - {filename} 처리 완료: {len(sales_df)} 행")
     
-    if len(df_melted) == 0:
-        return pd.DataFrame(columns=["biz_unit", "yyyymm", "sales"])
-
-    # year, month 컬럼 분리
-    parsed_filtered = parsed[mask].tolist()
-    df_melted["year"] = [p[0] for p in parsed_filtered]
-    df_melted["month"] = [p[1] for p in parsed_filtered]
-
-    df_melted["yyyymm"] = (
-        df_melted["year"].astype(str)
-        + df_melted["month"].astype(str).str.zfill(2)
-    )
-
-    sales_df = df_melted.rename(columns={"사업부": "biz_unit"})
-    
-    # sales를 숫자로 변환 (천 단위 구분자 처리)
-    if sales_df["sales"].dtype == "object":
-        sales_df["sales"] = sales_df["sales"].fillna("0")
-        sales_df["sales"] = sales_df["sales"].astype(str)
-        sales_df["sales"] = sales_df["sales"].replace(["nan", "NaN", "None", "", " "], "0")
-        sales_df["sales"] = sales_df["sales"].str.replace(",", "", regex=False)
-        sales_df["sales"] = sales_df["sales"].str.replace(" ", "", regex=False)
-        sales_df["sales"] = sales_df["sales"].str.strip()
-    
-    sales_df["sales"] = pd.to_numeric(
-        sales_df["sales"], errors="coerce"
-    ).fillna(0)
-
-    return sales_df[["biz_unit", "yyyymm", "sales"]]
+    # 모든 연도 데이터 결합
+    if all_sales:
+        return pd.concat(all_sales, ignore_index=True)
+    else:
+        return pd.DataFrame(columns=["biz_unit", "yyyymm", "sales", "year_type"])
 
 
 def merge_all_data(
@@ -634,24 +695,24 @@ def merge_all_data(
         print(f"     expense_df yyyymm 샘플: {expense_df['yyyymm'].head(3).tolist()}")
         print(f"     expense_df biz_unit 샘플: {expense_df['biz_unit'].head(3).tolist()}")
     
-    # expense_df를 기준으로 left join
+    # expense_df를 기준으로 left join (year_type 포함)
     merged = expense_df.merge(
         headcount_df,
-        on=["biz_unit", "yyyymm"],
+        on=["biz_unit", "yyyymm", "year_type"],
         how="left",
     ).merge(
         sales_df,
-        on=["biz_unit", "yyyymm"],
+        on=["biz_unit", "yyyymm", "year_type"],
         how="left",
     )
 
     # 사업부(소분류) 기준 인원수 병합 (cost_lv3와 매칭)
     if len(headcount_subcategory_df) > 0 and "cost_lv3" in merged.columns:
         # cost_lv3가 있는 경우에만 병합
-        # 1단계: biz_unit과 cost_lv3로 매칭 시도
+        # 1단계: biz_unit과 cost_lv3로 매칭 시도 (year_type 포함)
         merged = merged.merge(
             headcount_subcategory_df.rename(columns={"subcategory": "cost_lv3"}),
-            on=["biz_unit", "cost_lv3", "yyyymm"],
+            on=["biz_unit", "cost_lv3", "yyyymm", "year_type"],
             how="left",
             suffixes=("", "_subcategory"),
         )
@@ -663,7 +724,7 @@ def merge_all_data(
             headcount_by_subcategory = headcount_subcategory_df.rename(columns={"subcategory": "cost_lv3"}).drop(columns=["biz_unit"])
             merged_unmatched = merged[unmatched_mask].merge(
                 headcount_by_subcategory,
-                on=["cost_lv3", "yyyymm"],
+                on=["cost_lv3", "yyyymm", "year_type"],
                 how="left",
                 suffixes=("", "_subcategory_fallback"),
             )
@@ -765,7 +826,7 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
 
     # 기본 집계: biz_unit, year, month, cost_lv1 기준
     monthly_agg = target_df.groupby(
-        ["biz_unit", "year", "month", "yyyymm", "cost_lv1"],
+        ["biz_unit", "year", "month", "yyyymm", "cost_lv1", "year_type"],
         as_index=False,
     ).agg(
         {
@@ -788,7 +849,7 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
 
     # 월별 총합 (cost_lv1 무시)
     monthly_total = target_df.groupby(
-        ["biz_unit", "year", "month", "yyyymm"],
+        ["biz_unit", "year", "month", "yyyymm", "year_type"],
         as_index=False,
     ).agg(
         {
@@ -815,7 +876,8 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
             ]
             for _, row in sub_headcount.iterrows():
                 mask = (monthly_total["biz_unit"] == dashboard_biz) & \
-                       (monthly_total["yyyymm"] == row["yyyymm"])
+                       (monthly_total["yyyymm"] == row["yyyymm"]) & \
+                       (monthly_total["year_type"] == row["year_type"])
                 if mask.any():
                     monthly_total.loc[mask, "headcount"] = row["headcount"]
         
@@ -860,6 +922,7 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
             "cost_lv1",
             "cost_lv2",
             "cost_lv3",
+            "year_type",
         ],
         as_index=False,
     ).agg({
@@ -882,7 +945,7 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
         # 연간 데이터를 category_detail과 같은 구조로 변환
         # biz_unit, year, cost_lv1, cost_lv2, cost_lv3 기준으로 그룹화
         annual_grouped = annual_df.groupby(
-            ["biz_unit", "year", "cost_lv1", "cost_lv2", "cost_lv3"],
+            ["biz_unit", "year", "cost_lv1", "cost_lv2", "cost_lv3", "year_type"],
             as_index=False,
         ).agg({"annual_amount": "sum"})
         
@@ -905,6 +968,14 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
             print(f"     ⚠️ 모든 amount가 0입니다!")
             print(f"     첫 3개 레코드: {monthly_agg_records[:3]}")
     
+    # year_types 매핑 생성
+    year_types_map = {}
+    if "year_type" in target_df.columns:
+        for year in target_df["year"].unique():
+            year_data = target_df[target_df["year"] == year]
+            types = sorted(year_data["year_type"].unique().tolist())
+            year_types_map[str(int(year))] = types
+    
     result: Dict[str, Any] = {
         "monthly_aggregated": monthly_agg_records,
         "monthly_total": monthly_total_records,
@@ -914,6 +985,7 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
             "target_biz_units": TARGET_BIZ_UNITS,
             "years": sorted(target_df["year"].unique().tolist()),
             "months": sorted(target_df["month"].unique().tolist()),
+            "year_types": year_types_map,  # year_types 추가
         },
     }
 

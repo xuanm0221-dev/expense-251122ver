@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -27,14 +28,23 @@ interface MonthlyStackedChartProps {
   bizUnit: BizUnit;
   year: number;
   mode: Mode;
+  yearType?: 'actual' | 'plan';
 }
 
 export function MonthlyStackedChart({
   bizUnit,
   year,
   mode,
+  yearType = 'actual',
 }: MonthlyStackedChartProps) {
-  const data = getMonthlyStackedData(bizUnit, year, mode);
+  const [axisFontSize, setAxisFontSize] = useState(16);
+  useEffect(() => {
+    const update = () => setAxisFontSize(window.innerWidth < 640 ? 12 : window.innerWidth < 1024 ? 16 : 20);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  const data = getMonthlyStackedData(bizUnit, year, mode, yearType);
 
   // 모든 대분류 수집
   const allCategories = new Set<string>();
@@ -117,7 +127,7 @@ export function MonthlyStackedChart({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="font-bold" style={{ fontSize: "28px" }}>월별 비용 추이 및 YOY 비교</CardTitle>
+        <CardTitle className="font-bold text-xs sm:text-sm lg:text-lg">월별 비용 추이 및 YOY 비교</CardTitle>
         <p className="text-sm text-gray-500 mt-1">
           카테고리별 비용 구성 및 전년 대비 증감률
         </p>
@@ -131,12 +141,12 @@ export function MonthlyStackedChart({
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis 
               dataKey="month" 
-              tick={{ fill: "#6b7280", fontSize: 20 }}
+              tick={{ fill: "#6b7280", fontSize: axisFontSize }}
               axisLine={{ stroke: "#e5e7eb" }}
             />
             <YAxis
               yAxisId="left"
-              tick={{ fill: "#6b7280", fontSize: 20 }}
+              tick={{ fill: "#6b7280", fontSize: axisFontSize }}
               axisLine={{ stroke: "#e5e7eb" }}
               tickFormatter={(value) => formatK(value)}
               width={80}
@@ -144,7 +154,7 @@ export function MonthlyStackedChart({
             <YAxis
               yAxisId="right"
               orientation="right"
-              tick={{ fill: "#6b7280", fontSize: 20 }}
+              tick={{ fill: "#6b7280", fontSize: axisFontSize }}
               axisLine={{ stroke: "#e5e7eb" }}
               domain={[0, 'dataMax + 10']}
               tickFormatter={(value) => `${Math.round(value)}%`}
@@ -152,7 +162,8 @@ export function MonthlyStackedChart({
             <Tooltip content={<CustomTooltip />} />
             <Legend 
               iconType="circle"
-              wrapperStyle={{ paddingTop: "20px" }}
+              iconSize={Math.min(14, axisFontSize)}
+              wrapperStyle={{ paddingTop: "20px", fontSize: axisFontSize }}
             />
             {categories.map((cat) => (
               <Bar

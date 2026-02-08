@@ -15,6 +15,7 @@ import {
   getCategoryDetail,
   calculateCostRatio,
   getAnnualHeadcountSum,
+  getAnnualData,
   type BizUnit,
   type Mode,
 } from "@/lib/expenseData";
@@ -30,6 +31,7 @@ interface BrandCardProps {
   brandInitial: string;
   brandName: string;
   icon: LucideIcon;
+  yearType?: 'actual' | 'plan';
 }
 
 /** 영업비 상세보기 표시 순서 */
@@ -99,31 +101,62 @@ export function BrandCard({
   brandInitial,
   brandName,
   icon: Icon,
+  yearType = 'actual',
 }: BrandCardProps) {
-  const current = getMonthlyTotal(bizUnit, year, month, mode);
-  const previous = getPreviousYearTotal(bizUnit, year, month, mode);
+  const isPlanYear = year === 2026 && yearType === 'plan';
+  
+  // 2026년(예산): 연간 데이터 사용
+  const annualData = isPlanYear ? getAnnualData(bizUnit, year, "", "", "", yearType) : [];
+  const annualSum = annualData.reduce((s, i) => s + i.annual_amount, 0);
+  
+  // 2026년(예산): 12월 기말 인원수 및 연간 매출 합계 계산
+  const annualHeadcount = isPlanYear 
+    ? (getMonthlyTotal(bizUnit, year, 12, "monthly", yearType)?.headcount || 0)
+    : 0;
+  const annualSales = isPlanYear ? (() => {
+    let sum = 0;
+    for (let m = 1; m <= 12; m++) {
+      const monthData = getMonthlyTotal(bizUnit, year, m, "monthly", yearType);
+      sum += monthData?.sales || 0;
+    }
+    return sum;
+  })() : 0;
+  
+  const current = isPlanYear 
+    ? { 
+        biz_unit: bizUnit,
+        year,
+        month: 12,
+        yyyymm: `${year}12`,
+        amount: annualSum,
+        headcount: annualHeadcount,
+        sales: annualSales,
+      }
+    : getMonthlyTotal(bizUnit, year, month, mode, yearType);
+  
+  // 전년도는 2025년 12월 YTD (2026 예산의 경우)
+  const previous = isPlanYear
+    ? getMonthlyTotal(bizUnit, 2025, 12, "ytd", 'actual')
+    : getPreviousYearTotal(bizUnit, year, month, mode, yearType);
 
   const isCommon = bizUnit === "공통";
   const isCorporate = bizUnit === "법인";
 
   // 공통 카드: 전체 법인 매출 기준 YOY 및 매출대비%용
-  const corporateTotal = isCommon ? getMonthlyTotal("법인", year, month, mode) : null;
-  const prevCorporateTotal = isCommon ? getPreviousYearTotal("법인", year, month, mode) : null;
+  const corporateTotal = isCommon ? getMonthlyTotal("법인", year, month, mode, yearType) : null;
+  const prevCorporateTotal = isCommon ? getPreviousYearTotal("법인", year, month, mode, yearType) : null;
 
   // 대분류별 데이터
-  const categoryData = getMonthlyAggregatedByCategory(bizUnit, year, month, mode);
+  const categoryData = getMonthlyAggregatedByCategory(bizUnit, year, month, mode, yearType);
   const categoryMap = new Map(categoryData.map((item) => [item.cost_lv1, item]));
 
   // 총비용
   const totalCost = categoryData.reduce((sum, item) => sum + item.amount, 0);
 
-  // 전년도
-  const prevCategoryData = getMonthlyAggregatedByCategory(
-    bizUnit,
-    year - 1,
-    month,
-    mode
-  );
+  // 전년도 (2026 예산이면 2025년 12월 YTD)
+  const prevCategoryData = isPlanYear
+    ? getMonthlyAggregatedByCategory(bizUnit, 2025, 12, "ytd", 'actual')
+    : getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode, yearType);
   const prevCategoryMap = new Map(
     prevCategoryData.map((item) => [item.cost_lv1, item])
   );
@@ -157,7 +190,10 @@ export function BrandCard({
   // const prevCostRatio = ...
 
   const headcount = current?.headcount ?? 0;
-  const prevHeadcount = previous?.headcount ?? 0;
+  // 2026년(예산)일 때는 전년도 인원수를 2025년 12월로 직접 가져옴
+  const prevHeadcount = isPlanYear
+    ? (getMonthlyTotal(bizUnit, 2025, 12, "monthly", 'actual')?.headcount ?? 0)
+    : (previous?.headcount ?? 0);
   const headcountDiff = headcount - prevHeadcount;
   const headcountChangeStr =
     headcount > 0 || prevHeadcount > 0
@@ -169,26 +205,31 @@ export function BrandCard({
       : null;
 
   // 인건비(기본급만), 복리후생비(5대보험+공적금만) 금액 추출 (인당 비용 계산용)
-  // 인건비는 대분류 전체가 아닌 중분류 "기본급"만 사용 (성과급, 잡급 제외)
-  const laborDetails = getCategoryDetail(bizUnit, year, month, "인건비", mode);
+  // 인건비는 중분류 "기본급"만 사용 (성과급, 잡급 제외)
+  const laborDetails = getCategoryDetail(bizUnit, year, month, "인건비", mode, yearType);
   const basicSalary = laborDetails
     .filter((item) => item.cost_lv2 === "기본급")
     .reduce((sum, item) => sum + (item.amount ?? 0), 0);
   
-  // 전년도 기본급
-  const prevLaborDetails = getCategoryDetail(bizUnit, year - 1, month, "인건비", mode);
+  // 전년도 인건비 (2026년 예산이면 2025년 12월 YTD actual)
+  const prevYear = isPlanYear ? 2025 : year - 1;
+  const prevMonth = isPlanYear ? 12 : month;
+  const prevMode = isPlanYear ? "ytd" : mode;
+  const prevYearType = isPlanYear ? 'actual' : yearType;
+  
+  const prevLaborDetails = getCategoryDetail(bizUnit, prevYear, prevMonth, "인건비", prevMode, prevYearType);
   const prevBasicSalary = prevLaborDetails
     .filter((item) => item.cost_lv2 === "기본급")
     .reduce((sum, item) => sum + (item.amount ?? 0), 0);
   
   // 복리후생비는 중분류 "5대보험" + "공적금"만 사용 (인당 비용 계산용)
-  const welfareDetails = getCategoryDetail(bizUnit, year, month, "복리후생비", mode);
+  const welfareDetails = getCategoryDetail(bizUnit, year, month, "복리후생비", mode, yearType);
   const welfare5InsuranceAndFund = welfareDetails
     .filter((item) => item.cost_lv2 === "5대보험" || item.cost_lv2 === "공적금")
     .reduce((sum, item) => sum + (item.amount ?? 0), 0);
   
   // 전년도 5대보험 + 공적금
-  const prevWelfareDetails = getCategoryDetail(bizUnit, year - 1, month, "복리후생비", mode);
+  const prevWelfareDetails = getCategoryDetail(bizUnit, prevYear, prevMonth, "복리후생비", prevMode, prevYearType);
   const prevWelfare5InsuranceAndFund = prevWelfareDetails
     .filter((item) => item.cost_lv2 === "5대보험" || item.cost_lv2 === "공적금")
     .reduce((sum, item) => sum + (item.amount ?? 0), 0);
@@ -198,10 +239,14 @@ export function BrandCard({
 
   // 인당 비용 계산
   // YTD(연간): 합계 / 연간 인원수 합계 | 당월: 당월 비용 / 당월 인원수
-  const annualHeadcountSum = mode === "ytd" ? getAnnualHeadcountSum(bizUnit, year) : 0;
-  const prevAnnualHeadcountSum = mode === "ytd" ? getAnnualHeadcountSum(bizUnit, year - 1) : 0;
-  const denom = mode === "ytd" ? annualHeadcountSum : headcount;
-  const prevDenom = mode === "ytd" ? prevAnnualHeadcountSum : prevHeadcount;
+  const annualHeadcountSum = mode === "ytd" || isPlanYear 
+    ? getAnnualHeadcountSum(bizUnit, year, yearType) 
+    : 0;
+  const prevAnnualHeadcountSum = mode === "ytd" || isPlanYear 
+    ? getAnnualHeadcountSum(bizUnit, prevYear, prevYearType) 
+    : 0;
+  const denom = mode === "ytd" || isPlanYear ? annualHeadcountSum : headcount;
+  const prevDenom = mode === "ytd" || isPlanYear ? prevAnnualHeadcountSum : prevHeadcount;
   const perPersonLaborCost = denom > 0 ? laborCost / denom : null;
   const perPersonWelfareCost = denom > 0 ? welfareCost / denom : null;
   const prevPerPersonLaborCost = prevDenom > 0 ? prevBasicSalary / prevDenom : null;

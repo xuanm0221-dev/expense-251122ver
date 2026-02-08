@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { formatK, formatPercent, formatPercentPoint } from "@/lib/utils";
+import { formatK, formatM, formatPercent, formatPercentPoint } from "@/lib/utils";
 
 interface KpiCardProps {
   title: string;
@@ -27,7 +27,9 @@ export function KpiCard({
   const displayValue =
     typeof value === "number" 
       ? (unit === "K" 
-          ? formatK(value, title === "인당 비용" ? 1 : 0) 
+          ? formatK(value, title === "인당 비용" ? 1 : 0)
+          : unit === "M"
+          ? formatM(value, 0)
           : title.includes("비용률")
             ? formatPercent(value, 1)
             : (title === "공통비용 YOY" || title === "법인비용 YOY")
@@ -46,22 +48,22 @@ export function KpiCard({
       {/* 왼쪽 네이비 세로선 */}
       <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: navyColor }}></div>
       
-      <CardContent className="p-4 pl-5">
+      <CardContent className="p-3 pl-4 sm:p-4 sm:pl-5">
         {/* 제목 */}
-        <div className="text-sm font-medium mb-3" style={{ color: navyColor }}>{title}</div>
+        <div className="text-xs sm:text-sm font-medium mb-2 sm:mb-3" style={{ color: navyColor }}>{title}</div>
         
         {/* 주요 숫자와 YOY 버블을 나란히 배치 */}
-        <div className="flex items-start justify-between gap-3 mb-2">
+        <div className="flex items-start justify-between gap-2 sm:gap-3 mb-1.5 sm:mb-2">
           {/* 주요 숫자 - 큰 글씨, 네이비 */}
-          <div className="font-bold" style={{ color: navyColor, fontSize: "30px" }}>
+          <div className="font-bold text-xs sm:text-sm lg:text-lg" style={{ color: navyColor }}>
             {displayValue}
           </div>
 
           {/* YOY 타원형 버블 - 우측 정렬 */}
           {yoy !== null && yoy !== undefined && (
-            <div className="flex flex-col items-end pt-1">
+            <div className="flex flex-col items-end pt-0.5 sm:pt-1">
               <span
-                className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
+                className={`inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold ${
                   (isPercentagePoint && yoy > 0) || (!isPercentagePoint && yoy >= 100)
                     ? "bg-red-100 text-red-600"
                     : "bg-blue-100 text-blue-600"
@@ -74,15 +76,17 @@ export function KpiCard({
         </div>
 
         {/* 전년도 값과 YOY 라벨을 나란히 배치 */}
-        <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start justify-between gap-2 sm:gap-3">
           {/* 전년도 값 - 주요 숫자 아래 */}
           {previousValue !== null && previousValue !== undefined && (
-            <div className="text-xs text-gray-500">
+            <div className="text-[10px] sm:text-xs text-gray-500">
               전년 {typeof previousValue === "number" 
                 ? (title.includes("비용률") 
                     ? formatPercent(previousValue, 1)
                     : unit === "K" 
-                      ? formatK(previousValue, title === "인당 비용" ? 1 : 0) 
+                      ? formatK(previousValue, title === "인당 비용" ? 1 : 0)
+                      : unit === "M"
+                      ? formatM(previousValue, 0)
                       : previousValue.toLocaleString("ko-KR"))
                 : previousValue}
             </div>
@@ -90,7 +94,7 @@ export function KpiCard({
 
           {/* YOY 라벨 - 우측 정렬 */}
           {yoy !== null && yoy !== undefined && (
-            <div className="text-xs text-gray-500 pt-1 text-right">
+            <div className="text-[10px] sm:text-xs text-gray-500 pt-0.5 sm:pt-1 text-right">
               {yoyLabel}
             </div>
           )}
@@ -98,7 +102,7 @@ export function KpiCard({
 
         {/* 설명 텍스트 */}
         {description && (
-          <div className="text-xs text-gray-500 mt-2">{description}</div>
+          <div className="text-[10px] sm:text-xs text-gray-500 mt-1.5 sm:mt-2">{description}</div>
         )}
       </CardContent>
     </Card>

@@ -6,9 +6,10 @@ interface DialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   children: React.ReactNode;
+  contentClassName?: string;
 }
 
-const Dialog = ({ open, onOpenChange, children }: DialogProps) => {
+const Dialog = ({ open, onOpenChange, children, contentClassName }: DialogProps) => {
   if (!open) return null;
 
   return (
@@ -19,7 +20,7 @@ const Dialog = ({ open, onOpenChange, children }: DialogProps) => {
         onClick={() => onOpenChange(false)}
       />
       {/* Dialog Content */}
-      <div className="relative z-50 bg-white rounded-lg shadow-lg max-w-md w-full mx-4">
+      <div className={cn("relative z-50 bg-white rounded-lg shadow-lg w-full mx-4", contentClassName ?? "max-w-md")}>
         {children}
       </div>
     </div>

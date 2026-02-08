@@ -9,8 +9,6 @@ const DIVISION_NAMES: Record<BizUnit, string> = {
   MLB: "MLB",
   KIDS: "KIDS",
   DISCOVERY: "DISCOVERY",
-  DUVETICA: "DUVETICA",
-  SUPRA: "SUPRA",
   공통: "공통",
 };
 
@@ -32,14 +30,6 @@ const BRAND_THEMES: Record<BizUnit, { border: string; text: string }> = {
     border: "border-green-500",
     text: "text-green-600",
   },
-  DUVETICA: {
-    border: "border-purple-500",
-    text: "text-purple-600",
-  },
-  SUPRA: {
-    border: "border-orange-500",
-    text: "text-orange-600",
-  },
   공통: {
     border: "border-gray-700",
     text: "text-gray-700",
@@ -51,6 +41,7 @@ interface BizUnitSwitchProps {
   year: number;
   month: number;
   mode: "monthly" | "ytd";
+  yearType?: 'actual' | 'plan';
 }
 
 export function BizUnitSwitch({
@@ -58,11 +49,12 @@ export function BizUnitSwitch({
   year,
   month,
   mode,
+  yearType = 'actual',
 }: BizUnitSwitchProps) {
-  const allBizUnits: BizUnit[] = ["법인", "MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"];
+  const allBizUnits: BizUnit[] = ["법인", "MLB", "KIDS", "DISCOVERY", "공통"];
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
       {allBizUnits.map((unit) => {
         const isActive = unit === currentBizUnit;
         const theme = BRAND_THEMES[unit];
@@ -70,9 +62,9 @@ export function BizUnitSwitch({
         return (
           <Link
             key={unit}
-            href={`/${unit}?year=${year}&month=${month}&mode=${mode}`}
+            href={`/${unit}?year=${year}&type=${yearType}&month=${month}&mode=${mode}`}
             className={cn(
-              "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+              "px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-1.5 rounded-lg text-[10px] sm:text-xs font-medium transition-colors whitespace-nowrap",
               isActive
                 ? `bg-white border-2 ${theme.border} ${theme.text} font-semibold`
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-transparent"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ComposedChart,
   LineChart,
@@ -41,17 +41,26 @@ interface AdSalesEfficiencyAnalysisProps {
   bizUnit: BizUnit;
   year: number;
   mode?: "yoy" | "mom";
+  yearType?: 'actual' | 'plan';
 }
 
 export function AdSalesEfficiencyAnalysis({
   bizUnit,
   year,
   mode = "yoy",
+  yearType = 'actual',
 }: AdSalesEfficiencyAnalysisProps) {
   const [showCharts, setShowCharts] = useState(false);
+  const [axisFontSize, setAxisFontSize] = useState(16);
+  useEffect(() => {
+    const update = () => setAxisFontSize(window.innerWidth < 640 ? 12 : window.innerWidth < 1024 ? 16 : 20);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   // 데이터 가져오기
-  const data = getAdSalesAnalysisData(bizUnit, year);
+  const data = getAdSalesAnalysisData(bizUnit, year, yearType);
 
   // 데이터 부족 시 안내 메시지
   if (data.length < 3) {
@@ -161,7 +170,7 @@ export function AdSalesEfficiencyAnalysis({
           style={{ backgroundColor: navyColor }}
         />
         <CardHeader className="pl-5 flex flex-row justify-between items-center">
-          <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
+          <CardTitle className="text-xs sm:text-sm lg:text-lg" style={{ color: navyColor }}>
             광고비 효율분석
           </CardTitle>
           <button
@@ -258,7 +267,7 @@ export function AdSalesEfficiencyAnalysis({
           style={{ backgroundColor: navyColor }}
         />
         <CardHeader className="pl-5">
-          <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
+          <CardTitle className="text-xs sm:text-sm lg:text-lg" style={{ color: navyColor }}>
             월별 ROAS 추이 (광고비 1CNY당 매출 추이) | 평균 {avgROAS.toFixed(2)}
           </CardTitle>
         </CardHeader>
@@ -269,10 +278,11 @@ export function AdSalesEfficiencyAnalysis({
               margin={{ top: 20, right: 90, bottom: 20, left: 50 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
+              <XAxis dataKey="month" tick={{ fontSize: axisFontSize }} />
               <YAxis
                 yAxisId="left"
                 orientation="left"
+                tick={{ fontSize: axisFontSize }}
                 label={{
                   value: "ROAS",
                   angle: -90,
@@ -283,6 +293,7 @@ export function AdSalesEfficiencyAnalysis({
               <YAxis
                 yAxisId="right"
                 orientation="right"
+                tick={{ fontSize: axisFontSize }}
                 label={{
                   value: "매출 (M)",
                   angle: 90,
@@ -295,6 +306,7 @@ export function AdSalesEfficiencyAnalysis({
               <YAxis
                 yAxisId="right2"
                 orientation="right"
+                tick={{ fontSize: axisFontSize }}
                 domain={[0, (maxAdSpend || 1) * 3]}
                 label={{
                   value: "광고비 (M)",
@@ -322,7 +334,7 @@ export function AdSalesEfficiencyAnalysis({
                   return null;
                 }}
               />
-              <Legend />
+              <Legend wrapperStyle={{ fontSize: axisFontSize }} iconSize={Math.min(14, axisFontSize)} />
               <ReferenceLine
                 yAxisId="left"
                 y={avgROAS}
@@ -370,7 +382,7 @@ export function AdSalesEfficiencyAnalysis({
           <CardHeader className="pl-5">
             <div className="flex items-center gap-2">
               <Target className="w-5 h-5" style={{ color: navyColor }} />
-              <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
+              <CardTitle className="text-xs sm:text-sm lg:text-lg" style={{ color: navyColor }}>
                 광고비 구간별 효율 분석
               </CardTitle>
             </div>
@@ -390,7 +402,7 @@ export function AdSalesEfficiencyAnalysis({
                     const item = optimalRanges.find((r) => r.range === value);
                     const yOffset = 10;
                     return (
-                      <text x={x} y={y + yOffset} textAnchor="middle" fontSize={14} fill="#374151">
+                      <text x={x} y={y + yOffset} textAnchor="middle" fontSize={axisFontSize} fill="#374151">
                         <tspan x={x} dy={0}>{formatRangeWithCommas(value)}</tspan>
                         <tspan x={x} dy={14}>
                           {item ? `ROAS ${item.avgROAS.toFixed(2)} | ${item.count}개월` : ""}
@@ -405,7 +417,7 @@ export function AdSalesEfficiencyAnalysis({
                     angle: -90,
                     position: "insideLeft",
                   }}
-                  tick={{ fontSize: "0.8em" }}
+                  tick={{ fontSize: axisFontSize }}
                 />
                 <Bar
                   dataKey="avgROAS"
@@ -431,7 +443,7 @@ export function AdSalesEfficiencyAnalysis({
         <Card style={{ borderColor: navyColor, borderWidth: "1px" }}>
           <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: navyColor }} />
           <CardHeader className="pl-5">
-            <CardTitle style={{ color: navyColor, fontSize: "28px" }}>광고비 구간별 분석</CardTitle>
+            <CardTitle className="text-xs sm:text-sm lg:text-lg" style={{ color: navyColor }}>광고비 구간별 분석</CardTitle>
           </CardHeader>
           <CardContent className="pl-5">
             <div className="overflow-x-auto mb-4">
@@ -470,8 +482,8 @@ export function AdSalesEfficiencyAnalysis({
                 margin={{ top: 20, right: 30, bottom: 20, left: 20 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" tick={{ fontSize: "0.8em" }} />
-                <YAxis tickFormatter={(v) => formatM(v, 0)} tick={{ fontSize: "0.8em" }} />
+                <XAxis dataKey="name" tick={{ fontSize: axisFontSize }} />
+                <YAxis tickFormatter={(v) => formatM(v, 0)} tick={{ fontSize: axisFontSize }} />
                 <Tooltip formatter={(value: number) => formatM(value)} />
                 <Bar dataKey="avgSales" name="평균 매출" fill="#10b981" radius={[4, 4, 0, 0]} />
               </BarChart>
@@ -500,7 +512,7 @@ export function AdSalesEfficiencyAnalysis({
             style={{ backgroundColor: navyColor }}
           ></div>
           <CardHeader className="pl-5">
-            <CardTitle style={{ color: navyColor, fontSize: "28px" }}>
+            <CardTitle className="text-xs sm:text-sm lg:text-lg" style={{ color: navyColor }}>
               광고비-매출 증감률 비교 (YoY)
               {elasticity !== 0 && (
                 <span className="text-sm font-normal text-gray-600 ml-4">
@@ -518,11 +530,11 @@ export function AdSalesEfficiencyAnalysis({
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
                   dataKey="month"
-                  tick={{ fontSize: "0.64em" }}
+                  tick={{ fontSize: Math.max(10, Math.round(axisFontSize * 0.8)) }}
                 />
                 <YAxis
                   tickFormatter={(value) => `${value.toFixed(0)}%`}
-                  tick={{ fontSize: "0.64em" }}
+                  tick={{ fontSize: Math.max(10, Math.round(axisFontSize * 0.8)) }}
                 />
                 <Tooltip
                   content={({ active, payload, label }) => {
@@ -545,7 +557,7 @@ export function AdSalesEfficiencyAnalysis({
                     return null;
                   }}
                 />
-                <Legend />
+                <Legend wrapperStyle={{ fontSize: axisFontSize }} iconSize={Math.min(14, axisFontSize)} />
                 <ReferenceLine y={0} stroke="#666" strokeDasharray="3 3" />
                 <Line
                   type="monotone"

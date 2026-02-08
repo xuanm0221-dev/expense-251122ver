@@ -15,6 +15,7 @@ interface AdExpenseCardProps {
   year: number;
   month: number;
   adNode?: ExpenseAccountRow | null;
+  yearType?: 'actual' | 'plan';
 }
 
 function sumByBizUnit(details: { biz_unit: string; amount: number }[]): Map<string, number> {
@@ -76,7 +77,7 @@ export function AdExpenseCard({ bizUnit, year, month, adNode }: AdExpenseCardPro
   const yoy = totalPrev > 0 ? (totalCurrent / totalPrev) * 100 : null;
 
   return (
-    <div className="w-[12.5%] min-w-0 flex-none">
+    <div className="w-full min-w-0">
       <Card className="relative overflow-hidden" style={{ borderColor: navyColor, borderWidth: "1px" }}>
         <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: navyBarColor }} />
         <CardHeader className="pl-5 pb-3">

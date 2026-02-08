@@ -1,10 +1,25 @@
 "use client";
 
+import React, { useState, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
 import { getCategoryDetail, getAnnualHeadcountSum, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
 
 const LABOR_COST_LV2_ORDER = ["기본급", "Red pack", "성과급충당금", "잡급"] as const;
+/** 법인 상세보기 시 사업부 순서 및 표시명 (공통 = 경영지원) */
+const SUB_UNIT_ORDER: { bizUnit: BizUnit; label: string }[] = [
+  { bizUnit: "공통", label: "경영지원" },
+  { bizUnit: "MLB", label: "MLB" },
+  { bizUnit: "KIDS", label: "KIDS" },
+  { bizUnit: "DISCOVERY", label: "DISCOVERY" },
+];
 const navyColor = "#001f3f";
 const navyBarColor = "#5b7cba"; // 톤 다운된 파랑 (좌측 세로 바)
 
@@ -12,6 +27,7 @@ interface LaborCostPerCapitaCardProps {
   bizUnit: BizUnit;
   year: number;
   month: number;
+  yearType?: 'actual' | 'plan';
 }
 
 function sumByLv2(details: { cost_lv1: string; cost_lv2: string; amount: number }[]): Map<string, number> {
@@ -31,11 +47,19 @@ function totalLabor(details: { cost_lv1: string; amount: number }[]): number {
     .reduce((s, d) => s + d.amount, 0);
 }
 
-export function LaborCostPerCapitaCard({ bizUnit, year, month }: LaborCostPerCapitaCardProps) {
-  const detailCurrent = getCategoryDetail(bizUnit, year, month, "인건비", "ytd");
-  const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "인건비", "ytd");
-  const headcountCurrent = getAnnualHeadcountSum(bizUnit, year);
-  const headcountPrev = getAnnualHeadcountSum(bizUnit, year - 1);
+export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actual' }: LaborCostPerCapitaCardProps) {
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const isPlanYear = year === 2026 && yearType === 'plan';
+  
+  const detailCurrent = getCategoryDetail(bizUnit, year, month, "인건비", "ytd", yearType);
+  const detailPrev = isPlanYear
+    ? getCategoryDetail(bizUnit, 2025, 12, "인건비", "ytd", 'actual')
+    : getCategoryDetail(bizUnit, year - 1, month, "인건비", "ytd", yearType);
+  
+  const headcountCurrent = getAnnualHeadcountSum(bizUnit, year, yearType);
+  const headcountPrev = isPlanYear
+    ? getAnnualHeadcountSum(bizUnit, 2025, 'actual')
+    : getAnnualHeadcountSum(bizUnit, year - 1, yearType);
 
   const totalCurrent = totalLabor(detailCurrent);
   const totalPrev = totalLabor(detailPrev);
@@ -49,15 +73,45 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month }: LaborCostPerCap
   const byLv2Current = sumByLv2(detailCurrent);
   const byLv2Prev = sumByLv2(detailPrev);
 
+  // 사업부별(lv2 x biz_unit) 금액 집계 (법인일 때만 상세보기용)
+  const detailByLv2AndBizCurrent = useMemo(() => {
+    const map = new Map<string, Map<BizUnit, number>>();
+    detailCurrent
+      .filter((d) => d.cost_lv1 === "인건비" && (d.cost_lv2 || "").trim() !== "")
+      .forEach((d) => {
+        const bu = d.biz_unit as BizUnit;
+        if (!SUB_UNIT_ORDER.some((s) => s.bizUnit === bu)) return;
+        if (!map.has(d.cost_lv2)) map.set(d.cost_lv2, new Map());
+        const inner = map.get(d.cost_lv2)!;
+        inner.set(bu, (inner.get(bu) ?? 0) + d.amount);
+      });
+    return map;
+  }, [detailCurrent]);
+  const detailByLv2AndBizPrev = useMemo(() => {
+    const map = new Map<string, Map<BizUnit, number>>();
+    detailPrev
+      .filter((d) => d.cost_lv1 === "인건비" && (d.cost_lv2 || "").trim() !== "")
+      .forEach((d) => {
+        const bu = d.biz_unit as BizUnit;
+        if (!SUB_UNIT_ORDER.some((s) => s.bizUnit === bu)) return;
+        if (!map.has(d.cost_lv2)) map.set(d.cost_lv2, new Map());
+        const inner = map.get(d.cost_lv2)!;
+        inner.set(bu, (inner.get(bu) ?? 0) + d.amount);
+      });
+    return map;
+  }, [detailPrev]);
+
+  const showDetailButton = bizUnit === "법인";
+
   return (
-    <div className="w-[12.5%] min-w-0 flex-none">
+    <div className="w-full min-w-0">
       <Card className="relative overflow-hidden" style={{ borderColor: navyColor, borderWidth: "1px" }}>
         <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: navyBarColor }} />
         <CardHeader className="pl-5 pb-3">
           <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
-              인건비
+              인건비(인당)
             </span>
             <span className="font-bold">{perCapitaCurrent != null ? formatK(perCapitaCurrent, 1) : "-"}</span>
           </CardTitle>
@@ -77,7 +131,17 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month }: LaborCostPerCap
             <table className="w-full text-gray-700">
               <thead>
                 <tr>
-                  <th className="text-left py-1 pr-2 font-semibold"></th>
+                  <th className="text-left py-1 pr-2 font-semibold">
+                    {showDetailButton && (
+                      <button
+                        type="button"
+                        onClick={() => setIsDetailOpen(true)}
+                        className="text-[10px] text-blue-600 hover:text-blue-800"
+                      >
+                        상세보기
+                      </button>
+                    )}
+                  </th>
                   <th className="text-right py-1 px-1 font-semibold">당년</th>
                   <th className="text-right py-1 px-1 font-semibold">전년</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
@@ -108,6 +172,72 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month }: LaborCostPerCap
           </div>
         </CardContent>
       </Card>
+
+      {showDetailButton && (
+        <Dialog open={isDetailOpen} onOpenChange={setIsDetailOpen} contentClassName="max-w-4xl">
+          <DialogContent className="max-h-[85vh] overflow-hidden flex flex-col">
+            <DialogHeader className="flex-shrink-0">
+              <DialogTitle>인건비(인당) 상세 - 사업부별</DialogTitle>
+              <DialogClose onClick={() => setIsDetailOpen(false)} className="absolute right-4 top-4" />
+            </DialogHeader>
+            <div className="overflow-y-auto flex-1 min-h-0">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <th className="text-left py-2 px-3 font-semibold text-gray-700">구분</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">당년인당(K)</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">전년인당(K)</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">YoY(%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {LABOR_COST_LV2_ORDER.map((lv2) => {
+                    const innerCurrent = detailByLv2AndBizCurrent.get(lv2);
+                    const innerPrev = detailByLv2AndBizPrev.get(lv2);
+                    return (
+                      <React.Fragment key={lv2}>
+                        <tr className="border-b border-gray-100 bg-gray-50/80">
+                          <td className="py-2 px-3 font-semibold text-gray-800" colSpan={4}>
+                            {lv2}
+                          </td>
+                        </tr>
+                        {SUB_UNIT_ORDER.map(({ bizUnit: bu, label }) => {
+                          const currAmount = innerCurrent?.get(bu) ?? 0;
+                          const prevAmount = innerPrev?.get(bu) ?? 0;
+                          const currHc = getAnnualHeadcountSum(bu, year, yearType);
+                          const prevHc = isPlanYear
+                            ? getAnnualHeadcountSum(bu, 2025, "actual")
+                            : getAnnualHeadcountSum(bu, year - 1, yearType);
+                          const perCapitaCurr = currHc > 0 ? currAmount / currHc : null;
+                          const perCapitaPrev = prevHc > 0 ? prevAmount / prevHc : null;
+                          const yoy =
+                            perCapitaCurr != null && perCapitaPrev != null && perCapitaPrev !== 0
+                              ? (perCapitaCurr / perCapitaPrev) * 100
+                              : null;
+                          return (
+                            <tr key={`${lv2}-${bu}`} className="border-b border-gray-100">
+                              <td className="py-1.5 pl-6 pr-3 text-gray-600">ㄴ{label}</td>
+                              <td className="py-1.5 px-3 text-right">
+                                {perCapitaCurr != null ? formatK(perCapitaCurr, 1) : "-"}
+                              </td>
+                              <td className="py-1.5 px-3 text-right">
+                                {perCapitaPrev != null ? formatK(perCapitaPrev, 1) : "-"}
+                              </td>
+                              <td className="py-1.5 px-3 text-right">
+                                {yoy != null ? formatPercent(yoy, 0) : "-"}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </React.Fragment>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }

@@ -14,6 +14,7 @@ interface PaymentFeeCardProps {
   year: number;
   month: number;
   paymentNode?: ExpenseAccountRow | null;
+  yearType?: 'actual' | 'plan';
 }
 
 function sumByKey(details: { cost_lv2: string; amount: number }[]): Map<string, number> {
@@ -79,7 +80,7 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode }: PaymentFee
   const yoy = totalPrev > 0 ? (totalCurrent / totalPrev) * 100 : null;
 
   return (
-    <div className="w-[12.5%] min-w-0 flex-none">
+    <div className="w-full min-w-0">
       <Card className="relative overflow-hidden" style={{ borderColor: navyColor, borderWidth: "1px" }}>
         <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: navyBarColor }} />
         <CardHeader className="pl-5 pb-3">

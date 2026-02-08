@@ -21,19 +21,22 @@ interface CostDescription {
 }
 
 // 파일 경로 생성
-function getDescriptionFilePath(brand: string, ym: string, mode: string): string {
+function getDescriptionFilePath(brand: string, ym: string, mode: string, yearType?: string): string {
   const dataDir = path.join(process.cwd(), "data", "cost-descriptions");
-  return path.join(dataDir, `${brand}-${ym}-${mode}.json`);
+  const suffix = yearType ? `-${yearType}` : "";
+  return path.join(dataDir, `${brand}-${ym}-${mode}${suffix}.json`);
 }
 
-function getLogFilePath(brand: string, ym: string, mode: string): string {
+function getLogFilePath(brand: string, ym: string, mode: string, yearType?: string): string {
   const logDir = path.join(process.cwd(), "data", "cost-descriptions", "logs");
-  return path.join(logDir, `${brand}-${ym}-${mode}.json`);
+  const suffix = yearType ? `-${yearType}` : "";
+  return path.join(logDir, `${brand}-${ym}-${mode}${suffix}.json`);
 }
 
-function getBasisFilePath(brand: string, ym: string, mode: string): string {
+function getBasisFilePath(brand: string, ym: string, mode: string, yearType?: string): string {
   const dataDir = path.join(process.cwd(), "data", "cost-descriptions");
-  return path.join(dataDir, `${brand}-${ym}-${mode}-basis.json`);
+  const suffix = yearType ? `-${yearType}` : "";
+  return path.join(dataDir, `${brand}-${ym}-${mode}${suffix}-basis.json`);
 }
 
 // 디렉토리 생성 (없으면)
@@ -48,10 +51,11 @@ function ensureDirectoryExists(filePath: string): void {
 async function readDescriptions(
   brand: string,
   ym: string,
-  mode: string
+  mode: string,
+  yearType?: string
 ): Promise<Record<string, string>> {
   try {
-    const filePath = getDescriptionFilePath(brand, ym, mode);
+    const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
     if (!fs.existsSync(filePath)) {
       return {};
     }
@@ -68,9 +72,10 @@ async function writeDescriptions(
   brand: string,
   ym: string,
   mode: string,
-  descriptions: Record<string, string>
+  descriptions: Record<string, string>,
+  yearType?: string
 ): Promise<void> {
-  const filePath = getDescriptionFilePath(brand, ym, mode);
+  const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
   ensureDirectoryExists(filePath);
   fs.writeFileSync(filePath, JSON.stringify(descriptions, null, 2), "utf-8");
 }
@@ -78,10 +83,11 @@ async function writeDescriptions(
 async function readBasis(
   brand: string,
   ym: string,
-  mode: string
+  mode: string,
+  yearType?: string
 ): Promise<Record<string, string>> {
   try {
-    const filePath = getBasisFilePath(brand, ym, mode);
+    const filePath = getBasisFilePath(brand, ym, mode, yearType);
     if (!fs.existsSync(filePath)) return {};
     const content = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(content);
@@ -95,9 +101,10 @@ async function writeBasis(
   brand: string,
   ym: string,
   mode: string,
-  basis: Record<string, string>
+  basis: Record<string, string>,
+  yearType?: string
 ): Promise<void> {
-  const filePath = getBasisFilePath(brand, ym, mode);
+  const filePath = getBasisFilePath(brand, ym, mode, yearType);
   ensureDirectoryExists(filePath);
   fs.writeFileSync(filePath, JSON.stringify(basis, null, 2), "utf-8");
 }
@@ -106,10 +113,11 @@ async function writeBasis(
 async function readLogs(
   brand: string,
   ym: string,
-  mode: string
+  mode: string,
+  yearType?: string
 ): Promise<SaveLog[]> {
   try {
-    const filePath = getLogFilePath(brand, ym, mode);
+    const filePath = getLogFilePath(brand, ym, mode, yearType);
     if (!fs.existsSync(filePath)) {
       return [];
     }
@@ -126,13 +134,14 @@ async function writeLogs(
   brand: string,
   ym: string,
   mode: string,
-  log: SaveLog
+  log: SaveLog,
+  yearType?: string
 ): Promise<void> {
-  const filePath = getLogFilePath(brand, ym, mode);
+  const filePath = getLogFilePath(brand, ym, mode, yearType);
   ensureDirectoryExists(filePath);
   
   // 기존 로그 읽기
-  const logs = await readLogs(brand, ym, mode);
+  const logs = await readLogs(brand, ym, mode, yearType);
   
   // 새 로그를 앞에 추가
   logs.unshift(log);
@@ -150,6 +159,7 @@ export async function GET(request: NextRequest) {
     const brand = searchParams.get("brand") || "ALL";
     const ym = searchParams.get("ym");
     const mode = searchParams.get("mode") || "monthly";
+    const yearType = searchParams.get("yearType") || undefined;
 
     if (!ym) {
       return NextResponse.json(
@@ -158,8 +168,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const descriptions = await readDescriptions(brand, ym, mode);
-    const basis = await readBasis(brand, ym, mode);
+    const descriptions = await readDescriptions(brand, ym, mode, yearType);
+    const basis = await readBasis(brand, ym, mode, yearType);
 
     return NextResponse.json({
       success: true,
@@ -179,7 +189,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { brand, ym, mode, accountPath, description, basis: basisValue } = body;
+    const { brand, ym, mode, accountPath, description, basis: basisValue, yearType } = body;
 
     if (!brand || !ym || !mode || !accountPath) {
       return NextResponse.json(
@@ -189,20 +199,20 @@ export async function POST(request: NextRequest) {
     }
 
     if (typeof basisValue !== "undefined") {
-      const existingBasis = await readBasis(brand, ym, mode);
+      const existingBasis = await readBasis(brand, ym, mode, yearType);
       const newBasis: Record<string, string> = {
         ...existingBasis,
         [accountPath]: typeof basisValue === "string" ? basisValue : "",
       };
       if (!newBasis[accountPath]?.trim()) delete newBasis[accountPath];
-      await writeBasis(brand, ym, mode, newBasis);
+      await writeBasis(brand, ym, mode, newBasis, yearType);
       return NextResponse.json({
         success: true,
         message: "계산 근거가 저장되었습니다.",
       });
     }
 
-    const existingDescriptions = await readDescriptions(brand, ym, mode);
+    const existingDescriptions = await readDescriptions(brand, ym, mode, yearType);
     const oldValue = existingDescriptions[accountPath] || "";
     const newDescriptions: Record<string, string> = {
       ...existingDescriptions,
@@ -211,7 +221,7 @@ export async function POST(request: NextRequest) {
     if (!description || description.trim() === "") {
       delete newDescriptions[accountPath];
     }
-    await writeDescriptions(brand, ym, mode, newDescriptions);
+    await writeDescriptions(brand, ym, mode, newDescriptions, yearType);
 
     const newLog: SaveLog = {
       timestamp: new Date().toISOString(),
@@ -220,7 +230,7 @@ export async function POST(request: NextRequest) {
       newValue: description || "",
       userIdentifier: request.headers.get("x-user-identifier") || "anonymous",
     };
-    await writeLogs(brand, ym, mode, newLog);
+    await writeLogs(brand, ym, mode, newLog, yearType);
 
     return NextResponse.json({
       success: true,

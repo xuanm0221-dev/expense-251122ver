@@ -1,12 +1,12 @@
 // @ts-ignore - JSON import
 import aggregatedDataRaw from "../../data/aggregated-expense.json";
 
-export type BizUnit = "법인" | "MLB" | "KIDS" | "DISCOVERY" | "DUVETICA" | "SUPRA" | "공통";
+export type BizUnit = "법인" | "MLB" | "KIDS" | "DISCOVERY" | "공통";
 
 export type Mode = "monthly" | "ytd";
 
 // 법인 합계 계산에 포함할 사업부 목록
-const CORPORATE_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"] as const;
+const CORPORATE_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통"] as const;
 
 export interface MonthlyAggregated {
   biz_unit: string;
@@ -17,6 +17,7 @@ export interface MonthlyAggregated {
   amount: number;
   headcount: number;
   sales: number;
+  year_type?: 'actual' | 'plan';  // 실적/예산 구분
 }
 
 export interface MonthlyTotal {
@@ -27,6 +28,7 @@ export interface MonthlyTotal {
   amount: number;
   headcount: number;
   sales: number;
+  year_type?: 'actual' | 'plan';  // 실적/예산 구분
 }
 
 export interface CategoryDetail {
@@ -39,6 +41,7 @@ export interface CategoryDetail {
   cost_lv3: string;
   amount: number;
   headcount?: number;  // 사업부(소분류) 기준 인원수 (선택적)
+  year_type?: 'actual' | 'plan';  // 실적/예산 구분
 }
 
 export interface AnnualData {
@@ -48,6 +51,7 @@ export interface AnnualData {
   cost_lv2: string;
   cost_lv3: string;
   annual_amount: number;
+  year_type?: 'actual' | 'plan';  // 실적/예산 구분
 }
 
 export interface AggregatedData {
@@ -59,6 +63,7 @@ export interface AggregatedData {
     target_biz_units: string[];
     years: number[];
     months: number[];
+    year_types?: Record<string, string[]>;  // 연도별 타입 (actual/plan)
   };
 }
 
@@ -68,19 +73,20 @@ const data = aggregatedDataRaw as AggregatedData;
 export { data };
 
 // 분석 대상 사업부만 필터링
-const TARGET_BIZ_UNITS: BizUnit[] = ["MLB", "KIDS", "DISCOVERY", "공통", "DUVETICA", "SUPRA"];
+const TARGET_BIZ_UNITS: BizUnit[] = ["MLB", "KIDS", "DISCOVERY", "공통"];
 
 export function getMonthlyTotal(
   bizUnit: BizUnit,
   year: number,
   month: number,
-  mode: Mode = "monthly"
+  mode: Mode = "monthly",
+  yearType: 'actual' | 'plan' = 'actual'
 ): MonthlyTotal | null {
   // 법인인 경우 4개 사업부 합계 계산
   if (bizUnit === "법인") {
     const corporateData: MonthlyTotal[] = [];
     for (const bu of CORPORATE_BIZ_UNITS) {
-      const buData = getMonthlyTotal(bu as BizUnit, year, month, mode);
+      const buData = getMonthlyTotal(bu as BizUnit, year, month, mode, yearType);
       if (buData) {
         corporateData.push(buData);
       }
@@ -106,12 +112,16 @@ export function getMonthlyTotal(
         amount: 0,
         headcount: 0,
         sales: 0,
+        year_type: yearType,
       }
     );
   }
 
   let filtered = data.monthly_total.filter(
-    (item) => item.biz_unit === bizUnit && item.year === year
+    (item) => 
+      item.biz_unit === bizUnit && 
+      item.year === year &&
+      item.year_type === yearType
   );
 
   if (mode === "monthly") {
@@ -157,16 +167,17 @@ export function getPreviousYearTotal(
   bizUnit: BizUnit,
   year: number,
   month: number,
-  mode: Mode = "monthly"
+  mode: Mode = "monthly",
+  yearType: 'actual' | 'plan' = 'actual'
 ): MonthlyTotal | null {
-  return getMonthlyTotal(bizUnit, year - 1, month, mode);
+  return getMonthlyTotal(bizUnit, year - 1, month, mode, yearType);
 }
 
 /** 해당 연도 1~12월 인원수 합계 (인당 비용 계산용: 연간 비용 합계 / 연간 인원수 합계) */
-export function getAnnualHeadcountSum(bizUnit: BizUnit, year: number): number {
+export function getAnnualHeadcountSum(bizUnit: BizUnit, year: number, yearType: 'actual' | 'plan' = 'actual'): number {
   let sum = 0;
   for (let m = 1; m <= 12; m++) {
-    const t = getMonthlyTotal(bizUnit, year, m, "monthly");
+    const t = getMonthlyTotal(bizUnit, year, m, "monthly", yearType);
     sum += t?.headcount ?? 0;
   }
   return sum;
@@ -176,14 +187,15 @@ export function getMonthlyAggregatedByCategory(
   bizUnit: BizUnit,
   year: number,
   month: number,
-  mode: Mode = "monthly"
+  mode: Mode = "monthly",
+  yearType: 'actual' | 'plan' = 'actual'
 ): MonthlyAggregated[] {
   // 법인인 경우 4개 사업부 합계 계산
   if (bizUnit === "법인") {
     const allCategories = new Map<string, MonthlyAggregated>();
     
     for (const bu of CORPORATE_BIZ_UNITS) {
-      const buCategories = getMonthlyAggregatedByCategory(bu as BizUnit, year, month, mode);
+      const buCategories = getMonthlyAggregatedByCategory(bu as BizUnit, year, month, mode, yearType);
       
       buCategories.forEach((item) => {
         const key = item.cost_lv1;
@@ -205,7 +217,10 @@ export function getMonthlyAggregatedByCategory(
   }
 
   let filtered = data.monthly_aggregated.filter(
-    (item) => item.biz_unit === bizUnit && item.year === year
+    (item) => 
+      item.biz_unit === bizUnit && 
+      item.year === year &&
+      item.year_type === yearType
   );
 
   if (mode === "monthly") {
@@ -233,7 +248,8 @@ export function getAnnualData(
   year: number,
   costLv1: string = "",
   costLv2: string = "",
-  costLv3: string = ""
+  costLv3: string = "",
+  yearType: 'actual' | 'plan' = 'actual'
 ): AnnualData[] {
   if (!data.annual_data) {
     return [];
@@ -244,7 +260,7 @@ export function getAnnualData(
     const allAnnual: AnnualData[] = [];
     
     for (const bu of CORPORATE_BIZ_UNITS) {
-      const buAnnual = getAnnualData(bu as BizUnit, year, costLv1, costLv2, costLv3);
+      const buAnnual = getAnnualData(bu as BizUnit, year, costLv1, costLv2, costLv3, yearType);
       allAnnual.push(...buAnnual);
     }
     
@@ -258,7 +274,8 @@ export function getAnnualData(
       item.year === year &&
       (costLv1 === "" || item.cost_lv1 === costLv1) &&
       (costLv2 === "" || item.cost_lv2 === costLv2) &&
-      (costLv3 === "" || item.cost_lv3 === costLv3)
+      (costLv3 === "" || item.cost_lv3 === costLv3) &&
+      item.year_type === yearType
   );
 
   return filtered;
@@ -269,14 +286,15 @@ export function getCategoryDetail(
   year: number,
   month: number,
   costLv1: string = "",
-  mode: Mode = "monthly"
+  mode: Mode = "monthly",
+  yearType: 'actual' | 'plan' = 'actual'
 ): CategoryDetail[] {
   // 법인인 경우 4개 사업부 데이터를 개별적으로 반환 (사업부 정보 유지)
   if (bizUnit === "법인") {
     const allDetails: CategoryDetail[] = [];
     
     for (const bu of CORPORATE_BIZ_UNITS) {
-      const buDetails = getCategoryDetail(bu as BizUnit, year, month, costLv1, mode);
+      const buDetails = getCategoryDetail(bu as BizUnit, year, month, costLv1, mode, yearType);
       allDetails.push(...buDetails);
     }
     
@@ -288,7 +306,8 @@ export function getCategoryDetail(
     (item) =>
       (bizUnit === "ALL" || item.biz_unit === bizUnit) &&
       item.year === year &&
-      (costLv1 === "" || item.cost_lv1 === costLv1)
+      (costLv1 === "" || item.cost_lv1 === costLv1) &&
+      item.year_type === yearType
   );
 
   if (mode === "monthly") {
@@ -330,14 +349,15 @@ export function getCategoryDetail(
 export function getMonthlyTrend(
   bizUnit: BizUnit,
   year: number,
-  mode: Mode = "monthly"
+  mode: Mode = "monthly",
+  yearType: 'actual' | 'plan' = 'actual'
 ): MonthlyTotal[] {
   // 법인인 경우 4개 사업부 합계 계산
   if (bizUnit === "법인") {
     const allTrends = new Map<number, MonthlyTotal>();
     
     for (const bu of CORPORATE_BIZ_UNITS) {
-      const buTrends = getMonthlyTrend(bu as BizUnit, year, mode);
+      const buTrends = getMonthlyTrend(bu as BizUnit, year, mode, yearType);
       
       buTrends.forEach((item) => {
         if (allTrends.has(item.month)) {
@@ -358,7 +378,10 @@ export function getMonthlyTrend(
   }
 
   let filtered = data.monthly_total.filter(
-    (item) => item.biz_unit === bizUnit && item.year === year
+    (item) => 
+      item.biz_unit === bizUnit && 
+      item.year === year &&
+      item.year_type === yearType
   );
 
   if (mode === "ytd") {
@@ -387,7 +410,8 @@ export function getMonthlyTrend(
 export function getMonthlyStackedData(
   bizUnit: BizUnit,
   year: number,
-  mode: Mode = "monthly"
+  mode: Mode = "monthly",
+  yearType: 'actual' | 'plan' = 'actual'
 ): {
   month: number;
   yyyymm: string;
@@ -397,8 +421,8 @@ export function getMonthlyStackedData(
   current: number;
   previous: number | null;
 }[] {
-  const monthlyData = getMonthlyTrend(bizUnit, year, mode);
-  const prevYearData = getMonthlyTrend(bizUnit, year - 1, mode);
+  const monthlyData = getMonthlyTrend(bizUnit, year, mode, yearType);
+  const prevYearData = getMonthlyTrend(bizUnit, year - 1, mode, yearType === 'plan' ? 'actual' : yearType);
 
   const prevYearMap = new Map(
     prevYearData.map((item) => [`${item.month}`, item])
@@ -419,7 +443,8 @@ export function getMonthlyStackedData(
       bizUnit,
       year,
       item.month,
-      mode
+      mode,
+      yearType
     );
 
     const categories: Record<string, number> = {};
@@ -496,13 +521,46 @@ export function calculatePerPersonCost(
   return cost / headcount;
 }
 
+export interface YearOption {
+  year: number;
+  type: 'actual' | 'plan';
+  display: string;
+}
+
+export function getAvailableYearOptions(): YearOption[] {
+  const metadata = data.metadata;
+  const yearTypes = metadata.year_types || {};
+  const options: YearOption[] = [];
+  
+  for (const year of metadata.years) {
+    const types = yearTypes[year.toString()] || ['actual'];
+    
+    for (const type of types) {
+      const display = type === 'plan' 
+        ? `${year}년(예산)` 
+        : `${year}년(실적)`;
+      
+      options.push({ year, type: type as 'actual' | 'plan', display });
+    }
+  }
+  
+  // 정렬: 연도 내림차순, 같은 연도면 plan 먼저
+  return options.sort((a, b) => {
+    if (a.year !== b.year) return b.year - a.year;
+    return a.type === 'plan' ? -1 : 1;
+  });
+}
+
 export function getAvailableYears(): number[] {
   return data.metadata.years.sort((a, b) => b - a);
 }
 
-export function getAvailableMonths(year: number): number[] {
+export function getAvailableMonths(year: number, yearType: 'actual' | 'plan' = 'actual'): number[] {
   const months = data.monthly_total
-    .filter((item) => item.year === year)
+    .filter((item) => 
+      item.year === year && 
+      item.year_type === yearType
+    )
     .map((item) => item.month);
   return [...new Set(months)].sort((a, b) => a - b);
 }
@@ -522,11 +580,12 @@ export interface AdSalesDataPoint {
  */
 export function getAdSalesAnalysisData(
   bizUnit: BizUnit,
-  year: number
+  year: number,
+  yearType: 'actual' | 'plan' = 'actual'
 ): AdSalesDataPoint[] {
   // 당해년도 및 전년도 월별 데이터 가져오기
-  const currentYearData = getMonthlyTrend(bizUnit, year, "monthly");
-  const prevYearData = getMonthlyTrend(bizUnit, year - 1, "monthly");
+  const currentYearData = getMonthlyTrend(bizUnit, year, "monthly", yearType);
+  const prevYearData = getMonthlyTrend(bizUnit, year - 1, "monthly", yearType);
 
   // 전년도 데이터를 Map으로 변환
   const prevYearMap = new Map(
@@ -542,7 +601,8 @@ export function getAdSalesAnalysisData(
       bizUnit,
       year,
       monthData.month,
-      "monthly"
+      "monthly",
+      yearType
     );
     const adExpense = adCategories.find((cat) => cat.cost_lv1 === "광고비");
     const adSpend = adExpense?.amount ?? 0;
@@ -555,7 +615,8 @@ export function getAdSalesAnalysisData(
         bizUnit,
         year - 1,
         monthData.month,
-        "monthly"
+        "monthly",
+        yearType
       );
       const prevAdExpense = prevAdCategories.find(
         (cat) => cat.cost_lv1 === "광고비"
@@ -587,16 +648,17 @@ export interface AdSalesByChannelItem {
 
 export function getAdSalesByChannel(
   bizUnit: BizUnit,
-  year: number
+  year: number,
+  yearType: 'actual' | 'plan' = 'actual'
 ): AdSalesByChannelItem[] {
-  const monthlyTrend = getMonthlyTrend(bizUnit, year, "monthly");
-  const prevYearTrend = getMonthlyTrend(bizUnit, year - 1, "monthly");
+  const monthlyTrend = getMonthlyTrend(bizUnit, year, "monthly", yearType);
+  const prevYearTrend = getMonthlyTrend(bizUnit, year - 1, "monthly", yearType);
   const prevYearMap = new Map(prevYearTrend.map((item) => [item.month, item]));
 
   const channelMonths = new Map<string, Map<number, { adSpend: number; sales: number; salesPrevYear: number | null }>>();
 
   for (const mt of monthlyTrend) {
-    const details = getCategoryDetail(bizUnit, year, mt.month, "광고비", "monthly");
+    const details = getCategoryDetail(bizUnit, year, mt.month, "광고비", "monthly", yearType);
     const byLv2 = new Map<string, number>();
     for (const d of details) {
       const key = (d.cost_lv2 || "").trim() || "기타";
@@ -621,7 +683,7 @@ export function getAdSalesByChannel(
       const prev = prevYearMap.get(month);
       let adSpendPrevYear: number | null = null;
       if (prev) {
-        const prevDetails = getCategoryDetail(bizUnit, year - 1, month, "광고비", "monthly");
+        const prevDetails = getCategoryDetail(bizUnit, year - 1, month, "광고비", "monthly", yearType);
         const prevAd = prevDetails.find((d) => ((d.cost_lv2 || "").trim() || "기타") === channel);
         adSpendPrevYear = prevAd?.amount ?? null;
       }
