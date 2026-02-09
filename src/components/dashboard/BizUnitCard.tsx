@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, TrendingDown, ArrowDown } from "lucide-react";
-import { formatPercent, formatPercentPoint } from "@/lib/utils";
+import { formatPercent, formatK } from "@/lib/utils";
 import { type BizUnit, type Mode } from "@/lib/expenseData";
-import React from "react";
+import React, { Fragment } from "react";
 
 // 사업부별 테마 설정
 const THEME = {
@@ -50,8 +50,8 @@ const THEME = {
 export interface ExpenseDetail {
   label: string;
   amount: string;
+  amountDiff: number; // 전년 대비 금액 증감
   yoy: number | null; // YOY (%)
-  change: number | null; // 매출대비 비용율 증감 (%p)
 }
 
 export interface BizUnitCardProps {
@@ -72,6 +72,7 @@ export interface BizUnitCardProps {
   year: number;
   month: number;
   mode: Mode;
+  yearType?: 'actual' | 'plan';
   isCommon?: boolean;
 }
 
@@ -93,6 +94,7 @@ export function BizUnitCard({
   year,
   month,
   mode,
+  yearType = 'actual',
   isCommon = false,
 }: BizUnitCardProps) {
   const isCorporate = businessUnit === "법인";
@@ -107,12 +109,12 @@ export function BizUnitCard({
         <div className="flex items-center gap-2 mb-3">
           <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white">
             {typeof icon === "string" ? (
-              <span className="text-lg">{icon}</span>
+              <span className="text-sm sm:text-base">{icon}</span>
             ) : (
               <div className="w-5 h-5">{icon}</div>
             )}
           </div>
-          <span className="text-lg font-bold">{businessUnit}</span>
+          <span className="text-sm sm:text-base font-bold">{businessUnit}</span>
         </div>
 
         {/* 하단: YOY 박스들 - 브랜드/법인/공통 모두 판매매출 YOY + 영업비 YOY 표시 */}
@@ -120,14 +122,14 @@ export function BizUnitCard({
           {yoySales !== null && (
             <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
               <div className="flex flex-col">
-                <span className="text-[10px] text-white/90 mb-1">판매매출 YOY</span>
+                <span className="text-[9px] sm:text-[10px] text-white/90 mb-1">판매매출 YOY</span>
                 <div className="flex items-center gap-1">
                   {yoySales >= 100 ? (
                     <TrendingUp className="w-3 h-3 text-white" />
                   ) : (
                     <TrendingDown className="w-3 h-3 text-white" />
                   )}
-                  <span className="text-sm font-bold text-white">
+                  <span className="text-[10px] sm:text-xs font-bold text-white">
                     {formatPercent(yoySales, 0)}
                   </span>
                 </div>
@@ -137,14 +139,14 @@ export function BizUnitCard({
           {yoyExpense !== null && (
             <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
               <div className="flex flex-col">
-                <span className="text-[10px] text-white/90 mb-1">영업비 YOY</span>
+                <span className="text-[9px] sm:text-[10px] text-white/90 mb-1">영업비 YOY</span>
                 <div className="flex items-center gap-1">
                   {yoyExpense >= 100 ? (
                     <TrendingUp className="w-3 h-3 text-white" />
                   ) : (
                     <TrendingDown className="w-3 h-3 text-white" />
                   )}
-                  <span className="text-sm font-bold text-white">
+                  <span className="text-[10px] sm:text-xs font-bold text-white">
                     {formatPercent(yoyExpense, 0)}
                   </span>
                 </div>
@@ -161,10 +163,10 @@ export function BizUnitCard({
           <div className="flex items-start gap-2 mb-3">
             <div className={`w-1 h-12 ${theme.accentColor} rounded-full`}></div>
             <div>
-              <div className={`text-lg font-bold ${theme.primaryColor}`}>
+              <div className={`text-sm sm:text-base font-bold ${theme.primaryColor}`}>
                 {totalExpense}
               </div>
-              <div className="text-xs text-gray-500 mt-1">총 비용</div>
+              <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-1">총 비용</div>
             </div>
           </div>
 
@@ -174,17 +176,17 @@ export function BizUnitCard({
                 {/* 영업비율 */}
                 {ratio !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-sm font-semibold text-blue-600">{ratio}</div>
-                    <div className="text-[15px] text-gray-500 mt-0.5">영업비율</div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-blue-600">{ratio}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">영업비율</div>
                   </div>
                 )}
 
                 {/* 인원수 */}
                 {headcount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-sm font-semibold text-purple-600">{headcount}</div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-purple-600">{headcount}</div>
                     {headcountChange != null && (
-                      <div className="text-[0.667em] text-gray-500 mt-0.5">{headcountChange}</div>
+                      <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">{headcountChange}</div>
                     )}
                   </div>
                 )}
@@ -192,21 +194,21 @@ export function BizUnitCard({
                 {/* 판매매출 */}
                 {salesAmount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-sm font-semibold text-teal-600">{salesAmount}</div>
-                    <div className="text-[15px] text-gray-500 mt-0.5">판매매출</div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-teal-600">{salesAmount}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">판매매출</div>
                   </div>
                 )}
               </div>
               {/* 인당 인건비/복리후생비 */}
               {(perPersonLaborCost || perPersonWelfareCost) && (
                 <div className="border-t border-gray-200 mt-3 pt-2">
-                  <div className="flex items-center justify-center gap-4 text-sm">
+                  <div className="flex items-center justify-center gap-4 text-[10px] sm:text-xs">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500 text-[0.7em]">인당기본급</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당기본급</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
-                          <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
+                          <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonLaborCostYOY})</span>
                         )}
                       </span>
                     )}
@@ -215,10 +217,10 @@ export function BizUnitCard({
                     )}
                     {perPersonWelfareCost && (
                       <span>
-                        <span className="text-gray-500 text-[0.7em]">인당복후비</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당복후비</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
                         {perPersonWelfareCostYOY && (
-                          <span className="text-gray-400 text-xs ml-1">({perPersonWelfareCostYOY})</span>
+                          <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonWelfareCostYOY})</span>
                         )}
                       </span>
                     )}
@@ -233,34 +235,34 @@ export function BizUnitCard({
               <div className="grid grid-cols-3 gap-2">
                 {ratio !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-sm font-semibold text-blue-600">{ratio}</div>
-                    <div className="text-[15px] text-gray-500 mt-0.5">영업비율</div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-blue-600">{ratio}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">영업비율</div>
                   </div>
                 )}
                 {headcount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-sm font-semibold text-purple-600">{headcount}</div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-purple-600">{headcount}</div>
                     {headcountChange != null && (
-                      <div className="text-[0.667em] text-gray-500 mt-0.5">{headcountChange}</div>
+                      <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">{headcountChange}</div>
                     )}
                   </div>
                 )}
                 {salesAmount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-sm font-semibold text-teal-600">{salesAmount}</div>
-                    <div className="text-[15px] text-gray-500 mt-0.5">판매매출</div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-teal-600">{salesAmount}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">판매매출</div>
                   </div>
                 )}
               </div>
               {(perPersonLaborCost || perPersonWelfareCost) && (
                 <div className="border-t border-gray-200 mt-3 pt-2">
-                  <div className="flex items-center justify-center gap-4 text-sm">
+                  <div className="flex items-center justify-center gap-4 text-[10px] sm:text-xs">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500 text-[0.7em]">인당기본급</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당기본급</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
-                          <span className="text-gray-400 text-xs ml-1">({perPersonLaborCostYOY})</span>
+                          <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonLaborCostYOY})</span>
                         )}
                       </span>
                     )}
@@ -269,10 +271,10 @@ export function BizUnitCard({
                     )}
                     {perPersonWelfareCost && (
                       <span>
-                        <span className="text-gray-500 text-[0.7em]">인당복후비</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당복후비</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
                         {perPersonWelfareCostYOY && (
-                          <span className="text-gray-400 text-xs ml-1">({perPersonWelfareCostYOY})</span>
+                          <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonWelfareCostYOY})</span>
                         )}
                       </span>
                     )}
@@ -284,74 +286,62 @@ export function BizUnitCard({
         </div>
 
         {/* 대분류별 요약 - 테이블 형식 */}
-        <div className="mt-2 pt-1 border-t">
-          <div className="text-xs font-semibold mb-3 text-gray-700">
+        <div className="mt-2 pt-1 border-t-[6px] border-gray-300">
+          <div className="text-[11.4px] sm:text-[13.2px] font-semibold mb-3 text-gray-700">
             영업비 상세보기
           </div>
-          {/* 테이블 헤더 (글씨 크기 데이터 행과 동일: text-xs) */}
-          <div className="grid grid-cols-12 gap-2 text-xs text-gray-500 mb-2 pb-1 border-b">
+          {/* 테이블 헤더 (글씨 크기 데이터 행과 동일) */}
+          <div className="grid grid-cols-12 gap-2 text-[11.4px] sm:text-[13.2px] text-gray-500 mb-2 pb-1 border-b">
             <div className="col-span-3">영업비</div>
-            <div className="col-span-2 text-right">금액</div>
+            <div className="col-span-3 text-right">금액</div>
+            <div className="col-span-3 text-right">전년비</div>
             <div className="col-span-3 text-right">YOY</div>
-            <div className="col-span-4 text-right">매출대비%증감</div>
           </div>
           {/* 테이블 바디 */}
-          <div className="space-y-2 text-xs">
+          <div className="space-y-2 text-[11.4px] sm:text-[13.2px]">
             {expenseDetails.map((detail, index) => (
-              <div
-                key={`${detail.label}-${index}`}
-                className="grid grid-cols-12 gap-2 items-center hover:bg-gray-50 py-1 rounded"
-              >
-                <div className="col-span-3 text-gray-700">{detail.label}</div>
-                <div className="col-span-2 text-right font-medium text-gray-900">
-                  {detail.amount}
-                </div>
-                <div className="col-span-3 text-right">
-                  {detail.yoy !== null ? (
-                    <span
-                      className={
-                        detail.yoy >= 100
-                          ? "text-red-600"
-                          : detail.yoy === 0
-                          ? "text-gray-500"
-                          : "text-blue-600"
-                      }
-                    >
-                      {formatPercent(detail.yoy, 0)}
+              <Fragment key={`${detail.label}-${index}`}>
+                <div className="grid grid-cols-12 gap-2 items-center hover:bg-gray-50 py-1 rounded">
+                  <div className="col-span-3 text-gray-900">{detail.label}</div>
+                  <div className="col-span-3 text-right font-medium text-gray-900">
+                    {detail.amount}
+                  </div>
+                  <div className="col-span-3 text-right">
+                    <span className={detail.amountDiff >= 0 ? "text-red-600" : "text-blue-600"}>
+                      {detail.amountDiff >= 0 ? "+" : ""}{formatK(detail.amountDiff)}
                     </span>
-                  ) : (
-                    <span className="text-gray-500">0.0%</span>
-                  )}
-                </div>
-                <div className="col-span-4 text-right">
-                  <span className="text-[0.75em]">
-                    {detail.change !== null ? (
+                  </div>
+                  <div className="col-span-3 text-right">
+                    {detail.yoy !== null ? (
                       <span
                         className={
-                          detail.change > 0
+                          detail.yoy >= 100
                             ? "text-red-600"
-                            : detail.change < 0
-                            ? "text-red-600"
-                            : "text-gray-500"
+                            : detail.yoy === 0
+                            ? "text-gray-500"
+                            : "text-blue-600"
                         }
                       >
-                        {formatPercentPoint(detail.change, 3)}
+                        {formatPercent(detail.yoy, 0)}
                       </span>
                     ) : (
-                      <span className="text-gray-500">0.000%p</span>
+                      <span className="text-gray-500">0.0%</span>
                     )}
-                  </span>
+                  </div>
                 </div>
-              </div>
+                {(detail.label === "복리후생비" || detail.label === "출장비") && (
+                  <div className="border-t border-gray-200 mt-2 mb-1" aria-hidden="true" />
+                )}
+              </Fragment>
             ))}
           </div>
         </div>
 
         {/* 상세보기 버튼 */}
         <div className="mt-4">
-          <Link href={`/${businessUnit}?year=${year}&month=${month}&mode=${mode}`}>
+          <Link href={`/${businessUnit}?year=${year}&type=${yearType}&month=${month}&mode=${mode}`}>
             <Button
-              className="w-full text-xs py-2.5 rounded-lg font-medium"
+              className="w-full text-[10px] sm:text-xs py-2.5 rounded-lg font-medium"
               style={{
                 backgroundColor: theme.buttonColor,
                 color: "white",

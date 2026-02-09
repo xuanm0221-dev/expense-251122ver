@@ -82,44 +82,125 @@ export function getMonthlyTotal(
   mode: Mode = "monthly",
   yearType: 'actual' | 'plan' = 'actual'
 ): MonthlyTotal | null {
-  // 법인인 경우 4개 사업부 합계 계산
+  // 법인인 경우 4개 사업부 raw 데이터 직접 합계 (재귀 호출 제거로 경영지원 중복 방지)
   if (bizUnit === "법인") {
-    const corporateData: MonthlyTotal[] = [];
-    for (const bu of CORPORATE_BIZ_UNITS) {
-      const buData = getMonthlyTotal(bu as BizUnit, year, month, mode, yearType);
-      if (buData) {
-        corporateData.push(buData);
-      }
+    let corporateFiltered = data.monthly_total.filter(
+      (item) =>
+        CORPORATE_BIZ_UNITS.includes(item.biz_unit as any) &&
+        item.year === year &&
+        item.year_type === yearType
+    );
+    if (mode === "monthly") {
+      corporateFiltered = corporateFiltered.filter((item) => item.month === month);
+    } else {
+      corporateFiltered = corporateFiltered.filter((item) => item.month <= month);
     }
-    
-    if (corporateData.length === 0) {
+    if (corporateFiltered.length === 0) {
       return null;
     }
-    
-    // 4개 사업부 데이터 합산
-    return corporateData.reduce(
-      (acc, item) => ({
-        ...acc,
-        amount: acc.amount + (item.amount || 0),
-        headcount: acc.headcount + (item.headcount || 0),
-        sales: acc.sales + (item.sales || 0),
-      }),
-      {
-        biz_unit: "법인",
-        year,
-        month,
-        yyyymm: `${year}${String(month).padStart(2, "0")}`,
-        amount: 0,
-        headcount: 0,
-        sales: 0,
-        year_type: yearType,
-      }
+    if (mode === "ytd") {
+      return corporateFiltered.reduce(
+        (acc, item) => ({
+          ...acc,
+          amount: acc.amount + (item.amount || 0),
+          headcount: item.headcount || 0,
+          sales: acc.sales + (item.sales || 0),
+        }),
+        {
+          biz_unit: "법인",
+          year,
+          month,
+          yyyymm: `${year}${String(month).padStart(2, "0")}`,
+          amount: 0,
+          headcount: 0,
+          sales: 0,
+          year_type: yearType,
+        }
+      );
+    } else {
+      // monthly: 4개 사업부 합산
+      return corporateFiltered.reduce(
+        (acc, item) => ({
+          ...acc,
+          amount: acc.amount + (item.amount || 0),
+          headcount: acc.headcount + (item.headcount || 0),
+          sales: acc.sales + (item.sales || 0),
+        }),
+        {
+          biz_unit: "법인",
+          year,
+          month,
+          yyyymm: `${year}${String(month).padStart(2, "0")}`,
+          amount: 0,
+          headcount: 0,
+          sales: 0,
+          year_type: yearType,
+        }
+      );
+    }
+  }
+
+  // 공통: monthly_total 공통 + category_detail MLB 경영지원 amount 합산
+  if (bizUnit === "공통") {
+    let commonFiltered = data.monthly_total.filter(
+      (item) =>
+        item.biz_unit === "공통" &&
+        item.year === year &&
+        item.year_type === yearType
     );
+    if (mode === "monthly") {
+      commonFiltered = commonFiltered.filter((item) => item.month === month);
+    } else {
+      commonFiltered = commonFiltered.filter((item) => item.month <= month);
+    }
+    if (commonFiltered.length === 0) {
+      return null;
+    }
+    let result: MonthlyTotal;
+    if (mode === "ytd") {
+      result = commonFiltered.reduce(
+        (acc, item) => ({
+          ...acc,
+          amount: acc.amount + (item.amount || 0),
+          headcount: item.headcount || 0,
+          sales: acc.sales + (item.sales || 0),
+        }),
+        {
+          biz_unit: "공통",
+          year,
+          month,
+          yyyymm: `${year}${String(month).padStart(2, "0")}`,
+          amount: 0,
+          headcount: 0,
+          sales: 0,
+          year_type: yearType,
+        }
+      );
+    } else {
+      result = { ...commonFiltered[0] };
+    }
+    const supportDetail = data.category_detail.filter(
+      (item) =>
+        item.biz_unit === "MLB" &&
+        (item.cost_lv3 || "").trim() === "경영지원" &&
+        item.year === year &&
+        item.year_type === yearType
+    );
+    const supportFiltered =
+      mode === "monthly"
+        ? supportDetail.filter((item) => item.month === month)
+        : supportDetail.filter((item) => item.month <= month);
+    const supportAmount = supportFiltered.reduce(
+      (s, i) => s + (i.amount || 0),
+      0
+    );
+    result.amount += supportAmount;
+    return result;
   }
 
   let filtered = data.monthly_total.filter(
-    (item) => 
-      item.biz_unit === bizUnit && 
+    (item) =>
+      item.biz_unit === bizUnit &&
       item.year === year &&
       item.year_type === yearType
   );
@@ -190,35 +271,98 @@ export function getMonthlyAggregatedByCategory(
   mode: Mode = "monthly",
   yearType: 'actual' | 'plan' = 'actual'
 ): MonthlyAggregated[] {
-  // 법인인 경우 4개 사업부 합계 계산
+  // 법인인 경우 4개 사업부 raw 데이터 직접 집계 (재귀 호출 제거로 경영지원 중복 방지)
   if (bizUnit === "법인") {
-    const allCategories = new Map<string, MonthlyAggregated>();
-    
-    for (const bu of CORPORATE_BIZ_UNITS) {
-      const buCategories = getMonthlyAggregatedByCategory(bu as BizUnit, year, month, mode, yearType);
-      
-      buCategories.forEach((item) => {
-        const key = item.cost_lv1;
-        if (allCategories.has(key)) {
-          const existing = allCategories.get(key)!;
-          existing.amount += item.amount;
-          existing.headcount += item.headcount || 0;
-          existing.sales += item.sales || 0;
-        } else {
-          allCategories.set(key, {
-            ...item,
-            biz_unit: "법인",
-          });
-        }
-      });
+    let corporateFiltered = data.monthly_aggregated.filter(
+      (item) =>
+        CORPORATE_BIZ_UNITS.includes(item.biz_unit as any) &&
+        item.year === year &&
+        item.year_type === yearType
+    );
+    if (mode === "monthly") {
+      corporateFiltered = corporateFiltered.filter((item) => item.month === month);
+    } else {
+      corporateFiltered = corporateFiltered.filter((item) => item.month <= month);
     }
-    
-    return Array.from(allCategories.values());
+    const grouped = new Map<string, MonthlyAggregated>();
+    corporateFiltered.forEach((item) => {
+      const key = item.cost_lv1;
+      if (grouped.has(key)) {
+        const existing = grouped.get(key)!;
+        existing.amount += item.amount;
+      } else {
+        grouped.set(key, {
+          ...item,
+          biz_unit: "법인",
+        });
+      }
+    });
+    return Array.from(grouped.values());
+  }
+
+  // 공통: monthly_aggregated 공통 + category_detail MLB 경영지원 cost_lv1별 합산 반영
+  if (bizUnit === "공통") {
+    let commonFiltered = data.monthly_aggregated.filter(
+      (item) =>
+        item.biz_unit === "공통" &&
+        item.year === year &&
+        item.year_type === yearType
+    );
+    if (mode === "monthly") {
+      commonFiltered = commonFiltered.filter((item) => item.month === month);
+    } else {
+      commonFiltered = commonFiltered.filter((item) => item.month <= month);
+    }
+    const grouped = new Map<string, MonthlyAggregated>();
+    commonFiltered.forEach((item) => {
+      const key = item.cost_lv1;
+      if (grouped.has(key)) {
+        const existing = grouped.get(key)!;
+        existing.amount += item.amount;
+      } else {
+        grouped.set(key, { ...item });
+      }
+    });
+    const supportDetail = data.category_detail.filter(
+      (item) =>
+        item.biz_unit === "MLB" &&
+        (item.cost_lv3 || "").trim() === "경영지원" &&
+        item.year === year &&
+        item.year_type === yearType
+    );
+    const supportFiltered =
+      mode === "monthly"
+        ? supportDetail.filter((item) => item.month === month)
+        : supportDetail.filter((item) => item.month <= month);
+    supportFiltered.forEach((item) => {
+      const key = item.cost_lv1 || "";
+      if (!key) return;
+      const amount = item.amount || 0;
+      const headcount = item.headcount || 0;
+      if (grouped.has(key)) {
+        const existing = grouped.get(key)!;
+        existing.amount += amount;
+        existing.headcount += headcount;
+      } else {
+        grouped.set(key, {
+          biz_unit: "공통",
+          year,
+          month,
+          yyyymm: `${year}${String(month).padStart(2, "0")}`,
+          cost_lv1: key,
+          amount,
+          headcount,
+          sales: 0,
+          year_type: yearType,
+        });
+      }
+    });
+    return Array.from(grouped.values());
   }
 
   let filtered = data.monthly_aggregated.filter(
-    (item) => 
-      item.biz_unit === bizUnit && 
+    (item) =>
+      item.biz_unit === bizUnit &&
       item.year === year &&
       item.year_type === yearType
   );
@@ -255,16 +399,17 @@ export function getAnnualData(
     return [];
   }
 
-  // 법인인 경우 4개 사업부 데이터를 개별적으로 반환 (사업부 정보 유지)
+  // 법인인 경우 4개 사업부 raw 데이터 직접 반환 (재귀 호출 제거로 경영지원 중복 방지)
   if (bizUnit === "법인") {
-    const allAnnual: AnnualData[] = [];
-    
-    for (const bu of CORPORATE_BIZ_UNITS) {
-      const buAnnual = getAnnualData(bu as BizUnit, year, costLv1, costLv2, costLv3, yearType);
-      allAnnual.push(...buAnnual);
-    }
-    
-    return allAnnual;
+    return data.annual_data.filter(
+      (item) =>
+        CORPORATE_BIZ_UNITS.includes(item.biz_unit as any) &&
+        item.year === year &&
+        (costLv1 === "" || item.cost_lv1 === costLv1) &&
+        (costLv2 === "" || item.cost_lv2 === costLv2) &&
+        (costLv3 === "" || item.cost_lv3 === costLv3) &&
+        item.year_type === yearType
+    );
   }
 
   // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
@@ -278,6 +423,21 @@ export function getAnnualData(
       item.year_type === yearType
   );
 
+  // 공통: 데이터상 사업부가 MLB이고 소분류가 "경영지원"인 행도 공통으로 포함 (26년 예산 등 연간 데이터)
+  if (bizUnit === "공통") {
+    const commonAsMLB = data.annual_data.filter(
+      (item) =>
+        item.biz_unit === "MLB" &&
+        (item.cost_lv3 || "").trim() === "경영지원" &&
+        item.year === year &&
+        (costLv1 === "" || item.cost_lv1 === costLv1) &&
+        (costLv2 === "" || item.cost_lv2 === costLv2) &&
+        (costLv3 === "" || item.cost_lv3 === costLv3) &&
+        item.year_type === yearType
+    ).map((item) => ({ ...item, biz_unit: "공통" }));
+    filtered = [...filtered, ...commonAsMLB];
+  }
+
   return filtered;
 }
 
@@ -289,16 +449,34 @@ export function getCategoryDetail(
   mode: Mode = "monthly",
   yearType: 'actual' | 'plan' = 'actual'
 ): CategoryDetail[] {
-  // 법인인 경우 4개 사업부 데이터를 개별적으로 반환 (사업부 정보 유지)
+  // 법인인 경우 4개 사업부 raw 데이터 직접 반환 (재귀 호출 제거로 경영지원 중복 방지)
   if (bizUnit === "법인") {
-    const allDetails: CategoryDetail[] = [];
-    
-    for (const bu of CORPORATE_BIZ_UNITS) {
-      const buDetails = getCategoryDetail(bu as BizUnit, year, month, costLv1, mode, yearType);
-      allDetails.push(...buDetails);
+    let corporateFiltered = data.category_detail.filter(
+      (item) =>
+        CORPORATE_BIZ_UNITS.includes(item.biz_unit as any) &&
+        item.year === year &&
+        (costLv1 === "" || item.cost_lv1 === costLv1) &&
+        item.year_type === yearType
+    );
+    if (mode === "monthly") {
+      corporateFiltered = corporateFiltered.filter((item) => item.month === month);
+    } else {
+      corporateFiltered = corporateFiltered.filter((item) => item.month <= month);
     }
-    
-    return allDetails;
+    if (mode === "ytd") {
+      const grouped = new Map<string, CategoryDetail>();
+      corporateFiltered.forEach((item) => {
+        const key = `${item.biz_unit || ""}|${item.cost_lv1 || ""}|${item.cost_lv2 || ""}|${item.cost_lv3 || ""}`;
+        if (grouped.has(key)) {
+          const existing = grouped.get(key)!;
+          existing.amount += item.amount;
+        } else {
+          grouped.set(key, { ...item });
+        }
+      });
+      return Array.from(grouped.values());
+    }
+    return corporateFiltered;
   }
 
   // bizUnit이 "ALL"이면 모든 사업부(MLB, KIDS, DISCOVERY, DUVETICA, SUPRA, 공통) 포함
@@ -309,6 +487,19 @@ export function getCategoryDetail(
       (costLv1 === "" || item.cost_lv1 === costLv1) &&
       item.year_type === yearType
   );
+
+  // 공통: 데이터상 사업부가 MLB이고 소분류가 "경영지원"인 행도 공통으로 포함
+  if (bizUnit === "공통") {
+    const commonAsMLB = data.category_detail.filter(
+      (item) =>
+        item.biz_unit === "MLB" &&
+        (item.cost_lv3 || "").trim() === "경영지원" &&
+        item.year === year &&
+        (costLv1 === "" || item.cost_lv1 === costLv1) &&
+        item.year_type === yearType
+    ).map((item) => ({ ...item, biz_unit: "공통" as const }));
+    filtered = [...filtered, ...commonAsMLB];
+  }
 
   if (mode === "monthly") {
     filtered = filtered.filter((item) => item.month === month);

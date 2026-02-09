@@ -98,7 +98,7 @@ export default function HomePage() {
                 <BarChart3 className="w-6 h-6 text-white" />
               </div>
               {/* 제목 */}
-              <h1 className="text-xl sm:text-2xl lg:text-[2rem] font-bold text-slate-800">F&F CHINA 비용 대시보드</h1>
+              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800">F&F CHINA 비용 대시보드</h1>
             </div>
             {/* 제목 아래 구분선 */}
             <div className="h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 rounded-full mx-auto" style={{ maxWidth: '600px' }}></div>
@@ -111,8 +111,8 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg flex-shrink-0">
                 <Calendar className="w-6 h-6 text-white" />
               </div>
-              {/* 날짜 선택 버튼 */}
-              <div className="inline-flex items-center gap-3 px-4 py-2.5 bg-gray-50 rounded-lg shadow-sm border border-gray-200 flex-shrink-0">
+              {/* 날짜 선택 + 월/연간 탭 (나란히) */}
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 bg-gray-50 rounded-lg shadow-sm border border-gray-200 flex-shrink-0">
                 <div className="relative">
                   <select
                     value={`${yearOption.year}-${yearOption.type}`}
@@ -123,7 +123,7 @@ export default function HomePage() {
                       );
                       if (selected) setYearOption(selected);
                     }}
-                    className="appearance-none bg-transparent border-none outline-none text-sm font-medium text-gray-700 cursor-pointer pr-6"
+                    className="appearance-none bg-transparent border-none outline-none text-[10px] sm:text-xs md:text-sm font-medium text-gray-700 cursor-pointer pr-6"
                   >
                     {availableYearOptions.map((opt) => (
                       <option key={`${opt.year}-${opt.type}`} value={`${opt.year}-${opt.type}`}>
@@ -138,7 +138,7 @@ export default function HomePage() {
                     value={month.toString()}
                     onChange={(e) => setMonth(parseInt(e.target.value))}
                     disabled={isPlanYear}
-                    className={`appearance-none bg-transparent border-none outline-none text-sm font-medium pr-6 ${
+                    className={`appearance-none bg-transparent border-none outline-none text-[10px] sm:text-xs md:text-sm font-medium pr-6 ${
                       isPlanYear 
                         ? 'text-gray-400 cursor-not-allowed' 
                         : 'text-gray-700 cursor-pointer'
@@ -154,28 +154,28 @@ export default function HomePage() {
                     isPlanYear ? 'text-gray-400' : 'text-gray-600'
                   }`} />
                 </div>
+                <Tabs 
+                  value={mode} 
+                  onValueChange={(v) => !isPlanYear && setMode(v as Mode)} 
+                  className="flex-shrink-0"
+                >
+                  <TabsList>
+                    <TabsTrigger 
+                      value="monthly" 
+                      disabled={isPlanYear}
+                      className={isPlanYear ? 'cursor-not-allowed opacity-50' : ''}
+                    >
+                      {isPlanYear ? "월" : "당월"}
+                    </TabsTrigger>
+                    <TabsTrigger value="ytd">
+                      {isPlanYear ? "연간" : "누적(YTD)"}
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
               </div>
-              <Tabs 
-                value={mode} 
-                onValueChange={(v) => !isPlanYear && setMode(v as Mode)} 
-                className="flex-shrink-0"
-              >
-                <TabsList>
-                  <TabsTrigger 
-                    value="monthly" 
-                    disabled={isPlanYear}
-                    className={isPlanYear ? 'cursor-not-allowed opacity-50' : ''}
-                  >
-                    {isPlanYear ? "월" : "당월"}
-                  </TabsTrigger>
-                  <TabsTrigger value="ytd">
-                    {isPlanYear ? "연간" : "누적(YTD)"}
-                  </TabsTrigger>
-                </TabsList>
-              </Tabs>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground mt-4">
+          <p className="text-[10px] sm:text-xs text-muted-foreground mt-4">
             브랜드를 클릭하면 상세 대시보드로 이동합니다.
           </p>
         </div>

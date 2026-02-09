@@ -103,6 +103,12 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
 
   const showDetailButton = bizUnit === "법인";
 
+  const perCapitaDiff = perCapitaCurrent != null && perCapitaPrev != null ? perCapitaCurrent - perCapitaPrev : null;
+  const diffStr = perCapitaDiff != null 
+    ? (perCapitaDiff >= 0 ? `+${formatK(perCapitaDiff, 1)}` : formatK(perCapitaDiff, 1))
+    : null;
+  const yoyStr = yoyTotal != null ? formatPercent(yoyTotal, 0) : "-";
+
   return (
     <div className="w-full min-w-0">
       <Card className="relative overflow-hidden" style={{ borderColor: navyColor, borderWidth: "1px" }}>
@@ -113,19 +119,13 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
               인건비(인당)
             </span>
-            <span className="font-bold">{perCapitaCurrent != null ? formatK(perCapitaCurrent, 1) : "-"}</span>
+            <span className="font-bold">
+              {perCapitaCurrent != null ? formatK(perCapitaCurrent, 1) : "-"}
+              {diffStr && ` (${diffStr}, ${yoyStr})`}
+            </span>
           </CardTitle>
         </CardHeader>
         <CardContent className="pl-5">
-          <div className="mb-2">
-            <div style={{ fontSize: "50%", color: navyColor }}>
-              (전년 {perCapitaPrev != null ? formatK(perCapitaPrev, 1) : "-"} /인, YoY{" "}
-              {yoyTotal != null ? formatPercent(yoyTotal, 0) : "-"})
-            </div>
-            <div className="text-gray-500 mt-1" style={{ fontSize: "50%" }}>
-              계산식: 전체 인건비 합계(YTD) / 연간 인원수 합계
-            </div>
-          </div>
           <hr className="border-gray-200 my-3" />
           <div style={{ fontSize: "50%" }}>
             <table className="w-full text-gray-700">
@@ -142,8 +142,8 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                       </button>
                     )}
                   </th>
-                  <th className="text-right py-1 px-1 font-semibold">당년</th>
                   <th className="text-right py-1 px-1 font-semibold">전년</th>
+                  <th className="text-right py-1 px-1 font-semibold">당년</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -151,18 +151,25 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                 {LABOR_COST_LV2_ORDER.map((lv2) => {
                   const curr = byLv2Current.get(lv2) ?? 0;
                   const prev = byLv2Prev.get(lv2) ?? 0;
-                  const pcCurr = headcountCurrent > 0 ? curr / headcountCurrent : null;
-                  const pcPrev = headcountPrev > 0 ? prev / headcountPrev : null;
+                  // Red Pack은 연평균 인원수로 계산 (연 1회 지급)
+                  const isRedPack = lv2 === "Red pack";
+                  const avgHeadcountCurrent = isRedPack ? headcountCurrent / 12 : headcountCurrent;
+                  const avgHeadcountPrev = isRedPack ? headcountPrev / 12 : headcountPrev;
+                  const pcCurr = avgHeadcountCurrent > 0 ? curr / avgHeadcountCurrent : null;
+                  const pcPrev = avgHeadcountPrev > 0 ? prev / avgHeadcountPrev : null;
                   const yoy =
                     pcCurr != null && pcPrev != null && pcPrev !== 0 ? (pcCurr / pcPrev) * 100 : null;
                   const currStr = pcCurr != null ? formatK(pcCurr, 1) : "-";
                   const prevStr = pcPrev != null ? formatK(pcPrev, 1) : "-";
-                  const yoyStr = yoy != null ? formatPercent(yoy, 0) : "-";
+                  const diff = pcCurr != null && pcPrev != null ? pcCurr - pcPrev : null;
+                  const amountPart = diff != null ? (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 1) : "";
+                  const percentPart = yoy != null ? formatPercent(yoy, 0) : "";
+                  const yoyStr = amountPart && percentPart ? `${amountPart} (${percentPart})` : amountPart || percentPart || "-";
                   return (
                     <tr key={lv2}>
                       <td className="text-left py-0.5 pr-2">{lv2}:</td>
-                      <td className="text-right py-0.5 px-1">{currStr}</td>
                       <td className="text-right py-0.5 px-1">{prevStr}</td>
+                      <td className="text-right py-0.5 px-1">{currStr}</td>
                       <td className="text-right py-0.5 pl-1">{yoyStr}</td>
                     </tr>
                   );
@@ -185,8 +192,8 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                 <thead>
                   <tr className="border-b border-gray-200 bg-gray-50">
                     <th className="text-left py-2 px-3 font-semibold text-gray-700">구분</th>
-                    <th className="text-right py-2 px-3 font-semibold text-gray-700">당년인당(K)</th>
                     <th className="text-right py-2 px-3 font-semibold text-gray-700">전년인당(K)</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">당년인당(K)</th>
                     <th className="text-right py-2 px-3 font-semibold text-gray-700">YoY(%)</th>
                   </tr>
                 </thead>
@@ -208,23 +215,31 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                           const prevHc = isPlanYear
                             ? getAnnualHeadcountSum(bu, 2025, "actual")
                             : getAnnualHeadcountSum(bu, year - 1, yearType);
-                          const perCapitaCurr = currHc > 0 ? currAmount / currHc : null;
-                          const perCapitaPrev = prevHc > 0 ? prevAmount / prevHc : null;
+                          // Red Pack은 연평균 인원수로 계산 (연 1회 지급)
+                          const isRedPack = lv2 === "Red pack";
+                          const avgCurrHc = isRedPack ? currHc / 12 : currHc;
+                          const avgPrevHc = isRedPack ? prevHc / 12 : prevHc;
+                          const perCapitaCurr = avgCurrHc > 0 ? currAmount / avgCurrHc : null;
+                          const perCapitaPrev = avgPrevHc > 0 ? prevAmount / avgPrevHc : null;
                           const yoy =
                             perCapitaCurr != null && perCapitaPrev != null && perCapitaPrev !== 0
                               ? (perCapitaCurr / perCapitaPrev) * 100
                               : null;
+                          const diff = perCapitaCurr != null && perCapitaPrev != null ? perCapitaCurr - perCapitaPrev : null;
+                          const amountPart = diff != null ? (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 1) : "";
+                          const percentPart = yoy != null ? formatPercent(yoy, 0) : "";
+                          const yoyStr = amountPart && percentPart ? `${amountPart} (${percentPart})` : amountPart || percentPart || "-";
                           return (
                             <tr key={`${lv2}-${bu}`} className="border-b border-gray-100">
                               <td className="py-1.5 pl-6 pr-3 text-gray-600">ㄴ{label}</td>
                               <td className="py-1.5 px-3 text-right">
-                                {perCapitaCurr != null ? formatK(perCapitaCurr, 1) : "-"}
-                              </td>
-                              <td className="py-1.5 px-3 text-right">
                                 {perCapitaPrev != null ? formatK(perCapitaPrev, 1) : "-"}
                               </td>
                               <td className="py-1.5 px-3 text-right">
-                                {yoy != null ? formatPercent(yoy, 0) : "-"}
+                                {perCapitaCurr != null ? formatK(perCapitaCurr, 1) : "-"}
+                              </td>
+                              <td className="py-1.5 px-3 text-right">
+                                {yoyStr}
                               </td>
                             </tr>
                           );

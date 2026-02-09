@@ -13,6 +13,7 @@ import { LaborCostPerCapitaCard } from "@/components/dashboard/LaborCostPerCapit
 import { AdExpenseCard } from "@/components/dashboard/AdExpenseCard";
 import { ITFeeCard } from "@/components/dashboard/ITFeeCard";
 import { PaymentFeeCard } from "@/components/dashboard/PaymentFeeCard";
+import { CategoryExpenseCard } from "@/components/dashboard/CategoryExpenseCard";
 import { ExpenseAccountRow } from "@/types/expense";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -123,6 +124,8 @@ export default function DivisionPage() {
   const [adExpenseNode, setAdExpenseNode] = useState<ExpenseAccountRow | null>(null);
   const [itFeeNode, setITFeeNode] = useState<ExpenseAccountRow | null>(null);
   const [paymentFeeNode, setPaymentFeeNode] = useState<ExpenseAccountRow | null>(null);
+  const [meetingNode, setMeetingNode] = useState<ExpenseAccountRow | null>(null);
+  const [travelNode, setTravelNode] = useState<ExpenseAccountRow | null>(null);
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
   const availableMonths = getAvailableMonths(yearOption.year, yearOption.type);
@@ -184,15 +187,37 @@ export default function DivisionPage() {
 
   const isCommon = bizUnit === "공통";
   const isCorporate = bizUnit === "법인";
+  const isBrand = !isCommon && !isCorporate;
+
+  // 모든 페이지에서 총비용 KPI용 법인 총비용 (전체 법인 합계)
+  let corporateTotalCost: number | undefined;
+  let corporateTotalCostYOY: number | null = null;
+  let corporatePreviousAmountForKpi: number | null = null;
+  if (is2026Annual) {
+    const corpAnnual = getAnnualData("법인", 2026, "", "", "", yearType);
+    corporateTotalCost = corpAnnual.reduce((s, i) => s + i.annual_amount, 0);
+    corporatePreviousAmountForKpi = getMonthlyTotal("법인", 2025, 12, "ytd", "actual")?.amount ?? 0;
+    corporateTotalCostYOY = calculateYOY(corporateTotalCost, corporatePreviousAmountForKpi);
+  } else {
+    const corpCurrent = getMonthlyTotal("법인", year, month, mode, yearType);
+    const corpPrevious = getPreviousYearTotal("법인", year, month, mode, yearType);
+    corporateTotalCost = corpCurrent?.amount ?? 0;
+    corporatePreviousAmountForKpi = corpPrevious?.amount ?? null;
+    corporateTotalCostYOY = calculateYOY(corporateTotalCost, corporatePreviousAmountForKpi);
+  }
 
   // 계층형 표에서 광고비, IT수수료, 지급수수료 노드 추출
   const handleHierarchyReady = (rows: ExpenseAccountRow[]) => {
     const adNode = rows.find(row => row.category_l1 === "광고비");
     const itNode = rows.find(row => row.category_l1 === "IT수수료");
     const paymentNode = rows.find(row => row.category_l1 === "지급수수료");
+    const meeting = rows.find(row => row.category_l1 === "수주회");
+    const travel = rows.find(row => row.category_l1 === "출장비");
     setAdExpenseNode(adNode || null);
     setITFeeNode(itNode || null);
     setPaymentFeeNode(paymentNode || null);
+    setMeetingNode(meeting || null);
+    setTravelNode(travel || null);
   };
 
   const totalCost = is2026Annual ? currentAnnualSum : (current?.amount || 0);
@@ -220,12 +245,149 @@ export default function DivisionPage() {
     : (previous?.sales || 0);
   const salesYOY = calculateYOY(sales, prevSales);
 
+  // 공통 페이지: 판매매출 카드는 법인 판매매출 사용
+  const corporateCurrent = isCommon ? getMonthlyTotal("법인", year, month, mode, yearType) : null;
+  const corporatePrevious = isCommon ? getPreviousYearTotal("법인", year, month, mode, yearType) : null;
+  const corporateSales = isCommon
+    ? (is2026Annual
+      ? (() => {
+          let sum = 0;
+          for (let m = 1; m <= 12; m++) {
+            const monthData = getMonthlyTotal("법인", year, m, "monthly", yearType);
+            sum += monthData?.sales || 0;
+          }
+          return sum;
+        })()
+      : (corporateCurrent?.sales ?? 0))
+    : 0;
+  const corporatePrevSales = isCommon
+    ? (is2026Annual
+      ? (getMonthlyTotal("법인", 2025, 12, "ytd", "actual")?.sales ?? 0)
+      : (corporatePrevious?.sales ?? 0))
+    : 0;
+  const corporateSalesYOY = isCommon ? calculateYOY(corporateSales, corporatePrevSales) : null;
+
   const costRatio = calculateCostRatio(totalCost, sales);
   const prevCostRatio = calculateCostRatio(previousAnnualSum || previous?.amount || 0, prevSales);
   const costRatioYOY =
     costRatio !== null && prevCostRatio !== null
       ? costRatio - prevCostRatio
       : null;
+
+  // 비용 YOY 카드용 상세 항목 계산
+  const categoryMap = new Map(currentCategories.map(c => [c.cost_lv1, c]));
+  const prevCategoryMap = new Map(previousCategories.map(c => [c.cost_lv1, c]));
+  
+  // 법인 페이지: 인건비 외, 광고비, 지급수수료, 수주회, 임차료
+  const corporateDetailItems = isCorporate ? (() => {
+    const items: { label: string; value: string }[] = [];
+    
+    // 인건비 외 (인건비 + 복리후생비)
+    const laborCurr = categoryMap.get("인건비")?.amount ?? 0;
+    const welfareCurr = categoryMap.get("복리후생비")?.amount ?? 0;
+    const laborPrev = prevCategoryMap.get("인건비")?.amount ?? 0;
+    const welfarePrev = prevCategoryMap.get("복리후생비")?.amount ?? 0;
+    const laborWelfareCurr = laborCurr + welfareCurr;
+    const laborWelfarePrev = laborPrev + welfarePrev;
+    const laborWelfareDiff = laborWelfareCurr - laborWelfarePrev;
+    const laborWelfareYoy = laborWelfarePrev > 0 ? (laborWelfareCurr / laborWelfarePrev) * 100 : null;
+    items.push({
+      label: "인건비 외",
+      value: `${laborWelfareDiff >= 0 ? "+" : ""}${formatK(laborWelfareDiff)} (${laborWelfareYoy != null ? formatPercent(laborWelfareYoy, 0) : "-"})`
+    });
+    
+    // 광고비, 지급수수료, 수주회, 임차료
+    ["광고비", "지급수수료", "수주회", "임차료"].forEach(cat => {
+      const curr = categoryMap.get(cat);
+      const prev = prevCategoryMap.get(cat);
+      if (curr || prev) {
+        const currAmount = curr?.amount ?? 0;
+        const prevAmount = prev?.amount ?? 0;
+        const diff = currAmount - prevAmount;
+        const yoy = prevAmount > 0 ? (currAmount / prevAmount) * 100 : null;
+        items.push({
+          label: cat,
+          value: `${diff >= 0 ? "+" : ""}${formatK(diff)} (${yoy != null ? formatPercent(yoy, 0) : "-"})`
+        });
+      }
+    });
+    
+    return items;
+  })() : undefined;
+  
+  // 브랜드 페이지: 인건비 외, 광고비, 수주회
+  const brandDetailItems = isBrand ? (() => {
+    const items: { label: string; value: string }[] = [];
+    
+    // 인건비 외 (인건비 + 복리후생비)
+    const laborCurr = categoryMap.get("인건비")?.amount ?? 0;
+    const welfareCurr = categoryMap.get("복리후생비")?.amount ?? 0;
+    const laborPrev = prevCategoryMap.get("인건비")?.amount ?? 0;
+    const welfarePrev = prevCategoryMap.get("복리후생비")?.amount ?? 0;
+    const laborWelfareCurr = laborCurr + welfareCurr;
+    const laborWelfarePrev = laborPrev + welfarePrev;
+    const laborWelfareDiff = laborWelfareCurr - laborWelfarePrev;
+    const laborWelfareYoy = laborWelfarePrev > 0 ? (laborWelfareCurr / laborWelfarePrev) * 100 : null;
+    items.push({
+      label: "인건비 외",
+      value: `${laborWelfareDiff >= 0 ? "+" : ""}${formatK(laborWelfareDiff)} (${laborWelfareYoy != null ? formatPercent(laborWelfareYoy, 0) : "-"})`
+    });
+    
+    // 광고비, 수주회
+    ["광고비", "수주회"].forEach(cat => {
+      const curr = categoryMap.get(cat);
+      const prev = prevCategoryMap.get(cat);
+      if (curr || prev) {
+        const currAmount = curr?.amount ?? 0;
+        const prevAmount = prev?.amount ?? 0;
+        const diff = currAmount - prevAmount;
+        const yoy = prevAmount > 0 ? (currAmount / prevAmount) * 100 : null;
+        items.push({
+          label: cat,
+          value: `${diff >= 0 ? "+" : ""}${formatK(diff)} (${yoy != null ? formatPercent(yoy, 0) : "-"})`
+        });
+      }
+    });
+    
+    return items;
+  })() : undefined;
+  
+  // 공통 페이지: 인건비 외, 지급수수료, IT수수료, 임차료
+  const commonDetailItems = isCommon ? (() => {
+    const items: { label: string; value: string }[] = [];
+    
+    // 인건비 외 (인건비 + 복리후생비)
+    const laborCurr = categoryMap.get("인건비")?.amount ?? 0;
+    const welfareCurr = categoryMap.get("복리후생비")?.amount ?? 0;
+    const laborPrev = prevCategoryMap.get("인건비")?.amount ?? 0;
+    const welfarePrev = prevCategoryMap.get("복리후생비")?.amount ?? 0;
+    const laborWelfareCurr = laborCurr + welfareCurr;
+    const laborWelfarePrev = laborPrev + welfarePrev;
+    const laborWelfareDiff = laborWelfareCurr - laborWelfarePrev;
+    const laborWelfareYoy = laborWelfarePrev > 0 ? (laborWelfareCurr / laborWelfarePrev) * 100 : null;
+    items.push({
+      label: "인건비 외",
+      value: `${laborWelfareDiff >= 0 ? "+" : ""}${formatK(laborWelfareDiff)} (${laborWelfareYoy != null ? formatPercent(laborWelfareYoy, 0) : "-"})`
+    });
+    
+    // 지급수수료, IT수수료, 임차료
+    ["지급수수료", "IT수수료", "임차료"].forEach(cat => {
+      const curr = categoryMap.get(cat);
+      const prev = prevCategoryMap.get(cat);
+      if (curr || prev) {
+        const currAmount = curr?.amount ?? 0;
+        const prevAmount = prev?.amount ?? 0;
+        const diff = currAmount - prevAmount;
+        const yoy = prevAmount > 0 ? (currAmount / prevAmount) * 100 : null;
+        items.push({
+          label: cat,
+          value: `${diff >= 0 ? "+" : ""}${formatK(diff)} (${yoy != null ? formatPercent(yoy, 0) : "-"})`
+        });
+      }
+    });
+    
+    return items;
+  })() : undefined;
 
   // 인당 비용 계산: 인건비 / 인원수
   // 카드 표시용 인원수: 12월 기말 인원수
@@ -358,22 +520,20 @@ export default function DivisionPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <KpiCard
             title="총비용"
-            value={totalCost}
+            value={corporateTotalCost ?? totalCost}
             unit="K"
-            yoy={totalCostYOY}
+            yoy={corporateTotalCostYOY ?? totalCostYOY}
             yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
-            previousValue={previousAmountForKpi}
+            previousValue={corporatePreviousAmountForKpi ?? previousAmountForKpi}
           />
-          {!isCommon && !isCorporate && (
+          {isBrand && (
             <>
               <KpiCard
-                title="인당 비용"
-                value={perPersonCost}
-                unit="K"
-                yoy={perPersonCostYOY}
-                yoyLabel="전년동월대비"
-                previousValue={prevPerPersonCost}
-                description={`직원 1인당 인건비: ${headcount > 0 && laborCostAmount > 0 ? formatK(laborCostAmount / headcount, 1) : "-"} (${headcount}명)`}
+                title="브랜드 비용 YOY"
+                value={`${totalCostChange != null && totalCostChange >= 0 ? "+" : ""}${formatK(totalCostChange ?? 0)} (${formatPercent(totalCostYOY, 0)})`}
+                yoy={null}
+                yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : ""}
+                detailItems={brandDetailItems}
               />
               <KpiCard
                 title="매출대비 비용률"
@@ -381,12 +541,11 @@ export default function DivisionPage() {
                 yoy={costRatioYOY}
                 yoyLabel="전년동월대비"
                 previousValue={prevCostRatio}
-                description="효율성 지표"
               />
               <KpiCard
-                title="매출"
+                title="판매매출"
                 value={sales}
-                unit="K"
+                unit="M"
                 yoy={salesYOY}
                 yoyLabel="전년동월대비"
                 previousValue={previous?.sales ?? null}
@@ -399,7 +558,8 @@ export default function DivisionPage() {
                 title={isCorporate ? "법인비용 YOY" : "공통비용 YOY"}
                 value={`${totalCostChange && totalCostChange > 0 ? '+' : ''}${formatK(totalCostChange || 0)} (${formatPercent(totalCostYOY, 0)})`}
                 yoy={null}
-                description={is2026Annual ? "전년(2025 실적) 대비 증감률" : "전년동월대비 증감률"}
+                yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : ""}
+                detailItems={isCorporate ? corporateDetailItems : commonDetailItems}
               />
               <KpiCard
                 title="매출대비 비용률"
@@ -407,27 +567,43 @@ export default function DivisionPage() {
                 yoy={costRatioYOY}
                 yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
                 previousValue={prevCostRatio}
-                description="효율성 지표"
               />
               <KpiCard
                 title="판매매출"
-                value={sales}
+                value={isCommon ? corporateSales : sales}
                 unit="M"
-                yoy={salesYOY}
+                yoy={isCommon ? corporateSalesYOY : salesYOY}
                 yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
-                previousValue={prevSales}
+                previousValue={isCommon ? corporatePrevSales : prevSales}
               />
             </>
           )}
           </div>
         </div>
 
-        {/* 인건비 · 광고비 · IT수수료 · 지급수수료 카드 */}
+        {/* 인건비 · 광고비 · IT수수료 · 지급수수료 카드 (구분별 상이) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
           <LaborCostPerCapitaCard bizUnit={bizUnit} year={year} month={month} yearType={yearType} />
-          <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} />
-          <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} yearType={yearType} />
-          <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} yearType={yearType} />
+          {isBrand && (
+            <>
+              <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <CategoryExpenseCard title="수주회" categoryLv1="수주회" node={meetingNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <CategoryExpenseCard title="출장비" categoryLv1="출장비" node={travelNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
+            </>
+          )}
+          {isCommon && (
+            <>
+              <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} yearType={yearType} sales={corporateSales} prevSales={corporatePrevSales} />
+              <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} yearType={yearType} sales={corporateSales} prevSales={corporatePrevSales} />
+            </>
+          )}
+          {isCorporate && (
+            <>
+              <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} yearType={yearType} sales={sales} prevSales={prevSales} />
+            </>
+          )}
         </div>
 
         {/* 비용 계정 상세 분석 */}

@@ -1653,25 +1653,27 @@ export function ExpenseAccountHierTable({
     }
   }, [hierarchicalData, onHierarchyReady]);
 
-  // 평면화된 행 리스트 생성 (렌더링용)
+  // 평면화된 행 리스트 생성 (렌더링용) - 전년·당년 모두 없으면 해당 항목 숨김
   const flattenedRows = useMemo(() => {
     const result: ExpenseAccountRow[] = [];
-    
+
     const traverse = (rows: ExpenseAccountRow[]) => {
       rows.forEach((row) => {
-        // 당월 모드일 때만 필터링: 당해 당월 = 0 AND 전년 당월 = 0인 행은 제외
+        let shouldHide = false;
         if (viewMode === "monthly") {
-          const shouldHide = row.curr_month === 0 && row.prev_month === 0;
-          if (shouldHide) {
-            // 숨길 행이지만, 자식이 펼쳐져 있으면 자식은 표시해야 함
-            // 자식이 있으면 자식만 순회
-            if (row.isExpanded && row.children && row.children.length > 0) {
-              traverse(row.children);
-            }
-            return; // 현재 행은 결과에 추가하지 않음
-          }
+          shouldHide = row.curr_month === 0 && row.prev_month === 0;
+        } else if (is2026AnnualOnly) {
+          shouldHide = (row.prev_year_annual ?? 0) === 0 && (row.curr_year_annual ?? 0) === 0;
+        } else {
+          shouldHide = row.prev_ytd === 0 && row.curr_ytd === 0;
         }
-        
+        if (shouldHide) {
+          if (row.isExpanded && row.children && row.children.length > 0) {
+            traverse(row.children);
+          }
+          return;
+        }
+
         result.push(row);
         if (row.isExpanded && row.children && row.children.length > 0) {
           traverse(row.children);
@@ -1681,7 +1683,7 @@ export function ExpenseAccountHierTable({
 
     traverse(hierarchicalData);
     return result;
-  }, [hierarchicalData, viewMode]);
+  }, [hierarchicalData, viewMode, is2026AnnualOnly]);
 
   const toggleRow = (rowId: string) => {
     const newExpanded = new Set(expandedRows);

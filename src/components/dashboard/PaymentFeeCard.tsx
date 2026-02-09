@@ -15,6 +15,8 @@ interface PaymentFeeCardProps {
   month: number;
   paymentNode?: ExpenseAccountRow | null;
   yearType?: 'actual' | 'plan';
+  sales?: number;
+  prevSales?: number;
 }
 
 function sumByKey(details: { cost_lv2: string; amount: number }[]): Map<string, number> {
@@ -32,7 +34,7 @@ function totalExpense(details: { amount: number }[]): number {
   return details.reduce((s, d) => s + d.amount, 0);
 }
 
-export function PaymentFeeCard({ bizUnit, year, month, paymentNode }: PaymentFeeCardProps) {
+export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sales, prevSales }: PaymentFeeCardProps) {
   const [showDetail, setShowDetail] = useState(false);
 
   // paymentNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
@@ -78,27 +80,33 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode }: PaymentFee
   }
 
   const yoy = totalPrev > 0 ? (totalCurrent / totalPrev) * 100 : null;
+  const costRatio = sales && sales > 0 ? (totalCurrent / sales) * 100 : null;
+  const diff = totalCurrent - totalPrev;
+  const diffStr = diff >= 0 ? `+${formatK(diff, 0)}` : formatK(diff, 0);
+  const yoyStr = yoy != null ? formatPercent(yoy, 0) : "-";
 
   return (
     <div className="w-full min-w-0">
       <Card className="relative overflow-hidden" style={{ borderColor: navyColor, borderWidth: "1px" }}>
         <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: navyBarColor }} />
         <CardHeader className="pl-5 pb-3">
-          <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+          <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
               지급수수료
             </span>
-            <span className="font-bold">{totalCurrent > 0 ? formatK(totalCurrent, 0) : "-"}</span>
+            <span className="font-bold" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px" }}>
+              <span>
+                {totalCurrent > 0 ? formatK(totalCurrent, 0) : "-"}
+                {costRatio != null && ` (${costRatio.toFixed(1)}%)`}
+              </span>
+              <span style={{ fontSize: "0.85em" }}>
+                {diffStr} ({yoyStr})
+              </span>
+            </span>
           </CardTitle>
         </CardHeader>
         <CardContent className="pl-5">
-          <div className="mb-2">
-            <div style={{ fontSize: "50%", color: navyColor }}>
-              (전년 {totalPrev > 0 ? formatK(totalPrev, 0) : "-"}, YoY{" "}
-              {yoy != null ? formatPercent(yoy, 0) : "-"})
-            </div>
-          </div>
           <hr className="border-gray-200 my-3" />
           <div style={{ fontSize: "50%" }}>
             <table className="w-full text-gray-700">
@@ -114,8 +122,8 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode }: PaymentFee
                       </button>
                     )}
                   </th>
-                  <th className="text-right py-1 px-1 font-semibold">당년</th>
                   <th className="text-right py-1 px-1 font-semibold">전년</th>
+                  <th className="text-right py-1 px-1 font-semibold">당년</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -126,7 +134,10 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode }: PaymentFee
                   const yoyRow = prev > 0 ? (curr / prev) * 100 : null;
                   const currStr = curr > 0 ? formatK(curr, 0) : "-";
                   const prevStr = prev > 0 ? formatK(prev, 0) : "-";
-                  const yoyStr = yoyRow != null ? formatPercent(yoyRow, 0) : "-";
+                  const diff = curr - prev;
+                  const amountPart = (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 0);
+                  const percentPart = yoyRow != null ? formatPercent(yoyRow, 0) : "";
+                  const yoyStr = percentPart ? `${amountPart} (${percentPart})` : amountPart;
                   const label = l2Child.category_l2 || l2Child.biz_unit || "-";
 
                   // L3 children 필터링 (curr_ytd > 0, showDetail === true일 때만)
@@ -139,22 +150,26 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode }: PaymentFee
                       {/* L2 행 (중분류) */}
                       <tr>
                         <td className="text-left py-0.5 pr-2 font-semibold">{label}</td>
-                        <td className="text-right py-0.5 px-1">{currStr}</td>
                         <td className="text-right py-0.5 px-1">{prevStr}</td>
+                        <td className="text-right py-0.5 px-1">{currStr}</td>
                         <td className="text-right py-0.5 pl-1">{yoyStr}</td>
                       </tr>
 
                       {/* L3 행들 (소분류) - showDetail이 true면 자동으로 표시 */}
                       {l3Children.map((l3, l3Idx) => {
                         const l3Yoy = l3.prev_ytd > 0 ? (l3.curr_ytd / l3.prev_ytd) * 100 : null;
+                        const l3Diff = l3.curr_ytd - l3.prev_ytd;
+                        const l3AmountPart = (l3Diff >= 0 ? "+" : "-") + formatK(Math.abs(l3Diff), 0);
+                        const l3PercentPart = l3Yoy != null ? formatPercent(l3Yoy, 0) : "";
+                        const l3YoyStr = l3PercentPart ? `${l3AmountPart} (${l3PercentPart})` : l3AmountPart;
                         return (
                           <tr key={`${idx}-${l3Idx}`} className="text-gray-600">
                             <td className="text-left py-0.5 pr-2 pl-4">
                               - {l3.category_l3 || "-"}
                             </td>
-                            <td className="text-right py-0.5 px-1">{formatK(l3.curr_ytd, 0)}</td>
                             <td className="text-right py-0.5 px-1">{l3.prev_ytd > 0 ? formatK(l3.prev_ytd, 0) : "-"}</td>
-                            <td className="text-right py-0.5 pl-1">{l3Yoy != null ? formatPercent(l3Yoy, 0) : "-"}</td>
+                            <td className="text-right py-0.5 px-1">{formatK(l3.curr_ytd, 0)}</td>
+                            <td className="text-right py-0.5 pl-1">{l3YoyStr}</td>
                           </tr>
                         );
                       })}

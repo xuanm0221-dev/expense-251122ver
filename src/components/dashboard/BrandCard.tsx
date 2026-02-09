@@ -69,29 +69,6 @@ function getCategoryDisplayName(categoryName: string): string {
   return CATEGORY_DISPLAY_NAME[categoryName] || categoryName;
 }
 
-// 비용율 계산
-function calculateCostRatioForCategory(
-  cost: number,
-  sales: number
-): number | null {
-  if (!sales) return null;
-  return (cost * 1.13 / sales) * 100;
-}
-
-// 비용율 증감 계산
-function calculateCostRatioChange(
-  currentCost: number,
-  currentSales: number,
-  prevCost: number,
-  prevSales: number
-): number | null {
-  const curr = calculateCostRatioForCategory(currentCost, currentSales);
-  const prev = calculateCostRatioForCategory(prevCost, prevSales);
-
-  if (curr == null || prev == null) return null;
-  return curr - prev;
-}
-
 export function BrandCard({
   bizUnit,
   year,
@@ -256,28 +233,21 @@ export function BrandCard({
   const perPersonLaborCostYOY = calculateYOY(perPersonLaborCost ?? 0, prevPerPersonLaborCost ?? 0);
   const perPersonWelfareCostYOY = calculateYOY(perPersonWelfareCost ?? 0, prevPerPersonWelfareCost ?? 0);
 
-  // 법인/공통 카드용 매출 기준 (매출대비%증감 계산)
-  const salesForRatio = isCorporate ? sales : (isCommon ? (corporateTotal?.sales ?? 0) : sales);
-  const prevSalesForRatio = isCorporate ? prevSales : (isCommon ? (prevCorporateTotal?.sales ?? 0) : prevSales);
-
   // 상세 카테고리 데이터 (순서: EXPENSE_DETAIL_ORDER)
   const expenseDetails: ExpenseDetail[] = (isCommon || isCorporate)
     ? EXPENSE_DETAIL_ORDER.filter((name) => categoryMap.has(name))
         .map((categoryName) => {
           const cat = categoryMap.get(categoryName)!;
           const prev = prevCategoryMap.get(categoryName);
-          const yoy = calculateYOY(cat?.amount ?? 0, prev?.amount ?? 0);
-          const ratioChange = calculateCostRatioChange(
-            cat?.amount ?? 0,
-            salesForRatio,
-            prev?.amount ?? 0,
-            prevSalesForRatio
-          );
+          const currentAmount = cat?.amount ?? 0;
+          const prevAmount = prev?.amount ?? 0;
+          const amountDiff = currentAmount - prevAmount;
+          const yoy = calculateYOY(currentAmount, prevAmount);
           return {
             label: categoryName,
             amount: formatK(cat.amount),
+            amountDiff,
             yoy,
-            change: ratioChange,
           };
         })
     : EXPENSE_DETAIL_ORDER.filter((categoryName) => {
@@ -286,20 +256,15 @@ export function BrandCard({
       }).map((categoryName) => {
         const cat = categoryMap.get(categoryName);
         const prev = prevCategoryMap.get(categoryName);
-        const amount = cat?.amount ?? 0;
+        const currentAmount = cat?.amount ?? 0;
         const prevAmount = prev?.amount ?? 0;
-        const yoy = calculateYOY(amount, prevAmount);
-        const ratioChange = calculateCostRatioChange(
-          amount,
-          sales,
-          prevAmount,
-          prevSales
-        );
+        const amountDiff = currentAmount - prevAmount;
+        const yoy = calculateYOY(currentAmount, prevAmount);
         return {
           label: getCategoryDisplayName(categoryName),
-          amount: formatK(amount),
+          amount: formatK(currentAmount),
+          amountDiff,
           yoy,
-          change: ratioChange,
         };
       });
 
@@ -328,6 +293,7 @@ export function BrandCard({
       year={year}
       month={month}
       mode={mode}
+      yearType={yearType}
       isCommon={isCommon}
     />
   );
