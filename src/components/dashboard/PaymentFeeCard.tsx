@@ -108,7 +108,7 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
         </CardHeader>
         <CardContent className="pl-5">
           <hr className="border-gray-200 my-3" />
-          <div style={{ fontSize: "50%" }}>
+          <div style={{ fontSize: "60%" }}>
             <table className="w-full text-gray-700">
               <thead>
                 <tr>
@@ -124,6 +124,7 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                   </th>
                   <th className="text-right py-1 px-1 font-semibold">전년</th>
                   <th className="text-right py-1 px-1 font-semibold">당년</th>
+                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -137,7 +138,6 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                   const diff = curr - prev;
                   const amountPart = (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 0);
                   const percentPart = yoyRow != null ? formatPercent(yoyRow, 0) : "";
-                  const yoyStr = percentPart ? `${amountPart} (${percentPart})` : amountPart;
                   const label = l2Child.category_l2 || l2Child.biz_unit || "-";
 
                   // L3 children 필터링 (curr_ytd > 0, showDetail === true일 때만)
@@ -152,7 +152,8 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                         <td className="text-left py-0.5 pr-2 font-semibold">{label}</td>
                         <td className="text-right py-0.5 px-1">{prevStr}</td>
                         <td className="text-right py-0.5 px-1">{currStr}</td>
-                        <td className="text-right py-0.5 pl-1">{yoyStr}</td>
+                        <td className="text-right py-0.5 px-1">{amountPart || "-"}</td>
+                        <td className="text-right py-0.5 pl-1">{percentPart || "-"}</td>
                       </tr>
 
                       {/* L3 행들 (소분류) - showDetail이 true면 자동으로 표시 */}
@@ -161,7 +162,6 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                         const l3Diff = l3.curr_ytd - l3.prev_ytd;
                         const l3AmountPart = (l3Diff >= 0 ? "+" : "-") + formatK(Math.abs(l3Diff), 0);
                         const l3PercentPart = l3Yoy != null ? formatPercent(l3Yoy, 0) : "";
-                        const l3YoyStr = l3PercentPart ? `${l3AmountPart} (${l3PercentPart})` : l3AmountPart;
                         return (
                           <tr key={`${idx}-${l3Idx}`} className="text-gray-600">
                             <td className="text-left py-0.5 pr-2 pl-4">
@@ -169,7 +169,8 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                             </td>
                             <td className="text-right py-0.5 px-1">{l3.prev_ytd > 0 ? formatK(l3.prev_ytd, 0) : "-"}</td>
                             <td className="text-right py-0.5 px-1">{formatK(l3.curr_ytd, 0)}</td>
-                            <td className="text-right py-0.5 pl-1">{l3YoyStr}</td>
+                            <td className="text-right py-0.5 px-1">{l3AmountPart || "-"}</td>
+                            <td className="text-right py-0.5 pl-1">{l3PercentPart || "-"}</td>
                           </tr>
                         );
                       })}

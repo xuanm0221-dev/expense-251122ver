@@ -1,5 +1,68 @@
 [
   {
+    "timestamp": "2026-02-09T10:09:24.948Z",
+    "accountPath": "l3-인건비-Red pack-DISCOVERY",
+    "oldValue": "①인원수: 기말 31명, 평균 25명 ②인당: 15.9K",
+    "newValue": "인당: 15.9K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T10:09:22.200Z",
+    "accountPath": "l3-인건비-Red pack-KIDS",
+    "oldValue": "①인원수: 기말 24명, 평균 25명 ②인당: 16.4K",
+    "newValue": "인당: 16.4K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T10:09:19.710Z",
+    "accountPath": "l3-인건비-Red pack-MLB",
+    "oldValue": "①인원수: 기말 128명, 평균 130명 ②인당: 21.9K",
+    "newValue": "인당: 21.9K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T10:09:17.074Z",
+    "accountPath": "l3-인건비-Red pack-경영지원",
+    "oldValue": "①인원수: 기말 72명, 평균 72명 ②인당: 22.9K",
+    "newValue": "인당: 22.9K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T09:54:02.145Z",
+    "accountPath": "l2-기타-교육비",
+    "oldValue": "전년비 104%, (전년) 2회 9K",
+    "newValue": "(전년) 리더교육비 1회 96K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T09:49:30.790Z",
+    "accountPath": "l3-IT수수료-OMS-New",
+    "oldValue": "",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T09:47:48.122Z",
+    "accountPath": "l3-IT수수료-OMS-Old",
+    "oldValue": "",
+    "newValue": "43.5Kx3월+55.4x9월=624K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T09:47:44.215Z",
+    "accountPath": "l2-IT수수료-OMS",
+    "oldValue": "43.5Kx3월+55.4x9월=624K",
+    "newValue": "43.5Kx3월+55.4x9월=624K",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-09T09:32:50.457Z",
+    "accountPath": "l3-지급수수료-Supply Chain-QA 서비스",
+    "oldValue": "",
+    "newValue": "(전년)QA업체 사용 29K/연",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-02-09T04:31:04.526Z",
     "accountPath": "l3-지급수수료-Office Service-포스터 체인지",
     "oldValue": "",

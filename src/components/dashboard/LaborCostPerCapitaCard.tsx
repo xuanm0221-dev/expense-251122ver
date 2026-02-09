@@ -127,7 +127,7 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
         </CardHeader>
         <CardContent className="pl-5">
           <hr className="border-gray-200 my-3" />
-          <div style={{ fontSize: "50%" }}>
+          <div style={{ fontSize: "60%" }}>
             <table className="w-full text-gray-700">
               <thead>
                 <tr>
@@ -144,6 +144,7 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                   </th>
                   <th className="text-right py-1 px-1 font-semibold">전년</th>
                   <th className="text-right py-1 px-1 font-semibold">당년</th>
+                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -164,13 +165,13 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                   const diff = pcCurr != null && pcPrev != null ? pcCurr - pcPrev : null;
                   const amountPart = diff != null ? (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 1) : "";
                   const percentPart = yoy != null ? formatPercent(yoy, 0) : "";
-                  const yoyStr = amountPart && percentPart ? `${amountPart} (${percentPart})` : amountPart || percentPart || "-";
                   return (
                     <tr key={lv2}>
                       <td className="text-left py-0.5 pr-2">{lv2}:</td>
                       <td className="text-right py-0.5 px-1">{prevStr}</td>
                       <td className="text-right py-0.5 px-1">{currStr}</td>
-                      <td className="text-right py-0.5 pl-1">{yoyStr}</td>
+                      <td className="text-right py-0.5 px-1">{amountPart || "-"}</td>
+                      <td className="text-right py-0.5 pl-1">{percentPart || "-"}</td>
                     </tr>
                   );
                 })}
@@ -194,7 +195,8 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                     <th className="text-left py-2 px-3 font-semibold text-gray-700">구분</th>
                     <th className="text-right py-2 px-3 font-semibold text-gray-700">전년인당(K)</th>
                     <th className="text-right py-2 px-3 font-semibold text-gray-700">당년인당(K)</th>
-                    <th className="text-right py-2 px-3 font-semibold text-gray-700">YoY(%)</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">전년비</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">YoY</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -204,7 +206,7 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                     return (
                       <React.Fragment key={lv2}>
                         <tr className="border-b border-gray-100 bg-gray-50/80">
-                          <td className="py-2 px-3 font-semibold text-gray-800" colSpan={4}>
+                          <td className="py-2 px-3 font-semibold text-gray-800" colSpan={5}>
                             {lv2}
                           </td>
                         </tr>
@@ -228,7 +230,6 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                           const diff = perCapitaCurr != null && perCapitaPrev != null ? perCapitaCurr - perCapitaPrev : null;
                           const amountPart = diff != null ? (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 1) : "";
                           const percentPart = yoy != null ? formatPercent(yoy, 0) : "";
-                          const yoyStr = amountPart && percentPart ? `${amountPart} (${percentPart})` : amountPart || percentPart || "-";
                           return (
                             <tr key={`${lv2}-${bu}`} className="border-b border-gray-100">
                               <td className="py-1.5 pl-6 pr-3 text-gray-600">ㄴ{label}</td>
@@ -238,9 +239,8 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                               <td className="py-1.5 px-3 text-right">
                                 {perCapitaCurr != null ? formatK(perCapitaCurr, 1) : "-"}
                               </td>
-                              <td className="py-1.5 px-3 text-right">
-                                {yoyStr}
-                              </td>
+                              <td className="py-1.5 px-3 text-right">{amountPart || "-"}</td>
+                              <td className="py-1.5 px-3 text-right">{percentPart || "-"}</td>
                             </tr>
                           );
                         })}

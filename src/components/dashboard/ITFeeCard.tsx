@@ -114,7 +114,7 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
         </CardHeader>
         <CardContent className="pl-5">
           <hr className="border-gray-200 my-3" />
-          <div style={{ fontSize: "50%" }}>
+          <div style={{ fontSize: "60%" }}>
             <table className="w-full text-gray-700">
               <thead>
                 <tr>
@@ -130,6 +130,7 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
                   </th>
                   <th className="text-right py-1 px-1 font-semibold">전년</th>
                   <th className="text-right py-1 px-1 font-semibold">당년</th>
+                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -143,7 +144,6 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
                   const diff = curr - prev;
                   const amountPart = (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 0);
                   const percentPart = yoyRow != null ? formatPercent(yoyRow, 0) : "";
-                  const yoyStr = percentPart ? `${amountPart} (${percentPart})` : amountPart;
                   const label = l2Child.category_l2 || l2Child.biz_unit || "-";
 
                   return (
@@ -151,7 +151,8 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
                       <td className="text-left py-0.5 pr-2 font-semibold">{label}</td>
                       <td className="text-right py-0.5 px-1">{prevStr}</td>
                       <td className="text-right py-0.5 px-1">{currStr}</td>
-                      <td className="text-right py-0.5 pl-1">{yoyStr}</td>
+                      <td className="text-right py-0.5 px-1">{amountPart || "-"}</td>
+                      <td className="text-right py-0.5 pl-1">{percentPart || "-"}</td>
                     </tr>
                   );
                 })}

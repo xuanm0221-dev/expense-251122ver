@@ -145,6 +145,13 @@ export function BrandCard({
 
   // YOY
   const totalCostYOY = calculateYOY(totalCost, prevTotalCost);
+  const totalCostChange = totalCost - prevTotalCost;
+  const totalExpenseChangeStr =
+    totalCostChange === 0
+      ? "0K"
+      : totalCostChange > 0
+        ? `+${formatK(totalCostChange)}`
+        : formatK(totalCostChange);
 
   // 매출 (법인은 4개 사업부 합산 매출 있음)
   const sales = current?.sales ?? 0;
@@ -171,15 +178,34 @@ export function BrandCard({
   const prevHeadcount = isPlanYear
     ? (getMonthlyTotal(bizUnit, 2025, 12, "monthly", 'actual')?.headcount ?? 0)
     : (previous?.headcount ?? 0);
-  const headcountDiff = headcount - prevHeadcount;
+  // 인원수는 소수점 시 올림(인원 쪼갤 수 없음)
+  const headcountCeil = Math.ceil(headcount);
+  const prevHeadcountCeil = Math.ceil(prevHeadcount);
+  const headcountDiff = headcountCeil - prevHeadcountCeil;
   const headcountChangeStr =
-    headcount > 0 || prevHeadcount > 0
+    headcountCeil > 0 || prevHeadcountCeil > 0
       ? headcountDiff === 0
         ? "0명"
         : headcountDiff > 0
           ? `+${headcountDiff}명`
           : `${headcountDiff}명`
       : null;
+
+  // 평균 인원수(연합계/12), 올림 적용
+  const annualSumCurr = getAnnualHeadcountSum(bizUnit, year, yearType);
+  const annualSumPrev = getAnnualHeadcountSum(bizUnit, isPlanYear ? 2025 : year - 1, isPlanYear ? 'actual' : yearType);
+  const avgHeadcountNum = Math.ceil(annualSumCurr / 12);
+  const prevAvgHeadcountNum = Math.ceil(annualSumPrev / 12);
+  const avgHeadcountDiff = avgHeadcountNum - prevAvgHeadcountNum;
+  const avgHeadcountChangeStr =
+    avgHeadcountNum > 0 || prevAvgHeadcountNum > 0
+      ? avgHeadcountDiff === 0
+        ? "0명"
+        : avgHeadcountDiff > 0
+          ? `+${avgHeadcountDiff}명`
+          : `${avgHeadcountDiff}명`
+      : null;
+  const avgHeadcountStr = avgHeadcountNum > 0 ? `${avgHeadcountNum.toLocaleString("ko-KR")}명` : null;
 
   // 인건비(기본급만), 복리후생비(5대보험+공적금만) 금액 추출 (인당 비용 계산용)
   // 인건비는 중분류 "기본급"만 사용 (성과급, 잡급 제외)
@@ -275,9 +301,12 @@ export function BrandCard({
       yoySales={isCommon ? corporateSalesYOY : salesYOY}
       yoyExpense={totalCostYOY}
       totalExpense={formatK(totalCost)}
+      totalExpenseChange={totalExpenseChangeStr}
       ratio={costRatio != null ? formatPercent(costRatio) : null}
-      headcount={headcount > 0 ? `${headcount.toLocaleString("ko-KR")}명` : null}
+      headcount={headcountCeil > 0 ? `${headcountCeil.toLocaleString("ko-KR")}명` : null}
       headcountChange={headcountChangeStr}
+      avgHeadcount={avgHeadcountStr}
+      avgHeadcountChange={avgHeadcountChangeStr}
       salesAmount={
         isCorporate
           ? (sales > 0 ? formatM(sales, 0) : null)

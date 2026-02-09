@@ -1,0 +1,7 @@
+두번째줄 KPI 카드 4컬럼(전년·당년·전년비·YoY) 구조 및 UI 개선
+
+- 두번째줄 KPI 카드(인건비, 광고비, IT수수료, 지급수수료, 수주회, 출장비): YoY 컬럼을 전년비(증감금액)와 YoY(%)로 분리하여 4컬럼 구조로 변경
+- 테이블 폰트 크기를 60%로 조정하여 가독성 개선
+- 브랜드/공통 첫줄 KPI: 총액 + (증감, YoY%) 형태로 표시 구조 변경 (KpiCard secondLine prop 추가)
+- page.tsx: React Hooks 순서 수정으로 빌드 오류 해결 (useEffect/useCallback을 early return 이전으로 이동)
+- 기존 CSV 파일 정리 및 데이터 업데이트

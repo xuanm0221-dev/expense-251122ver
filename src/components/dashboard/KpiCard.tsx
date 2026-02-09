@@ -10,6 +10,7 @@ interface KpiCardProps {
   changeAmount?: number | null;
   description?: string;
   previousValue?: string | number | null;
+  secondLine?: string | null;
   className?: string;
   detailItems?: { label: string; value: string }[];
 }
@@ -23,6 +24,7 @@ export function KpiCard({
   changeAmount,
   description,
   previousValue,
+  secondLine,
   className,
   detailItems,
 }: KpiCardProps) {
@@ -82,36 +84,39 @@ export function KpiCard({
                 )}
               </div>
 
-              {/* 전년도 값과 YOY 라벨을 나란히 배치 */}
+              {/* 전년도 값 / YOY 라벨 또는 secondLine (좌측만) */}
               <div className="flex items-start justify-between gap-2 sm:gap-3">
-                {/* 전년도 값 - 주요 숫자 아래 */}
-                {previousValue !== null && previousValue !== undefined && (
-                  <div className="text-[10px] sm:text-xs text-gray-500">
-                    전년 {typeof previousValue === "number" 
-                      ? (title.includes("비용률") 
-                          ? formatPercent(previousValue, 1)
-                          : unit === "K" 
-                            ? formatK(previousValue, title === "인당 비용" ? 1 : 0)
-                            : unit === "M"
-                            ? formatM(previousValue, 0)
-                            : previousValue.toLocaleString("ko-KR"))
-                      : previousValue}
-                  </div>
-                )}
-
-                {/* YOY 라벨 - 우측 정렬 */}
-                {yoy !== null && yoy !== undefined && (
-                  <div className="text-[10px] sm:text-xs text-gray-500 pt-0.5 sm:pt-1 text-right">
-                    {yoyLabel}
-                  </div>
+                {secondLine != null && secondLine !== "" ? (
+                  <div className="text-[10px] sm:text-xs text-gray-500">{secondLine}</div>
+                ) : (
+                  <>
+                    {previousValue !== null && previousValue !== undefined && (
+                      <div className="text-[10px] sm:text-xs text-gray-500">
+                        전년 {typeof previousValue === "number" 
+                          ? (title.includes("비용률") 
+                              ? formatPercent(previousValue, 1)
+                              : unit === "K" 
+                                ? formatK(previousValue, title === "인당 비용" ? 1 : 0)
+                                : unit === "M"
+                                ? formatM(previousValue, 0)
+                                : previousValue.toLocaleString("ko-KR"))
+                          : previousValue}
+                      </div>
+                    )}
+                    {yoy !== null && yoy !== undefined && (
+                      <div className="text-[10px] sm:text-xs text-gray-500 pt-0.5 sm:pt-1 text-right">
+                        {yoyLabel}
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
             </div>
 
-            {/* 우측: 상세 항목 */}
-            <div className="flex flex-col justify-center space-y-0.5">
+            {/* 우측: 상세 항목 (글씨 1.5배) */}
+            <div className="flex flex-col justify-center space-y-0.5 text-[13.5px] sm:text-[15px] text-gray-600">
               {detailItems.map((item, idx) => (
-                <div key={idx} className="flex justify-between gap-3 text-[10px] sm:text-xs text-gray-600">
+                <div key={idx} className="flex justify-between gap-3">
                   <span>{item.label}</span>
                   <span className="font-medium whitespace-nowrap">{item.value}</span>
                 </div>
@@ -147,28 +152,31 @@ export function KpiCard({
               )}
             </div>
 
-            {/* 전년도 값과 YOY 라벨을 나란히 배치 */}
+            {/* 전년도 값 / YOY 라벨 또는 secondLine */}
             <div className="flex items-start justify-between gap-2 sm:gap-3">
-              {/* 전년도 값 - 주요 숫자 아래 */}
-              {previousValue !== null && previousValue !== undefined && (
-                <div className="text-[10px] sm:text-xs text-gray-500">
-                  전년 {typeof previousValue === "number" 
-                    ? (title.includes("비용률") 
-                        ? formatPercent(previousValue, 1)
-                        : unit === "K" 
-                          ? formatK(previousValue, title === "인당 비용" ? 1 : 0)
-                          : unit === "M"
-                          ? formatM(previousValue, 0)
-                          : previousValue.toLocaleString("ko-KR"))
-                    : previousValue}
-                </div>
-              )}
-
-              {/* YOY 라벨 - 우측 정렬 */}
-              {yoy !== null && yoy !== undefined && (
-                <div className="text-[10px] sm:text-xs text-gray-500 pt-0.5 sm:pt-1 text-right">
-                  {yoyLabel}
-                </div>
+              {secondLine != null && secondLine !== "" ? (
+                <div className="text-[10px] sm:text-xs text-gray-500">{secondLine}</div>
+              ) : (
+                <>
+                  {previousValue !== null && previousValue !== undefined && (
+                    <div className="text-[10px] sm:text-xs text-gray-500">
+                      전년 {typeof previousValue === "number" 
+                        ? (title.includes("비용률") 
+                            ? formatPercent(previousValue, 1)
+                            : unit === "K" 
+                              ? formatK(previousValue, title === "인당 비용" ? 1 : 0)
+                              : unit === "M"
+                              ? formatM(previousValue, 0)
+                              : previousValue.toLocaleString("ko-KR"))
+                        : previousValue}
+                    </div>
+                  )}
+                  {yoy !== null && yoy !== undefined && (
+                    <div className="text-[10px] sm:text-xs text-gray-500 pt-0.5 sm:pt-1 text-right">
+                      {yoyLabel}
+                    </div>
+                  )}
+                </>
               )}
             </div>
 

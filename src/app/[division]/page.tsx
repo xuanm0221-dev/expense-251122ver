@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { KpiCard } from "@/components/dashboard/KpiCard";
@@ -126,6 +126,7 @@ export default function DivisionPage() {
   const [paymentFeeNode, setPaymentFeeNode] = useState<ExpenseAccountRow | null>(null);
   const [meetingNode, setMeetingNode] = useState<ExpenseAccountRow | null>(null);
   const [travelNode, setTravelNode] = useState<ExpenseAccountRow | null>(null);
+  const [tableAnnualTotals, setTableAnnualTotals] = useState<{ prev: number; curr: number } | null>(null);
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
   const availableMonths = getAvailableMonths(yearOption.year, yearOption.type);
@@ -150,6 +151,28 @@ export default function DivisionPage() {
     router.replace(`/${division}?${searchParams.toString()}`, { scroll: false });
   }, [yearOption, month, mode, division, router]);
 
+  // 훅이 필요로 하는 변수들을 early return 이전에 정의
+  const year = yearOption.year;
+  const yearType = yearOption.type;
+  const isCommon = bizUnit === "공통";
+  const isCorporate = bizUnit === "법인";
+  const isBrand = !isCommon && !isCorporate;
+  const is2026Annual = year === 2026 && yearType === 'plan';
+
+  // 브랜드·공통·2026 연간이 아니면 표 연간 합계 캐시 초기화
+  useEffect(() => {
+    if (!((isBrand || isCommon) && yearOption.year === 2026 && yearOption.type === "plan")) {
+      setTableAnnualTotals(null);
+    }
+  }, [isBrand, isCommon, yearOption.year, yearOption.type]);
+
+  // 표 합계 콜백 (메모이제이션으로 무한 루프 방지)
+  const handleAnnualTotalsChange = useCallback((totals: { prevYear: number; currYear: number }) => {
+    if ((isBrand || isCommon) && is2026Annual) {
+      setTableAnnualTotals({ prev: totals.prevYear, curr: totals.currYear });
+    }
+  }, [isBrand, isCommon, is2026Annual]);
+
   if (!["법인", "MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit)) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -163,9 +186,6 @@ export default function DivisionPage() {
     );
   }
 
-  const year = yearOption.year;
-  const yearType = yearOption.type;
-  const is2026Annual = year === 2026 && yearType === 'plan';
   const current = getMonthlyTotal(bizUnit, year, month, mode, yearType);
   const previous = getPreviousYearTotal(bizUnit, year, month, mode, yearType);
 
@@ -184,10 +204,6 @@ export default function DivisionPage() {
     : getMonthlyAggregatedByCategory(bizUnit, year - 1, month, mode, yearType);
   const currentLaborCost = currentCategories.find(cat => cat.cost_lv1 === "인건비");
   const previousLaborCost = previousCategories.find(cat => cat.cost_lv1 === "인건비");
-
-  const isCommon = bizUnit === "공통";
-  const isCorporate = bizUnit === "법인";
-  const isBrand = !isCommon && !isCorporate;
 
   // 모든 페이지에서 총비용 KPI용 법인 총비용 (전체 법인 합계)
   let corporateTotalCost: number | undefined;
@@ -529,10 +545,20 @@ export default function DivisionPage() {
           {isBrand && (
             <>
               <KpiCard
-                title="브랜드 비용 YOY"
-                value={`${totalCostChange != null && totalCostChange >= 0 ? "+" : ""}${formatK(totalCostChange ?? 0)} (${formatPercent(totalCostYOY, 0)})`}
+                title="브랜드비용"
+                value={is2026Annual && !tableAnnualTotals ? "-" : (is2026Annual && tableAnnualTotals ? tableAnnualTotals.curr : totalCost)}
+                unit="K"
                 yoy={null}
-                yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : ""}
+                secondLine={(() => {
+                  if (is2026Annual && !tableAnnualTotals) return null;
+                  const change = is2026Annual && tableAnnualTotals
+                    ? tableAnnualTotals.curr - tableAnnualTotals.prev
+                    : totalCostChange;
+                  const yoy = is2026Annual && tableAnnualTotals
+                    ? calculateYOY(tableAnnualTotals.curr, tableAnnualTotals.prev)
+                    : totalCostYOY;
+                  return `${change != null && change >= 0 ? "+" : ""}${formatK(change ?? 0)}, ${formatPercent(yoy ?? 0, 0)}`;
+                })()}
                 detailItems={brandDetailItems}
               />
               <KpiCard
@@ -554,13 +580,42 @@ export default function DivisionPage() {
           )}
           {(isCommon || isCorporate) && (
             <>
-              <KpiCard
-                title={isCorporate ? "법인비용 YOY" : "공통비용 YOY"}
-                value={`${totalCostChange && totalCostChange > 0 ? '+' : ''}${formatK(totalCostChange || 0)} (${formatPercent(totalCostYOY, 0)})`}
-                yoy={null}
-                yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : ""}
-                detailItems={isCorporate ? corporateDetailItems : commonDetailItems}
-              />
+              {isCorporate && (
+                <KpiCard
+                  title="법인비용 YOY"
+                  value={(() => {
+                    const change = is2026Annual && tableAnnualTotals
+                      ? tableAnnualTotals.curr - tableAnnualTotals.prev
+                      : totalCostChange;
+                    const yoy = is2026Annual && tableAnnualTotals
+                      ? calculateYOY(tableAnnualTotals.curr, tableAnnualTotals.prev)
+                      : totalCostYOY;
+                    return `${change && change > 0 ? '+' : ''}${formatK(change || 0)} (${formatPercent(yoy, 0)})`;
+                  })()}
+                  yoy={null}
+                  yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : ""}
+                  detailItems={corporateDetailItems}
+                />
+              )}
+              {isCommon && (
+                <KpiCard
+                  title="공통비용"
+                  value={is2026Annual && !tableAnnualTotals ? "-" : (is2026Annual && tableAnnualTotals ? tableAnnualTotals.curr : totalCost)}
+                  unit="K"
+                  yoy={null}
+                  secondLine={(() => {
+                    if (is2026Annual && !tableAnnualTotals) return null;
+                    const change = is2026Annual && tableAnnualTotals
+                      ? tableAnnualTotals.curr - tableAnnualTotals.prev
+                      : totalCostChange;
+                    const yoy = is2026Annual && tableAnnualTotals
+                      ? calculateYOY(tableAnnualTotals.curr, tableAnnualTotals.prev)
+                      : totalCostYOY;
+                    return `${change != null && change >= 0 ? "+" : ""}${formatK(change ?? 0)}, ${formatPercent(yoy ?? 0, 0)}`;
+                  })()}
+                  detailItems={commonDetailItems}
+                />
+              )}
               <KpiCard
                 title="매출대비 비용률"
                 value={costRatio}
@@ -614,6 +669,7 @@ export default function DivisionPage() {
             month={month}
             title={`${DIVISION_NAMES[bizUnit]} 비용 계정 상세 분석`}
             onHierarchyReady={handleHierarchyReady}
+            onAnnualTotalsChange={(isBrand || isCommon) && is2026Annual ? handleAnnualTotalsChange : undefined}
             yearType={yearType}
           />
         </div>

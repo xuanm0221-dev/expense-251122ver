@@ -18,6 +18,7 @@ interface ExpenseAccountHierTableProps {
   month: number;
   title?: string;
   onHierarchyReady?: (rows: ExpenseAccountRow[]) => void;
+  onAnnualTotalsChange?: (totals: { prevYear: number; currYear: number }) => void;
   yearType?: 'actual' | 'plan';
 }
 
@@ -27,6 +28,7 @@ export function ExpenseAccountHierTable({
   month,
   title,
   onHierarchyReady,
+  onAnnualTotalsChange,
   yearType = 'actual',
 }: ExpenseAccountHierTableProps) {
   const [viewMode, setViewMode] = useState<"monthly" | "ytd" | "annual">("ytd");
@@ -1571,8 +1573,12 @@ export function ExpenseAccountHierTable({
     // 인건비 하위항목 순서 정의
     const laborCostOrder = ["기본급", "Red pack", "성과급충당금", "실제 지급 성과급", "잡급"];
 
-    // 소분류 레벨 사업부구분 순서 정의
-    const subcategoryOrder = ["경영지원", "MLB", "KIDS", "DISCOVERY"];
+    // 지급수수료 하위항목 순서 정의
+    const paymentFeeOrder = ["인사", "법무", "재무", "Supply Chain", "Office Service", "인테리어 개발"];
+
+    // 소분류 레벨 사업부구분 순서 정의 (경영지원 있는 경우 / 수주회는 경영지원 없음)
+    const subcategoryOrderWithSupport = ["경영지원", "MLB", "KIDS", "DISCOVERY"];
+    const subcategoryOrderNoSupport = ["MLB", "KIDS", "DISCOVERY"];
 
     // 광고비의 사업부구분 children 정렬
     l1Map.forEach((l1Row) => {
@@ -1608,17 +1614,46 @@ export function ExpenseAccountHierTable({
           return indexA - indexB;
         });
       }
+
+      // 지급수수료의 중분류 children 정렬
+      if (l1Row.category_l1 === "지급수수료" && l1Row.children) {
+        l1Row.children.sort((a, b) => {
+          const categoryA = a.category_l2 || "";
+          const categoryB = b.category_l2 || "";
+          const indexA = paymentFeeOrder.indexOf(categoryA);
+          const indexB = paymentFeeOrder.indexOf(categoryB);
+          
+          // 순서에 없는 항목은 맨 뒤로
+          if (indexA === -1 && indexB === -1) return 0;
+          if (indexA === -1) return 1;
+          if (indexB === -1) return -1;
+          
+          return indexA - indexB;
+        });
+      }
+
+      // IT수수료의 중분류 children 정렬 (당년도 금액 크기 순)
+      if (l1Row.category_l1 === "IT수수료" && l1Row.children) {
+        l1Row.children.sort((a, b) => {
+          // viewMode에 따라 당년도 값 결정
+          const valueA = viewMode === "monthly" ? (a.curr_month ?? 0) : (a.curr_ytd ?? 0);
+          const valueB = viewMode === "monthly" ? (b.curr_month ?? 0) : (b.curr_ytd ?? 0);
+          
+          // 내림차순 (큰 금액부터)
+          return valueB - valueA;
+        });
+      }
     });
 
     // 중분류의 소분류 children 정렬 (소분류가 있는 경우)
     l2Map.forEach((l2Row) => {
       if (l2Row.children && l2Row.children.length > 0) {
-        // 소분류 레벨 정렬 (category_l3가 사업부구분인 경우)
+        const order = l2Row.category_l1 === "수주회" ? subcategoryOrderNoSupport : subcategoryOrderWithSupport;
         l2Row.children.sort((a, b) => {
           const subcategoryA = a.category_l3 || "";
           const subcategoryB = b.category_l3 || "";
-          const indexA = subcategoryOrder.indexOf(subcategoryA);
-          const indexB = subcategoryOrder.indexOf(subcategoryB);
+          const indexA = order.indexOf(subcategoryA);
+          const indexB = order.indexOf(subcategoryB);
           
           // 순서에 없는 항목은 맨 뒤로
           if (indexA === -1 && indexB === -1) return 0;
@@ -2046,7 +2081,7 @@ export function ExpenseAccountHierTable({
       let annual2025Total: number;
       if (is2026AnnualOnly && bizUnit !== "ALL") {
         annual2024Total = getMonthlyTotal(bizUnit as BizUnit, 2025, 12, "ytd", "actual")?.amount ?? 0;
-        annual2025Total = getAnnualData(bizUnit, 2026, "", "", "", "plan").reduce((s, i) => s + i.annual_amount, 0);
+        annual2025Total = hierarchicalData.reduce((sum, row) => sum + (row.curr_year_annual ?? row.curr_ytd ?? 0), 0);
       } else {
         annual2024Total = hierarchicalData.reduce((sum, row) => sum + (row.prev_year_annual ?? 0), 0);
         annual2025Total = hierarchicalData.reduce((sum, row) => sum + (is2026AnnualOnly ? (row.curr_year_annual ?? row.curr_ytd ?? 0) : (row.curr_year_annual ?? 0)), 0);
@@ -2074,6 +2109,22 @@ export function ExpenseAccountHierTable({
       };
     }
   }, [hierarchicalData, viewMode, is2026AnnualOnly, bizUnit]);
+
+  // 2026 연간 뷰 시 부모에 연간 합계 전달 (KPI 카드 등에서 표 합계 재사용용)
+  useEffect(() => {
+    if (
+      is2026AnnualOnly &&
+      bizUnit !== "ALL" &&
+      onAnnualTotalsChange &&
+      computeTotals.annual2024Total != null &&
+      computeTotals.annual2025Total != null
+    ) {
+      onAnnualTotalsChange({
+        prevYear: computeTotals.annual2024Total,
+        currYear: computeTotals.annual2025Total,
+      });
+    }
+  }, [is2026AnnualOnly, bizUnit, onAnnualTotalsChange, computeTotals]);
 
   // 전체 합계의 대분류별 당월 차이 설명 자동 생성 (항상 당월 기준)
   const totalDescription = useMemo(() => {
@@ -2105,12 +2156,12 @@ export function ExpenseAccountHierTable({
   // YOY/진척률 Badge 스타일 함수
   const getYOYBadgeClass = (value: number | null): string => {
     if (value === null || value === undefined || isNaN(value)) {
-      return "inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold bg-gray-100 text-gray-500";
+      return "inline-flex items-center rounded-full px-2 py-0.5 text-[15px] font-semibold bg-gray-100 text-gray-500";
     }
     if (value >= 100) {
-      return "inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold bg-pink-100 text-pink-700";
+      return "inline-flex items-center rounded-full px-2 py-0.5 text-[15px] font-semibold bg-pink-100 text-pink-700";
     }
-    return "inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold bg-blue-100 text-blue-700";
+    return "inline-flex items-center rounded-full px-2 py-0.5 text-[15px] font-semibold bg-blue-100 text-blue-700";
   };
 
   return (
@@ -2122,12 +2173,12 @@ export function ExpenseAccountHierTable({
           <div className="flex items-center justify-between">
             {/* 왼쪽: 제목 + 날짜 태그 */}
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              <h2 className="font-bold text-slate-50 text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg">
+              <h2 className="font-bold text-slate-50 text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[21px] xl:text-[24px]">
                 {title || "전체 비용 계정 상세 분석"}
               </h2>
               <div className="flex items-center gap-1.5 sm:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-1.5 rounded-full border border-slate-600 bg-slate-700/50">
                 <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-slate-200" />
-                <span className="text-[10px] sm:text-xs font-medium text-slate-200">{is2026AnnualOnly ? "2026년 연간기준" : `${year}년 ${month}월 기준`}</span>
+                <span className="text-[13.5px] sm:text-[15px] font-medium text-slate-200">{is2026AnnualOnly ? "2026년 연간기준" : `${year}년 ${month}월 기준`}</span>
               </div>
             </div>
             {/* 우측: 탭과 버튼 */}
@@ -2137,13 +2188,13 @@ export function ExpenseAccountHierTable({
                   <TabsList className="bg-slate-700/50 p-1 sm:p-1.5 rounded-xl border border-slate-600 shadow-md">
                     <TabsTrigger 
                       value="monthly"
-                      className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg font-semibold text-[10px] sm:text-xs transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg font-semibold text-[13.5px] sm:text-[15px] transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
                     >
                       당월
                     </TabsTrigger>
                     <TabsTrigger 
                       value="ytd"
-                      className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg font-semibold text-[10px] sm:text-xs transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg font-semibold text-[13.5px] sm:text-[15px] transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
                     >
                       누적(YTD)
                     </TabsTrigger>
@@ -2151,7 +2202,7 @@ export function ExpenseAccountHierTable({
                 </Tabs>
               )}
               {is2026AnnualOnly && (
-                <span className="text-[10px] sm:text-xs font-medium text-slate-200 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg border border-slate-600 bg-slate-700/50">
+                <span className="text-[13.5px] sm:text-[15px] font-medium text-slate-200 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg border border-slate-600 bg-slate-700/50">
                   연간 계획 (2025 실적 vs 2026 계획)
                 </span>
               )}
@@ -2159,7 +2210,7 @@ export function ExpenseAccountHierTable({
                 variant="outline"
                 size="sm"
                 onClick={handleExpandCollapseAll}
-                className="flex items-center gap-2 min-w-[100px] sm:min-w-[120px] md:min-w-[140px] justify-center px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-slate-700/50 border-slate-600 text-slate-200 hover:bg-slate-600 hover:text-slate-50 font-medium shadow-md hover:shadow-lg transition-all duration-200 text-[10px] sm:text-xs"
+                className="flex items-center gap-2 min-w-[100px] sm:min-w-[120px] md:min-w-[140px] justify-center px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-slate-700/50 border-slate-600 text-slate-200 hover:bg-slate-600 hover:text-slate-50 font-medium shadow-md hover:shadow-lg transition-all duration-200 text-[13.5px] sm:text-[15px]"
               >
                 <ChevronsDownUp className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="whitespace-nowrap">{isAllExpanded ? "모두 접기" : "모두 펼치기"}</span>
@@ -2187,14 +2238,14 @@ export function ExpenseAccountHierTable({
               </>
             ) : is2026AnnualOnly ? (
               <>
-                {/* 2026 연간만: 구분~YOY 각 10%, 계산근거·설명 각 25% */}
-                <col style={{ width: "10%" }} />
-                <col style={{ width: "10%" }} />
-                <col style={{ width: "10%" }} />
-                <col style={{ width: "10%" }} />
-                <col style={{ width: "10%" }} />
-                <col style={{ width: "25%" }} />
-                <col style={{ width: "25%" }} />
+                {/* 2026 연간만: 구분 20%, 전년/당년/차이/YOY 각 6%, 계산근거·설명 각 28% */}
+                <col style={{ width: "20%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "6%" }} />
+                <col style={{ width: "28%" }} />
+                <col style={{ width: "28%" }} />
               </>
             ) : (
               <>
@@ -2222,41 +2273,47 @@ export function ExpenseAccountHierTable({
             <tr className="bg-slate-800 border-b border-slate-600">
               {is2026AnnualOnly ? (
                 <>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">구분</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">{year - 1}년 연간(실적)</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">{year}년 연간(계획)</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">차이(금액)</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">YOY(%)</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">계산근거</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">설명</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">구분</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
+                    <div>{year - 1}년 연간</div>
+                    <div>(실적)</div>
+                  </th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
+                    <div>{year}년 연간</div>
+                    <div>(계획)</div>
+                  </th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">차이(금액)</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">YOY(%)</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">계산근거</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">설명</th>
                 </>
               ) : (
                 <>
-              <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+              <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                 구분
               </th>
               <th className="border-r border-slate-600"></th>
               {viewMode === "monthly" ? (
                 <>
-                  <th colSpan={4} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th colSpan={4} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     당월 데이터
                   </th>
                   <th className="border-r border-slate-600"></th>
-                  <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     설명
                   </th>
                 </>
               ) : (
                 <>
-                  <th colSpan={6} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th colSpan={6} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     누적(YTD)
                   </th>
                   <th className="border-r border-slate-600"></th>
-                  <th colSpan={4} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th colSpan={4} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     연간 계획
                   </th>
                   <th className="border-r border-slate-600"></th>
-                  <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     설명
                   </th>
                 </>
@@ -2270,51 +2327,51 @@ export function ExpenseAccountHierTable({
               <th className="border-r border-slate-600"></th>
               {viewMode === "monthly" ? (
                 <>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     전년
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     당월
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     차이(금액)
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     YOY (%)
                   </th>
                   <th className="border-r border-slate-600"></th>
                 </>
               ) : (
                 <>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     전년누적
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     당년누적
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     차이(금액)
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     YOY (%)
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     계획비 증감
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     계획비 (%)
                   </th>
                   <th className="border-r border-slate-600"></th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     {year - 1}년 연간
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     {year}년 연간
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     차이(금액)
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[9px] sm:text-[10px] md:text-xs font-semibold text-slate-50">
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     YOY (%)
                   </th>
                   <th className="border-r border-slate-600"></th>
@@ -2326,7 +2383,7 @@ export function ExpenseAccountHierTable({
           <tbody>
             {/* 전체 합계 행 */}
             <tr className="bg-indigo-50 border-b border-indigo-100">
-              <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs font-semibold text-gray-800">
+              <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] font-semibold text-gray-800">
                 <div className="flex items-center gap-2">
                   <PieChart className="w-3 h-3 sm:w-4 sm:h-4 text-indigo-600" />
                   <span>전체 합계</span>
@@ -2335,87 +2392,87 @@ export function ExpenseAccountHierTable({
               {!is2026AnnualOnly && <td className="border-r border-gray-200"></td>}
               {is2026AnnualOnly ? (
                 <>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.annual2024Total)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.annual2025Total)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatDifference(computeTotals.diffAnnualTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right">
                     <span className={getYOYBadgeClass(computeTotals.yoyAnnualTotal)}>
                       {formatYOY(computeTotals.yoyAnnualTotal)}
                     </span>
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-500">-</td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-600">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-500">-</td>
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600">
                     {totalDescription}
                   </td>
                 </>
               ) : viewMode === "monthly" ? (
                 <>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.prevTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.currTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatDifference(computeTotals.diffTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right">
                     <span className={getYOYBadgeClass(computeTotals.yoyTotal)}>
                       {formatYOY(computeTotals.yoyTotal)}
                     </span>
                   </td>
                   <td className="border-r border-gray-200"></td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-600">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600">
                     {totalDescription}
                   </td>
                 </>
               ) : (
                 <>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.prevYtdTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.currYtdTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatDifference(computeTotals.diffYtdTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right">
                     <span className={getYOYBadgeClass(computeTotals.yoyYtdTotal)}>
                       {formatYOY(computeTotals.yoyYtdTotal)}
                     </span>
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium bg-teal-50">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-teal-50">
                     {formatDifference(computeTotals.planDiffTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right bg-teal-50">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right bg-teal-50">
                     <span className={getYOYBadgeClass(computeTotals.progressTotal)}>
                       {formatYOY(computeTotals.progressTotal)}
                     </span>
                   </td>
                   <td className="border-r border-gray-200"></td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.annual2024Total)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.annual2025Total)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatDifference(computeTotals.diffAnnualTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right">
                     <span className={getYOYBadgeClass(computeTotals.yoyAnnualTotal)}>
                       {formatYOY(computeTotals.yoyAnnualTotal)}
                     </span>
                   </td>
                   <td className="border-r border-gray-200"></td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-600">
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600">
                     {totalDescription}
                   </td>
                 </>
@@ -2427,7 +2484,7 @@ export function ExpenseAccountHierTable({
               // 들여쓰기 및 폰트 스타일 결정
               const getIndentClass = (level: number): string => {
                 if (level === 1) return "pl-2";
-                if (level === 2) return "pl-8";
+                if (level === 2) return "pl-8";  // 적당한 들여쓰기
                 if (level === 3) return "pl-12";
                 return "pl-16"; // level 4
               };
@@ -2483,8 +2540,8 @@ export function ExpenseAccountHierTable({
               const fontWeight = getFontWeight(row.level);
               const displayText = getDisplayText(row);
 
-              const prevValue = viewMode === "monthly" ? row.prev_month : row.prev_ytd;
-              const currValue = viewMode === "monthly" ? row.curr_month : row.curr_ytd;
+              const prevValue = (viewMode === "monthly" ? row.prev_month : row.prev_ytd) ?? 0;
+              const currValue = (viewMode === "monthly" ? row.curr_month : row.curr_ytd) ?? 0;
               const diff = getDifference(currValue, prevValue);
               const yoy = getYOY(currValue, prevValue);
 
@@ -2503,31 +2560,34 @@ export function ExpenseAccountHierTable({
                 ? currValue - effectiveCurrAnnual
                 : null;
 
-              // 연간 계획 데이터 계산 (누적 모드에서만 사용)
-              const annualDiff = viewMode === "ytd" && effectiveCurrAnnual !== null && row.prev_year_annual !== null
-                ? getDifference(effectiveCurrAnnual, row.prev_year_annual)
+              // 연간 계획 데이터 계산 (누적 모드에서만 사용). 없으면 0으로 간주해 차액 계산
+              const annualDiff = viewMode === "ytd"
+                ? getDifference(effectiveCurrAnnual ?? 0, row.prev_year_annual ?? 0)
                 : null;
               const annualYOY = viewMode === "ytd" ? getYOY(
                 effectiveCurrAnnual ?? 0,
                 row.prev_year_annual ?? 0
               ) : null;
 
-              // 대분류(level 1)는 연한 회색 배경
+              // 대분류(L1) 연한 하늘색, 그다음 분류(L2) 연한 회색
               const isLevel1 = row.level === 1;
+              const isLevel2 = row.level === 2;
               
               return (
                 <tr
                   key={row.id}
                   className={`transition-colors duration-150 cursor-pointer border-b border-gray-100 ${
                     isLevel1 
-                      ? "bg-gray-100 hover:bg-gray-200" 
-                      : "hover:bg-blue-50/50"
+                      ? "bg-sky-50 hover:bg-sky-100" 
+                      : isLevel2 
+                        ? "bg-gray-100 hover:bg-gray-200"
+                        : "hover:bg-blue-50/50"
                   }`}
                   onClick={() => hasChildren && toggleRow(row.id)}
                 >
                   {/* 구분 영역 (단일 컬럼, 들여쓰기로 계층 표현) */}
                   <td
-                    className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs ${fontWeight} ${indentClass} transition-colors`}
+                    className={`border-r border-gray-100 pr-2 py-1.5 sm:pr-3 sm:py-2 text-[13.5px] sm:text-[15px] ${fontWeight} ${indentClass} transition-colors`}
                   >
                     <div className="flex items-center gap-2">
                       {hasChildren && (
@@ -2549,22 +2609,22 @@ export function ExpenseAccountHierTable({
                   {viewMode === "monthly" ? (
                     <>
                       {/* 당월 모드: 전년, 당월, 차이, YOY */}
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(prevValue)}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(currValue)}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatDifference(diff)}
                       </td>
-                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium ${getYOYColor(yoy)}`}>
-                        {formatYOY(yoy)}
+                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${getYOYColor(yoy)}`}>
+                        {yoy != null ? formatYOY(yoy) : formatDifference(diff)}
                       </td>
                       <td className="border-r border-gray-200"></td>
                       {/* 설명 (편집 가능) */}
                       <td 
-                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-600 relative group"
+                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600 relative group"
                         onClick={(e) => {
                           // 편집 모드가 아니고, 편집 버튼이 아닌 경우에만 편집 시작
                           if (editingRowId !== row.id && !(e.target as HTMLElement).closest('button')) {
@@ -2651,21 +2711,21 @@ export function ExpenseAccountHierTable({
                   ) : is2026AnnualOnly ? (
                     <>
                       {/* 2026 연간만: 2025 실적, 2026 계획(금액만), 차이, YOY, 계산근거, 설명 */}
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(row.prev_year_annual)}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {effectiveCurrAnnual != null ? formatK(effectiveCurrAnnual) : "-"}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatDifference(annualDiff)}
                       </td>
-                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium ${getYOYColor(annualYOY)}`}>
-                        {formatYOY(annualYOY)}
+                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${getYOYColor(annualYOY)}`}>
+                        {annualYOY != null ? formatYOY(annualYOY) : formatDifference(annualDiff)}
                       </td>
                       {/* 계산근거 (텍스트 편집 가능) */}
                       <td
-                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-600 relative group"
+                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600 relative group"
                         onClick={(e) => e.stopPropagation()}
                       >
                         {basisPopoverRowId === row.id ? (
@@ -2715,7 +2775,7 @@ export function ExpenseAccountHierTable({
                       </td>
                       {/* 설명 (편집 가능) */}
                       <td
-                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-600 relative group"
+                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600 relative group"
                         onClick={(e) => {
                           if (editingRowId !== row.id && !(e.target as HTMLElement).closest("button")) {
                             startEdit(row.id, descriptions.get(row.id) || row.description || "");
@@ -2752,31 +2812,31 @@ export function ExpenseAccountHierTable({
                   ) : (
                     <>
                       {/* 누적(YTD) 모드: 전년누적, 당년누적, 차이, YOY, 계획비 증감, 계획비(%) */}
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(prevValue)}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(currValue)}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatDifference(diff)}
                       </td>
-                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium ${getYOYColor(yoy)}`}>
-                        {formatYOY(yoy)}
+                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${getYOYColor(yoy)}`}>
+                        {yoy != null ? formatYOY(yoy) : formatDifference(diff)}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium bg-teal-50">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-teal-50">
                         {formatDifference(planDiff)}
                       </td>
-                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium bg-teal-50 ${getYOYColor(progressRate)}`}>
+                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-teal-50 ${getYOYColor(progressRate)}`}>
                         {formatYOY(progressRate)}
                       </td>
                       <td className="border-r border-gray-200"></td>
                       {/* 연간 계획 영역 */}
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(row.prev_year_annual)}
                       </td>
                       <td
-                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium relative"
+                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium relative"
                         onClick={(e) => e.stopPropagation()}
                       >
                         {basisPopoverRowId === row.id ? (
@@ -2824,16 +2884,16 @@ export function ExpenseAccountHierTable({
                           </div>
                         )}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium">
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatDifference(annualDiff)}
                       </td>
-                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-right font-medium ${getYOYColor(annualYOY)}`}>
-                        {formatYOY(annualYOY)}
+                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${getYOYColor(annualYOY)}`}>
+                        {annualYOY != null ? formatYOY(annualYOY) : formatDifference(annualDiff)}
                       </td>
                       <td className="border-r border-gray-200"></td>
                       {/* 설명 (편집 가능) */}
                       <td 
-                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-gray-600 relative group"
+                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600 relative group"
                         onClick={(e) => {
                           // 편집 모드가 아니고, 편집 버튼이 아닌 경우에만 편집 시작
                           if (editingRowId !== row.id && !(e.target as HTMLElement).closest('button')) {

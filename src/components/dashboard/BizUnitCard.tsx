@@ -60,9 +60,12 @@ export interface BizUnitCardProps {
   yoySales: number | null; // 판매매출 YOY (%)
   yoyExpense: number | null; // 영업비 YOY (%)
   totalExpense: string; // 총비용 (예: "19,393K")
+  totalExpenseChange?: string | null; // 전년비 증가액 (예: "+25,078K", "-10,000K")
   ratio: string | null; // 영업비율 (예: "2.2%")
   headcount: string | null; // 인원수 (예: "199명")
   headcountChange: string | null; // 전년비 증감 (예: "-2명", "+3명")
+  avgHeadcount?: string | null; // 평균 인원수 (연합계/12, 예: "250명")
+  avgHeadcountChange?: string | null; // 평균 인원 전년비 증감 (예: "+3명")
   salesAmount: string | null; // 판매매출 (예: "896,299K")
   perPersonLaborCost: string | null; // 인당 인건비 (예: "30.5K")
   perPersonWelfareCost: string | null; // 인당 복리후생비 (예: "8.5K")
@@ -82,9 +85,12 @@ export function BizUnitCard({
   yoySales,
   yoyExpense,
   totalExpense,
+  totalExpenseChange = null,
   ratio,
   headcount,
   headcountChange = null,
+  avgHeadcount = null,
+  avgHeadcountChange = null,
   salesAmount,
   perPersonLaborCost,
   perPersonWelfareCost,
@@ -165,6 +171,7 @@ export function BizUnitCard({
             <div>
               <div className={`text-sm sm:text-base font-bold ${theme.primaryColor}`}>
                 {totalExpense}
+                {totalExpenseChange != null ? ` (${totalExpenseChange})` : ""}
               </div>
               <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-1">총 비용</div>
             </div>
@@ -172,30 +179,35 @@ export function BizUnitCard({
 
           {!isCommon && !isCorporate && (
             <>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-[1fr_2fr_1fr] gap-2">
                 {/* 영업비율 */}
                 {ratio !== null && (
-                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-[10px] sm:text-xs font-semibold text-blue-600">{ratio}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">영업비율</div>
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
+                    <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-blue-600 break-words">{ratio}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">영업비율</div>
                   </div>
                 )}
 
                 {/* 인원수 */}
                 {headcount !== null && (
-                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-[10px] sm:text-xs font-semibold text-purple-600">{headcount}</div>
-                    {headcountChange != null && (
-                      <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">{headcountChange}</div>
-                    )}
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
+                    <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-purple-600 break-words">
+                      기말: {headcount}{headcountChange != null ? ` (${headcountChange})` : ""}
+                    </div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">
+                      {avgHeadcount != null 
+                        ? `평균: ${avgHeadcount}${avgHeadcountChange != null ? ` (${avgHeadcountChange})` : ""}`
+                        : " "
+                      }
+                    </div>
                   </div>
                 )}
 
                 {/* 판매매출 */}
                 {salesAmount !== null && (
-                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-[10px] sm:text-xs font-semibold text-teal-600">{salesAmount}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">판매매출</div>
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
+                    <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-teal-600 break-words">{salesAmount}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">판매매출</div>
                   </div>
                 )}
               </div>
@@ -232,25 +244,30 @@ export function BizUnitCard({
           {/* 공통 및 법인 카드: 브랜드와 동일 3칸 그리드 (영업비율 | 인원수 | 판매매출) */}
           {(isCommon || isCorporate) && (
             <>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-[1fr_2fr_1fr] gap-2">
                 {ratio !== null && (
-                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-[10px] sm:text-xs font-semibold text-blue-600">{ratio}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">영업비율</div>
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
+                    <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-blue-600 break-words">{ratio}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">영업비율</div>
                   </div>
                 )}
                 {headcount !== null && (
-                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-[10px] sm:text-xs font-semibold text-purple-600">{headcount}</div>
-                    {headcountChange != null && (
-                      <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">{headcountChange}</div>
-                    )}
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
+                    <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-purple-600 break-words">
+                      기말: {headcount}{headcountChange != null ? ` (${headcountChange})` : ""}
+                    </div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">
+                      {avgHeadcount != null 
+                        ? `평균: ${avgHeadcount}${avgHeadcountChange != null ? ` (${avgHeadcountChange})` : ""}`
+                        : " "
+                      }
+                    </div>
                   </div>
                 )}
                 {salesAmount !== null && (
-                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200">
-                    <div className="text-[10px] sm:text-xs font-semibold text-teal-600">{salesAmount}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-0.5">판매매출</div>
+                  <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
+                    <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-teal-600 break-words">{salesAmount}</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">판매매출</div>
                   </div>
                 )}
               </div>
