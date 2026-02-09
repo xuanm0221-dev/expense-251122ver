@@ -1661,11 +1661,11 @@ export function ExpenseAccountHierTable({
       rows.forEach((row) => {
         let shouldHide = false;
         if (viewMode === "monthly") {
-          shouldHide = row.curr_month === 0 && row.prev_month === 0;
+          shouldHide = (row.curr_month ?? 0) === 0 && (row.prev_month ?? 0) === 0;
         } else if (is2026AnnualOnly) {
           shouldHide = (row.prev_year_annual ?? 0) === 0 && (row.curr_year_annual ?? 0) === 0;
         } else {
-          shouldHide = row.prev_ytd === 0 && row.curr_ytd === 0;
+          shouldHide = (row.prev_ytd ?? 0) === 0 && (row.curr_ytd ?? 0) === 0;
         }
         if (shouldHide) {
           if (row.isExpanded && row.children && row.children.length > 0) {
