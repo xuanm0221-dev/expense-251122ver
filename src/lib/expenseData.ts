@@ -5,8 +5,11 @@ export type BizUnit = "법인" | "MLB" | "KIDS" | "DISCOVERY" | "공통";
 
 export type Mode = "monthly" | "ytd";
 
-// 법인 합계 계산에 포함할 사업부 목록
+// 법인 비용/인원수 계산에 포함할 사업부 목록 (공통 포함)
 const CORPORATE_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY", "공통"] as const;
+
+// 법인 판매매출 계산에 포함할 브랜드 목록 (공통 제외 - 공통은 경영지원으로 자체 매출 없음)
+const CORPORATE_SALES_BIZ_UNITS = ["MLB", "KIDS", "DISCOVERY"] as const;
 
 export interface MonthlyAggregated {
   biz_unit: string;
@@ -99,12 +102,17 @@ export function getMonthlyTotal(
       return null;
     }
     if (mode === "ytd") {
+      // 판매매출은 공통 제외하고 브랜드만 합산
+      const salesSum = corporateFiltered
+        .filter(item => CORPORATE_SALES_BIZ_UNITS.includes(item.biz_unit as any))
+        .reduce((acc, item) => acc + (item.sales || 0), 0);
+      
       return corporateFiltered.reduce(
         (acc, item) => ({
           ...acc,
           amount: acc.amount + (item.amount || 0),
           headcount: item.headcount || 0,
-          sales: acc.sales + (item.sales || 0),
+          sales: salesSum,
         }),
         {
           biz_unit: "법인",
@@ -119,12 +127,17 @@ export function getMonthlyTotal(
       );
     } else {
       // monthly: 4개 사업부 합산
+      // 판매매출은 공통 제외하고 브랜드만 합산
+      const salesSum = corporateFiltered
+        .filter(item => CORPORATE_SALES_BIZ_UNITS.includes(item.biz_unit as any))
+        .reduce((acc, item) => acc + (item.sales || 0), 0);
+      
       return corporateFiltered.reduce(
         (acc, item) => ({
           ...acc,
           amount: acc.amount + (item.amount || 0),
           headcount: acc.headcount + (item.headcount || 0),
-          sales: acc.sales + (item.sales || 0),
+          sales: salesSum,
         }),
         {
           biz_unit: "법인",
