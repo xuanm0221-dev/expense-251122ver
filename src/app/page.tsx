@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, type LucideIcon } from "lucide-react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, type LucideIcon } from "lucide-react";
 import React from "react";
 
 // 야구공 아이콘 컴포넌트 (LucideIcon 타입과 호환)
@@ -47,6 +47,7 @@ const BaseballIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElemen
 BaseballIcon.displayName = "BaseballIcon";
 import { BrandCard } from "@/components/dashboard/BrandCard";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import {
   getAvailableYears,
   getAvailableMonths,
@@ -54,6 +55,8 @@ import {
   type Mode,
   type YearOption,
 } from "@/lib/expenseData";
+import { calculateYOY } from "@/lib/utils";
+import { getAnnualData, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
 
 const MAIN_BRAND_CONFIG = [
   { bizUnit: "법인" as const, brandColor: "#7c3aed", brandInitial: "법", brandName: "법인", icon: Building },
@@ -74,6 +77,20 @@ export default function HomePage() {
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
   const availableMonths = getAvailableMonths(yearOption.year, yearOption.type);
+  const homeExportRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadHtml = useCallback(() => {
+    if (!homeExportRef.current) return;
+    const inner = homeExportRef.current.innerHTML;
+    const title = `홈 대시보드 ${yearOption.year}년 예산`;
+    const fullDoc = `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>${title}</title><script src="https://cdn.tailwindcss.com"></script><style>body{font-family:system-ui,sans-serif;}</style></head><body class="p-4 bg-gray-50">${inner}</body></html>`;
+    const blob = new Blob([fullDoc], { type: "text/html;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `home-dashboard-${yearOption.year}.html`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }, [yearOption.year]);
 
   useEffect(() => {
     // 2026년(예산)이면 12월로 고정, mode도 ytd로 고정
@@ -173,6 +190,18 @@ export default function HomePage() {
                   </TabsList>
                 </Tabs>
               </div>
+              {isPlanYear && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={handleDownloadHtml}
+                  className="flex-shrink-0 text-[10px] sm:text-xs"
+                >
+                  <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
+                  HTML 다운로드
+                </Button>
+              )}
             </div>
           </div>
           <p className="text-[10px] sm:text-xs text-muted-foreground mt-4">
@@ -180,22 +209,25 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 브랜드 카드 그리드 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-          {MAIN_BRAND_CONFIG.map((config) => (
-            <BrandCard
-              key={config.bizUnit}
-              bizUnit={config.bizUnit}
-              year={yearOption.year}
-              month={month}
-              mode={mode}
-              yearType={yearOption.type}
-              brandColor={config.brandColor}
-              brandInitial={config.brandInitial}
-              brandName={config.brandName}
-              icon={config.icon}
-            />
-          ))}
+        {/* HTML 다운로드 대상: 브랜드 카드 (ref는 2026 예산일 때만) */}
+        <div ref={isPlanYear ? homeExportRef : undefined}>
+          {/* 브랜드 카드 그리드 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+            {MAIN_BRAND_CONFIG.map((config) => (
+              <BrandCard
+                key={config.bizUnit}
+                bizUnit={config.bizUnit}
+                year={yearOption.year}
+                month={month}
+                mode={mode}
+                yearType={yearOption.type}
+                brandColor={config.brandColor}
+                brandInitial={config.brandInitial}
+                brandName={config.brandName}
+                icon={config.icon}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

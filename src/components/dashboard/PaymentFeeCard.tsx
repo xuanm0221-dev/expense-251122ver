@@ -84,6 +84,8 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
   const diff = totalCurrent - totalPrev;
   const diffStr = diff >= 0 ? `+${formatK(diff, 0)}` : formatK(diff, 0);
   const yoyStr = yoy != null ? formatPercent(yoy, 0) : "-";
+  const sortedL2Children = [...l2Children].sort((a, b) => (b.curr_ytd || 0) - (a.curr_ytd || 0));
+  const displayL2Children = showDetail ? sortedL2Children : sortedL2Children.slice(0, 5);
 
   return (
     <div className="w-full min-w-0">
@@ -114,12 +116,17 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                 <tr>
                   <th className="text-left py-1 pr-2 font-semibold">
                     {paymentNode && (
-                      <button
-                        onClick={() => setShowDetail(!showDetail)}
-                        className="text-blue-600 hover:text-blue-800"
-                      >
-                        {showDetail ? "간략히" : "상세보기"}
-                      </button>
+                      <div className="flex flex-col items-start">
+                        <button
+                          onClick={() => setShowDetail(!showDetail)}
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          {showDetail ? "간략히" : "상세보기"}
+                        </button>
+                        {!showDetail && (
+                          <span className="text-gray-500 font-normal text-[10px]">기본: 당년 기준 상위 5개</span>
+                        )}
+                      </div>
                     )}
                   </th>
                   <th className="text-right py-1 px-1 font-semibold">전년</th>
@@ -129,7 +136,7 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                 </tr>
               </thead>
               <tbody>
-                {l2Children.map((l2Child, idx) => {
+                {displayL2Children.map((l2Child, idx) => {
                   const curr = l2Child.curr_ytd;
                   const prev = l2Child.prev_ytd;
                   const yoyRow = prev > 0 ? (curr / prev) * 100 : null;

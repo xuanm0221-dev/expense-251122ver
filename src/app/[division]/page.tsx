@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { KpiCard } from "@/components/dashboard/KpiCard";
@@ -14,10 +14,11 @@ import { AdExpenseCard } from "@/components/dashboard/AdExpenseCard";
 import { ITFeeCard } from "@/components/dashboard/ITFeeCard";
 import { PaymentFeeCard } from "@/components/dashboard/PaymentFeeCard";
 import { CategoryExpenseCard } from "@/components/dashboard/CategoryExpenseCard";
+import { CorporateKpiAnalysis } from "@/components/dashboard/CorporateKpiAnalysis";
 import { ExpenseAccountRow } from "@/types/expense";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2, Building } from "lucide-react";
+import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2, Building, Download } from "lucide-react";
 
 // 야구공 아이콘 컴포넌트
 const BaseballIcon = ({ className }: { className?: string }) => (
@@ -127,6 +128,7 @@ export default function DivisionPage() {
   const [meetingNode, setMeetingNode] = useState<ExpenseAccountRow | null>(null);
   const [travelNode, setTravelNode] = useState<ExpenseAccountRow | null>(null);
   const [tableAnnualTotals, setTableAnnualTotals] = useState<{ prev: number; curr: number } | null>(null);
+  const exportAreaRef = useRef<HTMLDivElement>(null);
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
   const availableMonths = getAvailableMonths(yearOption.year, yearOption.type);
@@ -172,6 +174,19 @@ export default function DivisionPage() {
       setTableAnnualTotals({ prev: totals.prevYear, curr: totals.currYear });
     }
   }, [isBrand, isCommon, is2026Annual]);
+
+  const handleDownloadHtml = useCallback(() => {
+    if (!exportAreaRef.current) return;
+    const inner = exportAreaRef.current.innerHTML;
+    const title = `법인 대시보드 ${yearOption.year}년 ${month ? `${month}월` : "연간"}`;
+    const fullDoc = `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>${title}</title><script src="https://cdn.tailwindcss.com"></script><style>body{font-family:system-ui,sans-serif;}</style></head><body class="p-4 bg-gray-50">${inner}</body></html>`;
+    const blob = new Blob([fullDoc], { type: "text/html;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `corporate-dashboard-${yearOption.year}${month ? `-${month}` : ""}.html`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }, [yearOption.year, month]);
 
   if (!["법인", "MLB", "KIDS", "DISCOVERY", "공통"].includes(bizUnit)) {
     return (
@@ -431,6 +446,28 @@ export default function DivisionPage() {
   
   const perPersonCostYOY = calculateYOY(perPersonCost, prevPerPersonCost);
 
+  // 법인 상세페이지 AI 분석용 요약 (2026 예산 기준)
+  const makeAnnualSummary = (unit: BizUnit) => {
+    if (!is2026Annual) return { costYoy: null as number | null, salesYoy: null as number | null };
+    const annual = getAnnualData(unit, 2026, "", "", "", "plan");
+    const cost = annual.reduce((s, i) => s + i.annual_amount, 0);
+    let salesSum = 0;
+    for (let m = 1; m <= 12; m++) {
+      salesSum += getMonthlyTotal(unit, 2026, m, "monthly", "plan")?.sales || 0;
+    }
+    const prev = getMonthlyTotal(unit, 2025, 12, "ytd", "actual");
+    return {
+      costYoy: calculateYOY(cost, prev?.amount ?? null),
+      salesYoy: calculateYOY(salesSum, prev?.sales ?? null),
+    };
+  };
+
+  const corpAi = makeAnnualSummary("법인");
+  const mlbAi = makeAnnualSummary("MLB");
+  const kidsAi = makeAnnualSummary("KIDS");
+  const discoveryAi = makeAnnualSummary("DISCOVERY");
+  const commonAi = makeAnnualSummary("공통");
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-6 md:py-8">
@@ -523,6 +560,18 @@ export default function DivisionPage() {
               </TabsTrigger>
             </TabsList>
           </Tabs>
+          {isCorporate && (
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={handleDownloadHtml}
+              className="flex-shrink-0 text-[10px] sm:text-xs"
+            >
+              <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
+              HTML 다운로드
+            </Button>
+          )}
           {isPlanYear && (
             <span className="text-[10px] sm:text-xs font-medium text-gray-600 flex-shrink-0 whitespace-nowrap">
               연간 계획 (2025 실적 vs 2026 계획)
@@ -530,6 +579,19 @@ export default function DivisionPage() {
           )}
         </div>
 
+        {/* 법인 상세페이지 전용 AI 심층분석: KPI 위 배치 */}
+        {isCorporate && isPlanYear && (
+          <CorporateKpiAnalysis
+            corporate={corpAi}
+            mlb={mlbAi}
+            kids={kidsAi}
+            discovery={discoveryAi}
+            commonCostYoy={commonAi.costYoy}
+          />
+        )}
+
+        {/* KPI 카드 + 카드 4개 + 비용 계정 상세 분석 (HTML 다운로드 대상) */}
+        <div ref={isCorporate ? exportAreaRef : undefined} className={isCorporate ? "" : undefined}>
         {/* KPI 카드 */}
         <div className="mb-6">
           <h2 className="font-bold mb-4 text-xs sm:text-sm lg:text-lg">주요 지표 (KPI)</h2>
@@ -672,6 +734,7 @@ export default function DivisionPage() {
             onAnnualTotalsChange={(isBrand || isCommon) && is2026Annual ? handleAnnualTotalsChange : undefined}
             yearType={yearType}
           />
+        </div>
         </div>
 
         {/* 광고비-매출 효율 분석 (브랜드 & 법인만) */}

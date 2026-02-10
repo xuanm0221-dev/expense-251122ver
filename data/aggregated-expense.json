@@ -13350,7 +13350,7 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 383221.0,
+      "amount": 374887.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13526,7 +13526,7 @@
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 545631.0,
+      "amount": 537297.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13702,7 +13702,7 @@
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 771791.0,
+      "amount": 763457.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13878,7 +13878,7 @@
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 428286.0,
+      "amount": 419952.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14054,7 +14054,7 @@
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 966963.0,
+      "amount": 962379.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14230,7 +14230,7 @@
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 808976.0,
+      "amount": 804392.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14406,7 +14406,7 @@
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 545998.0,
+      "amount": 541414.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14582,7 +14582,7 @@
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 532309.0,
+      "amount": 527725.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14758,7 +14758,7 @@
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 870416.0,
+      "amount": 865832.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14934,7 +14934,7 @@
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 200933.0,
+      "amount": 196349.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -15110,7 +15110,7 @@
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 618208.0,
+      "amount": 613624.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -15286,7 +15286,7 @@
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 1055894.0,
+      "amount": 1051310.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -17010,7 +17010,7 @@
       "month": 1,
       "yyyymm": "202601",
       "year_type": "plan",
-      "amount": 7500578.0,
+      "amount": 7492244.0,
       "headcount": 72.0,
       "sales": 875535276.0
     },
@@ -17030,7 +17030,7 @@
       "month": 2,
       "yyyymm": "202602",
       "year_type": "plan",
-      "amount": 11245953.0,
+      "amount": 11237619.0,
       "headcount": 72.0,
       "sales": 827285916.0
     },
@@ -17050,7 +17050,7 @@
       "month": 3,
       "yyyymm": "202603",
       "year_type": "plan",
-      "amount": 7105765.0,
+      "amount": 7097431.0,
       "headcount": 71.0,
       "sales": 691377777.0
     },
@@ -17070,7 +17070,7 @@
       "month": 4,
       "yyyymm": "202604",
       "year_type": "plan",
-      "amount": 7897050.0,
+      "amount": 7888716.0,
       "headcount": 71.0,
       "sales": 676179714.0
     },
@@ -17090,7 +17090,7 @@
       "month": 5,
       "yyyymm": "202605",
       "year_type": "plan",
-      "amount": 10461716.0,
+      "amount": 10457132.0,
       "headcount": 71.0,
       "sales": 749659504.0
     },
@@ -17110,7 +17110,7 @@
       "month": 6,
       "yyyymm": "202606",
       "year_type": "plan",
-      "amount": 9457203.0,
+      "amount": 9452619.0,
       "headcount": 70.0,
       "sales": 584864001.0
     },
@@ -17130,7 +17130,7 @@
       "month": 7,
       "yyyymm": "202607",
       "year_type": "plan",
-      "amount": 8522624.0,
+      "amount": 8518040.0,
       "headcount": 70.0,
       "sales": 551347696.0
     },
@@ -17150,7 +17150,7 @@
       "month": 8,
       "yyyymm": "202608",
       "year_type": "plan",
-      "amount": 8390344.0,
+      "amount": 8385760.0,
       "headcount": 70.0,
       "sales": 630504257.0
     },
@@ -17170,7 +17170,7 @@
       "month": 9,
       "yyyymm": "202609",
       "year_type": "plan",
-      "amount": 9340190.0,
+      "amount": 9335606.0,
       "headcount": 66.0,
       "sales": 641310716.0
     },
@@ -17190,7 +17190,7 @@
       "month": 10,
       "yyyymm": "202610",
       "year_type": "plan",
-      "amount": 10599596.0,
+      "amount": 10595012.0,
       "headcount": 66.0,
       "sales": 946331723.0
     },
@@ -17210,7 +17210,7 @@
       "month": 11,
       "yyyymm": "202611",
       "year_type": "plan",
-      "amount": 8387110.0,
+      "amount": 8382526.0,
       "headcount": 66.0,
       "sales": 844906975.0
     },
@@ -17230,7 +17230,7 @@
       "month": 12,
       "yyyymm": "202612",
       "year_type": "plan",
-      "amount": 12845632.0,
+      "amount": 12841048.0,
       "headcount": 66.0,
       "sales": 889206175.0
     }
@@ -126445,7 +126445,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -129313,7 +129313,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -132181,7 +132181,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -135049,7 +135049,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -137869,7 +137869,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -137917,7 +137917,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -140737,7 +140737,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -140785,7 +140785,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -143605,7 +143605,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -143653,7 +143653,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -146473,7 +146473,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -146521,7 +146521,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -149341,7 +149341,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -149389,7 +149389,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -152209,7 +152209,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -152257,7 +152257,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -155077,7 +155077,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -155125,7 +155125,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -157945,7 +157945,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "amount": 25000.0,
+      "amount": 28750.0,
       "headcount": 0.0
     },
     {
@@ -157993,7 +157993,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 41667.0,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -164629,7 +164629,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "내부회계 감사비용",
       "year_type": "plan",
-      "annual_amount": 200000.0
+      "annual_amount": 230000.0
     },
     {
       "biz_unit": "공통",
@@ -164647,7 +164647,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "annual_amount": 500004.0
+      "annual_amount": 400000.0
     },
     {
       "biz_unit": "공통",
