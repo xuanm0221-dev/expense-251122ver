@@ -41,6 +41,13 @@ export function ReportModal({ isOpen, onClose }: ReportModalProps) {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isEditMode && contentEditableRef.current) {
+      // 편집 모드 진입 시 한 번만 content를 div에 설정
+      contentEditableRef.current.innerHTML = content;
+    }
+  }, [isEditMode, content]);
+
   const startEdit = () => {
     setIsEditMode(true);
   };
@@ -124,7 +131,6 @@ export function ReportModal({ isOpen, onClose }: ReportModalProps) {
             <div
               ref={contentEditableRef}
               contentEditable={true}
-              dangerouslySetInnerHTML={{ __html: content }}
               className="w-full min-h-[400px] border-2 border-blue-300 bg-blue-50/5 rounded p-2 outline-none focus:border-blue-500 focus:bg-blue-50/10"
               suppressContentEditableWarning
             />
