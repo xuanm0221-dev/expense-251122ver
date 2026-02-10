@@ -99,30 +99,17 @@ export function ExpenseAccountHierTable({
     setEditValue("");
   };
 
-  // 편집 저장 시 비밀번호 모달 열기
-  const requestSaveEdit = (rowId: string) => {
-    setPendingSaveType("description");
-    setPendingRowId(rowId);
-    setPasswordModalOpen(true);
-  };
+  const isLocalHost = typeof window !== "undefined" && window.location.hostname === "localhost";
 
-  const requestSaveBasis = (rowId: string) => {
-    setPendingSaveType("basis");
-    setPendingRowId(rowId);
-    setPasswordModalOpen(true);
-  };
-
-  const requestReset = () => {
-    setPendingSaveType("reset");
-    setPasswordModalOpen(true);
-  };
-
-  const handlePasswordConfirm = async (password: string) => {
-    if (!pendingSaveType) return;
-    if (pendingSaveType !== "reset" && !pendingRowId) return;
+  const performSaveOrReset = async (
+    password: string,
+    type: "description" | "basis" | "reset",
+    rowId?: string,
+    descValue?: string,
+    basisVal?: string
+  ) => {
     const ym = `${year}${String(month).padStart(2, "0")}`;
-
-    if (pendingSaveType === "reset") {
+    if (type === "reset") {
       const response = await fetch("/api/cost-descriptions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -144,32 +131,27 @@ export function ExpenseAccountHierTable({
         throw new Error(result.error || "초기화에 실패했습니다.");
       }
       addToast({ type: "success", message: "초기화되었습니다." });
-      setPasswordModalOpen(false);
-      setPendingSaveType(null);
-      setPendingRowId(null);
       setRefreshKey((k) => k + 1);
       return;
     }
-
-    const isDescription = pendingSaveType === "description";
+    if (!rowId) return;
+    const isDescription = type === "description";
     const body: Record<string, unknown> = {
       brand: bizUnit,
       ym,
       mode: viewMode,
-      accountPath: pendingRowId!,
+      accountPath: rowId,
       yearType,
       password,
     };
-    if (isDescription) body.description = editValue;
-    else body.basis = basisEditValue;
-
+    if (isDescription) body.description = descValue ?? editValue;
+    else body.basis = basisVal ?? basisEditValue;
     const response = await fetch("/api/cost-descriptions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
     const result = await response.json();
-
     if (response.status === 401) {
       addToast({ type: "error", message: "비밀번호가 올바르지 않습니다." });
       throw new Error("비밀번호 불일치");
@@ -177,10 +159,10 @@ export function ExpenseAccountHierTable({
     if (!response.ok || !result.success) {
       throw new Error(result.error || "저장에 실패했습니다.");
     }
-
+    const valueToSet = isDescription ? (descValue ?? editValue) : (basisVal ?? basisEditValue);
     if (isDescription) {
       const newDescriptions = new Map(descriptions);
-      newDescriptions.set(pendingRowId!, editValue);
+      newDescriptions.set(rowId, valueToSet);
       setDescriptions(newDescriptions);
       const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}-${yearType}`;
       localStorage.setItem(storageKey, JSON.stringify(Object.fromEntries(newDescriptions)));
@@ -189,15 +171,70 @@ export function ExpenseAccountHierTable({
       setEditValue("");
     } else {
       const newBasis = new Map(basisMap);
-if (basisEditValue.trim()) newBasis.set(pendingRowId!, basisEditValue);
-        else newBasis.delete(pendingRowId!);
+      if (valueToSet.trim()) newBasis.set(rowId, valueToSet);
+      else newBasis.delete(rowId);
       setBasisMap(newBasis);
       addToast({ type: "success", message: "계산 근거가 저장되었습니다." });
       closeBasisPopover();
     }
-    setPasswordModalOpen(false);
-    setPendingSaveType(null);
-    setPendingRowId(null);
+  };
+
+  const requestSaveEdit = (rowId: string) => {
+    setPendingSaveType("description");
+    setPendingRowId(rowId);
+    if (isLocalHost) {
+      performSaveOrReset("", "description", rowId, editValue).then(() => {
+        setPasswordModalOpen(false);
+        setPendingSaveType(null);
+        setPendingRowId(null);
+      }).catch(() => {});
+      return;
+    }
+    setPasswordModalOpen(true);
+  };
+
+  const requestSaveBasis = (rowId: string) => {
+    setPendingSaveType("basis");
+    setPendingRowId(rowId);
+    if (isLocalHost) {
+      performSaveOrReset("", "basis", rowId, undefined, basisEditValue).then(() => {
+        setPasswordModalOpen(false);
+        setPendingSaveType(null);
+        setPendingRowId(null);
+      }).catch(() => {});
+      return;
+    }
+    setPasswordModalOpen(true);
+  };
+
+  const requestReset = () => {
+    setPendingSaveType("reset");
+    if (isLocalHost) {
+      performSaveOrReset("", "reset").then(() => {
+        setPasswordModalOpen(false);
+        setPendingSaveType(null);
+        setPendingRowId(null);
+      }).catch(() => {});
+      return;
+    }
+    setPasswordModalOpen(true);
+  };
+
+  const handlePasswordConfirm = async (password: string) => {
+    if (!pendingSaveType) return;
+    if (pendingSaveType !== "reset" && !pendingRowId) return;
+    try {
+      await performSaveOrReset(
+        password,
+        pendingSaveType,
+        pendingSaveType === "reset" ? undefined : pendingRowId ?? undefined,
+        pendingSaveType === "description" ? editValue : undefined,
+        pendingSaveType === "basis" ? basisEditValue : undefined
+      );
+      setPasswordModalOpen(false);
+      setPendingSaveType(null);
+      setPendingRowId(null);
+    } catch (_) {}
   };
 
   const openBasisPopover = (rowId: string) => {

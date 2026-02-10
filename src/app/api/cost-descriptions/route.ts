@@ -280,12 +280,15 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { brand, ym, mode, accountPath, description, basis: basisValue, yearType, password, action } = body;
 
-    const expectedPassword = process.env.EDIT_PASSWORD;
-    if (!expectedPassword || password !== expectedPassword) {
-      return NextResponse.json(
-        { error: "비밀번호가 올바르지 않습니다." },
-        { status: 401 }
-      );
+    // Vercel 배포 환경에서만 비밀번호 검사 (로컬은 비밀번호 없이 저장 가능)
+    if (process.env.VERCEL === "1") {
+      const expectedPassword = process.env.EDIT_PASSWORD;
+      if (!expectedPassword || password !== expectedPassword) {
+        return NextResponse.json(
+          { error: "비밀번호가 올바르지 않습니다." },
+          { status: 401 }
+        );
+      }
     }
 
     if (action === "reset") {
