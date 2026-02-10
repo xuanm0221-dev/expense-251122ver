@@ -77,7 +77,7 @@ function ensureDirectoryExists(filePath: string): void {
   }
 }
 
-// 설명 데이터 읽기 (Redis 우선, 없으면 파일)
+// 설명 데이터 읽기 (Redis 우선, 비었으면 배포된 파일 fallback)
 async function readDescriptions(
   brand: string,
   ym: string,
@@ -88,12 +88,22 @@ async function readDescriptions(
   if (redis) {
     try {
       const raw = await redis.get(redisDescKey(brand, ym, mode, yearType));
-      if (raw == null) return {};
-      return typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, string>);
+      const fromRedis = raw == null ? {} : typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, string>);
+      if (Object.keys(fromRedis).length > 0) return fromRedis;
+      // Redis 비었으면 배포된 파일 fallback
     } catch (e: any) {
       console.error("설명 Redis 읽기 오류:", e);
-      return {};
     }
+    try {
+      const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
+      if (fs.existsSync(filePath)) {
+        const content = fs.readFileSync(filePath, "utf-8");
+        return JSON.parse(content);
+      }
+    } catch (e: any) {
+      console.error("설명 파일 fallback 오류:", e);
+    }
+    return {};
   }
   try {
     const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
@@ -134,12 +144,22 @@ async function readBasis(
   if (redis) {
     try {
       const raw = await redis.get(redisBasisKey(brand, ym, mode, yearType));
-      if (raw == null) return {};
-      return typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, string>);
+      const fromRedis = raw == null ? {} : typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, string>);
+      if (Object.keys(fromRedis).length > 0) return fromRedis;
+      // Redis 비었으면 배포된 파일 fallback
     } catch (e: any) {
       console.error("계산 근거 Redis 읽기 오류:", e);
-      return {};
     }
+    try {
+      const filePath = getBasisFilePath(brand, ym, mode, yearType);
+      if (fs.existsSync(filePath)) {
+        const content = fs.readFileSync(filePath, "utf-8");
+        return JSON.parse(content);
+      }
+    } catch (e: any) {
+      console.error("계산 근거 파일 fallback 오류:", e);
+    }
+    return {};
   }
   try {
     const filePath = getBasisFilePath(brand, ym, mode, yearType);
@@ -254,11 +274,11 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST: 설명 또는 계산 근거(basis) 저장
+// POST: 설명/계산근거 저장 또는 초기화(reset)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { brand, ym, mode, accountPath, description, basis: basisValue, yearType, password } = body;
+    const { brand, ym, mode, accountPath, description, basis: basisValue, yearType, password, action } = body;
 
     const expectedPassword = process.env.EDIT_PASSWORD;
     if (!expectedPassword || password !== expectedPassword) {
@@ -266,6 +286,21 @@ export async function POST(request: NextRequest) {
         { error: "비밀번호가 올바르지 않습니다." },
         { status: 401 }
       );
+    }
+
+    if (action === "reset") {
+      if (!brand || !ym || !mode) {
+        return NextResponse.json(
+          { error: "초기화에 필요한 파라미터가 누락되었습니다 (brand, ym, mode)." },
+          { status: 400 }
+        );
+      }
+      const redis = getRedis();
+      if (redis) {
+        await redis.del(redisDescKey(brand, ym, mode, yearType));
+        await redis.del(redisBasisKey(brand, ym, mode, yearType));
+      }
+      return NextResponse.json({ success: true, message: "초기화되었습니다." });
     }
 
     if (!brand || !ym || !mode || !accountPath) {

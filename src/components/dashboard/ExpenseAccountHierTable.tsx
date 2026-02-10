@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Info } from "lucide-react";
+import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Info, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getCategoryDetail, getAnnualData, data, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
@@ -43,8 +43,9 @@ export function ExpenseAccountHierTable({
   const [basisPopoverRowId, setBasisPopoverRowId] = useState<string | null>(null);
   const [basisEditValue, setBasisEditValue] = useState<string>("");
   const [passwordModalOpen, setPasswordModalOpen] = useState(false);
-  const [pendingSaveType, setPendingSaveType] = useState<"description" | "basis" | null>(null);
+  const [pendingSaveType, setPendingSaveType] = useState<"description" | "basis" | "reset" | null>(null);
   const [pendingRowId, setPendingRowId] = useState<string | null>(null);
+  const [refreshKey, setRefreshKey] = useState(0);
   const { addToast } = useToast();
 
   const is2026AnnualOnly = year === 2026 && yearType === 'plan';
@@ -84,7 +85,7 @@ export function ExpenseAccountHierTable({
     };
 
     loadDescriptions();
-  }, [bizUnit, year, month, viewMode, yearType]);
+  }, [bizUnit, year, month, viewMode, yearType, refreshKey]);
 
   // 편집 시작
   const startEdit = (rowId: string, currentDescription: string) => {
@@ -111,15 +112,51 @@ export function ExpenseAccountHierTable({
     setPasswordModalOpen(true);
   };
 
+  const requestReset = () => {
+    setPendingSaveType("reset");
+    setPasswordModalOpen(true);
+  };
+
   const handlePasswordConfirm = async (password: string) => {
-    if (!pendingRowId || !pendingSaveType) return;
+    if (!pendingSaveType) return;
+    if (pendingSaveType !== "reset" && !pendingRowId) return;
     const ym = `${year}${String(month).padStart(2, "0")}`;
+
+    if (pendingSaveType === "reset") {
+      const response = await fetch("/api/cost-descriptions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "reset",
+          brand: bizUnit,
+          ym,
+          mode: viewMode,
+          yearType,
+          password,
+        }),
+      });
+      const result = await response.json();
+      if (response.status === 401) {
+        addToast({ type: "error", message: "비밀번호가 올바르지 않습니다." });
+        throw new Error("비밀번호 불일치");
+      }
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "초기화에 실패했습니다.");
+      }
+      addToast({ type: "success", message: "초기화되었습니다." });
+      setPasswordModalOpen(false);
+      setPendingSaveType(null);
+      setPendingRowId(null);
+      setRefreshKey((k) => k + 1);
+      return;
+    }
+
     const isDescription = pendingSaveType === "description";
     const body: Record<string, unknown> = {
       brand: bizUnit,
       ym,
       mode: viewMode,
-      accountPath: pendingRowId,
+      accountPath: pendingRowId!,
       yearType,
       password,
     };
@@ -143,7 +180,7 @@ export function ExpenseAccountHierTable({
 
     if (isDescription) {
       const newDescriptions = new Map(descriptions);
-      newDescriptions.set(pendingRowId, editValue);
+      newDescriptions.set(pendingRowId!, editValue);
       setDescriptions(newDescriptions);
       const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}-${yearType}`;
       localStorage.setItem(storageKey, JSON.stringify(Object.fromEntries(newDescriptions)));
@@ -152,8 +189,8 @@ export function ExpenseAccountHierTable({
       setEditValue("");
     } else {
       const newBasis = new Map(basisMap);
-      if (basisEditValue.trim()) newBasis.set(pendingRowId, basisEditValue);
-      else newBasis.delete(pendingRowId);
+if (basisEditValue.trim()) newBasis.set(pendingRowId!, basisEditValue);
+        else newBasis.delete(pendingRowId!);
       setBasisMap(newBasis);
       addToast({ type: "success", message: "계산 근거가 저장되었습니다." });
       closeBasisPopover();
@@ -2233,6 +2270,15 @@ export function ExpenseAccountHierTable({
               >
                 <ChevronsDownUp className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="whitespace-nowrap">{isAllExpanded ? "모두 접기" : "모두 펼치기"}</span>
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={requestReset}
+                className="flex items-center gap-2 min-w-[80px] sm:min-w-[90px] justify-center px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-slate-700/50 border-slate-600 text-slate-200 hover:bg-slate-600 hover:text-slate-50 font-medium shadow-md hover:shadow-lg transition-all duration-200 text-[13.5px] sm:text-[15px]"
+              >
+                <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="whitespace-nowrap">초기화</span>
               </Button>
             </div>
           </div>
