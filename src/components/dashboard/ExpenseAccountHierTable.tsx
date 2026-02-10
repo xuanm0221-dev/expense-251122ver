@@ -11,6 +11,7 @@ type BizUnitOrAll = BizUnit | "ALL";
 import { formatK, formatPercent, calculateYOY } from "@/lib/utils";
 
 import { ExpenseAccountRow } from "@/types/expense";
+import { PasswordModal } from "@/components/dashboard/PasswordModal";
 
 interface ExpenseAccountHierTableProps {
   bizUnit?: BizUnit | "ALL";
@@ -41,6 +42,9 @@ export function ExpenseAccountHierTable({
   const [editValue, setEditValue] = useState<string>("");
   const [basisPopoverRowId, setBasisPopoverRowId] = useState<string | null>(null);
   const [basisEditValue, setBasisEditValue] = useState<string>("");
+  const [passwordModalOpen, setPasswordModalOpen] = useState(false);
+  const [pendingSaveType, setPendingSaveType] = useState<"description" | "basis" | null>(null);
+  const [pendingRowId, setPendingRowId] = useState<string | null>(null);
   const { addToast } = useToast();
 
   const is2026AnnualOnly = year === 2026 && yearType === 'plan';
@@ -94,54 +98,69 @@ export function ExpenseAccountHierTable({
     setEditValue("");
   };
 
-  // 편집 저장 (바로 저장)
-  const saveEdit = async (rowId: string) => {
-    try {
-      const ym = `${year}${String(month).padStart(2, "0")}`;
-      const response = await fetch("/api/cost-descriptions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          brand: bizUnit,
-          ym,
-          mode: viewMode,
-          accountPath: rowId,
-          description: editValue,
-          yearType,
-        }),
-      });
+  // 편집 저장 시 비밀번호 모달 열기
+  const requestSaveEdit = (rowId: string) => {
+    setPendingSaveType("description");
+    setPendingRowId(rowId);
+    setPasswordModalOpen(true);
+  };
 
-      const result = await response.json();
+  const requestSaveBasis = (rowId: string) => {
+    setPendingSaveType("basis");
+    setPendingRowId(rowId);
+    setPasswordModalOpen(true);
+  };
 
-      if (response.ok && result.success) {
-        // 성공: 로컬 상태 업데이트
-        const newDescriptions = new Map(descriptions);
-        newDescriptions.set(rowId, editValue);
-        setDescriptions(newDescriptions);
-        
-        // localStorage에도 저장 (fallback용)
-        const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}-${yearType}`;
-        const obj = Object.fromEntries(newDescriptions);
-        localStorage.setItem(storageKey, JSON.stringify(obj));
+  const handlePasswordConfirm = async (password: string) => {
+    if (!pendingRowId || !pendingSaveType) return;
+    const ym = `${year}${String(month).padStart(2, "0")}`;
+    const isDescription = pendingSaveType === "description";
+    const body: Record<string, unknown> = {
+      brand: bizUnit,
+      ym,
+      mode: viewMode,
+      accountPath: pendingRowId,
+      yearType,
+      password,
+    };
+    if (isDescription) body.description = editValue;
+    else body.basis = basisEditValue;
 
-        addToast({
-          type: "success",
-          message: "설명이 저장되었습니다.",
-        });
-        
-        setEditingRowId(null);
-        setEditValue("");
-      } else {
-        throw new Error(result.error || "저장에 실패했습니다.");
-      }
-    } catch (error: any) {
-      addToast({
-        type: "error",
-        message: error.message || "설명 저장 중 오류가 발생했습니다.",
-      });
+    const response = await fetch("/api/cost-descriptions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    const result = await response.json();
+
+    if (response.status === 401) {
+      addToast({ type: "error", message: "비밀번호가 올바르지 않습니다." });
+      throw new Error("비밀번호 불일치");
     }
+    if (!response.ok || !result.success) {
+      throw new Error(result.error || "저장에 실패했습니다.");
+    }
+
+    if (isDescription) {
+      const newDescriptions = new Map(descriptions);
+      newDescriptions.set(pendingRowId, editValue);
+      setDescriptions(newDescriptions);
+      const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}-${yearType}`;
+      localStorage.setItem(storageKey, JSON.stringify(Object.fromEntries(newDescriptions)));
+      addToast({ type: "success", message: "설명이 저장되었습니다." });
+      setEditingRowId(null);
+      setEditValue("");
+    } else {
+      const newBasis = new Map(basisMap);
+      if (basisEditValue.trim()) newBasis.set(pendingRowId, basisEditValue);
+      else newBasis.delete(pendingRowId);
+      setBasisMap(newBasis);
+      addToast({ type: "success", message: "계산 근거가 저장되었습니다." });
+      closeBasisPopover();
+    }
+    setPasswordModalOpen(false);
+    setPendingSaveType(null);
+    setPendingRowId(null);
   };
 
   const openBasisPopover = (rowId: string) => {
@@ -2640,7 +2659,7 @@ export function ExpenseAccountHierTable({
                               onChange={(e) => setEditValue(e.target.value)}
                               onKeyDown={(e) => {
                                 if (e.key === "Enter" && e.ctrlKey) {
-                                  saveEdit(row.id);
+                                  requestSaveEdit(row.id);
                                 } else if (e.key === "Escape") {
                                   cancelEdit();
                                 }
@@ -2654,7 +2673,7 @@ export function ExpenseAccountHierTable({
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  saveEdit(row.id);
+                                  requestSaveEdit(row.id);
                                 }}
                                 className="p-1 text-green-600 hover:bg-green-50 rounded"
                                 title="저장 (Ctrl+Enter)"
@@ -2751,7 +2770,7 @@ export function ExpenseAccountHierTable({
                               </button>
                               <button
                                 type="button"
-                                onClick={() => saveBasis(row.id)}
+                                onClick={() => requestSaveBasis(row.id)}
                                 className="px-2 py-1 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded flex items-center gap-1"
                               >
                                 <Check className="w-3.5 h-3.5" />
@@ -2788,7 +2807,7 @@ export function ExpenseAccountHierTable({
                               value={editValue}
                               onChange={(e) => setEditValue(e.target.value)}
                               onKeyDown={(e) => {
-                                if (e.key === "Enter" && e.ctrlKey) saveEdit(row.id);
+                                if (e.key === "Enter" && e.ctrlKey) requestSaveEdit(row.id);
                                 else if (e.key === "Escape") cancelEdit();
                               }}
                               className="flex-1 px-2 py-1 text-sm border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
@@ -2797,7 +2816,7 @@ export function ExpenseAccountHierTable({
                               onClick={(e) => e.stopPropagation()}
                             />
                             <div className="flex flex-col gap-1">
-                              <button onClick={(e) => { e.stopPropagation(); saveEdit(row.id); }} className="p-1 text-green-600 hover:bg-green-50 rounded" title="저장"><Check className="w-3 h-3 sm:w-4 sm:h-4" /></button>
+                              <button onClick={(e) => { e.stopPropagation(); requestSaveEdit(row.id); }} className="p-1 text-green-600 hover:bg-green-50 rounded" title="저장"><Check className="w-3 h-3 sm:w-4 sm:h-4" /></button>
                               <button onClick={(e) => { e.stopPropagation(); cancelEdit(); }} className="p-1 text-red-600 hover:bg-red-50 rounded" title="취소"><X className="w-3 h-3 sm:w-4 sm:h-4" /></button>
                             </div>
                           </div>
@@ -2862,7 +2881,7 @@ export function ExpenseAccountHierTable({
                               </button>
                               <button
                                 type="button"
-                                onClick={() => saveBasis(row.id)}
+                                onClick={() => requestSaveBasis(row.id)}
                                 className="px-2 py-1 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded flex items-center gap-1"
                               >
                                 <Check className="w-3.5 h-3.5" />
@@ -2909,7 +2928,7 @@ export function ExpenseAccountHierTable({
                               onChange={(e) => setEditValue(e.target.value)}
                               onKeyDown={(e) => {
                                 if (e.key === "Enter" && e.ctrlKey) {
-                                  saveEdit(row.id);
+                                  requestSaveEdit(row.id);
                                 } else if (e.key === "Escape") {
                                   cancelEdit();
                                 }
@@ -2923,7 +2942,7 @@ export function ExpenseAccountHierTable({
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  saveEdit(row.id);
+                                  requestSaveEdit(row.id);
                                 }}
                                 className="p-1 text-green-600 hover:bg-green-50 rounded"
                                 title="저장 (Ctrl+Enter)"
@@ -2985,6 +3004,15 @@ export function ExpenseAccountHierTable({
         </table>
       </div>
     </div>
+    <PasswordModal
+      open={passwordModalOpen}
+      onClose={() => {
+        setPasswordModalOpen(false);
+        setPendingSaveType(null);
+        setPendingRowId(null);
+      }}
+      onConfirm={handlePasswordConfirm}
+    />
     </>
   );
 }

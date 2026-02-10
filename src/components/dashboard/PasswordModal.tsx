@@ -44,7 +44,7 @@ export function PasswordModal({ open, onClose, onConfirm }: PasswordModalProps) 
         <DialogHeader>
           <DialogTitle>편집 권한 확인</DialogTitle>
           <DialogDescription>
-            설명을 저장하려면 편집 비밀번호를 입력해주세요.
+            계산근거 또는 설명을 저장하려면 편집 비밀번호를 입력해주세요.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit}>

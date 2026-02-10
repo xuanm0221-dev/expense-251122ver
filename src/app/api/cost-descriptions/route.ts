@@ -1,6 +1,36 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { Redis } from "@upstash/redis";
+
+// Redis 사용: Vercel 배포 환경이면서 Redis URL/Token이 있을 때만 (로컬은 항상 파일)
+function shouldUseRedis(): boolean {
+  if (process.env.VERCEL !== "1") return false;
+  const withKv = process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN;
+  const withUpstash = process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN;
+  return !!(withKv || withUpstash);
+}
+
+function getRedis(): Redis | null {
+  if (!shouldUseRedis()) return null;
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
+}
+
+function redisDescKey(brand: string, ym: string, mode: string, yearType?: string): string {
+  const suffix = yearType ? `:${yearType}` : "";
+  return `cost-desc:${brand}:${ym}:${mode}${suffix}`;
+}
+function redisBasisKey(brand: string, ym: string, mode: string, yearType?: string): string {
+  const suffix = yearType ? `:${yearType}` : "";
+  return `cost-basis:${brand}:${ym}:${mode}${suffix}`;
+}
+function redisLogKey(brand: string, ym: string, mode: string, yearType?: string): string {
+  const suffix = yearType ? `:${yearType}` : "";
+  return `cost-desc-logs:${brand}:${ym}:${mode}${suffix}`;
+}
 
 // 저장 로그 타입
 interface SaveLog {
@@ -47,18 +77,27 @@ function ensureDirectoryExists(filePath: string): void {
   }
 }
 
-// 파일에서 설명 데이터 읽기
+// 설명 데이터 읽기 (Redis 우선, 없으면 파일)
 async function readDescriptions(
   brand: string,
   ym: string,
   mode: string,
   yearType?: string
 ): Promise<Record<string, string>> {
-  try {
-    const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
-    if (!fs.existsSync(filePath)) {
+  const redis = getRedis();
+  if (redis) {
+    try {
+      const raw = await redis.get(redisDescKey(brand, ym, mode, yearType));
+      if (raw == null) return {};
+      return typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, string>);
+    } catch (e: any) {
+      console.error("설명 Redis 읽기 오류:", e);
       return {};
     }
+  }
+  try {
+    const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
+    if (!fs.existsSync(filePath)) return {};
     const content = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(content);
   } catch (error: any) {
@@ -67,7 +106,7 @@ async function readDescriptions(
   }
 }
 
-// 파일에 설명 데이터 쓰기
+// 설명 데이터 쓰기 (Redis 우선, 없으면 파일)
 async function writeDescriptions(
   brand: string,
   ym: string,
@@ -75,6 +114,11 @@ async function writeDescriptions(
   descriptions: Record<string, string>,
   yearType?: string
 ): Promise<void> {
+  const redis = getRedis();
+  if (redis) {
+    await redis.set(redisDescKey(brand, ym, mode, yearType), JSON.stringify(descriptions));
+    return;
+  }
   const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
   ensureDirectoryExists(filePath);
   fs.writeFileSync(filePath, JSON.stringify(descriptions, null, 2), "utf-8");
@@ -86,6 +130,17 @@ async function readBasis(
   mode: string,
   yearType?: string
 ): Promise<Record<string, string>> {
+  const redis = getRedis();
+  if (redis) {
+    try {
+      const raw = await redis.get(redisBasisKey(brand, ym, mode, yearType));
+      if (raw == null) return {};
+      return typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, string>);
+    } catch (e: any) {
+      console.error("계산 근거 Redis 읽기 오류:", e);
+      return {};
+    }
+  }
   try {
     const filePath = getBasisFilePath(brand, ym, mode, yearType);
     if (!fs.existsSync(filePath)) return {};
@@ -104,23 +159,38 @@ async function writeBasis(
   basis: Record<string, string>,
   yearType?: string
 ): Promise<void> {
+  const redis = getRedis();
+  if (redis) {
+    await redis.set(redisBasisKey(brand, ym, mode, yearType), JSON.stringify(basis));
+    return;
+  }
   const filePath = getBasisFilePath(brand, ym, mode, yearType);
   ensureDirectoryExists(filePath);
   fs.writeFileSync(filePath, JSON.stringify(basis, null, 2), "utf-8");
 }
 
-// 파일에서 로그 읽기
+// 로그 읽기 (Redis 우선, 없으면 파일)
 async function readLogs(
   brand: string,
   ym: string,
   mode: string,
   yearType?: string
 ): Promise<SaveLog[]> {
-  try {
-    const filePath = getLogFilePath(brand, ym, mode, yearType);
-    if (!fs.existsSync(filePath)) {
+  const redis = getRedis();
+  if (redis) {
+    try {
+      const raw = await redis.get(redisLogKey(brand, ym, mode, yearType));
+      if (raw == null) return [];
+      const arr = typeof raw === "string" ? JSON.parse(raw) : raw;
+      return Array.isArray(arr) ? arr : [];
+    } catch (e: any) {
+      console.error("로그 Redis 읽기 오류:", e);
       return [];
     }
+  }
+  try {
+    const filePath = getLogFilePath(brand, ym, mode, yearType);
+    if (!fs.existsSync(filePath)) return [];
     const content = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(content);
   } catch (error: any) {
@@ -129,7 +199,7 @@ async function readLogs(
   }
 }
 
-// 파일에 로그 쓰기
+// 로그 쓰기 (Redis 우선, 없으면 파일)
 async function writeLogs(
   brand: string,
   ym: string,
@@ -137,18 +207,17 @@ async function writeLogs(
   log: SaveLog,
   yearType?: string
 ): Promise<void> {
+  const logs = await readLogs(brand, ym, mode, yearType);
+  logs.unshift(log);
+  const recentLogs = logs.slice(0, 100);
+
+  const redis = getRedis();
+  if (redis) {
+    await redis.set(redisLogKey(brand, ym, mode, yearType), JSON.stringify(recentLogs));
+    return;
+  }
   const filePath = getLogFilePath(brand, ym, mode, yearType);
   ensureDirectoryExists(filePath);
-  
-  // 기존 로그 읽기
-  const logs = await readLogs(brand, ym, mode, yearType);
-  
-  // 새 로그를 앞에 추가
-  logs.unshift(log);
-  
-  // 최근 100개만 유지
-  const recentLogs = logs.slice(0, 100);
-  
   fs.writeFileSync(filePath, JSON.stringify(recentLogs, null, 2), "utf-8");
 }
 
@@ -189,7 +258,15 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { brand, ym, mode, accountPath, description, basis: basisValue, yearType } = body;
+    const { brand, ym, mode, accountPath, description, basis: basisValue, yearType, password } = body;
+
+    const expectedPassword = process.env.EDIT_PASSWORD;
+    if (!expectedPassword || password !== expectedPassword) {
+      return NextResponse.json(
+        { error: "비밀번호가 올바르지 않습니다." },
+        { status: 401 }
+      );
+    }
 
     if (!brand || !ym || !mode || !accountPath) {
       return NextResponse.json(
