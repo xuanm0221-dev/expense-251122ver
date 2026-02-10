@@ -1,5 +1,26 @@
 [
   {
+    "timestamp": "2026-02-10T05:26:45.296Z",
+    "accountPath": "l2-인건비-Red pack",
+    "oldValue": "①인당: 21.0K/연",
+    "newValue": "인당: 21.0K/연",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-10T05:26:36.544Z",
+    "accountPath": "l2-인건비-Red pack",
+    "oldValue": "①인원수: 기말 255명, 평균 252명 ②인당: 21.0K/연",
+    "newValue": "①인당: 21.0K/연",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-10T05:24:53.583Z",
+    "accountPath": "l3-지급수수료-보험비-임직원상업보험",
+    "oldValue": "",
+    "newValue": "(전년)￥1,685 x 341명 = 581K (가족포함 인원수)",
+    "userIdentifier": "anonymous"
+  },
+  {
     "timestamp": "2026-02-09T10:09:24.948Z",
     "accountPath": "l3-인건비-Red pack-DISCOVERY",
     "oldValue": "①인원수: 기말 31명, 평균 25명 ②인당: 15.9K",
