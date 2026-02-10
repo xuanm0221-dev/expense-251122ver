@@ -1013,6 +1013,50 @@ word-wrap:break-word'>
 
 <p class=MsoNormal style='margin-top:3.0pt'><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
 
+<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
+margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
+mso-fareast-font-family:Arial;color:#1E293B'>&#9656; </span><span style='font-size:
+8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>법인 총비용<span lang=EN-US> YOY
+105% vs </span>판매매출<span lang=EN-US> YOY 107% → </span>매출 성장이 비용 증가를 상회하여 전사 운영
+레버리지 소폭 개선<span lang=EN-US> (</span><span class=SpellE>비용률</span><span
+lang=EN-US> 5.4%→5.3%, △0.1%p)</span></span></p>
+
+<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
+margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
+mso-fareast-font-family:Arial;color:#1E293B'>&#9656; MLB: </span><span
+style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>비용<span
+lang=EN-US> YOY 107%</span>가 매출<span lang=EN-US> YOY 106%</span>를 상회<span
+lang=EN-US> → </span>광고비<span lang=EN-US>(+11,847K, 108%) </span>중심의 비용 선행 구조로 레버리지
+관리 포인트</span></p>
+
+<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
+margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
+mso-fareast-font-family:Arial;color:#1E293B'>&#9656; DISCOVERY: </span><span
+style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>매출<span
+lang=EN-US> YOY 318% </span>급성장 대비 비용<span lang=EN-US> YOY 95% </span>절감<span
+lang=EN-US> → </span>효율성 극대화 구간이나 성장 투자 적정성 점검 필요</span></p>
+
+<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
+margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
+mso-fareast-font-family:Arial;color:#1E293B'>&#9656; </span><span class=SpellE><span
+style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>세금과공과</span></span><span
+lang=EN-US style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>
+YOY 186%(+7,147K) </span><span style='font-size:8.0pt;mso-fareast-font-family:
+Arial;color:#1E293B'>이상 급등<span lang=EN-US> → </span><span class=SpellE>증치세</span>
+부가 지방세<span lang=EN-US> 247% </span>증가가 주 원인<span lang=EN-US>, </span>구조적 원인 규명
+필수</span></p>
+
+<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
+margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
+mso-fareast-font-family:Arial;color:#1E293B'>&#9656; </span><span style='font-size:
+8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>공통비용<span lang=EN-US> YOY
+113% → </span>인원 감소<span lang=EN-US>(-2</span>명<span lang=EN-US>) </span>대비 비용 증가율
+과다<span lang=EN-US>, </span>임차료<span lang=EN-US>(38</span>층 신규<span lang=EN-US>
++2,921K)</span>와 <span class=SpellE>세금과공과</span><span lang=EN-US>(+7,147K)</span>가
+핵심 드라이버</span><span lang=EN-US style='font-size:8.0pt;color:#1E293B'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:3.0pt'><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
 <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=1027
  style='width:769.9pt;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
  mso-yfti-tbllook:1184;mso-padding-alt:0cm .5pt 0cm .5pt;mso-border-insideh:
@@ -2024,67 +2068,6 @@ word-wrap:break-word'>
 <p class=MsoNormal style='margin-top:15.0pt;margin-right:0cm;margin-bottom:
 8.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:12.0pt;mso-fareast-font-family:
 Arial;color:#5B21B6'>1&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
-</span><span lang=EN-US style='color:#1E293B'><span lang=EN-US>핵심</span></span></span></span></b><b><span
-style='font-size:12.0pt;mso-fareast-font-family:Arial;color:#1E293B'> 진단 요약<span
-lang=EN-US> (Executive Summary)</span></span></b></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
-mso-fareast-font-family:Arial;color:#1E293B'>&#9656; </span><span style='font-size:
-8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>법인 총비용<span lang=EN-US> YOY
-105% vs </span>판매매출<span lang=EN-US> YOY 107% → </span>매출 성장이 비용 증가를 상회하여 전사 운영
-레버리지 소폭 개선<span lang=EN-US> (</span><span class=SpellE>비용률</span><span
-lang=EN-US> 5.4%→5.3%, △0.1%p)</span></span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
-mso-fareast-font-family:Arial;color:#1E293B'>&#9656; MLB: </span><span
-style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>비용<span
-lang=EN-US> YOY 107%</span>가 매출<span lang=EN-US> YOY 106%</span>를 상회<span
-lang=EN-US> → </span>광고비<span lang=EN-US>(+11,847K, 108%) </span>중심의 비용 선행 구조로 레버리지
-관리 포인트</span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
-mso-fareast-font-family:Arial;color:#1E293B'>&#9656; DISCOVERY: </span><span
-style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>매출<span
-lang=EN-US> YOY 318% </span>급성장 대비 비용<span lang=EN-US> YOY 95% </span>절감<span
-lang=EN-US> → </span>효율성 극대화 구간이나 성장 투자 적정성 점검 필요</span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
-mso-fareast-font-family:Arial;color:#1E293B'>&#9656; </span><span class=SpellE><span
-style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>세금과공과</span></span><span
-lang=EN-US style='font-size:8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>
-YOY 186%(+7,147K) </span><span style='font-size:8.0pt;mso-fareast-font-family:
-Arial;color:#1E293B'>이상 급등<span lang=EN-US> → </span><span class=SpellE>증치세</span>
-부가 지방세<span lang=EN-US> 247% </span>증가가 주 원인<span lang=EN-US>, </span>구조적 원인 규명
-필수</span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US style='font-size:8.0pt;
-mso-fareast-font-family:Arial;color:#1E293B'>&#9656; </span><span style='font-size:
-8.0pt;mso-fareast-font-family:Arial;color:#1E293B'>공통비용<span lang=EN-US> YOY
-113% → </span>인원 감소<span lang=EN-US>(-2</span>명<span lang=EN-US>) </span>대비 비용 증가율
-과다<span lang=EN-US>, </span>임차료<span lang=EN-US>(38</span>층 신규<span lang=EN-US>
-+2,921K)</span>와 <span class=SpellE>세금과공과</span><span lang=EN-US>(+7,147K)</span>가
-핵심 드라이버</span><span lang=EN-US style='font-size:8.0pt;color:#1E293B'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-top:1.5pt;margin-right:0cm;margin-bottom:1.5pt;
-margin-left:15.0pt;text-indent:-7.5pt'><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-top:15.0pt;margin-right:0cm;margin-bottom:
-8.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:12.0pt;mso-fareast-font-family:
-Arial;color:#5B21B6'>2&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
 </span><span lang=EN-US style='color:#1E293B'><span lang=EN-US>매출</span></span></span></span></b><b><span
 style='font-size:12.0pt;mso-fareast-font-family:Arial;color:#1E293B'> 대비 비용 효율성
 분석</span></b></p>
@@ -2827,7 +2810,7 @@ clear=all style='mso-special-character:line-break;page-break-before:always'>
 
 <p class=MsoNormal style='margin-top:15.0pt;margin-right:0cm;margin-bottom:
 8.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:12.0pt;mso-fareast-font-family:
-Arial;color:#5B21B6'>3&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
+Arial;color:#5B21B6'>2&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
 </span><span lang=EN-US style='color:#1E293B'><span lang=EN-US>전년</span></span></span></span></b><b><span
 style='font-size:12.0pt;mso-fareast-font-family:Arial;color:#1E293B'> 대비 증감 정상성
 검증<span lang=EN-US> (YOY </span>구조 변화<span lang=EN-US>)</span></span></b></p>
@@ -3757,7 +3740,7 @@ clear=all style='mso-special-character:line-break;page-break-before:always'>
 
 <p class=MsoNormal style='margin-top:15.0pt;margin-right:0cm;margin-bottom:
 8.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:12.0pt;mso-fareast-font-family:
-Arial;color:#5B21B6'>4&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
+Arial;color:#5B21B6'>3&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
 </span><span lang=EN-US style='color:#1E293B'><span lang=EN-US>비용</span></span></span></span></b><b><span
 style='font-size:12.0pt;mso-fareast-font-family:Arial;color:#1E293B'> 항목 구성 분석<span
 lang=EN-US> (Cost Structure)</span></span></b></p>
@@ -4293,7 +4276,7 @@ clear=all style='mso-special-character:line-break;page-break-before:always'>
 
 <p class=MsoNormal style='margin-top:15.0pt;margin-right:0cm;margin-bottom:
 8.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:12.0pt;mso-fareast-font-family:
-Arial;color:#5B21B6'>5&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
+Arial;color:#5B21B6'>4&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
 </span><span lang=EN-US style='color:#1E293B'><span lang=EN-US>리스크</span></span></span></span></b><b><span
 style='font-size:12.0pt;mso-fareast-font-family:Arial;color:#1E293B'> 플래그 자동 탐지</span></b></p>
 
@@ -4656,7 +4639,7 @@ clear=all style='mso-special-character:line-break;page-break-before:always'>
 
 <p class=MsoNormal style='margin-top:15.0pt;margin-right:0cm;margin-bottom:
 8.0pt;margin-left:0cm'><b><span lang=EN-US style='font-size:12.0pt;mso-fareast-font-family:
-Arial;color:#5B21B6'>6&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
+Arial;color:#5B21B6'>5&#65039;<span class=GramE>&#8419;<span style='mso-spacerun:yes'>&nbsp;
 </span><span lang=EN-US style='color:#1E293B'><span lang=EN-US>연간</span></span></span></span></b><b><span
 style='font-size:12.0pt;mso-fareast-font-family:Arial;color:#1E293B'> 예산 운영 관리 기준 제안</span></b><span lang=EN-US style='mso-fareast-font-family:
 DengXian'><o:p></o:p></span></p>

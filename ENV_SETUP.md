@@ -2,12 +2,12 @@
 
 ## 계산근거·설명 편집 기능을 위한 환경 변수 설정
 
-비용 계정 상세 분석 표에서 **계산근거**와 **설명**을 저장하려면 아래 환경 변수를 설정해야 합니다.
+비용 계정 상세 분석 표에서 **계산근거**와 **설명**을 저장하거나, **예산구조진단 보고서 모달** 내용을 편집·저장하려면 아래 환경 변수를 설정해야 합니다. (동일한 `EDIT_PASSWORD`를 사용합니다.)
 
 ### 데이터 저장 방식 (환경별)
 
 - **배포(Vercel)**: `KV_REST_API_URL`, `KV_REST_API_TOKEN`을 설정하면 **Redis(Upstash)**에 저장됩니다. 배포된 대시보드에 보이는 내용 = Redis = 외부에서 저장한 최종본입니다.
-- **로컬**: Redis 환경 변수를 **설정하지 않으면** `data/cost-descriptions/` **파일**에만 저장됩니다. 로컬에서 수정해도 배포된 대시보드(Redis)를 덮어쓰지 않습니다.
+- **로컬**: Redis 환경 변수를 **설정하지 않으면** `data/cost-descriptions/` 및 보고서는 `data/report-html.json` **파일**에만 저장됩니다. 로컬에서 수정해도 배포된 대시보드(Redis)를 덮어쓰지 않습니다.
 
 ---
 
@@ -55,7 +55,7 @@ EDIT_PASSWORD=1234
 
 - ✅ **Vercel**: `EDIT_PASSWORD`, `KV_REST_API_URL`, `KV_REST_API_TOKEN` 설정
 - ✅ **로컬**: `EDIT_PASSWORD`만 설정 (Redis 변수는 제거 시 파일 저장만 사용)
-- ✅ 로컬 파일 저장 시 `data/cost-descriptions/` 디렉토리는 자동 생성됨
+- ✅ 로컬 파일 저장 시 `data/cost-descriptions/`, 보고서 저장 시 `data/report-html.json` 디렉토리/파일 자동 생성됨
 
 ---
 
