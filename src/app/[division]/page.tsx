@@ -14,7 +14,6 @@ import { AdExpenseCard } from "@/components/dashboard/AdExpenseCard";
 import { ITFeeCard } from "@/components/dashboard/ITFeeCard";
 import { PaymentFeeCard } from "@/components/dashboard/PaymentFeeCard";
 import { CategoryExpenseCard } from "@/components/dashboard/CategoryExpenseCard";
-import { CorporateKpiAnalysis } from "@/components/dashboard/CorporateKpiAnalysis";
 import { ExpenseAccountRow } from "@/types/expense";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -446,28 +445,6 @@ export default function DivisionPage() {
   
   const perPersonCostYOY = calculateYOY(perPersonCost, prevPerPersonCost);
 
-  // 법인 상세페이지 AI 분석용 요약 (2026 예산 기준)
-  const makeAnnualSummary = (unit: BizUnit) => {
-    if (!is2026Annual) return { costYoy: null as number | null, salesYoy: null as number | null };
-    const annual = getAnnualData(unit, 2026, "", "", "", "plan");
-    const cost = annual.reduce((s, i) => s + i.annual_amount, 0);
-    let salesSum = 0;
-    for (let m = 1; m <= 12; m++) {
-      salesSum += getMonthlyTotal(unit, 2026, m, "monthly", "plan")?.sales || 0;
-    }
-    const prev = getMonthlyTotal(unit, 2025, 12, "ytd", "actual");
-    return {
-      costYoy: calculateYOY(cost, prev?.amount ?? null),
-      salesYoy: calculateYOY(salesSum, prev?.sales ?? null),
-    };
-  };
-
-  const corpAi = makeAnnualSummary("법인");
-  const mlbAi = makeAnnualSummary("MLB");
-  const kidsAi = makeAnnualSummary("KIDS");
-  const discoveryAi = makeAnnualSummary("DISCOVERY");
-  const commonAi = makeAnnualSummary("공통");
-
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-6 md:py-8">
@@ -578,17 +555,6 @@ export default function DivisionPage() {
             </span>
           )}
         </div>
-
-        {/* 법인 상세페이지 전용 AI 심층분석: KPI 위 배치 */}
-        {isCorporate && isPlanYear && (
-          <CorporateKpiAnalysis
-            corporate={corpAi}
-            mlb={mlbAi}
-            kids={kidsAi}
-            discovery={discoveryAi}
-            commonCostYoy={commonAi.costYoy}
-          />
-        )}
 
         {/* KPI 카드 + 카드 4개 + 비용 계정 상세 분석 (HTML 다운로드 대상) */}
         <div ref={isCorporate ? exportAreaRef : undefined} className={isCorporate ? "" : undefined}>

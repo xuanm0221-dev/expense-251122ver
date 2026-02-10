@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, type LucideIcon } from "lucide-react";
+import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, FileText, type LucideIcon } from "lucide-react";
 import React from "react";
 
 // 야구공 아이콘 컴포넌트 (LucideIcon 타입과 호환)
@@ -46,6 +46,7 @@ const BaseballIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElemen
 
 BaseballIcon.displayName = "BaseballIcon";
 import { BrandCard } from "@/components/dashboard/BrandCard";
+import { ReportModal } from "@/components/dashboard/ReportModal";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import {
@@ -74,6 +75,7 @@ export default function HomePage() {
   const [yearOption, setYearOption] = useState<YearOption>(initialYearOption);
   const [month, setMonth] = useState<number>(initialMonth);
   const [mode, setMode] = useState<Mode>("monthly");
+  const [isReportModalOpen, setIsReportModalOpen] = useState(false);
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
   const availableMonths = getAvailableMonths(yearOption.year, yearOption.type);
@@ -191,16 +193,28 @@ export default function HomePage() {
                 </Tabs>
               </div>
               {isPlanYear && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={handleDownloadHtml}
-                  className="flex-shrink-0 text-[10px] sm:text-xs"
-                >
-                  <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
-                  HTML 다운로드
-                </Button>
+                <>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleDownloadHtml}
+                    className="flex-shrink-0 text-[10px] sm:text-xs"
+                  >
+                    <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
+                    HTML 다운로드
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setIsReportModalOpen(true)}
+                    className="flex-shrink-0 text-[10px] sm:text-xs"
+                  >
+                    <FileText className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
+                    2026년 예산구조진단 보고서
+                  </Button>
+                </>
               )}
             </div>
           </div>
@@ -229,6 +243,12 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+
+        {/* 예산구조진단 보고서 모달 */}
+        <ReportModal 
+          isOpen={isReportModalOpen} 
+          onClose={() => setIsReportModalOpen(false)} 
+        />
       </div>
     </div>
   );
