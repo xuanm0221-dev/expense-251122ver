@@ -1129,7 +1129,7 @@
       "yyyymm": "202503",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 1738196.0,
+      "amount": 1738196.01,
       "headcount": 23.0,
       "sales": 1977043.77
     },
@@ -1745,7 +1745,7 @@
       "yyyymm": "202511",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 1056713.42,
+      "amount": 1056713.26,
       "headcount": 29.0,
       "sales": 6689754.21
     },
@@ -1822,7 +1822,7 @@
       "yyyymm": "202512",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 1159370.59,
+      "amount": 1149892.02,
       "headcount": 31.0,
       "sales": 9299192.58
     },
@@ -4825,7 +4825,7 @@
       "yyyymm": "202503",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 741692.0,
+      "amount": 741691.77,
       "headcount": 25.0,
       "sales": 33159432.01
     },
@@ -5441,7 +5441,7 @@
       "yyyymm": "202511",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 752347.16,
+      "amount": 752347.26,
       "headcount": 24.0,
       "sales": 32696514.75
     },
@@ -5518,7 +5518,7 @@
       "yyyymm": "202512",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 759461.62,
+      "amount": 759460.92,
       "headcount": 24.0,
       "sales": 34397480.8
     },
@@ -8521,7 +8521,7 @@
       "yyyymm": "202503",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 832719.0,
+      "amount": -2183646.0199999996,
       "headcount": 132.0,
       "sales": 663832548.8
     },
@@ -9137,7 +9137,7 @@
       "yyyymm": "202511",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 3908404.66,
+      "amount": 3908404.19,
       "headcount": 128.0,
       "sales": 804211750.6
     },
@@ -9214,7 +9214,7 @@
       "yyyymm": "202512",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 4039028.65,
+      "amount": 4201290.76,
       "headcount": 128.0,
       "sales": 792602129.7
     },
@@ -12371,7 +12371,7 @@
       "yyyymm": "202503",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 165330.0,
+      "amount": 3181694.6999999993,
       "headcount": 72.0,
       "sales": 663832548.8
     },
@@ -12459,7 +12459,7 @@
       "yyyymm": "202504",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 2866428.0,
+      "amount": 2611428.0,
       "headcount": 72.0,
       "sales": 649877479.6
     },
@@ -13075,7 +13075,7 @@
       "yyyymm": "202511",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 2772127.7299999995,
+      "amount": 2772128.2199999997,
       "headcount": 72.0,
       "sales": 804211750.6
     },
@@ -13163,7 +13163,7 @@
       "yyyymm": "202512",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 2254836.76,
+      "amount": 2349045.91,
       "headcount": 72.0,
       "sales": 792602129.7
     },
@@ -15286,7 +15286,7 @@
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 1051310.0,
+      "amount": 1051314.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -15460,7 +15460,7 @@
       "month": 3,
       "yyyymm": "202503",
       "year_type": "actual",
-      "amount": 3999327.0,
+      "amount": 3999327.01,
       "headcount": 23.0,
       "sales": 1977043.77
     },
@@ -15540,7 +15540,7 @@
       "month": 11,
       "yyyymm": "202511",
       "year_type": "actual",
-      "amount": 6726079.26,
+      "amount": 6726079.100000001,
       "headcount": 29.0,
       "sales": 6689754.21
     },
@@ -15550,7 +15550,7 @@
       "month": 12,
       "yyyymm": "202512",
       "year_type": "actual",
-      "amount": 7251147.29,
+      "amount": 7241668.720000001,
       "headcount": 31.0,
       "sales": 9299192.58
     },
@@ -15940,7 +15940,7 @@
       "month": 3,
       "yyyymm": "202503",
       "year_type": "actual",
-      "amount": 2136628.0,
+      "amount": 2136627.77,
       "headcount": 25.0,
       "sales": 33159432.01
     },
@@ -16020,7 +16020,7 @@
       "month": 11,
       "yyyymm": "202511",
       "year_type": "actual",
-      "amount": 2839125.86,
+      "amount": 2839125.96,
       "headcount": 24.0,
       "sales": 32696514.75
     },
@@ -16030,7 +16030,7 @@
       "month": 12,
       "yyyymm": "202512",
       "year_type": "actual",
-      "amount": 2801845.59,
+      "amount": 2801844.89,
       "headcount": 24.0,
       "sales": 34397480.8
     },
@@ -16420,7 +16420,7 @@
       "month": 3,
       "yyyymm": "202503",
       "year_type": "actual",
-      "amount": 14774326.0,
+      "amount": 11757960.98,
       "headcount": 132.0,
       "sales": 663832548.8
     },
@@ -16500,7 +16500,7 @@
       "month": 11,
       "yyyymm": "202511",
       "year_type": "actual",
-      "amount": 15484596.05,
+      "amount": 15484595.58,
       "headcount": 128.0,
       "sales": 804211750.6
     },
@@ -16510,7 +16510,7 @@
       "month": 12,
       "yyyymm": "202512",
       "year_type": "actual",
-      "amount": 21599732.11,
+      "amount": 21761994.22,
       "headcount": 128.0,
       "sales": 792602129.7
     },
@@ -16900,7 +16900,7 @@
       "month": 3,
       "yyyymm": "202503",
       "year_type": "actual",
-      "amount": 5508375.84,
+      "amount": 8524740.54,
       "headcount": 72.0,
       "sales": 663832548.8
     },
@@ -16910,7 +16910,7 @@
       "month": 4,
       "yyyymm": "202504",
       "year_type": "actual",
-      "amount": 7499943.52,
+      "amount": 7244943.52,
       "headcount": 72.0,
       "sales": 649877479.6
     },
@@ -16980,7 +16980,7 @@
       "month": 11,
       "yyyymm": "202511",
       "year_type": "actual",
-      "amount": 9366789.28,
+      "amount": 9366789.77,
       "headcount": 72.0,
       "sales": 804211750.6
     },
@@ -16990,7 +16990,7 @@
       "month": 12,
       "yyyymm": "202512",
       "year_type": "actual",
-      "amount": 7437343.930000001,
+      "amount": 7531553.08,
       "headcount": 72.0,
       "sales": 792602129.7
     },
@@ -17230,7 +17230,7 @@
       "month": 12,
       "yyyymm": "202612",
       "year_type": "plan",
-      "amount": 12841048.0,
+      "amount": 12841052.0,
       "headcount": 66.0,
       "sales": 889206175.0
     }
@@ -23113,7 +23113,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 1046780.0,
+      "amount": 1046780.01,
       "headcount": 23.0
     },
     {
@@ -26365,7 +26365,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 805947.16,
+      "amount": 805947.0,
       "headcount": 29.0
     },
     {
@@ -26773,7 +26773,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 977569.49,
+      "amount": 977569.0,
       "headcount": 31.0
     },
     {
@@ -26785,7 +26785,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 181801.1,
+      "amount": 172323.02,
       "headcount": 31.0
     },
     {
@@ -44353,7 +44353,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 144057.0,
+      "amount": 144056.77000000002,
       "headcount": 25.0
     },
     {
@@ -47317,7 +47317,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 584668.9,
+      "amount": 584669.0,
       "headcount": 24.0
     },
     {
@@ -47689,7 +47689,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 594874.88,
+      "amount": 594875.0,
       "headcount": 24.0
     },
     {
@@ -47701,7 +47701,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 164586.74,
+      "amount": 164585.92,
       "headcount": 24.0
     },
     {
@@ -65965,7 +65965,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": -2590971.0,
+      "amount": -5607336.02,
       "headcount": 132.0
     },
     {
@@ -71137,7 +71137,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 2994398.47,
+      "amount": 2994398.0,
       "headcount": 128.0
     },
     {
@@ -71785,7 +71785,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 3114037.9,
+      "amount": 3259478.0,
       "headcount": 128.0
     },
     {
@@ -71797,7 +71797,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 884690.0,
+      "amount": 901512.01,
       "headcount": 128.0
     },
     {
@@ -110593,7 +110593,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": -1945169.0,
+      "amount": 1071195.6999999993,
       "headcount": 72.0
     },
     {
@@ -111985,7 +111985,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 813895.0,
+      "amount": 558895.0,
       "headcount": 72.0
     },
     {
@@ -121717,7 +121717,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 2161296.51,
+      "amount": 2161297.0,
       "headcount": 72.0
     },
     {
@@ -123109,7 +123109,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 2017108.0,
+      "amount": 2111317.0,
       "headcount": 72.0
     },
     {
@@ -123121,7 +123121,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 237728.76,
+      "amount": 237728.91,
       "headcount": 72.0
     },
     {
@@ -157993,7 +157993,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "plan",
-      "amount": 33333.0,
+      "amount": 33337.0,
       "headcount": 0.0
     },
     {
@@ -158500,7 +158500,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "annual_amount": 4224521.6
+      "annual_amount": 4016230.6
     },
     {
       "biz_unit": "DISCOVERY",
@@ -159517,7 +159517,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "annual_amount": 3205332.383
+      "annual_amount": 2042577.383
     },
     {
       "biz_unit": "KIDS",
@@ -160660,7 +160660,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "annual_amount": 24365139.0
+      "annual_amount": 11591249.0
     },
     {
       "biz_unit": "MLB",
@@ -160669,7 +160669,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "annual_amount": -7325132.029999999
+      "annual_amount": 6819802.970000001
     },
     {
       "biz_unit": "MLB",
