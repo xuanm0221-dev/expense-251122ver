@@ -13460,7 +13460,7 @@
       "yyyymm": "202602",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 218263.0,
+      "amount": 218517.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13526,7 +13526,7 @@
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
       "year_type": "plan",
-      "amount": 537297.0,
+      "amount": 1237297.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13636,7 +13636,7 @@
       "yyyymm": "202603",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 211088.0,
+      "amount": 212142.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13812,7 +13812,7 @@
       "yyyymm": "202604",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 146779.0,
+      "amount": 146864.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13988,7 +13988,7 @@
       "yyyymm": "202605",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 1862937.0,
+      "amount": 1969861.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14164,7 +14164,7 @@
       "yyyymm": "202606",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 1650452.0,
+      "amount": 1656478.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14340,7 +14340,7 @@
       "yyyymm": "202607",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 753051.0,
+      "amount": 890717.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14516,7 +14516,7 @@
       "yyyymm": "202608",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 825296.0,
+      "amount": 997510.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14692,7 +14692,7 @@
       "yyyymm": "202609",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 994823.0,
+      "amount": 1401456.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -14868,7 +14868,7 @@
       "yyyymm": "202610",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 3169929.0,
+      "amount": 3599997.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -15044,7 +15044,7 @@
       "yyyymm": "202611",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 931325.0,
+      "amount": 1329357.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -15220,7 +15220,7 @@
       "yyyymm": "202612",
       "cost_lv1": "세금과공과",
       "year_type": "plan",
-      "amount": 4296097.0,
+      "amount": 4567998.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -17030,7 +17030,7 @@
       "month": 2,
       "yyyymm": "202602",
       "year_type": "plan",
-      "amount": 11237619.0,
+      "amount": 11937873.0,
       "headcount": 72.0,
       "sales": 827285916.0
     },
@@ -17050,7 +17050,7 @@
       "month": 3,
       "yyyymm": "202603",
       "year_type": "plan",
-      "amount": 7097431.0,
+      "amount": 7098485.0,
       "headcount": 71.0,
       "sales": 691377777.0
     },
@@ -17070,7 +17070,7 @@
       "month": 4,
       "yyyymm": "202604",
       "year_type": "plan",
-      "amount": 7888716.0,
+      "amount": 7888801.0,
       "headcount": 71.0,
       "sales": 676179714.0
     },
@@ -17090,7 +17090,7 @@
       "month": 5,
       "yyyymm": "202605",
       "year_type": "plan",
-      "amount": 10457132.0,
+      "amount": 10564056.0,
       "headcount": 71.0,
       "sales": 749659504.0
     },
@@ -17110,7 +17110,7 @@
       "month": 6,
       "yyyymm": "202606",
       "year_type": "plan",
-      "amount": 9452619.0,
+      "amount": 9458645.0,
       "headcount": 70.0,
       "sales": 584864001.0
     },
@@ -17130,7 +17130,7 @@
       "month": 7,
       "yyyymm": "202607",
       "year_type": "plan",
-      "amount": 8518040.0,
+      "amount": 8655706.0,
       "headcount": 70.0,
       "sales": 551347696.0
     },
@@ -17150,7 +17150,7 @@
       "month": 8,
       "yyyymm": "202608",
       "year_type": "plan",
-      "amount": 8385760.0,
+      "amount": 8557974.0,
       "headcount": 70.0,
       "sales": 630504257.0
     },
@@ -17170,7 +17170,7 @@
       "month": 9,
       "yyyymm": "202609",
       "year_type": "plan",
-      "amount": 9335606.0,
+      "amount": 9742239.0,
       "headcount": 66.0,
       "sales": 641310716.0
     },
@@ -17190,7 +17190,7 @@
       "month": 10,
       "yyyymm": "202610",
       "year_type": "plan",
-      "amount": 10595012.0,
+      "amount": 11025080.0,
       "headcount": 66.0,
       "sales": 946331723.0
     },
@@ -17210,7 +17210,7 @@
       "month": 11,
       "yyyymm": "202611",
       "year_type": "plan",
-      "amount": 8382526.0,
+      "amount": 8780558.0,
       "headcount": 66.0,
       "sales": 844906975.0
     },
@@ -17230,7 +17230,7 @@
       "month": 12,
       "yyyymm": "202612",
       "year_type": "plan",
-      "amount": 12841052.0,
+      "amount": 13112953.0,
       "headcount": 66.0,
       "sales": 889206175.0
     }
@@ -128269,7 +128269,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 218263.0,
+      "amount": 218517.0,
       "headcount": 0.0
     },
     {
@@ -129097,7 +129097,7 @@
       "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 0.0,
+      "amount": 700000.0,
       "headcount": 0.0
     },
     {
@@ -131137,7 +131137,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 211088.0,
+      "amount": 212142.0,
       "headcount": 0.0
     },
     {
@@ -134005,7 +134005,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 146779.0,
+      "amount": 146864.0,
       "headcount": 0.0
     },
     {
@@ -136873,7 +136873,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 91298.0,
+      "amount": 91951.0,
       "headcount": 0.0
     },
     {
@@ -136897,7 +136897,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 1771639.0,
+      "amount": 1877910.0,
       "headcount": 0.0
     },
     {
@@ -139741,7 +139741,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 87555.0,
+      "amount": 87668.0,
       "headcount": 0.0
     },
     {
@@ -139765,7 +139765,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 1562897.0,
+      "amount": 1568810.0,
       "headcount": 0.0
     },
     {
@@ -142609,7 +142609,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 160241.0,
+      "amount": 162833.0,
       "headcount": 0.0
     },
     {
@@ -142633,7 +142633,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 592810.0,
+      "amount": 727884.0,
       "headcount": 0.0
     },
     {
@@ -145477,7 +145477,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 329003.0,
+      "amount": 332242.0,
       "headcount": 0.0
     },
     {
@@ -145501,7 +145501,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 496293.0,
+      "amount": 665268.0,
       "headcount": 0.0
     },
     {
@@ -148345,7 +148345,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 280702.0,
+      "amount": 288388.0,
       "headcount": 0.0
     },
     {
@@ -148369,7 +148369,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 714121.0,
+      "amount": 1113068.0,
       "headcount": 0.0
     },
     {
@@ -151213,7 +151213,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 201500.0,
+      "amount": 209631.0,
       "headcount": 0.0
     },
     {
@@ -151237,7 +151237,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 2968429.0,
+      "amount": 3390366.0,
       "headcount": 0.0
     },
     {
@@ -154081,7 +154081,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 131636.0,
+      "amount": 139197.0,
       "headcount": 0.0
     },
     {
@@ -154105,7 +154105,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 799689.0,
+      "amount": 1190160.0,
       "headcount": 0.0
     },
     {
@@ -156949,7 +156949,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 195867.0,
+      "amount": 201052.0,
       "headcount": 0.0
     },
     {
@@ -156973,7 +156973,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 4100230.0,
+      "amount": 4366946.0,
       "headcount": 0.0
     },
     {
@@ -164287,7 +164287,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "plan",
-      "annual_amount": 2448307.0
+      "annual_amount": 2484858.0
     },
     {
       "biz_unit": "공통",
@@ -164296,7 +164296,7 @@
       "cost_lv2": "증치세 부가 지방세",
       "cost_lv3": "",
       "year_type": "plan",
-      "annual_amount": 13006108.0
+      "annual_amount": 14900412.0
     },
     {
       "biz_unit": "공통",
@@ -164566,7 +164566,7 @@
       "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "plan",
-      "annual_amount": 280000.0
+      "annual_amount": 980000.0
     },
     {
       "biz_unit": "공통",
