@@ -13130,7 +13130,7 @@
       "yyyymm": "202512",
       "cost_lv1": "기타",
       "year_type": "actual",
-      "amount": 121306.79000000001,
+      "amount": 201709.45,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -16990,7 +16990,7 @@
       "month": 12,
       "yyyymm": "202512",
       "year_type": "actual",
-      "amount": 7531553.08,
+      "amount": 7611955.74,
       "headcount": 72.0,
       "sales": 792602129.7
     },
@@ -122725,7 +122725,7 @@
       "cost_lv2": "물류비",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 41287.62,
+      "amount": 121690.28,
       "headcount": 0.0
     },
     {
