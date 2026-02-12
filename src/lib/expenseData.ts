@@ -277,6 +277,21 @@ export function getAnnualHeadcountSum(bizUnit: BizUnit, year: number, yearType: 
   return sum;
 }
 
+/** 1월~선택월까지 인원수 합계 (실적 YTD 인당 계산용) */
+export function getYTDHeadcountSum(
+  bizUnit: BizUnit,
+  year: number,
+  month: number,
+  yearType: 'actual' | 'plan' = 'actual'
+): number {
+  let sum = 0;
+  for (let m = 1; m <= month; m++) {
+    const t = getMonthlyTotal(bizUnit, year, m, "monthly", yearType);
+    sum += t?.headcount ?? 0;
+  }
+  return sum;
+}
+
 export function getMonthlyAggregatedByCategory(
   bizUnit: BizUnit,
   year: number,

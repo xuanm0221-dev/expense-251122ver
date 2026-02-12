@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
-import { getCategoryDetail, getAnnualHeadcountSum, type BizUnit } from "@/lib/expenseData";
+import { getCategoryDetail, getAnnualHeadcountSum, getYTDHeadcountSum, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
 
 const LABOR_COST_LV2_ORDER = ["기본급", "Red pack", "성과급충당금", "잡급"] as const;
@@ -23,10 +23,13 @@ const SUB_UNIT_ORDER: { bizUnit: BizUnit; label: string }[] = [
 const navyColor = "#001f3f";
 const navyBarColor = "#5b7cba"; // 톤 다운된 파랑 (좌측 세로 바)
 
+type Mode = 'monthly' | 'ytd';
+
 interface LaborCostPerCapitaCardProps {
   bizUnit: BizUnit;
   year: number;
   month: number;
+  mode?: Mode;
   yearType?: 'actual' | 'plan';
 }
 
@@ -47,19 +50,27 @@ function totalLabor(details: { cost_lv1: string; amount: number }[]): number {
     .reduce((s, d) => s + d.amount, 0);
 }
 
-export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actual' }: LaborCostPerCapitaCardProps) {
+export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yearType = 'actual' }: LaborCostPerCapitaCardProps) {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const isPlanYear = year === 2026 && yearType === 'plan';
-  
-  const detailCurrent = getCategoryDetail(bizUnit, year, month, "인건비", "ytd", yearType);
+
+  // 예산(2026 plan): 연간 비용/연간 인원수. 실적: mode에 따라 당월 vs YTD
+  const costMode: 'monthly' | 'ytd' = isPlanYear ? 'ytd' : mode;
+  const detailCurrent = getCategoryDetail(bizUnit, year, month, "인건비", costMode, yearType);
   const detailPrev = isPlanYear
     ? getCategoryDetail(bizUnit, 2025, 12, "인건비", "ytd", 'actual')
-    : getCategoryDetail(bizUnit, year - 1, month, "인건비", "ytd", yearType);
-  
-  const headcountCurrent = getAnnualHeadcountSum(bizUnit, year, yearType);
+    : getCategoryDetail(bizUnit, year - 1, month, "인건비", costMode, yearType);
+
+  const headcountCurrent = isPlanYear
+    ? getAnnualHeadcountSum(bizUnit, year, yearType)
+    : costMode === 'monthly'
+      ? (getMonthlyTotal(bizUnit, year, month, "monthly", yearType)?.headcount ?? 0)
+      : getYTDHeadcountSum(bizUnit, year, month, yearType);
   const headcountPrev = isPlanYear
     ? getAnnualHeadcountSum(bizUnit, 2025, 'actual')
-    : getAnnualHeadcountSum(bizUnit, year - 1, yearType);
+    : costMode === 'monthly'
+      ? (getMonthlyTotal(bizUnit, year - 1, month, "monthly", yearType)?.headcount ?? 0)
+      : getYTDHeadcountSum(bizUnit, year - 1, month, yearType);
 
   const totalCurrent = totalLabor(detailCurrent);
   const totalPrev = totalLabor(detailPrev);
@@ -152,12 +163,9 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                 {LABOR_COST_LV2_ORDER.map((lv2) => {
                   const curr = byLv2Current.get(lv2) ?? 0;
                   const prev = byLv2Prev.get(lv2) ?? 0;
-                  // Red Pack은 연평균 인원수로 계산 (연 1회 지급)
-                  const isRedPack = lv2 === "Red pack";
-                  const avgHeadcountCurrent = isRedPack ? headcountCurrent / 12 : headcountCurrent;
-                  const avgHeadcountPrev = isRedPack ? headcountPrev / 12 : headcountPrev;
-                  const pcCurr = avgHeadcountCurrent > 0 ? curr / avgHeadcountCurrent : null;
-                  const pcPrev = avgHeadcountPrev > 0 ? prev / avgHeadcountPrev : null;
+                  // Red pack은 연 1회 지급이라 월 나눌 필요 없음 (인원수 그대로 사용)
+                  const pcCurr = headcountCurrent > 0 ? curr / headcountCurrent : null;
+                  const pcPrev = headcountPrev > 0 ? prev / headcountPrev : null;
                   const yoy =
                     pcCurr != null && pcPrev != null && pcPrev !== 0 ? (pcCurr / pcPrev) * 100 : null;
                   const currStr = pcCurr != null ? formatK(pcCurr, 1) : "-";
@@ -213,16 +221,19 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, yearType = 'actua
                         {SUB_UNIT_ORDER.map(({ bizUnit: bu, label }) => {
                           const currAmount = innerCurrent?.get(bu) ?? 0;
                           const prevAmount = innerPrev?.get(bu) ?? 0;
-                          const currHc = getAnnualHeadcountSum(bu, year, yearType);
+                          const currHc = isPlanYear
+                            ? getAnnualHeadcountSum(bu, year, yearType)
+                            : costMode === 'monthly'
+                              ? (getMonthlyTotal(bu, year, month, "monthly", yearType)?.headcount ?? 0)
+                              : getYTDHeadcountSum(bu, year, month, yearType);
                           const prevHc = isPlanYear
                             ? getAnnualHeadcountSum(bu, 2025, "actual")
-                            : getAnnualHeadcountSum(bu, year - 1, yearType);
-                          // Red Pack은 연평균 인원수로 계산 (연 1회 지급)
-                          const isRedPack = lv2 === "Red pack";
-                          const avgCurrHc = isRedPack ? currHc / 12 : currHc;
-                          const avgPrevHc = isRedPack ? prevHc / 12 : prevHc;
-                          const perCapitaCurr = avgCurrHc > 0 ? currAmount / avgCurrHc : null;
-                          const perCapitaPrev = avgPrevHc > 0 ? prevAmount / avgPrevHc : null;
+                            : costMode === 'monthly'
+                              ? (getMonthlyTotal(bu, year - 1, month, "monthly", yearType)?.headcount ?? 0)
+                              : getYTDHeadcountSum(bu, year - 1, month, yearType);
+                          // Red pack은 연 1회 지급이라 월 나눌 필요 없음 (인원수 그대로 사용)
+                          const perCapitaCurr = currHc > 0 ? currAmount / currHc : null;
+                          const perCapitaPrev = prevHc > 0 ? prevAmount / prevHc : null;
                           const yoy =
                             perCapitaCurr != null && perCapitaPrev != null && perCapitaPrev !== 0
                               ? (perCapitaCurr / perCapitaPrev) * 100

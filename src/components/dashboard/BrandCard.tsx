@@ -15,6 +15,7 @@ import {
   getCategoryDetail,
   calculateCostRatio,
   getAnnualHeadcountSum,
+  getYTDHeadcountSum,
   getAnnualData,
   type BizUnit,
   type Mode,
@@ -173,11 +174,13 @@ export function BrandCard({
   // 이전 비용율은 “아직 사용하지 않으므로 제거”
   // const prevCostRatio = ...
 
-  const headcount = current?.headcount ?? 0;
-  // 2026년(예산)일 때는 전년도 인원수를 2025년 12월로 직접 가져옴
+  // 실적: 기말 = 당월말. 예산: 기존(current = 12월 기말 등) 유지
+  const headcount = isPlanYear
+    ? (current?.headcount ?? 0)
+    : (getMonthlyTotal(bizUnit, year, month, "monthly", yearType)?.headcount ?? 0);
   const prevHeadcount = isPlanYear
     ? (getMonthlyTotal(bizUnit, 2025, 12, "monthly", 'actual')?.headcount ?? 0)
-    : (previous?.headcount ?? 0);
+    : (getMonthlyTotal(bizUnit, year - 1, month, "monthly", yearType)?.headcount ?? 0);
   // 인원수는 소수점 시 올림(인원 쪼갤 수 없음)
   const headcountCeil = Math.ceil(headcount);
   const prevHeadcountCeil = Math.ceil(prevHeadcount);
@@ -191,11 +194,15 @@ export function BrandCard({
           : `${headcountDiff}명`
       : null;
 
-  // 평균 인원수(연합계/12), 올림 적용
+  // 평균 인원수: 예산 = 연합계/12, 실적 = 누적/누적월
   const annualSumCurr = getAnnualHeadcountSum(bizUnit, year, yearType);
   const annualSumPrev = getAnnualHeadcountSum(bizUnit, isPlanYear ? 2025 : year - 1, isPlanYear ? 'actual' : yearType);
-  const avgHeadcountNum = Math.ceil(annualSumCurr / 12);
-  const prevAvgHeadcountNum = Math.ceil(annualSumPrev / 12);
+  const avgHeadcountNum = isPlanYear
+    ? Math.ceil(annualSumCurr / 12)
+    : (month > 0 ? Math.ceil(getYTDHeadcountSum(bizUnit, year, month, yearType) / month) : 0);
+  const prevAvgHeadcountNum = isPlanYear
+    ? Math.ceil(annualSumPrev / 12)
+    : (month > 0 ? Math.ceil(getYTDHeadcountSum(bizUnit, year - 1, month, yearType) / month) : 0);
   const avgHeadcountDiff = avgHeadcountNum - prevAvgHeadcountNum;
   const avgHeadcountChangeStr =
     avgHeadcountNum > 0 || prevAvgHeadcountNum > 0
@@ -241,13 +248,17 @@ export function BrandCard({
   const welfareCost = welfare5InsuranceAndFund;  // 5대보험 + 공적금만 사용
 
   // 인당 비용 계산
-  // YTD(연간): 합계 / 연간 인원수 합계 | 당월: 당월 비용 / 당월 인원수
-  const annualHeadcountSum = mode === "ytd" || isPlanYear 
-    ? getAnnualHeadcountSum(bizUnit, year, yearType) 
-    : 0;
-  const prevAnnualHeadcountSum = mode === "ytd" || isPlanYear 
-    ? getAnnualHeadcountSum(bizUnit, prevYear, prevYearType) 
-    : 0;
+  // 예산: 연간 인원수 합계. 실적 당월: 당월 인원수. 실적 YTD: 1~선택월 누적 인원수
+  const annualHeadcountSum = isPlanYear
+    ? getAnnualHeadcountSum(bizUnit, year, yearType)
+    : mode === "ytd"
+      ? getYTDHeadcountSum(bizUnit, year, month, yearType)
+      : 0;
+  const prevAnnualHeadcountSum = isPlanYear
+    ? getAnnualHeadcountSum(bizUnit, prevYear, prevYearType)
+    : mode === "ytd"
+      ? getYTDHeadcountSum(bizUnit, prevYear, prevMonth, prevYearType)
+      : 0;
   const denom = mode === "ytd" || isPlanYear ? annualHeadcountSum : headcount;
   const prevDenom = mode === "ytd" || isPlanYear ? prevAnnualHeadcountSum : prevHeadcount;
   const perPersonLaborCost = denom > 0 ? laborCost / denom : null;

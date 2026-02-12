@@ -666,7 +666,7 @@ export default function DivisionPage() {
 
         {/* 인건비 · 광고비 · IT수수료 · 지급수수료 카드 (구분별 상이) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
-          <LaborCostPerCapitaCard bizUnit={bizUnit} year={year} month={month} yearType={yearType} />
+          <LaborCostPerCapitaCard bizUnit={bizUnit} year={year} month={month} mode={mode} yearType={yearType} />
           {isBrand && (
             <>
               <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} sales={sales} prevSales={prevSales} />

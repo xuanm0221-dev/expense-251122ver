@@ -1855,8 +1855,8 @@
       "yyyymm": "202601",
       "cost_lv1": "감가상각비",
       "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 31.0,
+      "amount": 6016.14,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -1877,8 +1877,8 @@
       "yyyymm": "202601",
       "cost_lv1": "광고비",
       "year_type": "actual",
-      "amount": 2586568.667,
-      "headcount": 31.0,
+      "amount": 2586569.0,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -1899,8 +1899,8 @@
       "yyyymm": "202601",
       "cost_lv1": "복리후생비",
       "year_type": "actual",
-      "amount": 258859.46641,
-      "headcount": 31.0,
+      "amount": 280928.63,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -1922,7 +1922,7 @@
       "cost_lv1": "수주회",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -1943,8 +1943,8 @@
       "yyyymm": "202601",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 1258539.1979999999,
-      "headcount": 31.0,
+      "amount": 1206478.45,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -1965,8 +1965,8 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "year_type": "actual",
-      "amount": 133500.0,
-      "headcount": 31.0,
+      "amount": 66878.2,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -1987,8 +1987,8 @@
       "yyyymm": "202601",
       "cost_lv1": "출장비",
       "year_type": "actual",
-      "amount": 50043.333333,
-      "headcount": 31.0,
+      "amount": 50043.0,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -5551,8 +5551,8 @@
       "yyyymm": "202601",
       "cost_lv1": "감가상각비",
       "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 23.0,
+      "amount": 3017.02,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -5573,8 +5573,8 @@
       "yyyymm": "202601",
       "cost_lv1": "광고비",
       "year_type": "actual",
-      "amount": 438333.34,
-      "headcount": 23.0,
+      "amount": 411167.0,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -5595,8 +5595,8 @@
       "yyyymm": "202601",
       "cost_lv1": "복리후생비",
       "year_type": "actual",
-      "amount": 177836.166,
-      "headcount": 23.0,
+      "amount": 198925.79,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -5618,7 +5618,7 @@
       "cost_lv1": "수주회",
       "year_type": "actual",
       "amount": 452000.0,
-      "headcount": 23.0,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -5639,8 +5639,8 @@
       "yyyymm": "202601",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 630999.5172,
-      "headcount": 23.0,
+      "amount": 647590.06,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -5661,8 +5661,8 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 23.0,
+      "amount": 148000.0,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -5683,8 +5683,8 @@
       "yyyymm": "202601",
       "cost_lv1": "출장비",
       "year_type": "actual",
-      "amount": 12483.333332999999,
-      "headcount": 23.0,
+      "amount": 12483.0,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -9247,7 +9247,7 @@
       "yyyymm": "202601",
       "cost_lv1": "감가상각비",
       "year_type": "actual",
-      "amount": 377153.00574000005,
+      "amount": 378904.83999999997,
       "headcount": 201.0,
       "sales": 875535276.0
     },
@@ -9269,7 +9269,7 @@
       "yyyymm": "202601",
       "cost_lv1": "광고비",
       "year_type": "actual",
-      "amount": 15647328.252,
+      "amount": 15572943.45999996,
       "headcount": 201.0,
       "sales": 875535276.0
     },
@@ -9291,7 +9291,7 @@
       "yyyymm": "202601",
       "cost_lv1": "복리후생비",
       "year_type": "actual",
-      "amount": 1117014.0438,
+      "amount": 1146201.55,
       "headcount": 129.0,
       "sales": 875535276.0
     },
@@ -9335,7 +9335,7 @@
       "yyyymm": "202601",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 4320956.8833,
+      "amount": 4492514.35,
       "headcount": 129.0,
       "sales": 875535276.0
     },
@@ -9357,7 +9357,7 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 55379.25,
       "headcount": 201.0,
       "sales": 875535276.0
     },
@@ -9379,7 +9379,7 @@
       "yyyymm": "202601",
       "cost_lv1": "출장비",
       "year_type": "actual",
-      "amount": 66312.50000100001,
+      "amount": 77721.0,
       "headcount": 201.0,
       "sales": 875535276.0
     },
@@ -13207,7 +13207,7 @@
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
       "year_type": "actual",
-      "amount": 1542223.63622,
+      "amount": 649117.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13229,7 +13229,7 @@
       "yyyymm": "202601",
       "cost_lv1": "기타",
       "year_type": "actual",
-      "amount": 150898.8,
+      "amount": 193649.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13251,7 +13251,7 @@
       "yyyymm": "202601",
       "cost_lv1": "복리후생비",
       "year_type": "actual",
-      "amount": 2937108.2706,
+      "amount": 1248359.47,
       "headcount": 72.0,
       "sales": 875535276.0
     },
@@ -13273,7 +13273,7 @@
       "yyyymm": "202601",
       "cost_lv1": "세금과공과",
       "year_type": "actual",
-      "amount": 383447.7708,
+      "amount": 390800.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13295,7 +13295,7 @@
       "yyyymm": "202601",
       "cost_lv1": "인건비",
       "year_type": "actual",
-      "amount": 2569090.6458,
+      "amount": 2446230.85,
       "headcount": 72.0,
       "sales": 875535276.0
     },
@@ -13317,7 +13317,7 @@
       "yyyymm": "202601",
       "cost_lv1": "임차료",
       "year_type": "actual",
-      "amount": 1912463.5414,
+      "amount": 1910900.0,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13339,7 +13339,7 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "year_type": "actual",
-      "amount": 433204.635429,
+      "amount": 343023.24,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13361,7 +13361,7 @@
       "yyyymm": "202601",
       "cost_lv1": "차량렌트비",
       "year_type": "actual",
-      "amount": 47976.24,
+      "amount": 48320.78,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -13691,7 +13691,7 @@
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": -5864.0599999999995,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -15560,8 +15560,8 @@
       "month": 1,
       "yyyymm": "202601",
       "year_type": "actual",
-      "amount": 4287510.664743,
-      "headcount": 31.0,
+      "amount": 4196913.42,
+      "headcount": 30.0,
       "sales": 12890000.0
     },
     {
@@ -16040,8 +16040,8 @@
       "month": 1,
       "yyyymm": "202601",
       "year_type": "actual",
-      "amount": 1711652.356533,
-      "headcount": 23.0,
+      "amount": 1873182.87,
+      "headcount": 24.0,
       "sales": 43712695.0
     },
     {
@@ -16520,7 +16520,7 @@
       "month": 1,
       "yyyymm": "202601",
       "year_type": "actual",
-      "amount": 28587632.684841,
+      "amount": 28782532.449999962,
       "headcount": 129.0,
       "sales": 875535276.0
     },
@@ -17000,7 +17000,7 @@
       "month": 1,
       "yyyymm": "202601",
       "year_type": "actual",
-      "amount": 9976413.540249,
+      "amount": 7230400.34,
       "headcount": 72.0,
       "sales": 875535276.0
     },
@@ -17040,7 +17040,7 @@
       "month": 3,
       "yyyymm": "202603",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": -5864.0599999999995,
       "headcount": 0.0,
       "sales": 0.0
     },
@@ -27038,7 +27038,7 @@
       "cost_lv3": "무형자산 상각비",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27061,8 +27061,8 @@
       "cost_lv2": "DISCOVERY",
       "cost_lv3": "유형자산 감가상각비",
       "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 31.0
+      "amount": 6016.14,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27086,7 +27086,7 @@
       "cost_lv3": "인테리어 상각비",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27110,7 +27110,7 @@
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 1135000.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27133,8 +27133,8 @@
       "cost_lv2": "CAMPAIGN",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 1327598.667,
-      "headcount": 31.0
+      "amount": 1327599.0,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27158,7 +27158,7 @@
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27182,7 +27182,7 @@
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 123970.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27205,8 +27205,8 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 176464.3755,
-      "headcount": 31.0
+      "amount": 191508.63,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27229,8 +27229,8 @@
       "cost_lv2": "공적금",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 82395.09091,
-      "headcount": 31.0
+      "amount": 89420.0,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27254,7 +27254,7 @@
       "cost_lv3": "FW",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27278,7 +27278,7 @@
       "cost_lv3": "SS",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27302,7 +27302,7 @@
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27325,8 +27325,8 @@
       "cost_lv2": "기본급",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 982979.94,
-      "headcount": 31.0
+      "amount": 947762.77,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27349,8 +27349,8 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "DISCOVERY",
       "year_type": "actual",
-      "amount": 275559.258,
-      "headcount": 31.0
+      "amount": 258715.68,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27373,8 +27373,8 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "MD금형개발",
       "year_type": "actual",
-      "amount": 80000.0,
-      "headcount": 31.0
+      "amount": 66878.2,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27395,22 +27395,10 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 31.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27433,8 +27421,8 @@
       "cost_lv2": "인테리어 개발",
       "cost_lv3": "VMD 개발",
       "year_type": "actual",
-      "amount": 53500.0,
-      "headcount": 31.0
+      "amount": 0.0,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27455,22 +27443,10 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 31.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27489,24 +27465,12 @@
       "year": 2026,
       "month": 1,
       "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 31.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
       "cost_lv1": "출장비",
       "cost_lv2": "국내출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27530,7 +27494,7 @@
       "cost_lv3": "VMD",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27553,8 +27517,8 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
       "year_type": "actual",
-      "amount": 4993.333333,
-      "headcount": 31.0
+      "amount": 4993.0,
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27578,7 +27542,7 @@
       "cost_lv3": "리테일",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27602,7 +27566,7 @@
       "cost_lv3": "마케팅",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27626,7 +27590,7 @@
       "cost_lv3": "온라인",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27650,7 +27614,7 @@
       "cost_lv3": "인테리어",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27674,7 +27638,7 @@
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 45050.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27698,7 +27662,7 @@
       "cost_lv3": "VMD",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27722,7 +27686,7 @@
       "cost_lv3": "Wholesale",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27746,7 +27710,7 @@
       "cost_lv3": "리테일",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27770,7 +27734,7 @@
       "cost_lv3": "마케팅",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27794,7 +27758,7 @@
       "cost_lv3": "온라인",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -27818,7 +27782,7 @@
       "cost_lv3": "인테리어",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 31.0
+      "headcount": 30.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -28199,18 +28163,6 @@
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -28259,18 +28211,6 @@
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -28287,18 +28227,6 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 31.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -29003,18 +28931,6 @@
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -29055,18 +28971,6 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 32.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -29091,18 +28995,6 @@
       "year_type": "plan",
       "amount": 89250.0,
       "headcount": 32.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -29807,18 +29699,6 @@
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -29867,18 +29747,6 @@
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -29895,18 +29763,6 @@
       "year_type": "plan",
       "amount": 89250.0,
       "headcount": 32.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -30611,18 +30467,6 @@
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -30671,18 +30515,6 @@
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -30699,18 +30531,6 @@
       "year_type": "plan",
       "amount": 89250.0,
       "headcount": 32.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -31415,18 +31235,6 @@
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -31475,18 +31283,6 @@
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -31503,18 +31299,6 @@
       "year_type": "plan",
       "amount": 89250.0,
       "headcount": 36.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -32219,18 +32003,6 @@
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -32279,18 +32051,6 @@
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -32307,18 +32067,6 @@
       "year_type": "plan",
       "amount": 14917.0,
       "headcount": 36.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -33023,18 +32771,6 @@
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -33083,18 +32819,6 @@
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -33111,18 +32835,6 @@
       "year_type": "plan",
       "amount": 14917.0,
       "headcount": 36.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -33827,18 +33539,6 @@
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -33887,18 +33587,6 @@
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -33915,18 +33603,6 @@
       "year_type": "plan",
       "amount": 14917.0,
       "headcount": 37.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -34631,18 +34307,6 @@
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -34683,18 +34347,6 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 37.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -34719,18 +34371,6 @@
       "year_type": "plan",
       "amount": 14917.0,
       "headcount": 37.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -35435,18 +35075,6 @@
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -35495,18 +35123,6 @@
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -35523,18 +35139,6 @@
       "year_type": "plan",
       "amount": 14917.0,
       "headcount": 37.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -36239,18 +35843,6 @@
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "SI 개념 전력",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
@@ -36299,18 +35891,6 @@
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -36327,18 +35907,6 @@
       "year_type": "plan",
       "amount": 14917.0,
       "headcount": 37.0
-    },
-    {
-      "biz_unit": "DISCOVERY",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "인테리어",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "DISCOVERY",
@@ -47918,7 +47486,7 @@
       "cost_lv3": "무형자산 상각비",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -47941,8 +47509,8 @@
       "cost_lv2": "KIDS",
       "cost_lv3": "유형자산 감가상각비",
       "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 23.0
+      "amount": 3017.02,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -47966,7 +47534,7 @@
       "cost_lv3": "인테리어 상각비",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -47989,8 +47557,8 @@
       "cost_lv2": "Branding",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 280333.34,
-      "headcount": 23.0
+      "amount": 280333.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48014,7 +47582,7 @@
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48038,7 +47606,7 @@
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 50000.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48061,8 +47629,8 @@
       "cost_lv2": "Retailing",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 108000.0,
-      "headcount": 23.0
+      "amount": 80834.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48085,8 +47653,8 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 121233.206,
-      "headcount": 23.0
+      "amount": 135609.79,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48109,8 +47677,8 @@
       "cost_lv2": "공적금",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 56602.96,
-      "headcount": 23.0
+      "amount": 63316.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48133,8 +47701,8 @@
       "cost_lv2": "KIDS",
       "cost_lv3": "FW",
       "year_type": "actual",
-      "amount": 452000.0,
-      "headcount": 23.0
+      "amount": 0.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48157,8 +47725,8 @@
       "cost_lv2": "KIDS",
       "cost_lv3": "SS",
       "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 23.0
+      "amount": 452000.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48182,7 +47750,7 @@
       "cost_lv3": "KIDS",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48205,8 +47773,8 @@
       "cost_lv2": "기본급",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 496434.76,
-      "headcount": 23.0
+      "amount": 535926.93,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48229,8 +47797,8 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "KIDS",
       "year_type": "actual",
-      "amount": 134564.7572,
-      "headcount": 23.0
+      "amount": 111663.13,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48254,7 +47822,7 @@
       "cost_lv3": "Showroom",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48278,7 +47846,7 @@
       "cost_lv3": "VMD 개발",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48299,22 +47867,10 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 23.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 23.0
+      "amount": 148000.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48338,7 +47894,7 @@
       "cost_lv3": "Kids Department",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48362,7 +47918,7 @@
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48386,7 +47942,7 @@
       "cost_lv3": "VMD",
       "year_type": "actual",
       "amount": 7490.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48409,8 +47965,8 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
       "year_type": "actual",
-      "amount": 4993.333333,
-      "headcount": 23.0
+      "amount": 4993.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48434,7 +47990,7 @@
       "cost_lv3": "리테일",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48458,7 +48014,7 @@
       "cost_lv3": "마케팅",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48482,7 +48038,7 @@
       "cost_lv3": "인테리어",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48503,22 +48059,10 @@
       "yyyymm": "202601",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 23.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48542,7 +48086,7 @@
       "cost_lv3": "VMD",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48566,7 +48110,7 @@
       "cost_lv3": "Wholesale",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48579,6 +48123,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48602,7 +48158,7 @@
       "cost_lv3": "마케팅",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -48626,7 +48182,7 @@
       "cost_lv3": "인테리어",
       "year_type": "actual",
       "amount": 0.0,
-      "headcount": 23.0
+      "headcount": 24.0
     },
     {
       "biz_unit": "KIDS",
@@ -49031,18 +48587,6 @@
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -49235,18 +48779,6 @@
       "yyyymm": "202602",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -49311,6 +48843,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -49763,18 +49307,6 @@
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -49967,18 +49499,6 @@
       "yyyymm": "202603",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -50043,6 +49563,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -50495,18 +50027,6 @@
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -50699,18 +50219,6 @@
       "yyyymm": "202604",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -50775,6 +50283,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -51227,18 +50747,6 @@
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -51431,18 +50939,6 @@
       "yyyymm": "202605",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -51507,6 +51003,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -51959,18 +51467,6 @@
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -52163,18 +51659,6 @@
       "yyyymm": "202606",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -52239,6 +51723,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -52691,18 +52187,6 @@
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -52895,18 +52379,6 @@
       "yyyymm": "202607",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -52971,6 +52443,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -53423,18 +52907,6 @@
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -53627,18 +53099,6 @@
       "yyyymm": "202608",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -53703,6 +53163,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -54155,18 +53627,6 @@
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -54359,18 +53819,6 @@
       "yyyymm": "202609",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -54435,6 +53883,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -54887,18 +54347,6 @@
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -55091,18 +54539,6 @@
       "yyyymm": "202610",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -55167,6 +54603,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -55619,18 +55067,6 @@
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -55823,18 +55259,6 @@
       "yyyymm": "202611",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -55899,6 +55323,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -56351,18 +55787,6 @@
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -56555,18 +55979,6 @@
       "yyyymm": "202612",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Kids Department",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "KIDS",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "MD",
       "year_type": "actual",
       "amount": 0.0,
@@ -56631,6 +56043,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 23.0
+    },
+    {
+      "biz_unit": "KIDS",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "리테일",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "KIDS",
@@ -72253,7 +71677,7 @@
       "cost_lv2": "MLB",
       "cost_lv3": "무형자산 상각비",
       "year_type": "actual",
-      "amount": 169303.5993,
+      "amount": 169304.0,
       "headcount": 201.0
     },
     {
@@ -72277,7 +71701,7 @@
       "cost_lv2": "MLB",
       "cost_lv3": "유형자산 감가상각비",
       "year_type": "actual",
-      "amount": 84552.30644,
+      "amount": 83046.84,
       "headcount": 201.0
     },
     {
@@ -72301,7 +71725,7 @@
       "cost_lv2": "MLB",
       "cost_lv3": "인테리어 상각비",
       "year_type": "actual",
-      "amount": 123297.1,
+      "amount": 126554.0,
       "headcount": 201.0
     },
     {
@@ -72349,7 +71773,7 @@
       "cost_lv2": "APP",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 9720988.667,
+      "amount": 9646603.45999996,
       "headcount": 201.0
     },
     {
@@ -72373,7 +71797,7 @@
       "cost_lv2": "Branding",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 3376107.585,
+      "amount": 3376108.0,
       "headcount": 201.0
     },
     {
@@ -72493,7 +71917,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 761651.2202,
+      "amount": 781368.55,
       "headcount": 129.0
     },
     {
@@ -72517,7 +71941,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 355362.8236,
+      "amount": 364833.0,
       "headcount": 129.0
     },
     {
@@ -72541,7 +71965,7 @@
       "cost_lv2": "MLB",
       "cost_lv3": "FW",
       "year_type": "actual",
-      "amount": 7058868.0,
+      "amount": 0.0,
       "headcount": 201.0
     },
     {
@@ -72565,7 +71989,7 @@
       "cost_lv2": "MLB",
       "cost_lv3": "SS",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 7058868.0,
       "headcount": 201.0
     },
     {
@@ -72613,7 +72037,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 3311121.81,
+      "amount": 3484221.89,
       "headcount": 129.0
     },
     {
@@ -72637,7 +72061,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 966335.0733,
+      "amount": 985757.45,
       "headcount": 129.0
     },
     {
@@ -72661,7 +72085,7 @@
       "cost_lv2": "잡급",
       "cost_lv3": "MLB",
       "year_type": "actual",
-      "amount": 43500.0,
+      "amount": 22535.01,
       "headcount": 129.0
     },
     {
@@ -72731,33 +72155,9 @@
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 201.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 201.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 55379.25,
       "headcount": 201.0
     },
     {
@@ -72829,7 +72229,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
-      "amount": 2496.666667,
+      "amount": 2497.0,
       "headcount": 201.0
     },
     {
@@ -72877,7 +72277,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "MGT",
       "year_type": "actual",
-      "amount": 2862.5,
+      "amount": 2863.0,
       "headcount": 201.0
     },
     {
@@ -72901,7 +72301,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "Procurement",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 2697.0,
       "headcount": 201.0
     },
     {
@@ -72925,7 +72325,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "Supply Chain",
       "year_type": "actual",
-      "amount": 1616.666667,
+      "amount": 1617.0,
       "headcount": 201.0
     },
     {
@@ -72973,7 +72373,7 @@
       "cost_lv2": "국내출장비",
       "cost_lv3": "Wholesale",
       "year_type": "actual",
-      "amount": 9986.666667,
+      "amount": 9987.0,
       "headcount": 201.0
     },
     {
@@ -73211,18 +72611,6 @@
       "yyyymm": "202601",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 201.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 10680.0,
@@ -73319,7 +72707,7 @@
       "yyyymm": "202601",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 201.0
@@ -73333,6 +72721,18 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "Procument",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 201.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 201.0
     },
@@ -73477,7 +72877,7 @@
       "cost_lv2": "해외출장비",
       "cost_lv3": "온라인",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 8710.0,
       "headcount": 201.0
     },
     {
@@ -74051,30 +73451,6 @@
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -74531,18 +73907,6 @@
       "yyyymm": "202602",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -74639,7 +74003,7 @@
       "yyyymm": "202602",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -74655,6 +74019,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 201.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -75371,30 +74747,6 @@
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -75851,18 +75203,6 @@
       "yyyymm": "202603",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -75959,7 +75299,7 @@
       "yyyymm": "202603",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -75975,6 +75315,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 201.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -76691,30 +76043,6 @@
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -77171,18 +76499,6 @@
       "yyyymm": "202604",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -77279,7 +76595,7 @@
       "yyyymm": "202604",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -77295,6 +76611,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 201.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -78011,30 +77339,6 @@
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -78491,18 +77795,6 @@
       "yyyymm": "202605",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -78599,7 +77891,7 @@
       "yyyymm": "202605",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -78615,6 +77907,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 201.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -79331,30 +78635,6 @@
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -79811,18 +79091,6 @@
       "yyyymm": "202606",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -79919,7 +79187,7 @@
       "yyyymm": "202606",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -79935,6 +79203,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 193.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -80651,30 +79931,6 @@
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -81131,18 +80387,6 @@
       "yyyymm": "202607",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -81239,7 +80483,7 @@
       "yyyymm": "202607",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -81255,6 +80499,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 193.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -81971,30 +81227,6 @@
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -82451,18 +81683,6 @@
       "yyyymm": "202608",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -82559,7 +81779,7 @@
       "yyyymm": "202608",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -82575,6 +81795,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 193.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -83291,30 +82523,6 @@
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -83771,18 +82979,6 @@
       "yyyymm": "202609",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -83879,7 +83075,7 @@
       "yyyymm": "202609",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -83895,6 +83091,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 180.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -84611,30 +83819,6 @@
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -85091,18 +84275,6 @@
       "yyyymm": "202610",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -85199,7 +84371,7 @@
       "yyyymm": "202610",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -85215,6 +84387,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 180.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -85931,30 +85115,6 @@
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -86411,18 +85571,6 @@
       "yyyymm": "202611",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -86519,7 +85667,7 @@
       "yyyymm": "202611",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -86535,6 +85683,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 180.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -87251,30 +86411,6 @@
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
       "cost_lv2": "인테리어 개발",
-      "cost_lv3": "부분개발",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
-      "cost_lv3": "사무실개조",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "인테리어 개발",
       "cost_lv3": "이미지 개발",
       "year_type": "actual",
       "amount": 0.0,
@@ -87731,18 +86867,6 @@
       "yyyymm": "202612",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "BP",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "MLB",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "출장비",
-      "cost_lv2": "해외출장비",
       "cost_lv3": "Business Operation",
       "year_type": "actual",
       "amount": 0.0,
@@ -87839,7 +86963,7 @@
       "yyyymm": "202612",
       "cost_lv1": "출장비",
       "cost_lv2": "해외출장비",
-      "cost_lv3": "Process Innovation",
+      "cost_lv3": "Procument",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -87855,6 +86979,18 @@
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 180.0
+    },
+    {
+      "biz_unit": "MLB",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "출장비",
+      "cost_lv2": "해외출장비",
+      "cost_lv3": "Supply Chain",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
     },
     {
       "biz_unit": "MLB",
@@ -123709,7 +122845,7 @@
       "cost_lv2": "CN SAP",
       "cost_lv3": "업그레이드 비용(확장,인터페이스 등)",
       "year_type": "actual",
-      "amount": 79765.77358,
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -123757,7 +122893,7 @@
       "cost_lv2": "CN SAP",
       "cost_lv3": "연간 유지보수비용 (PI)",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 23162.0,
       "headcount": 0.0
     },
     {
@@ -123781,7 +122917,7 @@
       "cost_lv2": "Data Server",
       "cost_lv3": "Ali클라우드",
       "year_type": "actual",
-      "amount": 28538.0,
+      "amount": 36375.0,
       "headcount": 0.0
     },
     {
@@ -123829,7 +122965,7 @@
       "cost_lv2": "Data Server",
       "cost_lv3": "anchnet서버",
       "year_type": "actual",
-      "amount": 6151.07,
+      "amount": 6151.0,
       "headcount": 0.0
     },
     {
@@ -123925,7 +123061,7 @@
       "cost_lv2": "OMS",
       "cost_lv3": "New",
       "year_type": "actual",
-      "amount": 46659.29,
+      "amount": 46659.0,
       "headcount": 0.0
     },
     {
@@ -123949,7 +123085,7 @@
       "cost_lv2": "OMS",
       "cost_lv3": "Old",
       "year_type": "actual",
-      "amount": 55359.18,
+      "amount": 55359.0,
       "headcount": 0.0
     },
     {
@@ -123997,7 +123133,7 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 94339.62264,
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -124009,18 +123145,6 @@
       "cost_lv2": "Snowflake",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -124080,7 +123204,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -124091,8 +123215,8 @@
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -124393,7 +123517,7 @@
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "BOS(직영)",
       "year_type": "actual",
-      "amount": 18867.93,
+      "amount": 18868.0,
       "headcount": 0.0
     },
     {
@@ -124417,7 +123541,7 @@
       "cost_lv2": "시스템 유지보수비용",
       "cost_lv3": "OA",
       "year_type": "actual",
-      "amount": 6217.77,
+      "amount": 6218.0,
       "headcount": 0.0
     },
     {
@@ -124438,18 +123562,6 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -124562,18 +123674,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 750000.0,
       "headcount": 0.0
     },
     {
@@ -124705,7 +123805,7 @@
       "cost_lv2": "사무용품비",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 22100.0,
+      "amount": 40600.0,
       "headcount": 0.0
     },
     {
@@ -124729,7 +123829,7 @@
       "cost_lv2": "여비교통비",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 26176.8,
+      "amount": 49927.0,
       "headcount": 0.0
     },
     {
@@ -124753,7 +123853,7 @@
       "cost_lv2": "접대비",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 63300.0,
+      "amount": 63800.0,
       "headcount": 0.0
     },
     {
@@ -124801,7 +123901,7 @@
       "cost_lv2": "5대보험",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 425107.6578,
+      "amount": 412921.46,
       "headcount": 72.0
     },
     {
@@ -124849,7 +123949,7 @@
       "cost_lv2": "공적금",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 198342.0411,
+      "amount": 187858.0,
       "headcount": 72.0
     },
     {
@@ -124870,22 +123970,10 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "복리후생비",
       "cost_lv2": "생일&명절",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 83882.0,
+      "amount": 6659.0,
       "headcount": 0.0
     },
     {
@@ -124933,7 +124021,7 @@
       "cost_lv2": "송년회",
       "cost_lv3": "송년회-사무실",
       "year_type": "actual",
-      "amount": 1600000.0,
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -124957,7 +124045,7 @@
       "cost_lv2": "식대",
       "cost_lv3": "간식",
       "year_type": "actual",
-      "amount": 49361.625,
+      "amount": 34655.01,
       "headcount": 0.0
     },
     {
@@ -125005,7 +124093,7 @@
       "cost_lv2": "식대",
       "cost_lv3": "야근식대",
       "year_type": "actual",
-      "amount": 9105.04,
+      "amount": 9105.0,
       "headcount": 0.0
     },
     {
@@ -125125,7 +124213,7 @@
       "cost_lv2": "장기근속",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 184750.0,
+      "amount": 187462.0,
       "headcount": 0.0
     },
     {
@@ -125197,7 +124285,7 @@
       "cost_lv2": "주재원지원금",
       "cost_lv3": "비자&이사비용",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 10938.0,
       "headcount": 0.0
     },
     {
@@ -125221,7 +124309,7 @@
       "cost_lv2": "주재원지원금",
       "cost_lv3": "자기개발비(훈련비)",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 9000.0,
       "headcount": 0.0
     },
     {
@@ -125245,7 +124333,7 @@
       "cost_lv2": "주재원지원금",
       "cost_lv3": "자녀교육비",
       "year_type": "actual",
-      "amount": 126385.9067,
+      "amount": 112987.0,
       "headcount": 0.0
     },
     {
@@ -125317,7 +124405,7 @@
       "cost_lv2": "주재원지원금",
       "cost_lv3": "항공권",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 16600.0,
       "headcount": 0.0
     },
     {
@@ -125389,7 +124477,7 @@
       "cost_lv2": "인지세",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 383447.7708,
+      "amount": 390800.0,
       "headcount": 0.0
     },
     {
@@ -125461,7 +124549,7 @@
       "cost_lv2": "기본급",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 1992259.53,
+      "amount": 1954980.52,
       "headcount": 72.0
     },
     {
@@ -125485,7 +124573,7 @@
       "cost_lv2": "성과급충당금",
       "cost_lv3": "경영지원",
       "year_type": "actual",
-      "amount": 576831.1158,
+      "amount": 491250.33,
       "headcount": 72.0
     },
     {
@@ -125509,7 +124597,7 @@
       "cost_lv2": "관리비",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 212854.37,
+      "amount": 211291.0,
       "headcount": 0.0
     },
     {
@@ -125533,7 +124621,7 @@
       "cost_lv2": "사무실임차료",
       "cost_lv3": "35층",
       "year_type": "actual",
-      "amount": 489065.24,
+      "amount": 489065.0,
       "headcount": 0.0
     },
     {
@@ -125557,7 +124645,7 @@
       "cost_lv2": "사무실임차료",
       "cost_lv3": "35층 (2024.10.15)",
       "year_type": "actual",
-      "amount": 116282.0476,
+      "amount": 116282.0,
       "headcount": 0.0
     },
     {
@@ -125581,7 +124669,7 @@
       "cost_lv2": "사무실임차료",
       "cost_lv3": "38층(25년 신규)",
       "year_type": "actual",
-      "amount": 486809.1905,
+      "amount": 486809.0,
       "headcount": 0.0
     },
     {
@@ -125605,7 +124693,7 @@
       "cost_lv2": "사무실임차료",
       "cost_lv3": "39층",
       "year_type": "actual",
-      "amount": 607452.6933,
+      "amount": 607453.0,
       "headcount": 0.0
     },
     {
@@ -125698,46 +124786,10 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 1,
-      "yyyymm": "202601",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
-      "amount": 10000.0,
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -125761,7 +124813,7 @@
       "cost_lv2": "Supply Chain",
       "cost_lv3": "QA 서비스",
       "year_type": "actual",
-      "amount": 61920.35398,
+      "amount": 5920.0,
       "headcount": 0.0
     },
     {
@@ -125854,8 +124906,8 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -125870,6 +124922,18 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
+      "amount": 17790.0,
       "headcount": 0.0
     },
     {
@@ -125941,7 +125005,7 @@
       "cost_lv2": "법무",
       "cost_lv3": "법무 컨설팅 비용",
       "year_type": "actual",
-      "amount": 8647.798742,
+      "amount": 8648.0,
       "headcount": 0.0
     },
     {
@@ -125989,7 +125053,7 @@
       "cost_lv2": "법무",
       "cost_lv3": "샘플 구매",
       "year_type": "actual",
-      "amount": 88657.2327,
+      "amount": 77657.0,
       "headcount": 0.0
     },
     {
@@ -126058,10 +125122,10 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 9446.0,
       "headcount": 0.0
     },
     {
@@ -126074,6 +125138,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 1,
+      "yyyymm": "202601",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -126097,7 +125173,7 @@
       "cost_lv2": "인사",
       "cost_lv3": "HR Platinum 시스템",
       "year_type": "actual",
-      "amount": 3374.6,
+      "amount": 1950.0,
       "headcount": 0.0
     },
     {
@@ -126121,7 +125197,7 @@
       "cost_lv2": "인사",
       "cost_lv3": "사무실 직원 채용비",
       "year_type": "actual",
-      "amount": 66666.66667,
+      "amount": 32645.91,
       "headcount": 0.0
     },
     {
@@ -126145,7 +125221,7 @@
       "cost_lv2": "인사",
       "cost_lv3": "장애인 서비스 비용",
       "year_type": "actual",
-      "amount": 4804.65,
+      "amount": 4805.0,
       "headcount": 0.0
     },
     {
@@ -126169,7 +125245,7 @@
       "cost_lv2": "인사",
       "cost_lv3": "직영매장 채용비",
       "year_type": "actual",
-      "amount": 4166.666667,
+      "amount": 4528.33,
       "headcount": 0.0
     },
     {
@@ -126214,7 +125290,7 @@
       "month": 1,
       "yyyymm": "202601",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -126265,7 +125341,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "G3 연간 유지보수 비용",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": 3000.0,
       "headcount": 0.0
     },
     {
@@ -126433,7 +125509,7 @@
       "cost_lv2": "재무",
       "cost_lv3": "폐기관련 세무 컨설팅 비용",
       "year_type": "actual",
-      "amount": 41666.66667,
+      "amount": 33333.0,
       "headcount": 0.0
     },
     {
@@ -126457,7 +125533,7 @@
       "cost_lv2": "ALPHA",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 33168.32,
+      "amount": 33168.0,
       "headcount": 0.0
     },
     {
@@ -126481,7 +125557,7 @@
       "cost_lv2": "KIA",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 9207.92,
+      "amount": 9208.0,
       "headcount": 0.0
     },
     {
@@ -126505,7 +125581,7 @@
       "cost_lv2": "차량유지비",
       "cost_lv3": "",
       "year_type": "actual",
-      "amount": 5600.0,
+      "amount": 5944.78,
       "headcount": 0.0
     },
     {
@@ -126886,18 +125962,6 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -126948,7 +126012,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -126959,8 +126023,8 @@
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -127306,18 +126370,6 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -127429,18 +126481,6 @@
       "cost_lv2": "유지보수 (New)",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -127731,18 +126771,6 @@
       "year_type": "plan",
       "amount": 213784.0,
       "headcount": 72.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -128566,42 +127594,6 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 2,
-      "yyyymm": "202602",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -128722,8 +127714,8 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -128738,6 +127730,18 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5000.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -128926,8 +127930,8 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -128942,6 +127946,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -129082,7 +128098,7 @@
       "month": 2,
       "yyyymm": "202602",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -129754,18 +128770,6 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -129816,7 +128820,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -129827,8 +128831,8 @@
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -130174,18 +129178,6 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -130297,18 +129289,6 @@
       "cost_lv2": "유지보수 (New)",
       "cost_lv3": "",
       "year_type": "plan",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -130599,18 +129579,6 @@
       "year_type": "plan",
       "amount": 213785.0,
       "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -131434,42 +130402,6 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 3,
-      "yyyymm": "202603",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -131590,8 +130522,8 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -131605,6 +130537,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -131794,8 +130738,8 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -131820,6 +130764,18 @@
       "cost_lv1": "지급수수료",
       "cost_lv2": "보험비",
       "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 3,
+      "yyyymm": "202603",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
       "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
@@ -131833,7 +130789,7 @@
       "cost_lv2": "인사",
       "cost_lv3": "HR Platinum 시스템",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": -5863.91,
       "headcount": 0.0
     },
     {
@@ -131929,7 +130885,7 @@
       "cost_lv2": "인사",
       "cost_lv3": "컨설팅 비용",
       "year_type": "actual",
-      "amount": 0.0,
+      "amount": -0.15,
       "headcount": 0.0
     },
     {
@@ -131950,7 +130906,7 @@
       "month": 3,
       "yyyymm": "202603",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -132622,18 +131578,6 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -132684,7 +131628,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -132695,8 +131639,8 @@
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -133042,18 +131986,6 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -133166,18 +132098,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -133467,18 +132387,6 @@
       "year_type": "plan",
       "amount": 213785.0,
       "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -134302,42 +133210,6 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 4,
-      "yyyymm": "202604",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -134458,8 +133330,8 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -134473,6 +133345,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -134662,8 +133546,8 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -134678,6 +133562,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 4,
+      "yyyymm": "202604",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -134818,7 +133714,7 @@
       "month": 4,
       "yyyymm": "202604",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -135490,18 +134386,6 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -135552,7 +134436,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -135563,8 +134447,8 @@
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -135910,18 +134794,6 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -136034,18 +134906,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -136335,18 +135195,6 @@
       "year_type": "plan",
       "amount": 213785.0,
       "headcount": 71.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -137170,42 +136018,6 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -137326,8 +136138,8 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -137341,6 +136153,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -137530,8 +136354,8 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -137546,6 +136370,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 5,
+      "yyyymm": "202605",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -137686,7 +136522,7 @@
       "month": 5,
       "yyyymm": "202605",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -138358,18 +137194,6 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -138420,7 +137244,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -138431,8 +137255,8 @@
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -138778,18 +137602,6 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -138902,18 +137714,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -139203,18 +138003,6 @@
       "year_type": "plan",
       "amount": 204588.0,
       "headcount": 70.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -140038,42 +138826,6 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 6,
-      "yyyymm": "202606",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -140194,8 +138946,8 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -140209,6 +138961,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -140398,8 +139162,8 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -140414,6 +139178,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 6,
+      "yyyymm": "202606",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -140554,7 +139330,7 @@
       "month": 6,
       "yyyymm": "202606",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -141226,18 +140002,6 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -141288,7 +140052,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -141299,8 +140063,8 @@
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -141646,18 +140410,6 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -141770,18 +140522,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -142071,18 +140811,6 @@
       "year_type": "plan",
       "amount": 225262.0,
       "headcount": 70.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -142906,42 +141634,6 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 7,
-      "yyyymm": "202607",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -143062,8 +141754,8 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -143077,6 +141769,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -143266,8 +141970,8 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -143282,6 +141986,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 7,
+      "yyyymm": "202607",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -143422,7 +142138,7 @@
       "month": 7,
       "yyyymm": "202607",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -144094,18 +142810,6 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -144156,7 +142860,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -144167,8 +142871,8 @@
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -144514,18 +143218,6 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -144638,18 +143330,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -144939,18 +143619,6 @@
       "year_type": "plan",
       "amount": 225127.0,
       "headcount": 70.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -145774,42 +144442,6 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 8,
-      "yyyymm": "202608",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -145930,8 +144562,8 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -145945,6 +144577,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -146134,8 +144778,8 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -146150,6 +144794,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 8,
+      "yyyymm": "202608",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -146290,7 +144946,7 @@
       "month": 8,
       "yyyymm": "202608",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -146962,18 +145618,6 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -147024,7 +145668,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -147035,8 +145679,8 @@
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -147382,18 +146026,6 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -147506,18 +146138,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 16824.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -147807,18 +146427,6 @@
       "year_type": "plan",
       "amount": 209386.0,
       "headcount": 66.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -148642,42 +147250,6 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 9,
-      "yyyymm": "202609",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -148798,8 +147370,8 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -148813,6 +147385,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -149002,8 +147586,8 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -149018,6 +147602,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 9,
+      "yyyymm": "202609",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -149158,7 +147754,7 @@
       "month": 9,
       "yyyymm": "202609",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -149830,18 +148426,6 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -149892,7 +148476,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -149903,8 +148487,8 @@
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -150250,18 +148834,6 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -150374,18 +148946,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -150675,18 +149235,6 @@
       "year_type": "plan",
       "amount": 209386.0,
       "headcount": 66.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -151510,42 +150058,6 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 10,
-      "yyyymm": "202610",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -151666,8 +150178,8 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -151681,6 +150193,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -151870,8 +150394,8 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -151886,6 +150410,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 10,
+      "yyyymm": "202610",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -152026,7 +150562,7 @@
       "month": 10,
       "yyyymm": "202610",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -152698,18 +151234,6 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -152760,7 +151284,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -152771,8 +151295,8 @@
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -153118,18 +151642,6 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -153242,18 +151754,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -153543,18 +152043,6 @@
       "year_type": "plan",
       "amount": 209386.0,
       "headcount": 66.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -154378,42 +152866,6 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 11,
-      "yyyymm": "202611",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -154534,8 +152986,8 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -154549,6 +153001,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -154738,8 +153202,8 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -154754,6 +153218,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 11,
+      "yyyymm": "202611",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -154894,7 +153370,7 @@
       "month": 11,
       "yyyymm": "202611",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
@@ -155566,18 +154042,6 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "골프 회원 연회비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "Office Hardware Upgrade",
       "year_type": "actual",
@@ -155628,7 +154092,7 @@
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
       "cost_lv3": "사무실 전기공사",
-      "year_type": "plan",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -155639,8 +154103,8 @@
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
       "cost_lv2": "네트워크&ASDL설치",
-      "cost_lv3": "사무실 전기공사 (신규 확장)",
-      "year_type": "actual",
+      "cost_lv3": "사무실 전기공사",
+      "year_type": "plan",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -155986,18 +154450,6 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "IT수수료",
-      "cost_lv2": "온라인 스토어 오픈비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "IT수수료",
       "cost_lv2": "온라인플랫폼 서비스 비용",
       "cost_lv3": "CRM(New Provider)",
       "year_type": "actual",
@@ -156110,18 +154562,6 @@
       "cost_lv3": "",
       "year_type": "plan",
       "amount": 5503.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "IT수수료",
-      "cost_lv2": "재고실사 서비스비용",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -156411,18 +154851,6 @@
       "year_type": "plan",
       "amount": 209386.0,
       "headcount": 66.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "복리후생비",
-      "cost_lv2": "보험비",
-      "cost_lv3": "",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
     },
     {
       "biz_unit": "공통",
@@ -157246,42 +155674,6 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "신규 사무실 유지보수",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Office Service",
-      "cost_lv3": "포스터 체인지",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "AEO",
-      "year_type": "actual",
-      "amount": 0.0,
-      "headcount": 0.0
-    },
-    {
-      "biz_unit": "공통",
-      "year": 2026,
-      "month": 12,
-      "yyyymm": "202612",
-      "cost_lv1": "지급수수료",
       "cost_lv2": "Supply Chain",
       "cost_lv3": "AI 프로젝트",
       "year_type": "actual",
@@ -157402,8 +155794,8 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "Supply Chain",
-      "cost_lv3": "창고 이전 비용",
+      "cost_lv2": "골프 회원 연회비",
+      "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -157417,6 +155809,18 @@
       "cost_lv2": "골프 회원 연회비",
       "cost_lv3": "",
       "year_type": "plan",
+      "amount": 0.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "리테일 교육 소프트웨어",
+      "cost_lv3": "",
+      "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
     },
@@ -157606,8 +156010,8 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "법무",
-      "cost_lv3": "하드케이스 컨설팅 비용",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임원배상책임보험",
       "year_type": "actual",
       "amount": 0.0,
       "headcount": 0.0
@@ -157622,6 +156026,18 @@
       "cost_lv3": "임원배상책임보험",
       "year_type": "plan",
       "amount": 9446.0,
+      "headcount": 0.0
+    },
+    {
+      "biz_unit": "공통",
+      "year": 2026,
+      "month": 12,
+      "yyyymm": "202612",
+      "cost_lv1": "지급수수료",
+      "cost_lv2": "보험비",
+      "cost_lv3": "임직원상업보험",
+      "year_type": "actual",
+      "amount": 0.0,
       "headcount": 0.0
     },
     {
@@ -157762,7 +156178,7 @@
       "month": 12,
       "yyyymm": "202612",
       "cost_lv1": "지급수수료",
-      "cost_lv2": "임원배상책임보험",
+      "cost_lv2": "재고실사 서비스비용",
       "cost_lv3": "",
       "year_type": "actual",
       "amount": 0.0,
