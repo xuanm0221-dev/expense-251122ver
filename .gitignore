@@ -48,5 +48,5 @@ venv/
 env/
 ENV/
 
-# data files - aggregated-expense.json은 CSV에서 API 호출 시 동적 생성
-/data/aggregated-expense.json
+# Playwright 임시 파일
+.playwright-mcp/
