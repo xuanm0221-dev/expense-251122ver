@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCategoryDetail, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
 import { ExpenseAccountRow } from "@/types/expense";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
 
 const navyColor = "#001f3f";
 const navyBarColor = "#5b7cba";
@@ -47,6 +49,7 @@ export function CategoryExpenseCard({
   sales,
   prevSales,
 }: CategoryExpenseCardProps) {
+  const { lang } = useLanguage();
   const [showDetail, setShowDetail] = useState(false);
   const isBrand = bizUnit === "MLB" || bizUnit === "KIDS" || bizUnit === "DISCOVERY";
 
@@ -142,13 +145,13 @@ export function CategoryExpenseCard({
                       (isBrand && categoryLv1 === "출장비" && l2Children.some(c => c.children && c.children.length > 0))
                     ) && (
                       <button onClick={() => setShowDetail(!showDetail)} className="text-blue-600 hover:text-blue-800">
-                        {showDetail ? "간략히" : "상세보기"}
+                        {showDetail ? t("간략히", lang) : t("상세보기", lang)}
                       </button>
                     )}
                   </th>
-                  <th className="text-right py-1 px-1 font-semibold">전년</th>
-                  <th className="text-right py-1 px-1 font-semibold">당년</th>
-                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("당년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년비", lang)}</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -193,7 +196,7 @@ export function CategoryExpenseCard({
                         return (
                           <tr key={`${idx}-${l3Idx}`} className="text-gray-600">
                             <td className="text-left py-0.5 pr-2 pl-4">
-                              - {l3.category_l3 || l3.biz_unit || "-"}
+                              - {getDisplayLabel(l3.category_l3 || l3.biz_unit || "-", l3.category_l3_cn ?? l3.biz_unit_cn, lang)}
                             </td>
                             <td className="text-right py-0.5 px-1">
                               {l3.prev_ytd > 0 ? formatK(l3.prev_ytd, 0) : "-"}

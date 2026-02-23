@@ -22,6 +22,8 @@ import {
 } from "@/lib/expenseData";
 
 import { BizUnitCard, type ExpenseDetail } from "./BizUnitCard";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/lib/translations";
 
 interface BrandCardProps {
   bizUnit: BizUnit;
@@ -81,6 +83,7 @@ export function BrandCard({
   icon: Icon,
   yearType = 'actual',
 }: BrandCardProps) {
+  const { lang } = useLanguage();
   const isPlanYear = year === 2026 && yearType === 'plan';
   
   // 2026년(예산): 연간 데이터 사용
@@ -185,13 +188,14 @@ export function BrandCard({
   const headcountCeil = Math.ceil(headcount);
   const prevHeadcountCeil = Math.ceil(prevHeadcount);
   const headcountDiff = headcountCeil - prevHeadcountCeil;
+  const headcountUnit = t("명", lang);
   const headcountChangeStr =
     headcountCeil > 0 || prevHeadcountCeil > 0
       ? headcountDiff === 0
-        ? "0명"
+        ? `0${headcountUnit}`
         : headcountDiff > 0
-          ? `+${headcountDiff}명`
-          : `${headcountDiff}명`
+          ? `+${headcountDiff}${headcountUnit}`
+          : `${headcountDiff}${headcountUnit}`
       : null;
 
   // 평균 인원수: 예산 = 연합계/12, 실적 = 누적/누적월
@@ -207,12 +211,12 @@ export function BrandCard({
   const avgHeadcountChangeStr =
     avgHeadcountNum > 0 || prevAvgHeadcountNum > 0
       ? avgHeadcountDiff === 0
-        ? "0명"
+        ? `0${headcountUnit}`
         : avgHeadcountDiff > 0
-          ? `+${avgHeadcountDiff}명`
-          : `${avgHeadcountDiff}명`
+          ? `+${avgHeadcountDiff}${headcountUnit}`
+          : `${avgHeadcountDiff}${headcountUnit}`
       : null;
-  const avgHeadcountStr = avgHeadcountNum > 0 ? `${avgHeadcountNum.toLocaleString("ko-KR")}명` : null;
+  const avgHeadcountStr = avgHeadcountNum > 0 ? `${avgHeadcountNum.toLocaleString("ko-KR")}${headcountUnit}` : null;
 
   // 인건비(기본급만), 복리후생비(5대보험+공적금만) 금액 추출 (인당 비용 계산용)
   // 인건비는 중분류 "기본급"만 사용 (성과급, 잡급 제외)
@@ -282,6 +286,7 @@ export function BrandCard({
           const yoy = calculateYOY(currentAmount, prevAmount);
           return {
             label: categoryName,
+            labelCn: cat.cost_lv1_cn,
             amount: formatK(cat.amount),
             amountDiff,
             yoy,
@@ -299,6 +304,7 @@ export function BrandCard({
         const yoy = calculateYOY(currentAmount, prevAmount);
         return {
           label: getCategoryDisplayName(categoryName),
+          labelCn: cat?.cost_lv1_cn,
           amount: formatK(currentAmount),
           amountDiff,
           yoy,
@@ -314,7 +320,7 @@ export function BrandCard({
       totalExpense={formatK(totalCost)}
       totalExpenseChange={totalExpenseChangeStr}
       ratio={costRatio != null ? formatPercent(costRatio) : null}
-      headcount={headcountCeil > 0 ? `${headcountCeil.toLocaleString("ko-KR")}명` : null}
+      headcount={headcountCeil > 0 ? `${headcountCeil.toLocaleString("ko-KR")}${headcountUnit}` : null}
       headcountChange={headcountChangeStr}
       avgHeadcount={avgHeadcountStr}
       avgHeadcountChange={avgHeadcountChangeStr}

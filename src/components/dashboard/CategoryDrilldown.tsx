@@ -23,6 +23,8 @@ import {
   type CategoryDetail,
 } from "@/lib/expenseData";
 import { EXPENSE_COLOR_MAP, PREVIOUS_YEAR_COLOR, DEFAULT_COLOR } from "@/lib/expenseColors";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
 
 interface CategoryDrilldownProps {
   bizUnit: BizUnit;
@@ -39,6 +41,7 @@ export function CategoryDrilldown({
   mode,
   yearType = 'actual',
 }: CategoryDrilldownProps) {
+  const { lang } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [axisFontSize, setAxisFontSize] = useState(16);
   useEffect(() => {
@@ -59,7 +62,7 @@ export function CategoryDrilldown({
   if (is2026Plan && currentCategories.length === 0) {
     const annualRows = getAnnualData(bizUnit, year, "", "", "", yearType);
     const yyyymm = `${year}12`;
-    const byLv1 = new Map<string, { cost_lv1: string; amount: number; biz_unit: string; year: number; month: number; yyyymm: string; headcount: number; sales: number }>();
+    const byLv1 = new Map<string, { cost_lv1: string; cost_lv1_cn?: string; amount: number; biz_unit: string; year: number; month: number; yyyymm: string; headcount: number; sales: number }>();
     annualRows.forEach((row) => {
       const key = row.cost_lv1;
       if (byLv1.has(key)) {
@@ -68,6 +71,7 @@ export function CategoryDrilldown({
       } else {
         byLv1.set(key, {
           cost_lv1: key,
+          cost_lv1_cn: row.cost_lv1_cn,
           amount: row.annual_amount,
           biz_unit: row.biz_unit,
           year,
@@ -120,6 +124,7 @@ export function CategoryDrilldown({
       const color = EXPENSE_COLOR_MAP[normalizedCategory] || DEFAULT_COLOR;
       return {
         category,
+        displayLabel: getDisplayLabel(category, current.cost_lv1_cn, lang),
         current: current.amount,
         previous: prev?.amount || 0,
         yoy,
@@ -130,10 +135,6 @@ export function CategoryDrilldown({
       };
     })
     .sort((a, b) => b.current - a.current);
-  
-  // 디버깅: level1Data 확인
-  console.log("level1Data:", level1Data);
-  console.log("카테고리별 색상:", level1Data.map(d => ({ category: d.category, color: d.fill })));
 
   // 우측 차트 데이터 (중분류/소분류별)
   let level2Data: any[] = [];
@@ -169,21 +170,6 @@ export function CategoryDrilldown({
       );
     }
 
-    // 디버깅: 데이터 확인
-    console.log(`[CategoryDrilldown] Selected: ${selectedCategory}, Details count: ${details.length}`);
-    if (details.length > 0) {
-      console.log(`[CategoryDrilldown] Sample details:`, details.slice(0, 10));
-      // 중분류별로 그룹화된 데이터 확인
-      const lv2Counts = new Map<string, number>();
-      details.forEach((item) => {
-        const lv2 = (item.cost_lv2 || "").trim() || "기타";
-        lv2Counts.set(lv2, (lv2Counts.get(lv2) || 0) + 1);
-      });
-      console.log(`[CategoryDrilldown] 중분류별 데이터 개수:`, Array.from(lv2Counts.entries()));
-    } else {
-      console.warn(`[CategoryDrilldown] ⚠️ 데이터가 없습니다! bizUnit=${bizUnit}, year=${year}, month=${month}, costLv1=${selectedCategory}, mode=${mode}`);
-    }
-
     // 중분류별로 그룹화하되, 소분류가 있으면 소분류까지 표시
     // 먼저 중분류별로 그룹화
     const lv2Grouped = new Map<string, CategoryDetail[]>();
@@ -195,8 +181,6 @@ export function CategoryDrilldown({
       }
       lv2Grouped.get(lv2Key)!.push(item);
     });
-
-    console.log(`[CategoryDrilldown] Lv2 groups:`, Array.from(lv2Grouped.keys()));
 
     // 각 중분류 내에서 소분류가 있는지 확인하고 데이터 구성
     const detailMap = new Map<string, CategoryDetail>();
@@ -290,14 +274,6 @@ export function CategoryDrilldown({
       }
     });
 
-    // 전년도 데이터 매핑 디버깅
-    console.log(`[CategoryDrilldown] DetailMap keys (${detailMap.size}):`, Array.from(detailMap.keys()));
-    console.log(`[CategoryDrilldown] PrevDetailMap keys (${prevDetailMap.size}):`, Array.from(prevDetailMap.keys()));
-    
-    // 키 매칭 확인
-    const allKeys = new Set([...detailMap.keys(), ...prevDetailMap.keys()]);
-    console.log(`[CategoryDrilldown] All unique keys:`, Array.from(allKeys));
-    
     // 전년도 데이터를 cost_lv2, cost_lv3 값으로 직접 찾기 위한 매핑 생성
     const prevDataByLv = new Map<string, CategoryDetail>();
     prevDetailMap.forEach((item, key) => {
@@ -324,14 +300,6 @@ export function CategoryDrilldown({
           const lv3 = (current.cost_lv3 || "").trim();
           const lookupKey = lv3 !== "" && lv3 !== lv2 ? `${lv2}|${lv3}` : lv2;
           prev = prevDataByLv.get(lookupKey);
-          
-          if (!prev && prevDetailMap.size > 0) {
-            console.log(`[CategoryDrilldown] 전년도 데이터 없음 - key: "${key}", lookupKey: "${lookupKey}", current:`, {
-              lv2: current.cost_lv2,
-              lv3: current.cost_lv3,
-              amount: current.amount
-            });
-          }
         }
         
         const yoy =
@@ -343,8 +311,8 @@ export function CategoryDrilldown({
         const lv2 = (current.cost_lv2 || "").trim() || "기타";
         const label =
           lv3 !== "" && lv3 !== lv2
-            ? `${lv2} - ${current.cost_lv3}`
-            : lv2;
+            ? `${getDisplayLabel(lv2, current.cost_lv2_cn, lang)} - ${getDisplayLabel(current.cost_lv3, current.cost_lv3_cn, lang)}`
+            : getDisplayLabel(lv2, current.cost_lv2_cn, lang);
         return {
           label,
           current: current.amount,
@@ -354,9 +322,6 @@ export function CategoryDrilldown({
       })
       .filter((item) => item.current > 0 || item.previous > 0) // 당년 또는 전년 금액이 있는 항목만 표시
       .sort((a, b) => b.current - a.current);
-
-    console.log(`[CategoryDrilldown] Level2Data (${level2Data.length} items):`, level2Data);
-    console.log(`[CategoryDrilldown] 전년도 데이터 포함된 항목:`, level2Data.filter(item => item.previous > 0).map(item => ({ label: item.label, previous: item.previous })));
   }
 
   const CustomTooltip = ({ active, payload, label }: any) => {
@@ -364,18 +329,19 @@ export function CategoryDrilldown({
       const current = payload.find((p: any) => p.dataKey === "current");
       const previous = payload.find((p: any) => p.dataKey === "previous");
       const yoy = current?.payload?.yoy;
+      const displayTitle = level1Data.find((d) => d.category === label)?.displayLabel ?? label;
 
       return (
         <div className="bg-white p-3 border rounded shadow-lg">
-          <p className="font-semibold mb-2">{label}</p>
+          <p className="font-semibold mb-2">{displayTitle}</p>
           {current && (
             <p className="text-sm" style={{ color: current.color }}>
-              당년: {formatK(current.value)}
+              {t("당년", lang)}: {formatK(current.value)}
             </p>
           )}
           {previous && (
             <p className="text-sm" style={{ color: previous.color }}>
-              전년: {formatK(previous.value)}
+              {t("전년", lang)}: {formatK(previous.value)}
             </p>
           )}
           {yoy !== null && yoy !== undefined && (
@@ -394,7 +360,7 @@ export function CategoryDrilldown({
       {/* 좌측: 대분류 */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-xs sm:text-sm lg:text-lg">대분류별 비용</CardTitle>
+          <CardTitle className="text-xs sm:text-sm lg:text-lg">{t("대분류별 비용", lang)}</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={400}>
@@ -419,6 +385,7 @@ export function CategoryDrilldown({
                 type="category"
                 width={100}
                 tick={{ fontSize: axisFontSize, textAnchor: "end" }}
+                tickFormatter={(value) => level1Data.find((d) => d.category === value)?.displayLabel ?? value}
                 onClick={(data) => {
                   setSelectedCategory(data.value);
                 }}
@@ -428,7 +395,7 @@ export function CategoryDrilldown({
               <Legend wrapperStyle={{ fontSize: axisFontSize }} iconSize={Math.min(14, axisFontSize)} />
               <Bar
                 dataKey="current"
-                name="당년"
+                name={t("당년", lang)}
                 radius={[0, 4, 4, 0]}
                 shape={(props: any) => {
                   const { payload, x, y, width, height } = props;
@@ -443,7 +410,7 @@ export function CategoryDrilldown({
               />
               <Bar
                 dataKey="previous"
-                name="전년"
+                name={t("전년", lang)}
                 radius={[0, 4, 4, 0]}
                 fill={PREVIOUS_YEAR_COLOR}
                 shape={(props: any) => {
@@ -455,7 +422,7 @@ export function CategoryDrilldown({
             </BarChart>
           </ResponsiveContainer>
           <div className="mt-2 text-xs text-muted-foreground">
-            * 대분류를 클릭하면 우측에 상세 내역이 표시됩니다.
+            {t("대분류를 클릭하면 우측에 상세 내역이 표시됩니다.", lang)}
           </div>
         </CardContent>
       </Card>
@@ -466,7 +433,7 @@ export function CategoryDrilldown({
           <CardTitle className="text-xs sm:text-sm lg:text-lg">
             {selectedCategory
               ? `${selectedCategory} 상세 내역`
-              : "대분류를 선택하세요"}
+              : t("대분류를 선택하세요", lang)}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -490,7 +457,7 @@ export function CategoryDrilldown({
                   <Legend wrapperStyle={{ fontSize: axisFontSize }} iconSize={Math.min(14, axisFontSize)} />
                   <Bar
                     dataKey="current"
-                    name="당년"
+                    name={t("당년", lang)}
                     radius={[0, 4, 4, 0]}
                     fill={selectedCategory ? (EXPENSE_COLOR_MAP[selectedCategory] || DEFAULT_COLOR) : DEFAULT_COLOR}
                     shape={(props: any) => {
@@ -506,7 +473,7 @@ export function CategoryDrilldown({
                   />
                   <Bar
                     dataKey="previous"
-                    name="전년"
+                    name={t("전년", lang)}
                     radius={[0, 4, 4, 0]}
                     fill={PREVIOUS_YEAR_COLOR}
                     shape={(props: any) => {
@@ -525,7 +492,7 @@ export function CategoryDrilldown({
             )
           ) : (
             <div className="flex items-center justify-center h-[400px] text-muted-foreground">
-              좌측에서 대분류를 선택하세요
+              {t("좌측에서 대분류를 선택하세요", lang)}
             </div>
           )}
         </CardContent>

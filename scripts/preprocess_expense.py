@@ -9,8 +9,8 @@ import os
 from pathlib import Path
 from typing import Dict, List, Any
 
-# CSV 파일 경로 설정
-CSV_BASE_PATH = r"D:\dashboard\비용대시보드\비용엑셀"
+# CSV 파일 경로 설정 (프로젝트/파일 폴더)
+CSV_BASE_PATH = str(Path(__file__).parent.parent / "파일")
 OUTPUT_DIR = Path(__file__).parent.parent / "data"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -134,11 +134,19 @@ def load_expense_data() -> pd.DataFrame:
             id_cols.append("중분류")
         if "소분류" in df.columns:
             id_cols.append("소분류")
-        
+
+        # 중국어 컬럼 (있으면 melt 시 보존)
+        id_cols_cn = []
+        for cn_col in ["사업부구분(중국어)", "대분류(중국어)", "중분류(중국어)", "소분류(중국어)"]:
+            if cn_col in df.columns:
+                id_cols_cn.append(cn_col)
+        id_cols_full = id_cols + id_cols_cn
+
         # id_cols가 비어있으면 기본값 사용
         if not id_cols:
             id_cols = ["사업부구분", "대분류", "중분류", "소분류"]
-        
+            id_cols_full = id_cols + id_cols_cn
+
         print(f"   - {filename} ID 컬럼: {id_cols}")
         
         # 연간 컬럼과 월별 컬럼 분리
@@ -146,7 +154,7 @@ def load_expense_data() -> pd.DataFrame:
         annual_cols = []
         
         for col in df.columns:
-            if col not in id_cols:
+            if col not in id_cols_full:
                 # 연간 컬럼 체크 (예: "2024년 연간", "2025년 연간", "2024연간", "2025연간")
                 if "연간" in col or "annual" in col.lower() or "yearly" in col.lower():
                     annual_cols.append(col)
@@ -158,7 +166,7 @@ def load_expense_data() -> pd.DataFrame:
 
         # Long format으로 변환 (월별 데이터)
         df_melted = df.melt(
-            id_vars=id_cols,
+            id_vars=id_cols_full,
             value_vars=month_cols,
             var_name="month_col",
             value_name="amount",
@@ -176,7 +184,7 @@ def load_expense_data() -> pd.DataFrame:
                         break
                 
                 if year_match:
-                    df_annual = df[id_cols + [col]].copy()
+                    df_annual = df[id_cols_full + [col]].copy()
                     df_annual = df_annual.rename(columns={col: "annual_amount"})
                     df_annual["year"] = year_match
                     df_annual["year_type"] = year_type
@@ -220,9 +228,11 @@ def load_expense_data() -> pd.DataFrame:
         # year_type 필드 추가
         df_melted["year_type"] = year_type
 
-        # 컬럼명 변경 (실제 컬럼명에 맞게)
+        # 컬럼명 변경 (실제 컬럼명에 맞게, 중국어 컬럼 제외)
         rename_map = {}
         for col in df_melted.columns:
+            if "(중국어)" in col:
+                continue
             if "사업부" in col and "구분" in col:
                 rename_map[col] = "biz_unit"
             elif col == "대분류" or ("대분류" in col and "사업부" not in col):
@@ -241,7 +251,15 @@ def load_expense_data() -> pd.DataFrame:
             rename_map["중분류"] = "cost_lv2"
         if "소분류" in df_melted.columns:
             rename_map["소분류"] = "cost_lv3"
-        
+        if "사업부구분(중국어)" in df_melted.columns:
+            rename_map["사업부구분(중국어)"] = "biz_unit_cn"
+        if "대분류(중국어)" in df_melted.columns:
+            rename_map["대분류(중국어)"] = "cost_lv1_cn"
+        if "중분류(중국어)" in df_melted.columns:
+            rename_map["중분류(중국어)"] = "cost_lv2_cn"
+        if "소분류(중국어)" in df_melted.columns:
+            rename_map["소분류(중국어)"] = "cost_lv3_cn"
+
         if rename_map:
             df_melted = df_melted.rename(columns=rename_map)
             print(f"   - 컬럼명 변경: {rename_map}")
@@ -310,7 +328,14 @@ def load_expense_data() -> pd.DataFrame:
             df_melted["cost_lv3"] = ""
         else:
             df_melted["cost_lv3"] = df_melted["cost_lv3"].fillna("").astype(str).str.strip()
-        
+
+        # 중국어 컬럼이 없으면 빈 문자열로
+        for cn_key in ["biz_unit_cn", "cost_lv1_cn", "cost_lv2_cn", "cost_lv3_cn"]:
+            if cn_key not in df_melted.columns:
+                df_melted[cn_key] = ""
+            else:
+                df_melted[cn_key] = df_melted[cn_key].fillna("").astype(str).str.strip()
+
         # 디버깅: 복리후생비 > 5대보험/공적금 데이터 확인
         if default_year == 2024:
             welfare_5 = df_melted[(df_melted["cost_lv1"] == "복리후생비") & (df_melted["cost_lv2"] == "5대보험")]
@@ -343,20 +368,15 @@ def load_expense_data() -> pd.DataFrame:
                 if 'cost_lv2' in df_melted.columns:
                     print(f"     cost_lv2 고유값 샘플: {df_melted['cost_lv2'].unique()[:10].tolist()}")
         
-        # 필요한 컬럼만 선택
-        df_melted = df_melted[
-            [
-                "year",
-                "month",
-                "yyyymm",
-                "biz_unit",
-                "cost_lv1",
-                "cost_lv2",
-                "cost_lv3",
-                "amount",
-                "year_type",
-            ]
+        # 필요한 컬럼만 선택 (중국어 포함)
+        out_cols = [
+            "year", "month", "yyyymm", "biz_unit", "cost_lv1", "cost_lv2", "cost_lv3",
+            "amount", "year_type",
         ]
+        for cn_key in ["biz_unit_cn", "cost_lv1_cn", "cost_lv2_cn", "cost_lv3_cn"]:
+            if cn_key in df_melted.columns:
+                out_cols.append(cn_key)
+        df_melted = df_melted[out_cols]
 
         all_data.append(df_melted)
         
@@ -364,9 +384,11 @@ def load_expense_data() -> pd.DataFrame:
         if annual_data:
             df_annual_combined = pd.concat(annual_data, ignore_index=True)
             
-            # 컬럼명 변경
+            # 컬럼명 변경 (중국어 컬럼 제외 - 별도 처리)
             rename_map = {}
             for col in df_annual_combined.columns:
+                if "(중국어)" in col:
+                    continue
                 if "사업부" in col and "구분" in col:
                     rename_map[col] = "biz_unit"
                 elif col == "대분류" or ("대분류" in col and "사업부" not in col):
@@ -388,7 +410,21 @@ def load_expense_data() -> pd.DataFrame:
                 df_annual_combined = df_annual_combined.rename(columns={"중분류": "cost_lv2"})
             if "소분류" in df_annual_combined.columns:
                 df_annual_combined = df_annual_combined.rename(columns={"소분류": "cost_lv3"})
-            
+            if "사업부구분(중국어)" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"사업부구분(중국어)": "biz_unit_cn"})
+            if "대분류(중국어)" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"대분류(중국어)": "cost_lv1_cn"})
+            if "중분류(중국어)" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"중분류(중국어)": "cost_lv2_cn"})
+            if "소분류(중국어)" in df_annual_combined.columns:
+                df_annual_combined = df_annual_combined.rename(columns={"소분류(중국어)": "cost_lv3_cn"})
+
+            for cn_key in ["biz_unit_cn", "cost_lv1_cn", "cost_lv2_cn", "cost_lv3_cn"]:
+                if cn_key not in df_annual_combined.columns:
+                    df_annual_combined[cn_key] = ""
+                else:
+                    df_annual_combined[cn_key] = df_annual_combined[cn_key].fillna("").astype(str).str.strip()
+
             # biz_unit 값 정리
             if "biz_unit" in df_annual_combined.columns:
                 df_annual_combined["biz_unit"] = df_annual_combined["biz_unit"].astype(str).str.strip()
@@ -825,16 +861,18 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
                 print(f"       {row['biz_unit']} / {row['cost_lv1']} / {row['year']}-{row['month']:02d} / amount={row['amount']}")
 
     # 기본 집계: biz_unit, year, month, cost_lv1 기준
+    agg_dict = {
+        "amount": "sum",
+        "headcount": "first",
+        "sales": "first",
+    }
+    for cn in ["biz_unit_cn", "cost_lv1_cn"]:
+        if cn in target_df.columns:
+            agg_dict[cn] = "first"
     monthly_agg = target_df.groupby(
         ["biz_unit", "year", "month", "yyyymm", "cost_lv1", "year_type"],
         as_index=False,
-    ).agg(
-        {
-            "amount": "sum",
-            "headcount": "first",  # 같은 yyyymm, biz_unit이면 동일하므로 first
-            "sales": "first",
-        }
-    )
+    ).agg(agg_dict)
     
     # 디버깅: 집계 후 데이터 확인
     print(f"   - 집계 후 monthly_agg 통계:")
@@ -848,16 +886,13 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
                 print(f"       {row['biz_unit']} / {row['cost_lv1']} / {row['year']}-{row['month']:02d} / amount={row['amount']}")
 
     # 월별 총합 (cost_lv1 무시)
+    total_agg_dict = {"amount": "sum", "headcount": "first", "sales": "first"}
+    if "biz_unit_cn" in target_df.columns:
+        total_agg_dict["biz_unit_cn"] = "first"
     monthly_total = target_df.groupby(
         ["biz_unit", "year", "month", "yyyymm", "year_type"],
         as_index=False,
-    ).agg(
-        {
-            "amount": "sum",
-            "headcount": "first",
-            "sales": "first",
-        }
-    )
+    ).agg(total_agg_dict)
 
     # ========== 사업부(소분류) 기준 인원수로 덮어쓰기 ==========
     # 경영지원 → 공통, MLB → MLB, KIDS → KIDS, DISCOVERY → DISCOVERY
@@ -913,6 +948,10 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
                 print(f"     {row['year']}-{row['month']:02d} / {row['cost_lv2']} / {row['cost_lv3']} / amount={row['amount']}")
     
     # category_detail: 전체 데이터 사용 (DUVETICA, SUPRA 포함)
+    detail_agg_dict = {"amount": "sum", "headcount": "first"}
+    for cn in ["biz_unit_cn", "cost_lv1_cn", "cost_lv2_cn", "cost_lv3_cn"]:
+        if cn in df.columns:
+            detail_agg_dict[cn] = "first"
     category_detail = df.groupby(
         [
             "biz_unit",
@@ -925,10 +964,7 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
             "year_type",
         ],
         as_index=False,
-    ).agg({
-        "amount": "sum",
-        "headcount": "first",  # 같은 biz_unit, cost_lv3, yyyymm이면 동일하므로 first
-    })
+    ).agg(detail_agg_dict)
     
     print(f"   - category_detail 생성 (전체 데이터 사용):")
     print(f"     행 수: {len(category_detail)}")
@@ -963,10 +999,9 @@ def calculate_aggregations(df: pd.DataFrame, annual_df: pd.DataFrame | None = No
     if len(monthly_agg_records) > 0:
         sample = [r for r in monthly_agg_records if r.get("amount", 0) > 0][:3]
         if sample:
-            print(f"     샘플 (amount > 0): {sample}")
+            print(f"     샘플 (amount > 0): {len(sample)} 건")
         else:
-            print(f"     ⚠️ 모든 amount가 0입니다!")
-            print(f"     첫 3개 레코드: {monthly_agg_records[:3]}")
+            print(f"     모든 amount가 0입니다. 레코드 수: {len(monthly_agg_records)}")
     
     # year_types 매핑 생성
     year_types_map = {}

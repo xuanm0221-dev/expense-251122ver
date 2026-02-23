@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { TrendingUp, TrendingDown, ArrowDown } from "lucide-react";
 import { formatPercent, formatK } from "@/lib/utils";
 import { type BizUnit, type Mode } from "@/lib/expenseData";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
 import React, { Fragment } from "react";
 
 // 사업부별 테마 설정
@@ -49,6 +51,7 @@ const THEME = {
 
 export interface ExpenseDetail {
   label: string;
+  labelCn?: string; // 대분류 중국어 (CSV 대분류(중국어))
   amount: string;
   amountDiff: number; // 전년 대비 금액 증감
   yoy: number | null; // YOY (%)
@@ -103,6 +106,7 @@ export function BizUnitCard({
   yearType = 'actual',
   isCommon = false,
 }: BizUnitCardProps) {
+  const { lang } = useLanguage();
   const isCorporate = businessUnit === "법인";
   const themeKey = isCommon ? "COMMON" : isCorporate ? "법인" : (businessUnit as keyof typeof THEME);
   const theme = THEME[themeKey] || THEME.COMMON;
@@ -128,7 +132,7 @@ export function BizUnitCard({
           {yoySales !== null && (
             <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
               <div className="flex flex-col">
-                <span className="text-[9px] sm:text-[10px] text-white/90 mb-1">판매매출 YOY</span>
+                <span className="text-[9px] sm:text-[10px] text-white/90 mb-1">{t("판매매출 YOY", lang)}</span>
                 <div className="flex items-center gap-1">
                   {yoySales >= 100 ? (
                     <TrendingUp className="w-3 h-3 text-white" />
@@ -145,7 +149,7 @@ export function BizUnitCard({
           {yoyExpense !== null && (
             <div className="bg-white/20 backdrop-blur-sm rounded-md px-2.5 py-1.5 border border-white/30 flex-1">
               <div className="flex flex-col">
-                <span className="text-[9px] sm:text-[10px] text-white/90 mb-1">영업비 YOY</span>
+                <span className="text-[9px] sm:text-[10px] text-white/90 mb-1">{t("영업비 YOY", lang)}</span>
                 <div className="flex items-center gap-1">
                   {yoyExpense >= 100 ? (
                     <TrendingUp className="w-3 h-3 text-white" />
@@ -173,7 +177,7 @@ export function BizUnitCard({
                 {totalExpense}
                 {totalExpenseChange != null ? ` (${totalExpenseChange})` : ""}
               </div>
-              <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-1">총 비용</div>
+              <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 mt-1">{t("총 비용", lang)}</div>
             </div>
           </div>
 
@@ -184,7 +188,7 @@ export function BizUnitCard({
                 {ratio !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
                     <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-blue-600 break-words">{ratio}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">영업비율</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">{t("영업비율", lang)}</div>
                   </div>
                 )}
 
@@ -192,11 +196,11 @@ export function BizUnitCard({
                 {headcount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
                     <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-purple-600 break-words">
-                      기말: {headcount}{headcountChange != null ? ` (${headcountChange})` : ""}
+                      {t("기말", lang)}: {headcount}{headcountChange != null ? ` (${headcountChange})` : ""}
                     </div>
                     <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">
                       {avgHeadcount != null 
-                        ? `평균: ${avgHeadcount}${avgHeadcountChange != null ? ` (${avgHeadcountChange})` : ""}`
+                        ? `${t("평균", lang)}: ${avgHeadcount}${avgHeadcountChange != null ? ` (${avgHeadcountChange})` : ""}`
                         : " "
                       }
                     </div>
@@ -207,7 +211,7 @@ export function BizUnitCard({
                 {salesAmount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
                     <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-teal-600 break-words">{salesAmount}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">판매매출</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">{t("판매매출", lang)}</div>
                   </div>
                 )}
               </div>
@@ -217,7 +221,7 @@ export function BizUnitCard({
                   <div className="flex items-center justify-center gap-4 text-[10px] sm:text-xs">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당기본급</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">{t("인당 기본급", lang)}</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
                           <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonLaborCostYOY})</span>
@@ -229,7 +233,7 @@ export function BizUnitCard({
                     )}
                     {perPersonWelfareCost && (
                       <span>
-                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당복후비</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">{t("인당복후비", lang)}</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
                         {perPersonWelfareCostYOY && (
                           <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonWelfareCostYOY})</span>
@@ -248,17 +252,17 @@ export function BizUnitCard({
                 {ratio !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
                     <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-blue-600 break-words">{ratio}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">영업비율</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">{t("영업비율", lang)}</div>
                   </div>
                 )}
                 {headcount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
                     <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-purple-600 break-words">
-                      기말: {headcount}{headcountChange != null ? ` (${headcountChange})` : ""}
+                      {t("기말", lang)}: {headcount}{headcountChange != null ? ` (${headcountChange})` : ""}
                     </div>
                     <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">
                       {avgHeadcount != null 
-                        ? `평균: ${avgHeadcount}${avgHeadcountChange != null ? ` (${avgHeadcountChange})` : ""}`
+                        ? `${t("평균", lang)}: ${avgHeadcount}${avgHeadcountChange != null ? ` (${avgHeadcountChange})` : ""}`
                         : " "
                       }
                     </div>
@@ -267,7 +271,7 @@ export function BizUnitCard({
                 {salesAmount !== null && (
                   <div className="bg-gray-50 rounded-lg px-3 py-2 border border-gray-200 min-h-[60px] flex flex-col justify-between">
                     <div className="text-[11.4px] sm:text-[13.2px] font-semibold text-teal-600 break-words">{salesAmount}</div>
-                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">판매매출</div>
+                    <div className="text-[11.4px] sm:text-[13.2px] text-gray-500 break-words">{t("판매매출", lang)}</div>
                   </div>
                 )}
               </div>
@@ -276,7 +280,7 @@ export function BizUnitCard({
                   <div className="flex items-center justify-center gap-4 text-[10px] sm:text-xs">
                     {perPersonLaborCost && (
                       <span>
-                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당기본급</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">{t("인당 기본급", lang)}</span>{" "}
                         <span className="font-semibold text-orange-600">{perPersonLaborCost}</span>
                         {perPersonLaborCostYOY && (
                           <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonLaborCostYOY})</span>
@@ -288,7 +292,7 @@ export function BizUnitCard({
                     )}
                     {perPersonWelfareCost && (
                       <span>
-                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">인당복후비</span>{" "}
+                        <span className="text-gray-500 text-[11.4px] sm:text-[13.2px]">{t("인당복후비", lang)}</span>{" "}
                         <span className="font-semibold text-pink-600">{perPersonWelfareCost}</span>
                         {perPersonWelfareCostYOY && (
                           <span className="text-gray-400 text-[11.4px] sm:text-[13.2px] ml-1">({perPersonWelfareCostYOY})</span>
@@ -305,13 +309,13 @@ export function BizUnitCard({
         {/* 대분류별 요약 - 테이블 형식 */}
         <div className="mt-2 pt-1 border-t-[6px] border-gray-300">
           <div className="text-[11.4px] sm:text-[13.2px] font-semibold mb-3 text-gray-700">
-            영업비 상세보기
+            {t("영업비 상세보기", lang)}
           </div>
           {/* 테이블 헤더 (글씨 크기 데이터 행과 동일) */}
           <div className="grid grid-cols-12 gap-2 text-[11.4px] sm:text-[13.2px] text-gray-500 mb-2 pb-1 border-b">
-            <div className="col-span-3">영업비</div>
-            <div className="col-span-3 text-right">금액</div>
-            <div className="col-span-3 text-right">전년비</div>
+            <div className="col-span-3">{t("영업비", lang)}</div>
+            <div className="col-span-3 text-right">{t("금액", lang)}</div>
+            <div className="col-span-3 text-right">{t("전년비", lang)}</div>
             <div className="col-span-3 text-right">YOY</div>
           </div>
           {/* 테이블 바디 */}
@@ -319,7 +323,7 @@ export function BizUnitCard({
             {expenseDetails.map((detail, index) => (
               <Fragment key={`${detail.label}-${index}`}>
                 <div className="grid grid-cols-12 gap-2 items-center hover:bg-gray-50 py-1 rounded">
-                  <div className="col-span-3 text-gray-900">{detail.label}</div>
+                  <div className="col-span-3 text-gray-900">{getDisplayLabel(detail.label, detail.labelCn, lang)}</div>
                   <div className="col-span-3 text-right font-medium text-gray-900">
                     {detail.amount}
                   </div>
@@ -365,7 +369,7 @@ export function BizUnitCard({
                 border: "none",
               }}
             >
-              {isCorporate ? "법인 대시보드 보기" : isCommon ? "공통비용 상세보기" : "전체 대시보드 보기"} &gt;
+              {isCorporate ? t("법인 대시보드 보기", lang) : isCommon ? t("공통비용 상세보기", lang) : t("전체 대시보드 보기", lang)} &gt;
             </Button>
           </Link>
         </div>

@@ -23,6 +23,8 @@ import {
   type Mode,
 } from "@/lib/expenseData";
 import { EXPENSE_COLOR_MAP } from "@/lib/expenseColors";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
 
 interface MonthlyStackedChartProps {
   bizUnit: BizUnit;
@@ -37,6 +39,7 @@ export function MonthlyStackedChart({
   mode,
   yearType = 'actual',
 }: MonthlyStackedChartProps) {
+  const { lang } = useLanguage();
   const [axisFontSize, setAxisFontSize] = useState(16);
   useEffect(() => {
     const update = () => setAxisFontSize(window.innerWidth < 640 ? 12 : window.innerWidth < 1024 ? 16 : 20);
@@ -44,7 +47,7 @@ export function MonthlyStackedChart({
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
-  const data = getMonthlyStackedData(bizUnit, year, mode, yearType);
+  const { data, categoryLabelMap } = getMonthlyStackedData(bizUnit, year, mode, yearType);
 
   // 모든 대분류 수집
   const allCategories = new Set<string>();
@@ -76,7 +79,7 @@ export function MonthlyStackedChart({
   // 차트 데이터 포맷팅
   const chartData = data.map((item) => {
     const result: any = {
-      month: `${item.month}월`,
+      month: `${item.month}${t("월", lang)}`,
       yoy: item.yoy,
       current: item.current,
       previous: item.previous,
@@ -106,12 +109,12 @@ export function MonthlyStackedChart({
           <p className="font-semibold mb-2">{label}</p>
           {categoryPayloads.map((p: any) => (
             <p key={p.dataKey} className="text-sm" style={{ color: p.color }}>
-              {p.name}: {formatK(p.value)}
+              {getDisplayLabel(p.dataKey, categoryLabelMap[p.dataKey], lang)}: {formatK(p.value)}
             </p>
           ))}
           {/* 합계 추가 */}
           <p className="text-sm mt-2 pt-2 border-t border-gray-200 font-semibold">
-            합계: {formatK(total)}
+            {t("합계", lang)}: {formatK(total)}
           </p>
           {yoyValue !== null && yoyValue !== undefined && (
             <p className="text-sm mt-2 font-semibold">
@@ -127,9 +130,9 @@ export function MonthlyStackedChart({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="font-bold text-xs sm:text-sm lg:text-lg">월별 비용 추이 및 YOY 비교</CardTitle>
+        <CardTitle className="font-bold text-xs sm:text-sm lg:text-lg">{t("월별 비용 추이 및 YOY 비교", lang)}</CardTitle>
         <p className="text-sm text-gray-500 mt-1">
-          카테고리별 비용 구성 및 전년 대비 증감률
+          {t("카테고리별 비용 구성 및 전년 대비 증감률", lang)}
         </p>
       </CardHeader>
       <CardContent>
@@ -172,7 +175,7 @@ export function MonthlyStackedChart({
                 dataKey={cat}
                 stackId="a"
                 fill={EXPENSE_COLOR_MAP[cat] || "#6b7280"}
-                name={cat}
+                name={getDisplayLabel(cat, categoryLabelMap[cat], lang)}
               />
             ))}
             {/* 100% 기준선 */}
@@ -191,7 +194,7 @@ export function MonthlyStackedChart({
               stroke="#000000"
               strokeWidth={3}
               dot={{ fill: "#000000", r: 4 }}
-              name="YOY (%)"
+              name={t("YOY (%)", lang)}
               connectNulls={false}
             />
           </ComposedChart>

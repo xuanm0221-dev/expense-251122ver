@@ -35,6 +35,8 @@ import {
   interpretQuartileAnalysis,
 } from "@/lib/statsUtils";
 import { formatK, formatM, formatPercent, formatRangeWithCommas } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/lib/translations";
 import { AlertTriangle, TrendingUp, Target, ChevronDown, ChevronUp } from "lucide-react";
 
 interface AdSalesEfficiencyAnalysisProps {
@@ -50,6 +52,7 @@ export function AdSalesEfficiencyAnalysis({
   mode = "yoy",
   yearType = 'actual',
 }: AdSalesEfficiencyAnalysisProps) {
+  const { lang } = useLanguage();
   const [showCharts, setShowCharts] = useState(false);
   const [axisFontSize, setAxisFontSize] = useState(16);
   useEffect(() => {
@@ -67,11 +70,11 @@ export function AdSalesEfficiencyAnalysis({
     return (
       <Card>
         <CardHeader>
-          <CardTitle>광고비-매출 효율 분석</CardTitle>
+          <CardTitle>{t("광고비-매출 효율 분석", lang)}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8 text-gray-500">
-            광고비-매출 분석을 위한 데이터가 부족합니다. (최소 3개월 필요)
+            {t("광고비-매출 분석을 위한 데이터가 부족합니다. (최소 3개월 필요)", lang)}
           </div>
         </CardContent>
       </Card>

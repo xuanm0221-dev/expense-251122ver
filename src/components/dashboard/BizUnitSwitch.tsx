@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { type BizUnit } from "@/lib/expenseData";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/lib/translations";
 
 const DIVISION_NAMES: Record<BizUnit, string> = {
   법인: "법인",
@@ -51,10 +53,11 @@ export function BizUnitSwitch({
   mode,
   yearType = 'actual',
 }: BizUnitSwitchProps) {
+  const { lang } = useLanguage();
   const allBizUnits: BizUnit[] = ["법인", "MLB", "KIDS", "DISCOVERY", "공통"];
 
   return (
-    <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+    <div className="flex items-center gap-2 flex-shrink-0">
       {allBizUnits.map((unit) => {
         const isActive = unit === currentBizUnit;
         const theme = BRAND_THEMES[unit];
@@ -64,13 +67,13 @@ export function BizUnitSwitch({
             key={unit}
             href={`/${unit}?year=${year}&type=${yearType}&month=${month}&mode=${mode}`}
             className={cn(
-              "px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-1.5 rounded-lg text-[10px] sm:text-xs font-medium transition-colors whitespace-nowrap",
+              "px-2 py-1 rounded-lg text-xs font-medium transition-colors whitespace-nowrap h-7 flex items-center",
               isActive
                 ? `bg-white border-2 ${theme.border} ${theme.text} font-semibold`
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-transparent"
+                : "bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200"
             )}
           >
-            {DIVISION_NAMES[unit]}
+            {(unit === "법인" || unit === "공통") ? t(unit, lang) : DIVISION_NAMES[unit]}
           </Link>
         );
       })}

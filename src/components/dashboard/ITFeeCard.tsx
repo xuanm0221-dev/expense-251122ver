@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCategoryDetail, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
 import { ExpenseAccountRow } from "@/types/expense";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
 
 const navyColor = "#001f3f";
 const navyBarColor = "#5b7cba";
@@ -35,6 +37,7 @@ function totalExpense(details: { amount: number }[]): number {
 }
 
 export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevSales }: ITFeeCardProps) {
+  const { lang } = useLanguage();
   const [showDetail, setShowDetail] = useState(false);
 
   // itNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
@@ -99,7 +102,7 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
           <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
-              IT수수료
+              {t("IT수수료", lang)}
             </span>
             <span className="font-bold" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px" }}>
               <span>
@@ -124,13 +127,13 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
                         onClick={() => setShowDetail(!showDetail)}
                         className="text-blue-600 hover:text-blue-800"
                       >
-                        {showDetail ? "간략히" : "상세보기"}
+                        {showDetail ? t("간략히", lang) : t("상세보기", lang)}
                       </button>
                     )}
                   </th>
-                  <th className="text-right py-1 px-1 font-semibold">전년</th>
-                  <th className="text-right py-1 px-1 font-semibold">당년</th>
-                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("당년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년비", lang)}</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -144,7 +147,11 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
                   const diff = curr - prev;
                   const amountPart = (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 0);
                   const percentPart = yoyRow != null ? formatPercent(yoyRow, 0) : "";
-                  const label = l2Child.category_l2 || l2Child.biz_unit || "-";
+                  const label = getDisplayLabel(
+                    l2Child.category_l2 || l2Child.biz_unit || "-",
+                    l2Child.category_l2_cn ?? l2Child.biz_unit_cn,
+                    lang
+                  );
 
                   return (
                     <tr key={idx}>

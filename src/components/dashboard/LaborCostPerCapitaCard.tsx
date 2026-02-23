@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import { getCategoryDetail, getAnnualHeadcountSum, getYTDHeadcountSum, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/lib/translations";
 
 const LABOR_COST_LV2_ORDER = ["기본급", "Red pack", "성과급충당금", "잡급"] as const;
 /** 법인 상세보기 시 사업부 순서 및 표시명 (공통 = 경영지원) */
@@ -51,6 +53,7 @@ function totalLabor(details: { cost_lv1: string; amount: number }[]): number {
 }
 
 export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yearType = 'actual' }: LaborCostPerCapitaCardProps) {
+  const { lang } = useLanguage();
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const isPlanYear = year === 2026 && yearType === 'plan';
 
@@ -128,7 +131,7 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yea
           <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
-              인건비(인당)
+              {t("인건비(인당)", lang)}
             </span>
             <span className="font-bold">
               {perCapitaCurrent != null ? formatK(perCapitaCurrent, 1) : "-"}
@@ -149,13 +152,13 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yea
                         onClick={() => setIsDetailOpen(true)}
                         className="text-[10px] text-blue-600 hover:text-blue-800"
                       >
-                        상세보기
+                        {t("상세보기", lang)}
                       </button>
                     )}
                   </th>
-                  <th className="text-right py-1 px-1 font-semibold">전년</th>
-                  <th className="text-right py-1 px-1 font-semibold">당년</th>
-                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("당년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년비", lang)}</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -175,7 +178,7 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yea
                   const percentPart = yoy != null ? formatPercent(yoy, 0) : "";
                   return (
                     <tr key={lv2}>
-                      <td className="text-left py-0.5 pr-2">{lv2}:</td>
+                      <td className="text-left py-0.5 pr-2">{t(lv2, lang)}:</td>
                       <td className="text-right py-0.5 px-1">{prevStr}</td>
                       <td className="text-right py-0.5 px-1">{currStr}</td>
                       <td className="text-right py-0.5 px-1">{amountPart || "-"}</td>
@@ -193,17 +196,17 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yea
         <Dialog open={isDetailOpen} onOpenChange={setIsDetailOpen} contentClassName="max-w-4xl">
           <DialogContent className="max-h-[85vh] overflow-hidden flex flex-col">
             <DialogHeader className="flex-shrink-0">
-              <DialogTitle>인건비(인당) 상세 - 사업부별</DialogTitle>
+              <DialogTitle>{t("인건비(인당) 상세 - 사업부별", lang)}</DialogTitle>
               <DialogClose onClick={() => setIsDetailOpen(false)} className="absolute right-4 top-4" />
             </DialogHeader>
             <div className="overflow-y-auto flex-1 min-h-0">
               <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="text-left py-2 px-3 font-semibold text-gray-700">구분</th>
-                    <th className="text-right py-2 px-3 font-semibold text-gray-700">전년인당(K)</th>
-                    <th className="text-right py-2 px-3 font-semibold text-gray-700">당년인당(K)</th>
-                    <th className="text-right py-2 px-3 font-semibold text-gray-700">전년비</th>
+                    <th className="text-left py-2 px-3 font-semibold text-gray-700">{t("구분", lang)}</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">{t("전년인당(K)", lang)}</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">{t("당년인당(K)", lang)}</th>
+                    <th className="text-right py-2 px-3 font-semibold text-gray-700">{t("전년비", lang)}</th>
                     <th className="text-right py-2 px-3 font-semibold text-gray-700">YoY</th>
                   </tr>
                 </thead>
@@ -215,7 +218,7 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yea
                       <React.Fragment key={lv2}>
                         <tr className="border-b border-gray-100 bg-gray-50/80">
                           <td className="py-2 px-3 font-semibold text-gray-800" colSpan={5}>
-                            {lv2}
+                            {t(lv2, lang)}
                           </td>
                         </tr>
                         {SUB_UNIT_ORDER.map(({ bizUnit: bu, label }) => {
@@ -243,7 +246,7 @@ export function LaborCostPerCapitaCard({ bizUnit, year, month, mode = 'ytd', yea
                           const percentPart = yoy != null ? formatPercent(yoy, 0) : "";
                           return (
                             <tr key={`${lv2}-${bu}`} className="border-b border-gray-100">
-                              <td className="py-1.5 pl-6 pr-3 text-gray-600">ㄴ{label}</td>
+                              <td className="py-1.5 pl-6 pr-3 text-gray-600">ㄴ{t(label, lang)}</td>
                               <td className="py-1.5 px-3 text-right">
                                 {perCapitaPrev != null ? formatK(perCapitaPrev, 1) : "-"}
                               </td>

@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCategoryDetail, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
 import { ExpenseAccountRow } from "@/types/expense";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
 
 const navyColor = "#001f3f";
 const navyBarColor = "#5b7cba";
@@ -35,6 +37,7 @@ function totalExpense(details: { amount: number }[]): number {
 }
 
 export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sales, prevSales }: PaymentFeeCardProps) {
+  const { lang } = useLanguage();
   const [showDetail, setShowDetail] = useState(false);
 
   // paymentNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
@@ -95,7 +98,7 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
           <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
-              지급수수료
+              {t("지급수수료", lang)}
             </span>
             <span className="font-bold" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px" }}>
               <span>
@@ -121,17 +124,17 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                           onClick={() => setShowDetail(!showDetail)}
                           className="text-blue-600 hover:text-blue-800"
                         >
-                          {showDetail ? "간략히" : "상세보기"}
+                          {showDetail ? t("간략히", lang) : t("상세보기", lang)}
                         </button>
                         {!showDetail && (
-                          <span className="text-gray-500 font-normal text-[10px]">기본: 당년 기준 상위 5개</span>
+                          <span className="text-gray-500 font-normal text-[10px]">{t("기본: 당년 기준 상위 5개", lang)}</span>
                         )}
                       </div>
                     )}
                   </th>
-                  <th className="text-right py-1 px-1 font-semibold">전년</th>
-                  <th className="text-right py-1 px-1 font-semibold">당년</th>
-                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("당년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년비", lang)}</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -145,7 +148,11 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                   const diff = curr - prev;
                   const amountPart = (diff >= 0 ? "+" : "-") + formatK(Math.abs(diff), 0);
                   const percentPart = yoyRow != null ? formatPercent(yoyRow, 0) : "";
-                  const label = l2Child.category_l2 || l2Child.biz_unit || "-";
+                  const label = getDisplayLabel(
+                    l2Child.category_l2 || l2Child.biz_unit || "-",
+                    l2Child.category_l2_cn ?? l2Child.biz_unit_cn,
+                    lang
+                  );
 
                   // L3 children 필터링 (curr_ytd > 0, showDetail === true일 때만)
                   const l3Children = showDetail && l2Child.children 
@@ -172,7 +179,7 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                         return (
                           <tr key={`${idx}-${l3Idx}`} className="text-gray-600">
                             <td className="text-left py-0.5 pr-2 pl-4">
-                              - {l3.category_l3 || "-"}
+                              - {getDisplayLabel(l3.category_l3 || "-", l3.category_l3_cn, lang)}
                             </td>
                             <td className="text-right py-0.5 px-1">{l3.prev_ytd > 0 ? formatK(l3.prev_ytd, 0) : "-"}</td>
                             <td className="text-right py-0.5 px-1">{formatK(l3.curr_ytd, 0)}</td>

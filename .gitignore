@@ -48,5 +48,5 @@ venv/
 env/
 ENV/
 
-# data files (JSON은 커밋하되, 필요시 제외 가능)
-# data/*.json
+# data files - aggregated-expense.json은 CSV에서 API 호출 시 동적 생성
+/data/aggregated-expense.json

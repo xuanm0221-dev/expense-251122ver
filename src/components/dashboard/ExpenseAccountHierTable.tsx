@@ -4,8 +4,10 @@ import React, { useState, useMemo, useEffect } from "react";
 import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Info, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getCategoryDetail, getAnnualData, data, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
+import { getCategoryDetail, getAnnualData, getAggregatedData, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
 import { useToast } from "@/components/ui/toast";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getDisplayLabel, t } from "@/lib/translations";
 
 type BizUnitOrAll = BizUnit | "ALL";
 import { formatK, formatPercent, calculateYOY } from "@/lib/utils";
@@ -47,6 +49,7 @@ export function ExpenseAccountHierTable({
   const [pendingRowId, setPendingRowId] = useState<string | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const { addToast } = useToast();
+  const { lang } = useLanguage();
 
   const is2026AnnualOnly = year === 2026 && yearType === 'plan';
 
@@ -318,6 +321,7 @@ export function ExpenseAccountHierTable({
           category_l1: l1Key,
           category_l2: "",
           category_l3: "",
+          category_l1_cn: detail.cost_lv1_cn,
           prev_month: 0,
           curr_month: 0,
           prev_ytd: 0,
@@ -347,6 +351,8 @@ export function ExpenseAccountHierTable({
               biz_unit: bizUnitKey,
               category_l2: bizUnitKey,
               category_l3: "",
+              biz_unit_cn: detail.biz_unit_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -372,6 +378,9 @@ export function ExpenseAccountHierTable({
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
                 category_l3: detail.cost_lv2,
+                category_l2_cn: detail.cost_lv2_cn,
+                biz_unit_cn: detail.biz_unit_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -408,6 +417,8 @@ export function ExpenseAccountHierTable({
                 category_l1: l1Key,
                 category_l2: detail.cost_lv2,
                 category_l3: "",
+                category_l2_cn: detail.cost_lv2_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -447,6 +458,8 @@ export function ExpenseAccountHierTable({
               category_l1: l1Key,
               category_l2: detail.cost_lv2,
               category_l3: "",
+              category_l2_cn: detail.cost_lv2_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -475,6 +488,9 @@ export function ExpenseAccountHierTable({
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
                 category_l3: bizUnitKey,
+                category_l2_cn: detail.cost_lv2_cn,
+                biz_unit_cn: detail.biz_unit_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -500,6 +516,10 @@ export function ExpenseAccountHierTable({
                   biz_unit: bizUnitKey,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -536,6 +556,10 @@ export function ExpenseAccountHierTable({
                   category_l1: l1Key,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -580,6 +604,8 @@ export function ExpenseAccountHierTable({
               category_l1: l1Key,
               category_l2: detail.cost_lv2,
               category_l3: "",
+              category_l2_cn: detail.cost_lv2_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -608,6 +634,9 @@ export function ExpenseAccountHierTable({
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
                 category_l3: bizUnitKey,
+                category_l2_cn: detail.cost_lv2_cn,
+                biz_unit_cn: detail.biz_unit_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -633,6 +662,10 @@ export function ExpenseAccountHierTable({
                   biz_unit: bizUnitKey,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -669,6 +702,10 @@ export function ExpenseAccountHierTable({
                   category_l1: l1Key,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -713,6 +750,8 @@ export function ExpenseAccountHierTable({
               category_l1: l1Key,
               category_l2: detail.cost_lv2,
               category_l3: "",
+              category_l2_cn: detail.cost_lv2_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -737,6 +776,9 @@ export function ExpenseAccountHierTable({
                 category_l1: l1Key,
                 category_l2: detail.cost_lv2,
                 category_l3: detail.cost_lv3,
+                category_l2_cn: detail.cost_lv2_cn,
+                category_l3_cn: detail.cost_lv3_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -789,6 +831,7 @@ export function ExpenseAccountHierTable({
           category_l1: l1Key,
           category_l2: "",
           category_l3: "",
+          category_l1_cn: detail.cost_lv1_cn,
           prev_month: 0,
           curr_month: 0,
           prev_ytd: 0,
@@ -818,6 +861,8 @@ export function ExpenseAccountHierTable({
               biz_unit: bizUnitKey,
               category_l2: bizUnitKey,
               category_l3: "",
+              biz_unit_cn: detail.biz_unit_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -843,6 +888,9 @@ export function ExpenseAccountHierTable({
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
                 category_l3: detail.cost_lv2,
+                category_l2_cn: detail.cost_lv2_cn,
+                biz_unit_cn: detail.biz_unit_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -879,6 +927,8 @@ export function ExpenseAccountHierTable({
                 category_l1: l1Key,
                 category_l2: detail.cost_lv2,
                 category_l3: "",
+                category_l2_cn: detail.cost_lv2_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -918,6 +968,8 @@ export function ExpenseAccountHierTable({
               category_l1: l1Key,
               category_l2: detail.cost_lv2,
               category_l3: "",
+              category_l2_cn: detail.cost_lv2_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -946,6 +998,9 @@ export function ExpenseAccountHierTable({
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
                 category_l3: bizUnitKey,
+                category_l2_cn: detail.cost_lv2_cn,
+                biz_unit_cn: detail.biz_unit_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -971,6 +1026,10 @@ export function ExpenseAccountHierTable({
                   biz_unit: bizUnitKey,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -1007,6 +1066,10 @@ export function ExpenseAccountHierTable({
                   category_l1: l1Key,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -1051,6 +1114,8 @@ export function ExpenseAccountHierTable({
               category_l1: l1Key,
               category_l2: detail.cost_lv2,
               category_l3: "",
+              category_l2_cn: detail.cost_lv2_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -1079,6 +1144,9 @@ export function ExpenseAccountHierTable({
                 biz_unit: bizUnitKey,
                 category_l2: detail.cost_lv2,
                 category_l3: bizUnitKey,
+                category_l2_cn: detail.cost_lv2_cn,
+                biz_unit_cn: detail.biz_unit_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -1104,6 +1172,10 @@ export function ExpenseAccountHierTable({
                   biz_unit: bizUnitKey,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -1140,6 +1212,10 @@ export function ExpenseAccountHierTable({
                   category_l1: l1Key,
                   category_l2: detail.cost_lv2,
                   category_l3: detail.cost_lv3,
+                  category_l2_cn: detail.cost_lv2_cn,
+                  category_l3_cn: detail.cost_lv3_cn,
+                  biz_unit_cn: detail.biz_unit_cn,
+                  category_l1_cn: detail.cost_lv1_cn,
                   prev_month: 0,
                   curr_month: 0,
                   prev_ytd: 0,
@@ -1184,6 +1260,8 @@ export function ExpenseAccountHierTable({
               category_l1: l1Key,
               category_l2: detail.cost_lv2,
               category_l3: "",
+              category_l2_cn: detail.cost_lv2_cn,
+              category_l1_cn: detail.cost_lv1_cn,
               prev_month: 0,
               curr_month: 0,
               prev_ytd: 0,
@@ -1209,6 +1287,9 @@ export function ExpenseAccountHierTable({
                 category_l1: l1Key,
                 category_l2: detail.cost_lv2,
                 category_l3: detail.cost_lv3,
+                category_l2_cn: detail.cost_lv2_cn,
+                category_l3_cn: detail.cost_lv3_cn,
+                category_l1_cn: detail.cost_lv1_cn,
                 prev_month: 0,
                 curr_month: 0,
                 prev_ytd: 0,
@@ -1282,7 +1363,8 @@ export function ExpenseAccountHierTable({
     };
 
     // 연간 계획 데이터 처리 (먼저 개별 노드에 할당)
-    if (data.annual_data && data.annual_data.length > 0) {
+    const aggData = getAggregatedData();
+    if (aggData.annual_data && aggData.annual_data.length > 0) {
       // 당년 연간 데이터
       const bizUnitFilter: BizUnitOrAll = bizUnit || "ALL";
       const currAnnualData = getAnnualData(bizUnitFilter, year, "", "", "", yearType);
@@ -2267,11 +2349,11 @@ export function ExpenseAccountHierTable({
             {/* 왼쪽: 제목 + 날짜 태그 */}
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
               <h2 className="font-bold text-slate-50 text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[21px] xl:text-[24px]">
-                {title || "전체 비용 계정 상세 분석"}
+                {title || t("전체 비용 계정 상세 분석", lang)}
               </h2>
               <div className="flex items-center gap-1.5 sm:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-1.5 rounded-full border border-slate-600 bg-slate-700/50">
                 <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-slate-200" />
-                <span className="text-[13.5px] sm:text-[15px] font-medium text-slate-200">{is2026AnnualOnly ? "2026년 연간기준" : `${year}년 ${month}월 기준`}</span>
+                <span className="text-[13.5px] sm:text-[15px] font-medium text-slate-200">{is2026AnnualOnly ? t("2026년 연간기준", lang) : `${year}${t("년", lang)} ${month}${t("월", lang)} ${t("기준", lang)}`}</span>
               </div>
             </div>
             {/* 우측: 탭과 버튼 */}
@@ -2283,20 +2365,20 @@ export function ExpenseAccountHierTable({
                       value="monthly"
                       className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg font-semibold text-[13.5px] sm:text-[15px] transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
                     >
-                      당월
+                      {t("당월", lang)}
                     </TabsTrigger>
                     <TabsTrigger 
                       value="ytd"
                       className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg font-semibold text-[13.5px] sm:text-[15px] transition-all duration-300 ease-in-out hover:bg-slate-600 hover:shadow-sm data-[active=true]:bg-slate-600 data-[active=true]:text-slate-50 data-[active=true]:shadow-lg data-[active=true]:scale-105 text-slate-200 data-[active=false]:text-slate-300"
                     >
-                      누적(YTD)
+                      {t("누적(YTD)", lang)}
                     </TabsTrigger>
                   </TabsList>
                 </Tabs>
               )}
               {is2026AnnualOnly && (
                 <span className="text-[13.5px] sm:text-[15px] font-medium text-slate-200 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg border border-slate-600 bg-slate-700/50">
-                  연간 계획 (2025 실적 vs 2026 계획)
+                  {t("연간 계획 (2025 실적 vs 2026 계획)", lang)}
                 </span>
               )}
               <Button
@@ -2306,7 +2388,7 @@ export function ExpenseAccountHierTable({
                 className="flex items-center gap-2 min-w-[100px] sm:min-w-[120px] md:min-w-[140px] justify-center px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-slate-700/50 border-slate-600 text-slate-200 hover:bg-slate-600 hover:text-slate-50 font-medium shadow-md hover:shadow-lg transition-all duration-200 text-[13.5px] sm:text-[15px]"
               >
                 <ChevronsDownUp className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="whitespace-nowrap">{isAllExpanded ? "모두 접기" : "모두 펼치기"}</span>
+                <span className="whitespace-nowrap">{isAllExpanded ? t("모두 접기", lang) : t("모두 펼치기", lang)}</span>
               </Button>
               <Button
                 variant="outline"
@@ -2315,7 +2397,7 @@ export function ExpenseAccountHierTable({
                 className="flex items-center gap-2 min-w-[80px] sm:min-w-[90px] justify-center px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-slate-700/50 border-slate-600 text-slate-200 hover:bg-slate-600 hover:text-slate-50 font-medium shadow-md hover:shadow-lg transition-all duration-200 text-[13.5px] sm:text-[15px]"
               >
                 <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="whitespace-nowrap">초기화</span>
+                <span className="whitespace-nowrap">{t("초기화", lang)}</span>
               </Button>
             </div>
           </div>
@@ -2377,46 +2459,46 @@ export function ExpenseAccountHierTable({
                 <>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">구분</th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    <div>{year - 1}년 연간</div>
-                    <div>(실적)</div>
+                    <div>{year - 1}{t("년 연간", lang)}</div>
+                    <div>{t("(실적)", lang)}</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    <div>{year}년 연간</div>
-                    <div>(계획)</div>
+                    <div>{year}{t("년 연간", lang)}</div>
+                    <div>{t("(계획)", lang)}</div>
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">차이(금액)</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">{t("차이(금액)", lang)}</th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">YOY(%)</th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">계산근거</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">설명</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">{t("설명", lang)}</th>
                 </>
               ) : (
                 <>
               <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                구분
+                    {t("구분", lang)}
               </th>
               <th className="border-r border-slate-600"></th>
               {viewMode === "monthly" ? (
                 <>
                   <th colSpan={4} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    당월 데이터
+                    {t("당월 데이터", lang)}
                   </th>
                   <th className="border-r border-slate-600"></th>
                   <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    설명
+                    {t("설명", lang)}
                   </th>
                 </>
               ) : (
                 <>
                   <th colSpan={6} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    누적(YTD)
+                    {t("누적(YTD)", lang)}
                   </th>
                   <th className="border-r border-slate-600"></th>
                   <th colSpan={4} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    연간 계획
+                    {t("연간 계획", lang)}
                   </th>
                   <th className="border-r border-slate-600"></th>
                   <th rowSpan={2} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    설명
+                    {t("설명", lang)}
                   </th>
                 </>
               )}
@@ -2430,13 +2512,13 @@ export function ExpenseAccountHierTable({
               {viewMode === "monthly" ? (
                 <>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    전년
+                    {t("전년", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    당월
+                    {t("당월", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    차이(금액)
+                    {t("차이(금액)", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     YOY (%)
@@ -2446,32 +2528,32 @@ export function ExpenseAccountHierTable({
               ) : (
                 <>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    전년누적
+                    {t("전년누적", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    당년누적
+                    {t("당년누적", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    차이(금액)
+                    {t("차이(금액)", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     YOY (%)
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    계획비 증감
+                    {t("계획비 증감", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    계획비 (%)
+                    {t("계획비(%)", lang)}
                   </th>
                   <th className="border-r border-slate-600"></th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {year - 1}년 연간
+                    {year - 1}{t("년 연간", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {year}년 연간
+                    {year}{t("년 연간", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    차이(금액)
+                    {t("차이(금액)", lang)}
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     YOY (%)
@@ -2488,7 +2570,7 @@ export function ExpenseAccountHierTable({
               <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] font-semibold text-gray-800">
                 <div className="flex items-center gap-2">
                   <PieChart className="w-3 h-3 sm:w-4 sm:h-4 text-indigo-600" />
-                  <span>전체 합계</span>
+                  <span>{t("전체 합계", lang)}</span>
                 </div>
               </td>
               {!is2026AnnualOnly && <td className="border-r border-gray-200"></td>}
@@ -2597,45 +2679,37 @@ export function ExpenseAccountHierTable({
                 return "font-normal";
               };
               
-              // 표시할 텍스트 결정
+              // 표시할 텍스트 결정 (중국어 지원)
               const getDisplayText = (row: ExpenseAccountRow): string => {
-                if (row.level === 1) return row.category_l1 || "-";
+                if (row.level === 1) return getDisplayLabel(row.category_l1 || "", row.category_l1_cn, lang) || "-";
                 if (row.level === 2) {
-                  // 광고비의 경우 level 2는 사업부구분
                   if (row.category_l1 === "광고비" && row.biz_unit) {
-                    return row.biz_unit;
+                    return getDisplayLabel(row.biz_unit, row.biz_unit_cn, lang);
                   }
-                  // 지급수수료 > 인테리어 개발의 경우 level 2는 중분류(인테리어 개발)
                   if (row.category_l1 === "지급수수료" && row.category_l2 === "인테리어 개발") {
-                    return row.category_l2 || "-";
+                    return getDisplayLabel(row.category_l2 || "", row.category_l2_cn, lang) || "-";
                   }
-                  // 출장비 > 국내출장비/해외출장비의 경우 level 2는 중분류
                   if (row.category_l1 === "출장비" && (row.category_l2 === "국내출장비" || row.category_l2 === "해외출장비")) {
-                    return row.category_l2 || "-";
+                    return getDisplayLabel(row.category_l2 || "", row.category_l2_cn, lang) || "-";
                   }
-                  return row.category_l2 || "-";
+                  return getDisplayLabel(row.category_l2 || "", row.category_l2_cn, lang) || "-";
                 }
                 if (row.level === 3) {
-                  // 광고비의 경우 level 3는 중분류
                   if (row.category_l1 === "광고비") {
-                    return row.category_l2 || "-";
+                    return getDisplayLabel(row.category_l2 || "", row.category_l2_cn, lang) || "-";
                   }
-                  // 지급수수료 > 인테리어 개발의 경우 level 3는 사업부구분
                   if (row.category_l1 === "지급수수료" && row.category_l2 === "인테리어 개발" && row.biz_unit) {
-                    return row.biz_unit;
+                    return getDisplayLabel(row.biz_unit, row.biz_unit_cn, lang);
                   }
-                  // 출장비 > 국내출장비/해외출장비의 경우 level 3는 사업부구분
                   if (row.category_l1 === "출장비" && (row.category_l2 === "국내출장비" || row.category_l2 === "해외출장비") && row.biz_unit) {
-                    return row.biz_unit;
+                    return getDisplayLabel(row.biz_unit, row.biz_unit_cn, lang);
                   }
-                  // 일반적인 경우 level 3는 소분류
-                  return row.category_l3 || "-";
+                  return getDisplayLabel(row.category_l3 || "", row.category_l3_cn, lang) || "-";
                 }
-                // level 4: 지급수수료 > 인테리어 개발 또는 출장비 > 국내출장비/해외출장비의 경우 소분류
                 if (row.level === 4) {
-                  return row.category_l3 || "-";
+                  return getDisplayLabel(row.category_l3 || "", row.category_l3_cn, lang) || "-";
                 }
-                return row.category_l3 || "-";
+                return getDisplayLabel(row.category_l3 || "", row.category_l3_cn, lang) || "-";
               };
               
               const indentClass = getIndentClass(row.level);

@@ -1,5 +1,9 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { formatK, formatM, formatPercent, formatPercentPoint } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/lib/translations";
 
 interface KpiCardProps {
   title: string;
@@ -28,13 +32,14 @@ export function KpiCard({
   className,
   detailItems,
 }: KpiCardProps) {
+  const { lang } = useLanguage();
   const displayValue =
     typeof value === "number" 
       ? (unit === "K" 
           ? formatK(value, title === "인당 비용" ? 1 : 0)
           : unit === "M"
           ? formatM(value, 0)
-          : title.includes("비용률")
+          : (title.includes("비용률") || title.includes("费用率"))
             ? formatPercent(value, 1)
             : (title === "공통비용 YOY" || title === "법인비용 YOY")
             ? formatPercent(value, 0)
@@ -42,7 +47,7 @@ export function KpiCard({
       : value || "-";
 
   // YOY가 percentage point인지 확인 (매출대비 비용률의 경우)
-  const isPercentagePoint = yoy !== null && yoy !== undefined && Math.abs(yoy) < 10 && title.includes("비용률");
+  const isPercentagePoint = yoy !== null && yoy !== undefined && Math.abs(yoy) < 10 && (title.includes("비용률") || title.includes("费用率"));
 
   // 네이비 색상 (navy blue)
   const navyColor = "#001f3f"; // 또는 "#1e3a8a"
@@ -92,8 +97,8 @@ export function KpiCard({
                   <>
                     {previousValue !== null && previousValue !== undefined && (
                       <div className="text-[10px] sm:text-xs text-gray-500">
-                        전년 {typeof previousValue === "number" 
-                          ? (title.includes("비용률") 
+                        {t("전년", lang)} {typeof previousValue === "number" 
+                          ? ((title.includes("비용률") || title.includes("费用率"))
                               ? formatPercent(previousValue, 1)
                               : unit === "K" 
                                 ? formatK(previousValue, title === "인당 비용" ? 1 : 0)
@@ -159,9 +164,9 @@ export function KpiCard({
               ) : (
                 <>
                   {previousValue !== null && previousValue !== undefined && (
-                    <div className="text-[10px] sm:text-xs text-gray-500">
-                      전년 {typeof previousValue === "number" 
-                        ? (title.includes("비용률") 
+                      <div className="text-[10px] sm:text-xs text-gray-500">
+                        {t("전년", lang)} {typeof previousValue === "number" 
+                          ? ((title.includes("비용률") || title.includes("费用率"))
                             ? formatPercent(previousValue, 1)
                             : unit === "K" 
                               ? formatK(previousValue, title === "인당 비용" ? 1 : 0)

@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
+import { ExpenseDataProvider } from "@/components/dashboard/ExpenseDataProvider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "비용 분석 대시보드",
-  description: "FP&A 팀을 위한 비용 분석 대시보드",
+  title: "F&F China Expense Dashboard",
+  description: "F&F China Expense Dashboard",
 };
 
 export default function RootLayout({
@@ -18,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <ToastProvider>{children}</ToastProvider>
+        <ToastProvider>
+          <LanguageProvider>
+            <ExpenseDataProvider>{children}</ExpenseDataProvider>
+          </LanguageProvider>
+        </ToastProvider>
       </body>
     </html>
   );

@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCategoryDetail, type BizUnit } from "@/lib/expenseData";
 import { formatK, formatPercent } from "@/lib/utils";
 import { ExpenseAccountRow } from "@/types/expense";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
 
 const AD_ROW_ORDER = ["MLB", "KIDS", "DISCOVERY"] as const;
 const AD_SUBCATEGORY_ORDER = ["ACC", "APP", "Branding", "Others Product requested", "Products", "Retailing"] as const;
@@ -48,6 +50,7 @@ function totalAdExpense(details: { amount: number }[]): number {
 }
 
 export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, prevSales }: AdExpenseCardProps) {
+  const { lang } = useLanguage();
   const [showDetail, setShowDetail] = useState(false);
   const isBrand = bizUnit === "MLB" || bizUnit === "KIDS" || bizUnit === "DISCOVERY";
 
@@ -106,7 +109,7 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
           <CardTitle style={{ color: navyColor, fontSize: "21px", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ width: "3px", height: "1em", backgroundColor: navyBarColor, display: "inline-block" }} />
-              광고비
+              {t("광고비", lang)}
             </span>
             <span className="font-bold" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px" }}>
               <span>
@@ -131,13 +134,13 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
                         onClick={() => setShowDetail(!showDetail)}
                         className="text-blue-600 hover:text-blue-800"
                       >
-                        {showDetail ? "간략히" : "상세보기"}
+                        {showDetail ? t("간략히", lang) : t("상세보기", lang)}
                       </button>
                     )}
                   </th>
-                  <th className="text-right py-1 px-1 font-semibold">전년</th>
-                  <th className="text-right py-1 px-1 font-semibold">당년</th>
-                  <th className="text-right py-1 px-1 font-semibold">전년비</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("당년", lang)}</th>
+                  <th className="text-right py-1 px-1 font-semibold">{t("전년비", lang)}</th>
                   <th className="text-right py-1 pl-1 font-semibold">YoY</th>
                 </tr>
               </thead>
@@ -166,7 +169,7 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
                     <React.Fragment key={key}>
                       {/* L2 행 (브랜드 합계 또는 소분류) */}
                       <tr>
-                        <td className="text-left py-0.5 pr-2 font-semibold">{key}</td>
+                        <td className="text-left py-0.5 pr-2 font-semibold">{getDisplayLabel(key, isBrand ? l2Node?.category_l2_cn : l2Node?.biz_unit_cn, lang)}</td>
                         <td className="text-right py-0.5 px-1">{prevStr}</td>
                         <td className="text-right py-0.5 px-1">{currStr}</td>
                         <td className="text-right py-0.5 px-1">{amountPart || "-"}</td>
@@ -182,7 +185,7 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
                         return (
                           <tr key={`${key}-${idx}`} className="text-gray-600">
                             <td className="text-left py-0.5 pr-2 pl-4">
-                              - {l3.category_l3 || "-"}
+                              - {getDisplayLabel(l3.category_l3 || "-", l3.category_l3_cn, lang)}
                             </td>
                             <td className="text-right py-0.5 px-1">{l3.prev_ytd > 0 ? formatK(l3.prev_ytd, 0) : "-"}</td>
                             <td className="text-right py-0.5 px-1">{formatK(l3.curr_ytd, 0)}</td>

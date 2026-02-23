@@ -72,6 +72,10 @@ import {
   type YearOption,
 } from "@/lib/expenseData";
 import { formatK, formatPercent, formatPercentPoint } from "@/lib/utils";
+import { getSavedDefault } from "@/lib/dashboardDefaults";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t, getDisplayLabel } from "@/lib/translations";
+import { LanguageToggle } from "@/components/dashboard/LanguageToggle";
 
 const DIVISION_NAMES: Record<string, string> = {
   법인: "법인",
@@ -91,6 +95,7 @@ const DIVISION_ICONS: Record<string, React.ElementType> = {
 };
 
 export default function DivisionPage() {
+  const { lang } = useLanguage();
   const params = useParams();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -110,17 +115,25 @@ export default function DivisionPage() {
   const availableYearOptions = getAvailableYearOptions();
   const yearParam = searchParams.get("year");
   const typeParam = searchParams.get("type") as 'actual' | 'plan' | null;
-  
-  const initialYearOption = availableYearOptions.find(
-    opt => opt.year === parseInt(yearParam || '') && opt.type === (typeParam || 'actual')
-  ) || availableYearOptions[0] || { year: 2025, type: 'actual' as const, display: '2025년(실적)' };
-  
-  const initialMonth = parseInt(searchParams.get("month") || "12");
+  const monthParam = searchParams.get("month");
+  const modeParam = searchParams.get("mode") as Mode | null;
+
+  const urlYearOption = yearParam && typeParam
+    ? availableYearOptions.find((opt) => opt.year === parseInt(yearParam) && opt.type === typeParam)
+    : null;
+  const saved = getSavedDefault();
+  const savedOption = saved ? availableYearOptions.find((o) => o.year === saved.year && o.type === saved.type) : null;
+  const savedMonths = savedOption ? getAvailableMonths(savedOption.year, savedOption.type) : [];
+  const savedValid = !!saved && !!savedOption && savedMonths.length > 0 && savedMonths.includes(saved.month);
+
+  const fallbackYearOption = availableYearOptions.find((opt) => opt.year === 2026 && opt.type === "actual") || availableYearOptions[0] || { year: 2025, type: "actual" as const, display: "2025년(실적)" };
+  const initialYearOption = urlYearOption || (savedValid ? savedOption! : fallbackYearOption);
+  const initialMonth = (monthParam && !isNaN(parseInt(monthParam))) ? parseInt(monthParam) : (savedValid ? saved!.month : 1);
+  const initialMode: Mode = (modeParam === "monthly" || modeParam === "ytd") ? modeParam : (savedValid ? saved!.mode : "monthly");
+
   const [yearOption, setYearOption] = useState<YearOption>(initialYearOption);
   const [month, setMonth] = useState<number>(initialMonth);
-  const [mode, setMode] = useState<Mode>(
-    (searchParams.get("mode") as Mode) || "monthly"
-  );
+  const [mode, setMode] = useState<Mode>(initialMode);
   const [adExpenseNode, setAdExpenseNode] = useState<ExpenseAccountRow | null>(null);
   const [itFeeNode, setITFeeNode] = useState<ExpenseAccountRow | null>(null);
   const [paymentFeeNode, setPaymentFeeNode] = useState<ExpenseAccountRow | null>(null);
@@ -322,7 +335,7 @@ export default function DivisionPage() {
     const laborWelfareDiff = laborWelfareCurr - laborWelfarePrev;
     const laborWelfareYoy = laborWelfarePrev > 0 ? (laborWelfareCurr / laborWelfarePrev) * 100 : null;
     items.push({
-      label: "인건비 외",
+      label: t("인건비 외", lang),
       value: `${laborWelfareDiff >= 0 ? "+" : ""}${formatK(laborWelfareDiff)} (${laborWelfareYoy != null ? formatPercent(laborWelfareYoy, 0) : "-"})`
     });
     
@@ -336,7 +349,7 @@ export default function DivisionPage() {
         const diff = currAmount - prevAmount;
         const yoy = prevAmount > 0 ? (currAmount / prevAmount) * 100 : null;
         items.push({
-          label: cat,
+          label: getDisplayLabel(cat, curr?.cost_lv1_cn ?? prev?.cost_lv1_cn, lang),
           value: `${diff >= 0 ? "+" : ""}${formatK(diff)} (${yoy != null ? formatPercent(yoy, 0) : "-"})`
         });
       }
@@ -359,7 +372,7 @@ export default function DivisionPage() {
     const laborWelfareDiff = laborWelfareCurr - laborWelfarePrev;
     const laborWelfareYoy = laborWelfarePrev > 0 ? (laborWelfareCurr / laborWelfarePrev) * 100 : null;
     items.push({
-      label: "인건비 외",
+      label: t("인건비 외", lang),
       value: `${laborWelfareDiff >= 0 ? "+" : ""}${formatK(laborWelfareDiff)} (${laborWelfareYoy != null ? formatPercent(laborWelfareYoy, 0) : "-"})`
     });
     
@@ -373,7 +386,7 @@ export default function DivisionPage() {
         const diff = currAmount - prevAmount;
         const yoy = prevAmount > 0 ? (currAmount / prevAmount) * 100 : null;
         items.push({
-          label: cat,
+          label: getDisplayLabel(cat, curr?.cost_lv1_cn ?? prev?.cost_lv1_cn, lang),
           value: `${diff >= 0 ? "+" : ""}${formatK(diff)} (${yoy != null ? formatPercent(yoy, 0) : "-"})`
         });
       }
@@ -396,7 +409,7 @@ export default function DivisionPage() {
     const laborWelfareDiff = laborWelfareCurr - laborWelfarePrev;
     const laborWelfareYoy = laborWelfarePrev > 0 ? (laborWelfareCurr / laborWelfarePrev) * 100 : null;
     items.push({
-      label: "인건비 외",
+      label: t("인건비 외", lang),
       value: `${laborWelfareDiff >= 0 ? "+" : ""}${formatK(laborWelfareDiff)} (${laborWelfareYoy != null ? formatPercent(laborWelfareYoy, 0) : "-"})`
     });
     
@@ -410,7 +423,7 @@ export default function DivisionPage() {
         const diff = currAmount - prevAmount;
         const yoy = prevAmount > 0 ? (currAmount / prevAmount) * 100 : null;
         items.push({
-          label: cat,
+          label: getDisplayLabel(cat, curr?.cost_lv1_cn ?? prev?.cost_lv1_cn, lang),
           value: `${diff >= 0 ? "+" : ""}${formatK(diff)} (${yoy != null ? formatPercent(yoy, 0) : "-"})`
         });
       }
@@ -449,18 +462,18 @@ export default function DivisionPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-6 md:py-8">
         {/* 헤더: 한 행, 좁은 화면에서 크기만 축소·줄바꿈 없음 */}
-        <div className="mb-6 flex flex-nowrap items-center gap-2 sm:gap-3 md:gap-4 min-w-0">
+        <div className="mb-6 flex flex-nowrap items-center gap-2 min-w-0">
           <Link href="/" className="flex-shrink-0">
-            <Button variant="ghost" size="sm" className="p-1 sm:p-1.5">
-              <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4" />
+            <Button variant="ghost" size="sm" className="p-1">
+              <ArrowLeft className="h-3 w-3" />
             </Button>
           </Link>
-          <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
+          <h1 className="font-medium flex items-center gap-1 flex-shrink-0 text-[0.975rem]">
             {DIVISION_ICONS[bizUnit] && (() => {
               const Icon = DIVISION_ICONS[bizUnit];
-              return <Icon className="w-4 h-4 sm:w-5 sm:h-5" />;
+              return <Icon className="w-4 h-4" />;
             })()}
-            <span>{DIVISION_NAMES[bizUnit]} 비용분석</span>
+            <span>{t(DIVISION_NAMES[bizUnit], lang)} {t("비용분석", lang)}</span>
           </h1>
           <BizUnitSwitch
             currentBizUnit={bizUnit}
@@ -469,13 +482,13 @@ export default function DivisionPage() {
             mode={mode}
             yearType={yearType}
           />
-          {/* 기준 문구 + 날짜 선택 한 묶음 (두 줄일 때처럼) */}
+          {/* 기준 문구 + 날짜 선택 한 묶음 */}
           <div className="flex items-center gap-2 flex-shrink-0">
-            <p className="text-[10px] sm:text-xs text-gray-500 whitespace-nowrap">
-              {yearOption.display} {isPlanYear ? '' : `${month}월`} 기준
+            <p className="hidden lg:inline text-xs text-gray-500 whitespace-nowrap">
+              {`${yearOption.year}${t(yearOption.type === 'plan' ? '년(예산)' : '년(실적)', lang)}`} {isPlanYear ? '' : `${month}${t("월", lang)}`} {t("기준", lang)}
             </p>
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-1.5 py-1 sm:px-2 sm:py-1.5 md:px-3 md:py-2 bg-white rounded-lg shadow-sm border border-gray-200 whitespace-nowrap">
-              <Calendar className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: '#3b82f6' }} />
+            <div className="inline-flex h-7 items-center gap-1 px-2 py-1 rounded-lg border border-gray-200 bg-gray-50 whitespace-nowrap">
+              <Calendar className="w-3 h-3 flex-shrink-0" style={{ color: '#3b82f6' }} />
               <div className="relative">
                 <select
                   value={`${yearOption.year}-${yearOption.type}`}
@@ -486,22 +499,22 @@ export default function DivisionPage() {
                     );
                     if (selected) setYearOption(selected);
                   }}
-                  className="appearance-none bg-transparent border-none outline-none text-[10px] sm:text-xs font-medium text-gray-700 cursor-pointer pr-4 sm:pr-5"
+                  className="appearance-none bg-transparent border-none outline-none text-xs font-medium text-gray-700 cursor-pointer pr-4"
                 >
                   {availableYearOptions.map((opt) => (
                     <option key={`${opt.year}-${opt.type}`} value={`${opt.year}-${opt.type}`}>
-                      {opt.display}
+                      {`${opt.year}${t(opt.type === 'plan' ? '년(예산)' : '년(실적)', lang)}`}
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-600 pointer-events-none" />
+                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 text-gray-600 pointer-events-none" />
               </div>
               <div className="relative">
                 <select
                   value={month.toString()}
                   onChange={(e) => setMonth(parseInt(e.target.value))}
                   disabled={isPlanYear}
-                  className={`appearance-none bg-transparent border-none outline-none text-[10px] sm:text-xs font-medium pr-4 sm:pr-5 ${
+                  className={`appearance-none bg-transparent border-none outline-none text-xs font-medium pr-4 ${
                     isPlanYear
                       ? 'text-gray-400 cursor-not-allowed'
                       : 'text-gray-700 cursor-pointer'
@@ -509,11 +522,11 @@ export default function DivisionPage() {
                 >
                   {availableMonths.map((m) => (
                     <option key={m} value={m}>
-                      {m}월
+                      {m}{t("월", lang)}
                     </option>
                   ))}
                 </select>
-                <ChevronDown className={`absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 pointer-events-none ${
+                <ChevronDown className={`absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 pointer-events-none ${
                   isPlanYear ? 'text-gray-400' : 'text-gray-600'
                 }`} />
               </div>
@@ -522,58 +535,59 @@ export default function DivisionPage() {
           <Tabs
             value={mode}
             onValueChange={(v) => !isPlanYear && setMode(v as Mode)}
-            className="flex-shrink-0"
+            className="flex-shrink-0 w-auto"
           >
-            <TabsList className="h-6 sm:h-7">
+            <TabsList className="h-7 rounded-lg border border-gray-200 bg-gray-50 p-1">
               <TabsTrigger
                 value="monthly"
                 disabled={isPlanYear}
-                className={`text-[10px] sm:text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 ${isPlanYear ? 'cursor-not-allowed opacity-50' : ''}`}
+                className={`text-xs px-2 py-1 rounded-md ${isPlanYear ? 'cursor-not-allowed opacity-50' : ''}`}
               >
-                당월
+                {t("당월", lang)}
               </TabsTrigger>
-              <TabsTrigger value="ytd" className="text-[10px] sm:text-xs px-1.5 py-0.5 sm:px-2 sm:py-1">
-                {isPlanYear ? "연간" : "누적 (YTD)"}
+              <TabsTrigger value="ytd" className="text-xs px-2 py-1 rounded-md">
+                {isPlanYear ? t("연간", lang) : t("누적 (YTD)", lang)}
               </TabsTrigger>
             </TabsList>
           </Tabs>
-          {isCorporate && (
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={handleDownloadHtml}
-              className="flex-shrink-0 text-[10px] sm:text-xs"
-            >
-              <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
-              HTML 다운로드
-            </Button>
-          )}
-          {isPlanYear && (
-            <span className="text-[10px] sm:text-xs font-medium text-gray-600 flex-shrink-0 whitespace-nowrap">
-              연간 계획 (2025 실적 vs 2026 계획)
-            </span>
-          )}
+          <div className="flex flex-shrink-0 items-center gap-2">
+            <LanguageToggle compact />
+            {isCorporate && (
+              <button
+                type="button"
+                onClick={handleDownloadHtml}
+                className="flex h-7 items-center gap-1 rounded-lg border border-gray-200 bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-100"
+              >
+                <Download className="h-3 w-3 flex-shrink-0" />
+                {t("HTML 다운로드", lang)}
+              </button>
+            )}
+            {isPlanYear && (
+              <span className="text-[10px] font-medium text-gray-600 whitespace-nowrap">
+                {t("연간 계획 (2025 실적 vs 2026 계획)", lang)}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* KPI 카드 + 카드 4개 + 비용 계정 상세 분석 (HTML 다운로드 대상) */}
         <div ref={isCorporate ? exportAreaRef : undefined} className={isCorporate ? "" : undefined}>
         {/* KPI 카드 */}
         <div className="mb-6">
-          <h2 className="font-bold mb-4 text-xs sm:text-sm lg:text-lg">주요 지표 (KPI)</h2>
+          <h2 className="font-bold mb-4 text-xs sm:text-sm lg:text-lg">{t("주요 지표 (KPI)", lang)}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <KpiCard
-            title="총비용"
+            title={t("총비용", lang)}
             value={corporateTotalCost ?? totalCost}
             unit="K"
             yoy={corporateTotalCostYOY ?? totalCostYOY}
-            yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
+            yoyLabel={is2026Annual ? t("전년(2025 실적) 대비", lang) : t("전년동월대비", lang)}
             previousValue={corporatePreviousAmountForKpi ?? previousAmountForKpi}
           />
           {isBrand && (
             <>
               <KpiCard
-                title="브랜드비용"
+                title={t("브랜드비용", lang)}
                 value={is2026Annual && !tableAnnualTotals ? "-" : (is2026Annual && tableAnnualTotals ? tableAnnualTotals.curr : totalCost)}
                 unit="K"
                 yoy={null}
@@ -590,18 +604,18 @@ export default function DivisionPage() {
                 detailItems={brandDetailItems}
               />
               <KpiCard
-                title="매출대비 비용률"
+                title={t("매출대비 비용률", lang)}
                 value={costRatio}
                 yoy={costRatioYOY}
-                yoyLabel="전년동월대비"
+                yoyLabel={t("전년동월대비", lang)}
                 previousValue={prevCostRatio}
               />
               <KpiCard
-                title="판매매출"
+                title={t("판매매출", lang)}
                 value={sales}
                 unit="M"
                 yoy={salesYOY}
-                yoyLabel="전년동월대비"
+                yoyLabel={t("전년동월대비", lang)}
                 previousValue={previous?.sales ?? null}
               />
             </>
@@ -610,7 +624,7 @@ export default function DivisionPage() {
             <>
               {isCorporate && (
                 <KpiCard
-                  title="법인비용 YOY"
+                  title={t("법인비용 YOY", lang)}
                   value={(() => {
                     const change = is2026Annual && tableAnnualTotals
                       ? tableAnnualTotals.curr - tableAnnualTotals.prev
@@ -621,13 +635,13 @@ export default function DivisionPage() {
                     return `${change && change > 0 ? '+' : ''}${formatK(change || 0)} (${formatPercent(yoy, 0)})`;
                   })()}
                   yoy={null}
-                  yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : ""}
+                  yoyLabel={is2026Annual ? t("전년(2025 실적) 대비", lang) : ""}
                   detailItems={corporateDetailItems}
                 />
               )}
               {isCommon && (
                 <KpiCard
-                  title="공통비용"
+                  title={t("공통비용", lang)}
                   value={is2026Annual && !tableAnnualTotals ? "-" : (is2026Annual && tableAnnualTotals ? tableAnnualTotals.curr : totalCost)}
                   unit="K"
                   yoy={null}
@@ -645,18 +659,18 @@ export default function DivisionPage() {
                 />
               )}
               <KpiCard
-                title="매출대비 비용률"
+                title={t("매출대비 비용률", lang)}
                 value={costRatio}
                 yoy={costRatioYOY}
-                yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
+                yoyLabel={is2026Annual ? t("전년(2025 실적) 대비", lang) : t("전년동월대비", lang)}
                 previousValue={prevCostRatio}
               />
               <KpiCard
-                title="판매매출"
+                title={t("판매매출", lang)}
                 value={isCommon ? corporateSales : sales}
                 unit="M"
                 yoy={isCommon ? corporateSalesYOY : salesYOY}
-                yoyLabel={is2026Annual ? "전년(2025 실적) 대비" : "전년동월대비"}
+                yoyLabel={is2026Annual ? t("전년(2025 실적) 대비", lang) : t("전년동월대비", lang)}
                 previousValue={isCommon ? corporatePrevSales : prevSales}
               />
             </>
@@ -670,8 +684,8 @@ export default function DivisionPage() {
           {isBrand && (
             <>
               <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} sales={sales} prevSales={prevSales} />
-              <CategoryExpenseCard title="수주회" categoryLv1="수주회" node={meetingNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
-              <CategoryExpenseCard title="출장비" categoryLv1="출장비" node={travelNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <CategoryExpenseCard title={t("수주회", lang)} categoryLv1="수주회" node={meetingNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <CategoryExpenseCard title={t("출장비", lang)} categoryLv1="출장비" node={travelNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
             </>
           )}
           {isCommon && (
@@ -695,7 +709,7 @@ export default function DivisionPage() {
             bizUnit={bizUnit}
             year={year}
             month={month}
-            title={`${DIVISION_NAMES[bizUnit]} 비용 계정 상세 분석`}
+            title={`${t(DIVISION_NAMES[bizUnit], lang)} ${t("비용 계정 상세 분석", lang)}`}
             onHierarchyReady={handleHierarchyReady}
             onAnnualTotalsChange={(isBrand || isCommon) && is2026Annual ? handleAnnualTotalsChange : undefined}
             yearType={yearType}

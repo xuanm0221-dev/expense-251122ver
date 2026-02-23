@@ -5,6 +5,10 @@ export interface ExpenseAccountRow {
   biz_unit?: string; // 사업부구분 (level 2 또는 level 3에서 사용)
   category_l2: string; // 중분류
   category_l3: string; // 소분류
+  category_l1_cn?: string;
+  category_l2_cn?: string;
+  category_l3_cn?: string;
+  biz_unit_cn?: string;
   prev_month: number;
   curr_month: number;
   prev_ytd: number;

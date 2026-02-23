@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, FileText, type LucideIcon } from "lucide-react";
+import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, FileText, BookmarkCheck, type LucideIcon } from "lucide-react";
 import React from "react";
 
 // 야구공 아이콘 컴포넌트 (LucideIcon 타입과 호환)
@@ -58,6 +58,10 @@ import {
 } from "@/lib/expenseData";
 import { calculateYOY } from "@/lib/utils";
 import { getAnnualData, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
+import { getSavedDefault, saveDefault } from "@/lib/dashboardDefaults";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/lib/translations";
+import { LanguageToggle } from "@/components/dashboard/LanguageToggle";
 
 const MAIN_BRAND_CONFIG = [
   { bizUnit: "법인" as const, brandColor: "#7c3aed", brandInitial: "법", brandName: "법인", icon: Building },
@@ -68,18 +72,31 @@ const MAIN_BRAND_CONFIG = [
 ];
 
 export default function HomePage() {
+  const { lang } = useLanguage();
   const availableYearOptions = getAvailableYearOptions();
-  const initialYearOption = availableYearOptions.length > 0 ? availableYearOptions[0] : { year: 2025, type: 'actual' as const, display: '2025년(실적)' };
-  const initialMonth = 12;
-  
+  const saved = getSavedDefault();
+  const savedOption = saved ? availableYearOptions.find((o) => o.year === saved.year && o.type === saved.type) : null;
+  const savedMonths = savedOption ? getAvailableMonths(savedOption.year, savedOption.type) : [];
+  const savedValid = !!saved && !!savedOption && savedMonths.length > 0 && savedMonths.includes(saved.month);
+
+  const fallbackYearOption = availableYearOptions.find((opt) => opt.year === 2026 && opt.type === "actual") || (availableYearOptions[0] ?? { year: 2025, type: "actual" as const, display: "2025년(실적)" });
+  const initialYearOption = savedValid ? savedOption! : fallbackYearOption;
+  const initialMonth = savedValid ? saved!.month : 1;
+  const initialMode: Mode = savedValid ? saved!.mode : "monthly";
+
   const [yearOption, setYearOption] = useState<YearOption>(initialYearOption);
   const [month, setMonth] = useState<number>(initialMonth);
-  const [mode, setMode] = useState<Mode>("monthly");
+  const [mode, setMode] = useState<Mode>(initialMode);
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
   const availableMonths = getAvailableMonths(yearOption.year, yearOption.type);
   const homeExportRef = useRef<HTMLDivElement>(null);
+
+  const handleSaveDefault = useCallback(() => {
+    saveDefault(yearOption.year, yearOption.type, month, mode);
+    window.alert(t("기본 날짜가 저장되었습니다. 다음 접속 시 이 날짜가 적용됩니다.", lang));
+  }, [yearOption.year, yearOption.type, month, mode, lang]);
 
   const handleDownloadHtml = useCallback(() => {
     if (!homeExportRef.current) return;
@@ -117,7 +134,7 @@ export default function HomePage() {
                 <BarChart3 className="w-6 h-6 text-white" />
               </div>
               {/* 제목 */}
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800">F&F CHINA 비용 대시보드</h1>
+              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800">{t("F&F CHINA 비용 대시보드", lang)}</h1>
             </div>
             {/* 제목 아래 구분선 */}
             <div className="h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 rounded-full mx-auto" style={{ maxWidth: '600px' }}></div>
@@ -125,7 +142,7 @@ export default function HomePage() {
           
           {/* 날짜 선택 및 모드 전환 영역 */}
           <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
-            <div className="flex items-center gap-4 flex-wrap min-w-0">
+            <div className="flex items-center gap-4 flex-wrap min-w-0 flex-1">
               {/* 그라데이션 아이콘 박스 (캘린더) */}
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg flex-shrink-0">
                 <Calendar className="w-6 h-6 text-white" />
@@ -146,7 +163,7 @@ export default function HomePage() {
                   >
                     {availableYearOptions.map((opt) => (
                       <option key={`${opt.year}-${opt.type}`} value={`${opt.year}-${opt.type}`}>
-                        {opt.display}
+                        {`${opt.year}${t(opt.type === 'plan' ? '년(예산)' : '년(실적)', lang)}`}
                       </option>
                     ))}
                   </select>
@@ -165,7 +182,7 @@ export default function HomePage() {
                   >
                     {availableMonths.map((m) => (
                       <option key={m} value={m}>
-                        {m}월
+                        {m}{t("월", lang)}
                       </option>
                     ))}
                   </select>
@@ -184,14 +201,24 @@ export default function HomePage() {
                       disabled={isPlanYear}
                       className={isPlanYear ? 'cursor-not-allowed opacity-50' : ''}
                     >
-                      {isPlanYear ? "월" : "당월"}
+                      {isPlanYear ? t("월", lang) : t("당월", lang)}
                     </TabsTrigger>
                     <TabsTrigger value="ytd">
-                      {isPlanYear ? "연간" : "누적(YTD)"}
+                      {isPlanYear ? t("연간", lang) : t("누적(YTD)", lang)}
                     </TabsTrigger>
                   </TabsList>
                 </Tabs>
               </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={handleSaveDefault}
+                className="flex-shrink-0 text-[10px] sm:text-xs"
+              >
+                <BookmarkCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
+                {t("이 날짜를 기본으로 저장", lang)}
+              </Button>
               {isPlanYear && (
                 <>
                   <Button
@@ -202,7 +229,7 @@ export default function HomePage() {
                     className="flex-shrink-0 text-[10px] sm:text-xs"
                   >
                     <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
-                    HTML 다운로드
+                    {t("HTML 다운로드", lang)}
                   </Button>
                   <Button
                     type="button"
@@ -212,14 +239,17 @@ export default function HomePage() {
                     className="flex-shrink-0 text-[10px] sm:text-xs"
                   >
                     <FileText className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
-                    2026년 예산구조진단 보고서
+                    {t("2026년 예산구조진단 보고서", lang)}
                   </Button>
                 </>
               )}
             </div>
+            <div className="flex-shrink-0 mt-2 sm:mt-0">
+              <LanguageToggle />
+            </div>
           </div>
           <p className="text-[10px] sm:text-xs text-muted-foreground mt-4">
-            브랜드를 클릭하면 상세 대시보드로 이동합니다.
+            {t("브랜드를 클릭하면 상세 대시보드로 이동합니다.", lang)}
           </p>
         </div>
 
@@ -237,7 +267,7 @@ export default function HomePage() {
                 yearType={yearOption.type}
                 brandColor={config.brandColor}
                 brandInitial={config.brandInitial}
-                brandName={config.brandName}
+                brandName={t(config.brandName, lang)}
                 icon={config.icon}
               />
             ))}
