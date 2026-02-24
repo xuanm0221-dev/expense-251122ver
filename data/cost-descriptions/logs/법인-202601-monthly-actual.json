@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2026-02-24T00:33:19.569Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "怎及噶",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-24T00:17:32.811Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "",
+    "newValue": "差旅",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-24T00:17:07.203Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "",
+    "newValue": "출장비\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-24T00:13:53.315Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "",
+    "newValue": "怎及噶",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-24T00:13:39.465Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "증가사유 작성",
+    "newValue": "증가사유 작성",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-24T00:13:35.073Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "",
+    "newValue": "증가사유 작성\n",
+    "userIdentifier": "anonymous"
+  }
+]

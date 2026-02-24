@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": "2026-02-24T00:24:52.811Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "差旅",
+    "newValue": "",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-24T00:17:14.973Z",
+    "accountPath": "l1-출장비",
+    "oldValue": "",
+    "newValue": "差旅",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-23T23:53:12.154Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "12\n",
+    "newValue": "\n",
+    "userIdentifier": "anonymous"
+  },
+  {
+    "timestamp": "2026-02-23T23:53:05.108Z",
+    "accountPath": "l1-인건비",
+    "oldValue": "",
+    "newValue": "12\n",
+    "userIdentifier": "anonymous"
+  }
+]

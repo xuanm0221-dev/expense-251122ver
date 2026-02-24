@@ -15,6 +15,8 @@ export interface ExpenseAccountRow {
   curr_ytd: number;
   prev_year_annual: number | null;
   curr_year_annual: number | null;
+  /** 실적 2026년 YTD 모드: 2026 예산 선택월까지 누적 */
+  plan_ytd?: number;
   description: string;
   isExpanded: boolean;
   children?: ExpenseAccountRow[];

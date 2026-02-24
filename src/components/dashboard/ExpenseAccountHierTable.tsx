@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Info, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getCategoryDetail, getAnnualData, getAggregatedData, getMonthlyTotal, type BizUnit } from "@/lib/expenseData";
+import { getCategoryDetail, getAnnualData, getAggregatedData, getMonthlyTotal, aggregateCategoryDetailToAnnual, type BizUnit } from "@/lib/expenseData";
 import { useToast } from "@/components/ui/toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getDisplayLabel, t } from "@/lib/translations";
@@ -23,6 +23,9 @@ interface ExpenseAccountHierTableProps {
   onHierarchyReady?: (rows: ExpenseAccountRow[]) => void;
   onAnnualTotalsChange?: (totals: { prevYear: number; currYear: number }) => void;
   yearType?: 'actual' | 'plan';
+  /** 실적(actual)일 때만 전달: 페이지 mode와 동기화 */
+  mode?: "monthly" | "ytd";
+  onModeChange?: (mode: "monthly" | "ytd") => void;
 }
 
 export function ExpenseAccountHierTable({
@@ -33,12 +36,25 @@ export function ExpenseAccountHierTable({
   onHierarchyReady,
   onAnnualTotalsChange,
   yearType = 'actual',
+  mode: modeProp,
+  onModeChange,
 }: ExpenseAccountHierTableProps) {
   const [viewMode, setViewMode] = useState<"monthly" | "ytd" | "annual">("ytd");
+  const is2026AnnualOnly = year === 2026 && yearType === 'plan';
+
+  // 실적(actual)일 때 mode prop과 동기화, 2026년(예산)이면 연간 뷰 강제
+  useEffect(() => {
+    if (is2026AnnualOnly) {
+      setViewMode("annual");
+    } else if (modeProp != null) {
+      setViewMode(modeProp);
+    }
+  }, [modeProp, is2026AnnualOnly]);
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
   
-  // 설명 편집을 위한 상태 관리
-  const [descriptions, setDescriptions] = useState<Map<string, string>>(new Map());
+  // 설명 편집을 위한 상태 관리 (언어별 ko/zh)
+  type DescByLang = { ko?: string; zh?: string };
+  const [descriptions, setDescriptions] = useState<Map<string, DescByLang>>(new Map());
   const [basisMap, setBasisMap] = useState<Map<string, string>>(new Map());
   const [editingRowId, setEditingRowId] = useState<string | null>(null);
   const [editValue, setEditValue] = useState<string>("");
@@ -51,21 +67,34 @@ export function ExpenseAccountHierTable({
   const { addToast } = useToast();
   const { lang } = useLanguage();
 
-  const is2026AnnualOnly = year === 2026 && yearType === 'plan';
+  // 2026 예산(yearType=plan) 전용 저장/조회 키 — 실적과 분리
+  const descYm = is2026AnnualOnly ? "202612" : `${year}${String(month).padStart(2, "0")}`;
+  const descMode = is2026AnnualOnly ? "ytd" : (viewMode === "annual" ? "ytd" : viewMode);
+  const descYearType = is2026AnnualOnly ? "plan" : yearType;
 
   // API에서 설명 데이터 로드
   useEffect(() => {
     const loadDescriptions = async () => {
       try {
-        const ym = `${year}${String(month).padStart(2, "0")}`;
         const response = await fetch(
-          `/api/cost-descriptions?brand=${bizUnit}&ym=${ym}&mode=${viewMode}&yearType=${yearType}`
+          `/api/cost-descriptions?brand=${bizUnit}&ym=${descYm}&mode=${descMode}&yearType=${descYearType}`
         );
         
         if (response.ok) {
           const result = await response.json();
           if (result.success && result.data) {
-            setDescriptions(new Map(Object.entries(result.data)));
+            const raw = result.data as Record<string, unknown>;
+            const normalized = new Map<string, DescByLang>();
+            for (const [k, v] of Object.entries(raw)) {
+              if (typeof v === "string" && v.trim()) normalized.set(k, { ko: v });
+              else if (v && typeof v === "object" && !Array.isArray(v)) {
+                const o = v as Record<string, unknown>;
+                const ko = typeof o.ko === "string" ? o.ko.trim() : "";
+                const zh = typeof o.zh === "string" ? o.zh.trim() : "";
+                if (ko || zh) normalized.set(k, { ko: ko || undefined, zh: zh || undefined });
+              }
+            }
+            setDescriptions(normalized);
           }
           if (result.success && result.basis) {
             setBasisMap(new Map(Object.entries(result.basis)));
@@ -74,12 +103,22 @@ export function ExpenseAccountHierTable({
       } catch (error) {
         console.error("설명 데이터 로드 실패:", error);
         // 실패 시 localStorage에서 fallback (선택적)
-        const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}-${yearType}`;
+        const storageKey = `expense-descriptions-${bizUnit}-${parseInt(descYm.slice(0, 4), 10)}-${parseInt(descYm.slice(4, 6), 10)}-${descYearType}`;
         const saved = localStorage.getItem(storageKey);
         if (saved) {
           try {
-            const parsed = JSON.parse(saved);
-            setDescriptions(new Map(Object.entries(parsed)));
+            const parsed = JSON.parse(saved) as Record<string, unknown>;
+            const normalized = new Map<string, DescByLang>();
+            for (const [k, v] of Object.entries(parsed)) {
+              if (typeof v === "string" && v.trim()) normalized.set(k, { ko: v });
+              else if (v && typeof v === "object" && !Array.isArray(v)) {
+                const o = v as Record<string, unknown>;
+                const ko = typeof o.ko === "string" ? o.ko.trim() : "";
+                const zh = typeof o.zh === "string" ? o.zh.trim() : "";
+                if (ko || zh) normalized.set(k, { ko: ko || undefined, zh: zh || undefined });
+              }
+            }
+            setDescriptions(normalized);
           } catch (e) {
             console.error("localStorage fallback 실패:", e);
           }
@@ -88,7 +127,10 @@ export function ExpenseAccountHierTable({
     };
 
     loadDescriptions();
-  }, [bizUnit, year, month, viewMode, yearType, refreshKey]);
+  }, [bizUnit, descYm, descMode, descYearType, refreshKey]);
+
+  const getDescCurrent = (rowId: string, fallback: string) => descriptions.get(rowId)?.[lang] ?? fallback;
+  const getDescOther = (rowId: string) => descriptions.get(rowId)?.[lang === "ko" ? "zh" : "ko"];
 
   // 편집 시작
   const startEdit = (rowId: string, currentDescription: string) => {
@@ -111,7 +153,6 @@ export function ExpenseAccountHierTable({
     descValue?: string,
     basisVal?: string
   ) => {
-    const ym = `${year}${String(month).padStart(2, "0")}`;
     if (type === "reset") {
       const response = await fetch("/api/cost-descriptions", {
         method: "POST",
@@ -119,9 +160,9 @@ export function ExpenseAccountHierTable({
         body: JSON.stringify({
           action: "reset",
           brand: bizUnit,
-          ym,
-          mode: viewMode,
-          yearType,
+          ym: descYm,
+          mode: descMode,
+          yearType: descYearType,
           password,
         }),
       });
@@ -141,11 +182,12 @@ export function ExpenseAccountHierTable({
     const isDescription = type === "description";
     const body: Record<string, unknown> = {
       brand: bizUnit,
-      ym,
-      mode: viewMode,
+      ym: descYm,
+      mode: descMode,
       accountPath: rowId,
-      yearType,
+      yearType: descYearType,
       password,
+      lang,
     };
     if (isDescription) body.description = descValue ?? editValue;
     else body.basis = basisVal ?? basisEditValue;
@@ -165,9 +207,13 @@ export function ExpenseAccountHierTable({
     const valueToSet = isDescription ? (descValue ?? editValue) : (basisVal ?? basisEditValue);
     if (isDescription) {
       const newDescriptions = new Map(descriptions);
-      newDescriptions.set(rowId, valueToSet);
+      const existing = newDescriptions.get(rowId) || {};
+      const langKey = lang === "zh" ? "zh" : "ko";
+      const updated = { ...existing, [langKey]: (valueToSet ?? "").trim() || undefined };
+      if (updated.ko || updated.zh) newDescriptions.set(rowId, updated);
+      else newDescriptions.delete(rowId);
       setDescriptions(newDescriptions);
-      const storageKey = `expense-descriptions-${bizUnit}-${year}-${month}-${yearType}`;
+      const storageKey = `expense-descriptions-${bizUnit}-${parseInt(descYm.slice(0, 4), 10)}-${parseInt(descYm.slice(4, 6), 10)}-${descYearType}`;
       localStorage.setItem(storageKey, JSON.stringify(Object.fromEntries(newDescriptions)));
       addToast({ type: "success", message: "설명이 저장되었습니다." });
       setEditingRowId(null);
@@ -252,17 +298,16 @@ export function ExpenseAccountHierTable({
 
   const saveBasis = async (rowId: string) => {
     try {
-      const ym = `${year}${String(month).padStart(2, "0")}`;
       const response = await fetch("/api/cost-descriptions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           brand: bizUnit,
-          ym,
-          mode: viewMode,
+          ym: descYm,
+          mode: descMode,
           accountPath: rowId,
           basis: basisEditValue,
-          yearType,
+          yearType: descYearType,
         }),
       });
       const result = await response.json();
@@ -1328,6 +1373,111 @@ export function ExpenseAccountHierTable({
       }
     });
 
+    // 실적 2026년 YTD 모드: 2026 예산(plan) 선택월까지 누적 → plan_ytd
+    const is2026ActualYtd = year === 2026 && yearType === "actual" && viewMode === "ytd";
+    if (is2026ActualYtd) {
+      const planDetails = getCategoryDetail(bizUnitFilter, 2026, month, "", "ytd", "plan");
+      const addPlanYtd = (detail: { cost_lv1?: string; cost_lv2?: string; cost_lv3?: string; biz_unit?: string; amount: number }) => {
+        const l1Key = detail.cost_lv1 || "";
+        if (!l1Key) return;
+        const l1Row = l1Map.get(l1Key);
+        if (!l1Row) return;
+        const isAdExpense = l1Key === "광고비";
+        const isInteriorDev = l1Key === "지급수수료" && detail.cost_lv2 === "인테리어 개발";
+        const isTravelExpense = l1Key === "출장비" && (detail.cost_lv2 === "국내출장비" || detail.cost_lv2 === "해외출장비");
+        const amt = detail.amount || 0;
+
+        if (isAdExpense) {
+          const bizUnitKey = detail.biz_unit || "기타";
+          if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+            const l2Key = `${l1Key}|${bizUnitKey}`;
+            const l2Row = l2Map.get(l2Key);
+            if (l2Row) {
+              if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+                const l3Key = `${l2Key}|${detail.cost_lv2}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) { l3Row.plan_ytd = (l3Row.plan_ytd || 0) + amt; return; }
+              }
+              l2Row.plan_ytd = (l2Row.plan_ytd || 0) + amt;
+            }
+          } else {
+            if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+              const l2Key = `${l1Key}|${detail.cost_lv2}`;
+              const l2Row = l2Map.get(l2Key);
+              if (l2Row) { l2Row.plan_ytd = (l2Row.plan_ytd || 0) + amt; return; }
+            }
+            l1Row.plan_ytd = (l1Row.plan_ytd || 0) + amt;
+          }
+        } else if (isInteriorDev && detail.cost_lv2) {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          const l2Row = l2Map.get(l2Key);
+          if (l2Row) {
+            const bizUnitKey = detail.biz_unit || "기타";
+            if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+              const l3Key = `${l2Key}|${bizUnitKey}`;
+              let l3Row = l3Map.get(l3Key);
+              if (l3Row) {
+                if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+                  const l4Key = `${l3Key}|${detail.cost_lv3}`;
+                  const l4Row = l3Map.get(l4Key);
+                  if (l4Row) { l4Row.plan_ytd = (l4Row.plan_ytd || 0) + amt; return; }
+                }
+                l3Row.plan_ytd = (l3Row.plan_ytd || 0) + amt;
+              }
+            } else {
+              if (detail.cost_lv3) {
+                const l3Key = `${l2Key}|${detail.cost_lv3}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) { l3Row.plan_ytd = (l3Row.plan_ytd || 0) + amt; return; }
+              }
+              l2Row.plan_ytd = (l2Row.plan_ytd || 0) + amt;
+            }
+          }
+        } else if (isTravelExpense && detail.cost_lv2) {
+          const l2Key = `${l1Key}|${detail.cost_lv2}`;
+          const l2Row = l2Map.get(l2Key);
+          if (l2Row) {
+            const bizUnitKey = detail.biz_unit || "기타";
+            if (bizUnitFilter === "ALL" || bizUnitFilter === "법인") {
+              const l3Key = `${l2Key}|${bizUnitKey}`;
+              const l3Row = l3Map.get(l3Key);
+              if (l3Row) {
+                if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+                  const l4Key = `${l3Key}|${detail.cost_lv3}`;
+                  const l4Row = l3Map.get(l4Key);
+                  if (l4Row) { l4Row.plan_ytd = (l4Row.plan_ytd || 0) + amt; return; }
+                }
+                l3Row.plan_ytd = (l3Row.plan_ytd || 0) + amt;
+              }
+            } else {
+              if (detail.cost_lv3) {
+                const l3Key = `${l2Key}|${detail.cost_lv3}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) { l3Row.plan_ytd = (l3Row.plan_ytd || 0) + amt; return; }
+              }
+              l2Row.plan_ytd = (l2Row.plan_ytd || 0) + amt;
+            }
+          }
+        } else {
+          if (detail.cost_lv2 && detail.cost_lv2.trim() !== "") {
+            const l2Key = `${l1Key}|${detail.cost_lv2}`;
+            const l2Row = l2Map.get(l2Key);
+            if (l2Row) {
+              if (detail.cost_lv3 && detail.cost_lv3.trim() !== "") {
+                const l3Key = `${l2Key}|${detail.cost_lv3}`;
+                const l3Row = l3Map.get(l3Key);
+                if (l3Row) { l3Row.plan_ytd = (l3Row.plan_ytd || 0) + amt; return; }
+              }
+              l2Row.plan_ytd = (l2Row.plan_ytd || 0) + amt;
+            }
+          } else {
+            l1Row.plan_ytd = (l1Row.plan_ytd || 0) + amt;
+          }
+        }
+      };
+      planDetails.forEach(addPlanYtd);
+    }
+
     // 전년 데이터는 이미 위에서 처리했으므로 여기서는 제거
 
     // 재귀적으로 하위 노드의 합계를 계산하는 헬퍼 함수
@@ -1336,38 +1486,42 @@ export function ExpenseAccountHierTable({
       currYtd: number;
       prevYearAnnual: number;
       currYearAnnual: number;
+      planYtd: number;
     } => {
       if (!node.children || node.children.length === 0) {
-        // 리프 노드: 자신의 값 반환
         return {
           prevYtd: node.prev_ytd,
           currYtd: node.curr_ytd,
           prevYearAnnual: node.prev_year_annual ?? 0,
           currYearAnnual: node.curr_year_annual ?? 0,
+          planYtd: node.plan_ytd ?? 0,
         };
       }
 
-      // 하위 노드들의 집계값 계산
       const childAggs = node.children.map(aggregateNode);
       const prevYtdSum = childAggs.reduce((sum, agg) => sum + agg.prevYtd, 0);
       const currYtdSum = childAggs.reduce((sum, agg) => sum + agg.currYtd, 0);
       const prevYearAnnualSum = childAggs.reduce((sum, agg) => sum + agg.prevYearAnnual, 0);
       const currYearAnnualSum = childAggs.reduce((sum, agg) => sum + agg.currYearAnnual, 0);
+      const planYtdSum = childAggs.reduce((sum, agg) => sum + agg.planYtd, 0);
 
       return {
         prevYtd: prevYtdSum,
         currYtd: currYtdSum,
         prevYearAnnual: prevYearAnnualSum,
         currYearAnnual: currYearAnnualSum,
+        planYtd: planYtdSum,
       };
     };
 
     // 연간 계획 데이터 처리 (먼저 개별 노드에 할당)
     const aggData = getAggregatedData();
     if (aggData.annual_data && aggData.annual_data.length > 0) {
-      // 당년 연간 데이터
       const bizUnitFilter: BizUnitOrAll = bizUnit || "ALL";
-      const currAnnualData = getAnnualData(bizUnitFilter, year, "", "", "", yearType);
+      // 당년 연간: 실적 2026년이면 2026 예산 연간 사용
+      const currAnnualData = (year === 2026 && yearType === "actual")
+        ? getAnnualData(bizUnitFilter, 2026, "", "", "", "plan")
+        : getAnnualData(bizUnitFilter, year, "", "", "", yearType);
       currAnnualData.forEach((annual) => {
         const l1Key = annual.cost_lv1 || "";
         const l1Row = l1Map.get(l1Key);
@@ -1505,8 +1659,13 @@ export function ExpenseAccountHierTable({
 
       // 전년 연간 데이터
       // 2026년(예산)은 prevYearDetails(2025년 12월 YTD actual)에서 이미 처리했으므로 빈 배열
-      // 그 외에는 연간 계획 데이터 사용
-      const prevAnnualData = is2026AnnualOnly ? [] : getAnnualData(bizUnitFilter, year - 1, "", "", "", yearType);
+      // 실적 2026 YTD: 2025년 연간 = 2025년 12월 YTD(1~12월 실적) 사용 (2026 예산과 동일)
+      // 그 외 2026년: 전년(2025)은 이미 종료되어 실적만 사용
+      const prevAnnualData = is2026AnnualOnly
+        ? []
+        : is2026ActualYtd
+          ? aggregateCategoryDetailToAnnual(getCategoryDetail(bizUnitFilter, 2025, 12, "", "ytd", "actual"))
+          : getAnnualData(bizUnitFilter, year - 1, "", "", "", year === 2026 ? "actual" : yearType);
       prevAnnualData.forEach((annual) => {
         const l1Key = annual.cost_lv1 || "";
         const l1Row = l1Map.get(l1Key);
@@ -1658,12 +1817,12 @@ export function ExpenseAccountHierTable({
           l3Row.curr_month = totalCurr;
           l3Row.prev_month = totalPrev;
         } else {
-          // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
           const aggregated = aggregateNode(l3Row);
           l3Row.prev_ytd = aggregated.prevYtd;
           l3Row.curr_ytd = aggregated.currYtd;
           l3Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
           l3Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+          if (is2026ActualYtd && aggregated.planYtd > 0) l3Row.plan_ytd = aggregated.planYtd;
         }
       }
     });
@@ -1683,12 +1842,12 @@ export function ExpenseAccountHierTable({
           l2Row.curr_month = totalCurr;
           l2Row.prev_month = totalPrev;
         } else {
-          // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
           const aggregated = aggregateNode(l2Row);
           l2Row.prev_ytd = aggregated.prevYtd;
           l2Row.curr_ytd = aggregated.currYtd;
           l2Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
           l2Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+          if (is2026ActualYtd && aggregated.planYtd > 0) l2Row.plan_ytd = aggregated.planYtd;
         }
       }
     });
@@ -1707,12 +1866,12 @@ export function ExpenseAccountHierTable({
           l1Row.curr_month = totalCurr;
           l1Row.prev_month = totalPrev;
         } else {
-          // 누적(YTD) 모드: 재귀 집계 함수로 모든 하위 노드의 합계 계산 (연간 계획 포함)
           const aggregated = aggregateNode(l1Row);
           l1Row.prev_ytd = aggregated.prevYtd;
           l1Row.curr_ytd = aggregated.currYtd;
           l1Row.prev_year_annual = aggregated.prevYearAnnual > 0 ? aggregated.prevYearAnnual : null;
           l1Row.curr_year_annual = aggregated.currYearAnnual > 0 ? aggregated.currYearAnnual : null;
+          if (is2026ActualYtd && aggregated.planYtd > 0) l1Row.plan_ytd = aggregated.planYtd;
         }
       }
     });
@@ -2010,11 +2169,18 @@ export function ExpenseAccountHierTable({
       return "-";
     }
 
-    // "인당 인건비"를 "인당 기본급"으로 치환
-    return basicSalaryDescription.replace("인당 인건비", "인당 기본급");
+    // "인당 인건비"를 "인당 기본급"으로 치환 (언어별)
+    return basicSalaryDescription.replace(t("인당 인건비", lang), t("인당 기본급", lang));
   };
 
-  // 인건비 > 기본급 행의 설명 자동 계산
+  // 인건비 > 기본급 행의 설명 자동 계산 (KPI 카드 상세보기와 동일하게 getMonthlyTotal 사용)
+  // 기본급(level 2): 법인 전체 headcount. 하위(경영지원, MLB, KIDS, DISCOVERY): 각 사업부별 headcount
+  const SUB_CATEGORY_TO_BIZ: Record<string, BizUnit> = {
+    경영지원: "공통",
+    MLB: "MLB",
+    KIDS: "KIDS",
+    DISCOVERY: "DISCOVERY",
+  };
   const calculateBasicSalaryDescription = (row: ExpenseAccountRow): string => {
     // 인건비 > 기본급이고 당월 모드인 경우만 계산
     if (
@@ -2025,111 +2191,30 @@ export function ExpenseAccountHierTable({
       return "";
     }
 
+    // 기본급(level 2) 또는 하위(경영지원, MLB, KIDS, DISCOVERY)만 적용
+    const isSubLevel =
+      row.level === 3 && row.category_l3 && SUB_CATEGORY_TO_BIZ[row.category_l3];
+    const isBasicSalaryTotal = row.level === 2;
+    if (!isBasicSalaryTotal && !isSubLevel) {
+      return "";
+    }
+
     try {
-      // 헬퍼 함수: 특정 연도/월의 인원수 가져오기
-      const getHeadcountForPeriod = (
-        targetYear: number,
-        targetMonth: number,
-        targetSubcategory: string | null,
-        isParent: boolean
-      ): number | null => {
-        if (isParent) {
-          // 부모 행: 하위 행들의 인원수 합계
-          if (!row.children || row.children.length === 0) {
-            return null;
-          }
+      // KPI 카드 상세보기와 동일: level 2는 법인 전체, level 3은 해당 사업부 headcount
+      const effectiveBizUnit: BizUnit = isSubLevel
+        ? SUB_CATEGORY_TO_BIZ[row.category_l3!]
+        : bizUnit === "ALL"
+          ? "법인"
+          : bizUnit;
+      const currHeadcount =
+        getMonthlyTotal(effectiveBizUnit, year, month, "monthly", yearType)?.headcount ?? 0;
+      const prevHeadcount =
+        getMonthlyTotal(effectiveBizUnit, year - 1, month, "monthly", yearType)?.headcount ?? 0;
 
-          let sumHeadcount = 0;
-          let hasValidHeadcount = false;
-
-          for (const childRow of row.children) {
-            if (childRow.level === 3 && childRow.category_l3) {
-              const childSubcategory = childRow.category_l3;
-              
-              try {
-                const categoryDetails = getCategoryDetail(
-                  bizUnit === "ALL" ? "ALL" : bizUnit,
-                  targetYear,
-                  targetMonth,
-                  "인건비",
-                  "monthly",
-                  yearType
-                ).filter(
-                  (detail) =>
-                    detail.cost_lv2 === "기본급" &&
-                    detail.cost_lv3 === childSubcategory
-                );
-
-                const filteredDetails =
-                  bizUnit === "ALL"
-                    ? categoryDetails
-                    : categoryDetails.filter((detail) => detail.biz_unit === bizUnit);
-
-                if (filteredDetails.length > 0) {
-                  const matchedDetail = filteredDetails.find((d) => d.headcount && d.headcount > 0);
-                  if (matchedDetail && matchedDetail.headcount) {
-                    sumHeadcount += matchedDetail.headcount;
-                    hasValidHeadcount = true;
-                  }
-                }
-              } catch (e) {
-                console.warn(`하위 인원수 조회 실패: ${childSubcategory}`, e);
-              }
-            }
-          }
-
-          return hasValidHeadcount ? sumHeadcount : null;
-        } else {
-          // 하위 행: 특정 소분류의 인원수
-          if (!targetSubcategory) {
-            return null;
-          }
-
-          try {
-            const categoryDetails = getCategoryDetail(
-              bizUnit === "ALL" ? "ALL" : bizUnit,
-              targetYear,
-              targetMonth,
-              "인건비",
-              "monthly",
-              yearType
-            ).filter(
-              (detail) =>
-                detail.cost_lv2 === "기본급" &&
-                detail.cost_lv3 === targetSubcategory
-            );
-
-            const filteredDetails =
-              bizUnit === "ALL"
-                ? categoryDetails
-                : categoryDetails.filter((detail) => detail.biz_unit === bizUnit);
-
-            if (filteredDetails.length > 0) {
-              const matchedDetail = filteredDetails.find((d) => d.headcount && d.headcount > 0);
-              if (matchedDetail && matchedDetail.headcount) {
-                return matchedDetail.headcount;
-              }
-            }
-          } catch (e) {
-            console.warn(`인원수 조회 실패: ${targetSubcategory}`, e);
-          }
-
-          return null;
-        }
-      };
-
-      // 당월 인원수 가져오기
-      const targetSubcategory = row.level === 3 ? row.category_l3 : null;
-      const isParent = row.level === 2;
-      const currHeadcount = getHeadcountForPeriod(year, month, targetSubcategory, isParent);
-
-      // 인원수가 0이거나 null이면 "-" 반환
-      if (currHeadcount === null || currHeadcount === 0 || isNaN(currHeadcount)) {
+      // 인원수가 0이면 "-" 반환
+      if (currHeadcount === 0 || isNaN(currHeadcount)) {
         return "-";
       }
-
-      // 전년 인원수 가져오기 (전년 동일월)
-      const prevHeadcount = getHeadcountForPeriod(year - 1, month, targetSubcategory, isParent);
 
       // 당년 인당 인건비 계산
       const currAmount = row.curr_month;
@@ -2141,7 +2226,6 @@ export function ExpenseAccountHierTable({
       let yoyPercent: number | null = null;
 
       if (
-        prevHeadcount !== null &&
         prevHeadcount > 0 &&
         !isNaN(prevHeadcount) &&
         prevAmount !== null &&
@@ -2156,31 +2240,34 @@ export function ExpenseAccountHierTable({
         }
       }
 
-      // 포맷팅
-      let result = `[당월 인원수 ${Math.round(currHeadcount)}명`;
+      // 포맷팅 (언어별)
+      const prefix = t("당월 인원수", lang);
+      const unitName = t("명", lang);
+      const yoyLabel = t("전년비", lang);
+      const perCapitaLabel = t("인당 인건비", lang);
+      let result = `[${prefix} ${Math.round(currHeadcount)}${unitName}`;
 
       // 전년 동월 대비 인원수 증감 계산 및 표시
-      // prevHeadcount는 이미 1544번 라인에서 getHeadcountForPeriod(year - 1, month, ...)로 파일에서 읽어온 값
-      if (prevHeadcount !== null && prevHeadcount > 0 && !isNaN(prevHeadcount)) {
+      if (prevHeadcount > 0 && !isNaN(prevHeadcount)) {
         const headcountDiff = currHeadcount - prevHeadcount;
         if (headcountDiff !== 0) {
           const diffSign = headcountDiff > 0 ? "+" : "";
-          result += `, 전년비 ${diffSign}${Math.round(headcountDiff)}명`;
+          result += `, ${yoyLabel} ${diffSign}${Math.round(headcountDiff)}${unitName}`;
         } else {
-          result += `, 전년비 0명`;
+          result += `, ${yoyLabel} 0${unitName}`;
         }
       }
 
-      result += ` | 인당 인건비 ${currPerPersonCostK.toFixed(1)}K`;
+      result += ` | ${perCapitaLabel} ${currPerPersonCostK.toFixed(1)}K`;
 
       if (yoyPercent !== null && !isNaN(yoyPercent)) {
         // 전년비 표시
         const sign = yoyPercent >= 0 ? "+" : "△";
         const absYoy = Math.abs(yoyPercent);
-        result += `, 전년비 ${sign}${absYoy.toFixed(1)}%`;
+        result += `, ${yoyLabel} ${sign}${absYoy.toFixed(1)}%`;
       } else {
         // 전년비 계산 불가
-        result += `, 전년비 -`;
+        result += `, ${yoyLabel} -`;
       }
 
       result += `]`;
@@ -2237,6 +2324,7 @@ export function ExpenseAccountHierTable({
         currYtdTotal: null,
         diffYtdTotal: null,
         yoyYtdTotal: null,
+        planYtdTotal: 0,
         planDiffTotal: null,
         annual2024Total: null,
         annual2025Total: null,
@@ -2251,7 +2339,11 @@ export function ExpenseAccountHierTable({
       const diffYtdTotal = currYtdTotal - prevYtdTotal;
       const yoyYtdTotal = prevYtdTotal > 0 ? (currYtdTotal / prevYtdTotal) * 100 : null;
 
-      // 2026(예산) 연간 전용: 전체 합계는 KPI와 동일 출처 사용 (2025=monthly_total 12월 YTD, 2026=annual_data 연간 합계)
+      const is2026ActualYtd = year === 2026 && yearType === "actual";
+      const planYtdTotal = is2026ActualYtd
+        ? hierarchicalData.reduce((sum, row) => sum + (row.plan_ytd ?? 0), 0)
+        : 0;
+
       let annual2024Total: number;
       let annual2025Total: number;
       if (is2026AnnualOnly && bizUnit !== "ALL") {
@@ -2263,8 +2355,12 @@ export function ExpenseAccountHierTable({
       }
       const diffAnnualTotal = annual2025Total - annual2024Total;
       const yoyAnnualTotal = annual2024Total > 0 ? (annual2025Total / annual2024Total) * 100 : null;
-      const progressTotal = annual2025Total > 0 ? (currYtdTotal / annual2025Total) * 100 : null;
-      const planDiffTotal = currYtdTotal - annual2025Total;
+      const progressTotal = is2026ActualYtd
+        ? (planYtdTotal > 0 ? (currYtdTotal / planYtdTotal) * 100 : null)
+        : (annual2025Total > 0 ? (currYtdTotal / annual2025Total) * 100 : null);
+      const planDiffTotal = is2026ActualYtd
+        ? currYtdTotal - planYtdTotal
+        : currYtdTotal - annual2025Total;
       
       return {
         prevTotal: null,
@@ -2275,6 +2371,7 @@ export function ExpenseAccountHierTable({
         currYtdTotal,
         diffYtdTotal,
         yoyYtdTotal,
+        planYtdTotal,
         planDiffTotal,
         annual2024Total,
         annual2025Total,
@@ -2283,7 +2380,7 @@ export function ExpenseAccountHierTable({
         progressTotal,
       };
     }
-  }, [hierarchicalData, viewMode, is2026AnnualOnly, bizUnit]);
+  }, [hierarchicalData, viewMode, is2026AnnualOnly, bizUnit, year, yearType]);
 
   // 2026 연간 뷰 시 부모에 연간 합계 전달 (KPI 카드 등에서 표 합계 재사용용)
   useEffect(() => {
@@ -2305,9 +2402,9 @@ export function ExpenseAccountHierTable({
   const totalDescription = useMemo(() => {
     if (hierarchicalData.length === 0) return "-";
     
-    // 대분류별 당월 차이 계산
+    // 대분류별 당월 차이 계산 (언어별 표시명 사용)
     const diffs: { name: string; diff: number }[] = hierarchicalData.map((l1Row) => ({
-      name: l1Row.category_l1,
+      name: getDisplayLabel(l1Row.category_l1, l1Row.category_l1_cn, lang),
       diff: l1Row.curr_month - l1Row.prev_month,
     }));
     
@@ -2326,7 +2423,7 @@ export function ExpenseAccountHierTable({
     });
     
     return formatted.join(", ");
-  }, [hierarchicalData]);
+  }, [hierarchicalData, lang]);
 
   // YOY/진척률 Badge 스타일 함수
   const getYOYBadgeClass = (value: number | null): string => {
@@ -2359,7 +2456,11 @@ export function ExpenseAccountHierTable({
             {/* 우측: 탭과 버튼 */}
             <div className="flex items-center gap-2 sm:gap-3">
               {!is2026AnnualOnly && (
-                <Tabs value={viewMode} onValueChange={(v) => setViewMode(v as "monthly" | "ytd" | "annual")}>
+                <Tabs value={viewMode} onValueChange={(v) => {
+                  const m = v as "monthly" | "ytd" | "annual";
+                  setViewMode(m);
+                  if (onModeChange && (m === "monthly" || m === "ytd")) onModeChange(m);
+                }}>
                   <TabsList className="bg-slate-700/50 p-1 sm:p-1.5 rounded-xl border border-slate-600 shadow-md">
                     <TabsTrigger 
                       value="monthly"
@@ -2433,15 +2534,16 @@ export function ExpenseAccountHierTable({
               </>
             ) : (
               <>
-                {/* 누적(YTD) 모드: 구분 13% + 숫자 데이터 10개 각 6% + 설명 27% */}
+                {/* 누적(YTD) 모드: 구분 13% + 전년/당년/차이/YOY/계획누적/계획비증감/계획비(%) + 연간계획 + 설명 */}
                 <col style={{ width: "13%" }} />
                 <col style={{ width: "0%" }} />
                 <col style={{ width: "6%" }} />
                 <col style={{ width: "6%" }} />
                 <col style={{ width: "6%" }} />
-                <col style={{ width: "6%" }} />
-                <col style={{ width: "6%" }} />
-                <col style={{ width: "6%" }} />
+                <col style={{ width: "5%" }} />
+                <col style={{ width: "5%" }} />
+                <col style={{ width: "5%" }} />
+                <col style={{ width: "5%" }} />
                 <col style={{ width: "0%" }} />
                 <col style={{ width: "6%" }} />
                 <col style={{ width: "6%" }} />
@@ -2466,8 +2568,14 @@ export function ExpenseAccountHierTable({
                     <div>{year}{t("년 연간", lang)}</div>
                     <div>{t("(계획)", lang)}</div>
                   </th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">{t("차이(금액)", lang)}</th>
-                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">YOY(%)</th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
+                    <div>YOY</div>
+                    <div>({t("금액", lang)})</div>
+                  </th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
+                    <div>YOY</div>
+                    <div>(%)</div>
+                  </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">계산근거</th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-left text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">{t("설명", lang)}</th>
                 </>
@@ -2489,7 +2597,7 @@ export function ExpenseAccountHierTable({
                 </>
               ) : (
                 <>
-                  <th colSpan={6} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
+                  <th colSpan={7} className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     {t("누적(YTD)", lang)}
                   </th>
                   <th className="border-r border-slate-600"></th>
@@ -2528,35 +2636,49 @@ export function ExpenseAccountHierTable({
               ) : (
                 <>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {t("전년누적", lang)}
+                    <div>{t("전년", lang)}</div>
+                    <div>{t("누적", lang)}</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {t("당년누적", lang)}
+                    <div>{t("당년", lang)}</div>
+                    <div>{t("누적", lang)}</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {t("차이(금액)", lang)}
+                    <div>YOY</div>
+                    <div>({t("금액", lang)})</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    YOY (%)
+                    <div>YOY</div>
+                    <div>(%)</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {t("계획비 증감", lang)}
+                    <div>{t("계획", lang)}</div>
+                    <div>{t("누적", lang)}</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {t("계획비(%)", lang)}
+                    <div>{t("계획비", lang)}</div>
+                    <div>({t("금액", lang)})</div>
+                  </th>
+                  <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
+                    <div>{t("계획비", lang)}</div>
+                    <div>(%)</div>
                   </th>
                   <th className="border-r border-slate-600"></th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {year - 1}{t("년 연간", lang)}
+                    <div>{year - 1}{t("년", lang)}</div>
+                    <div>{t("연간", lang)}</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {year}{t("년 연간", lang)}
+                    <div>{year}{t("년", lang)}</div>
+                    <div>{t("연간", lang)}</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    {t("차이(금액)", lang)}
+                    <div>YOY</div>
+                    <div>({t("금액", lang)})</div>
                   </th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
-                    YOY (%)
+                    <div>YOY</div>
+                    <div>(%)</div>
                   </th>
                   <th className="border-r border-slate-600"></th>
                 </>
@@ -2624,13 +2746,16 @@ export function ExpenseAccountHierTable({
                   <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.currYtdTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
+                  <td className={`border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${yearType === "actual" && viewMode === "ytd" ? "bg-amber-50" : ""}`}>
                     {formatDifference(computeTotals.diffYtdTotal)}
                   </td>
-                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right">
+                  <td className={`border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right ${yearType === "actual" && viewMode === "ytd" ? "bg-amber-50" : ""}`}>
                     <span className={getYOYBadgeClass(computeTotals.yoyYtdTotal)}>
                       {formatYOY(computeTotals.yoyYtdTotal)}
                     </span>
+                  </td>
+                  <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
+                    {year === 2026 && yearType === "actual" ? formatK(computeTotals.planYtdTotal ?? 0) : "-"}
                   </td>
                   <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-teal-50">
                     {formatDifference(computeTotals.planDiffTotal)}
@@ -2721,29 +2846,28 @@ export function ExpenseAccountHierTable({
               const diff = getDifference(currValue, prevValue);
               const yoy = getYOY(currValue, prevValue);
 
-              // 2026(예산) 시 연간 계획 컬럼: 연간 예산(annual_data)만 사용, curr_ytd fallback 제거
               const effectiveCurrAnnual = is2026AnnualOnly ? row.curr_year_annual : (row.curr_year_annual ?? row.curr_ytd);
+              const rowIs2026ActualYtd = year === 2026 && yearType === "actual" && viewMode === "ytd";
+              const planYtd = row.plan_ytd ?? 0;
 
-              // 진척률 계산 (누적 모드에서만 사용)
-              // 진척률(%) = 당년누적 / 2025년 연간 * 100
+              // 계획비(%) = 당년누적 / 계획누적. 실적 2026년 YTD면 plan_ytd 사용
               const progressRate = viewMode === "ytd" 
-                ? getProgressRate(currValue, effectiveCurrAnnual)
+                ? (rowIs2026ActualYtd ? (planYtd > 0 ? (currValue / planYtd) * 100 : null) : getProgressRate(currValue, effectiveCurrAnnual))
                 : null;
 
-              // 계획비 증감 계산 (누적 모드에서만 사용)
-              // 계획비 증감 = 당년누적 - 2025년 연간
-              const planDiff = viewMode === "ytd" && effectiveCurrAnnual !== null
-                ? currValue - effectiveCurrAnnual
+              // 계획비 증감 = 당년누적 - 계획누적. 실적 2026년 YTD면 plan_ytd 사용
+              const planDiff = viewMode === "ytd"
+                ? (rowIs2026ActualYtd ? currValue - planYtd : (effectiveCurrAnnual !== null ? currValue - effectiveCurrAnnual : null))
                 : null;
 
-              // 연간 계획 데이터 계산 (누적 모드에서만 사용). 없으면 0으로 간주해 차액 계산
-              const annualDiff = viewMode === "ytd"
+              // 연간 계획 데이터 계산 (누적 모드 또는 2026 예산 연간 뷰에서 사용)
+              const useAnnualPlanData = viewMode === "ytd" || is2026AnnualOnly;
+              const annualDiff = useAnnualPlanData
                 ? getDifference(effectiveCurrAnnual ?? 0, row.prev_year_annual ?? 0)
                 : null;
-              const annualYOY = viewMode === "ytd" ? getYOY(
-                effectiveCurrAnnual ?? 0,
-                row.prev_year_annual ?? 0
-              ) : null;
+              const annualYOY = useAnnualPlanData
+                ? getYOY(effectiveCurrAnnual ?? 0, row.prev_year_annual ?? 0)
+                : null;
 
               // 대분류(L1) 연한 하늘색, 그다음 분류(L2) 연한 회색
               const isLevel1 = row.level === 1;
@@ -2804,7 +2928,7 @@ export function ExpenseAccountHierTable({
                         onClick={(e) => {
                           // 편집 모드가 아니고, 편집 버튼이 아닌 경우에만 편집 시작
                           if (editingRowId !== row.id && !(e.target as HTMLElement).closest('button')) {
-                            const currentDesc = descriptions.get(row.id) || row.description || "";
+                            const currentDesc = getDescCurrent(row.id, row.description || "");
                             startEdit(row.id, currentDesc);
                           }
                         }}
@@ -2851,27 +2975,27 @@ export function ExpenseAccountHierTable({
                           </div>
                         ) : (
                           <div className="flex items-center justify-between gap-2">
-                            <span className="flex-1 min-w-0">
+                            <span
+                              className="flex-1 min-w-0"
+                              title={getDescOther(row.id) ? (lang === "ko" ? `중국어: ${getDescOther(row.id)}` : `한국어: ${getDescOther(row.id)}`) : undefined}
+                            >
                               {(() => {
-                                // 인건비 대분류(level 1) 행의 경우 자동 계산된 설명 우선 표시
+                                // 사용자가 저장한 설명이 있으면 우선 표시
+                                const savedDesc = descriptions.get(row.id)?.[lang];
+                                if (savedDesc != null && String(savedDesc).trim() !== "") return savedDesc;
+                                // 인건비 대분류(level 1) 또는 기본급 행: 자동 계산된 설명 표시
                                 const laborCostDescription = calculateLaborCostDescription(row);
-                                if (laborCostDescription) {
-                                  return laborCostDescription;
-                                }
-                                // 인건비 > 기본급 행의 경우 자동 계산된 설명 우선 표시
+                                if (laborCostDescription) return laborCostDescription;
                                 const autoDescription = calculateBasicSalaryDescription(row);
-                                if (autoDescription) {
-                                  return autoDescription;
-                                }
-                                // 그 외의 경우 저장된 설명 또는 기본 설명 표시
-                                return descriptions.get(row.id) || row.description || "-";
+                                if (autoDescription) return autoDescription;
+                                return getDescCurrent(row.id, row.description || "") || "-";
                               })()}
                             </span>
                             <div className="flex items-center gap-1">
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  const currentDesc = descriptions.get(row.id) || row.description || "";
+                                  const currentDesc = getDescCurrent(row.id, row.description || "");
                                   startEdit(row.id, currentDesc);
                                 }}
                                 className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"
@@ -2954,7 +3078,7 @@ export function ExpenseAccountHierTable({
                         className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-gray-600 relative group"
                         onClick={(e) => {
                           if (editingRowId !== row.id && !(e.target as HTMLElement).closest("button")) {
-                            startEdit(row.id, descriptions.get(row.id) || row.description || "");
+                            startEdit(row.id, getDescCurrent(row.id, row.description || ""));
                           }
                         }}
                       >
@@ -2979,8 +3103,13 @@ export function ExpenseAccountHierTable({
                           </div>
                         ) : (
                           <div className="flex items-center justify-between gap-2">
-                            <span className="flex-1 min-w-0">{descriptions.get(row.id) || row.description || "-"}</span>
-                            <button onClick={(e) => { e.stopPropagation(); startEdit(row.id, descriptions.get(row.id) || row.description || ""); }} className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity" title="편집"><Edit2 className="w-3 h-3 sm:w-4 sm:h-4" /></button>
+                            <span
+                              className="flex-1 min-w-0"
+                              title={getDescOther(row.id) ? (lang === "ko" ? `중국어: ${getDescOther(row.id)}` : `한국어: ${getDescOther(row.id)}`) : undefined}
+                            >
+                              {getDescCurrent(row.id, row.description || "") || "-"}
+                            </span>
+                            <button onClick={(e) => { e.stopPropagation(); startEdit(row.id, getDescCurrent(row.id, row.description || "")); }} className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity" title="편집"><Edit2 className="w-3 h-3 sm:w-4 sm:h-4" /></button>
                           </div>
                         )}
                       </td>
@@ -2994,71 +3123,28 @@ export function ExpenseAccountHierTable({
                       <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(currValue)}
                       </td>
-                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
+                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${yearType === "actual" && viewMode === "ytd" ? "bg-amber-50" : ""}`}>
                         {formatDifference(diff)}
                       </td>
-                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${getYOYColor(yoy)}`}>
+                      <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium ${yearType === "actual" && viewMode === "ytd" ? "bg-amber-50" : ""} ${getYOYColor(yoy)}`}>
                         {yoy != null ? formatYOY(yoy) : formatDifference(diff)}
+                      </td>
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
+                        {rowIs2026ActualYtd ? formatK(planYtd) : "-"}
                       </td>
                       <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-teal-50">
                         {formatDifference(planDiff)}
                       </td>
                       <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-teal-50 ${getYOYColor(progressRate)}`}>
-                        {formatYOY(progressRate)}
+                        {progressRate != null ? formatYOY(progressRate) : "-"}
                       </td>
                       <td className="border-r border-gray-200"></td>
                       {/* 연간 계획 영역 */}
                       <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatK(row.prev_year_annual)}
                       </td>
-                      <td
-                        className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium relative"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {basisPopoverRowId === row.id ? (
-                          <div className="absolute right-0 top-0 z-20 min-w-[280px] rounded-lg border border-slate-200 bg-white p-3 shadow-lg">
-                            <p className="text-xs font-semibold text-slate-700 mb-2">계산 근거 (연간 계획)</p>
-                            <textarea
-                              value={basisEditValue}
-                              onChange={(e) => setBasisEditValue(e.target.value)}
-                              onKeyDown={(e) => {
-                                if (e.key === "Escape") closeBasisPopover();
-                              }}
-                              className="w-full px-2 py-1.5 text-sm border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none mb-2"
-                              rows={3}
-                              autoFocus
-                            />
-                            <div className="flex justify-end gap-2">
-                              <button
-                                type="button"
-                                onClick={() => closeBasisPopover()}
-                                className="px-2 py-1 text-sm text-slate-600 hover:bg-slate-100 rounded"
-                              >
-                                취소
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => requestSaveBasis(row.id)}
-                                className="px-2 py-1 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded flex items-center gap-1"
-                              >
-                                <Check className="w-3.5 h-3.5" />
-                                저장
-                              </button>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="flex items-center justify-end gap-1">
-                            <span>{row.curr_year_annual != null ? formatK(row.curr_year_annual) : "-"}</span>
-                            <button
-                              type="button"
-                              title={basisMap.get(row.id) || "계산 근거 입력 (클릭)"}
-                              onClick={() => openBasisPopover(row.id)}
-                              className="p-0.5 text-slate-400 hover:text-blue-600 rounded"
-                            >
-                              <Info className="w-3 h-3 sm:w-4 sm:h-4" />
-                            </button>
-                          </div>
-                        )}
+                      <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
+                        {row.curr_year_annual != null ? formatK(row.curr_year_annual) : "-"}
                       </td>
                       <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                         {formatDifference(annualDiff)}
@@ -3073,7 +3159,7 @@ export function ExpenseAccountHierTable({
                         onClick={(e) => {
                           // 편집 모드가 아니고, 편집 버튼이 아닌 경우에만 편집 시작
                           if (editingRowId !== row.id && !(e.target as HTMLElement).closest('button')) {
-                            const currentDesc = descriptions.get(row.id) || row.description || "";
+                            const currentDesc = getDescCurrent(row.id, row.description || "");
                             startEdit(row.id, currentDesc);
                           }
                         }}
@@ -3120,27 +3206,27 @@ export function ExpenseAccountHierTable({
                           </div>
                         ) : (
                           <div className="flex items-center justify-between gap-2">
-                            <span className="flex-1 min-w-0">
+                            <span
+                              className="flex-1 min-w-0"
+                              title={getDescOther(row.id) ? (lang === "ko" ? `중국어: ${getDescOther(row.id)}` : `한국어: ${getDescOther(row.id)}`) : undefined}
+                            >
                               {(() => {
-                                // 인건비 대분류(level 1) 행의 경우 자동 계산된 설명 우선 표시 (당월 모드만)
+                                // 사용자가 저장한 설명이 있으면 우선 표시
+                                const savedDesc = descriptions.get(row.id)?.[lang];
+                                if (savedDesc != null && String(savedDesc).trim() !== "") return savedDesc;
+                                // 인건비 대분류(level 1) 또는 기본급 행: 자동 계산된 설명 표시 (당월 모드만)
                                 const laborCostDescription = calculateLaborCostDescription(row);
-                                if (laborCostDescription) {
-                                  return laborCostDescription;
-                                }
-                                // 인건비 > 기본급 행의 경우 자동 계산된 설명 우선 표시 (당월 모드만)
+                                if (laborCostDescription) return laborCostDescription;
                                 const autoDescription = calculateBasicSalaryDescription(row);
-                                if (autoDescription) {
-                                  return autoDescription;
-                                }
-                                // 그 외의 경우 저장된 설명 또는 기본 설명 표시
-                                return descriptions.get(row.id) || row.description || "-";
+                                if (autoDescription) return autoDescription;
+                                return getDescCurrent(row.id, row.description || "") || "-";
                               })()}
                             </span>
                             <div className="flex items-center gap-1">
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  const currentDesc = descriptions.get(row.id) || row.description || "";
+                                  const currentDesc = getDescCurrent(row.id, row.description || "");
                                   startEdit(row.id, currentDesc);
                                 }}
                                 className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-blue-600 transition-opacity"

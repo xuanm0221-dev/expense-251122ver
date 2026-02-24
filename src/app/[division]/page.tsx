@@ -461,8 +461,8 @@ export default function DivisionPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-6 md:py-8">
-        {/* 헤더: 한 행, 좁은 화면에서 크기만 축소·줄바꿈 없음 */}
-        <div className="mb-6 flex flex-nowrap items-center gap-2 min-w-0">
+        {/* 헤더: sticky로 스크롤 시 상단 고정 */}
+        <div className="sticky top-0 z-50 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 xl:-mx-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 pt-6 md:pt-8 pb-4 mb-2 bg-gray-50 flex flex-nowrap items-center gap-2 min-w-0">
           <Link href="/" className="flex-shrink-0">
             <Button variant="ghost" size="sm" className="p-1">
               <ArrowLeft className="h-3 w-3" />
@@ -683,22 +683,22 @@ export default function DivisionPage() {
           <LaborCostPerCapitaCard bizUnit={bizUnit} year={year} month={month} mode={mode} yearType={yearType} />
           {isBrand && (
             <>
-              <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} {...(yearType === "actual" && { mode })} sales={sales} prevSales={prevSales} />
               <CategoryExpenseCard title={t("수주회", lang)} categoryLv1="수주회" node={meetingNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
               <CategoryExpenseCard title={t("출장비", lang)} categoryLv1="출장비" node={travelNode} bizUnit={bizUnit} year={year} month={month} yearType={yearType} sales={sales} prevSales={prevSales} />
             </>
           )}
           {isCommon && (
             <>
-              <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} yearType={yearType} sales={corporateSales} prevSales={corporatePrevSales} />
-              <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} yearType={yearType} sales={corporateSales} prevSales={corporatePrevSales} />
+              <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} yearType={yearType} {...(yearType === "actual" && { mode })} sales={corporateSales} prevSales={corporatePrevSales} />
+              <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} yearType={yearType} {...(yearType === "actual" && { mode })} sales={corporateSales} prevSales={corporatePrevSales} />
             </>
           )}
           {isCorporate && (
             <>
-              <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} sales={sales} prevSales={prevSales} />
-              <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} yearType={yearType} sales={sales} prevSales={prevSales} />
-              <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} yearType={yearType} sales={sales} prevSales={prevSales} />
+              <AdExpenseCard bizUnit={bizUnit} year={year} month={month} adNode={adExpenseNode} yearType={yearType} {...(yearType === "actual" && { mode })} sales={sales} prevSales={prevSales} />
+              <ITFeeCard bizUnit={bizUnit} year={year} month={month} itNode={itFeeNode} yearType={yearType} {...(yearType === "actual" && { mode })} sales={sales} prevSales={prevSales} />
+              <PaymentFeeCard bizUnit={bizUnit} year={year} month={month} paymentNode={paymentFeeNode} yearType={yearType} {...(yearType === "actual" && { mode })} sales={sales} prevSales={prevSales} />
             </>
           )}
         </div>
@@ -713,6 +713,7 @@ export default function DivisionPage() {
             onHierarchyReady={handleHierarchyReady}
             onAnnualTotalsChange={(isBrand || isCommon) && is2026Annual ? handleAnnualTotalsChange : undefined}
             yearType={yearType}
+            {...(yearType === "actual" ? { mode, onModeChange: setMode } : {})}
           />
         </div>
         </div>

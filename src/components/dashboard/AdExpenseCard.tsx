@@ -19,6 +19,8 @@ interface AdExpenseCardProps {
   month: number;
   adNode?: ExpenseAccountRow | null;
   yearType?: 'actual' | 'plan';
+  /** 실적(actual)일 때만 전달: 당월/누적 구분 */
+  mode?: "monthly" | "ytd";
   sales?: number;
   prevSales?: number;
 }
@@ -49,10 +51,11 @@ function totalAdExpense(details: { amount: number }[]): number {
   return details.reduce((s, d) => s + d.amount, 0);
 }
 
-export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, prevSales }: AdExpenseCardProps) {
+export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, mode = "ytd", sales, prevSales }: AdExpenseCardProps) {
   const { lang } = useLanguage();
   const [showDetail, setShowDetail] = useState(false);
   const isBrand = bizUnit === "MLB" || bizUnit === "KIDS" || bizUnit === "DISCOVERY";
+  const useMonthly = mode === "monthly";
 
   // adNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
   let totalCurrent: number;
@@ -61,9 +64,9 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
   let byBizPrev: Map<string, number>;
 
   if (adNode) {
-    // 계층형 표에서 받은 데이터 사용
-    totalCurrent = adNode.curr_ytd;
-    totalPrev = adNode.prev_ytd;
+    // 계층형 표에서 받은 데이터 사용 (실적 당월 모드면 curr_month/prev_month)
+    totalCurrent = useMonthly ? adNode.curr_month : adNode.curr_ytd;
+    totalPrev = useMonthly ? adNode.prev_month : adNode.prev_ytd;
 
     // L2 children에서 금액 추출 (브랜드: cost_lv2 소분류, 법인/ALL/공통: biz_unit)
     const currMap = new Map<string, number>();
@@ -72,8 +75,8 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
     adNode.children?.forEach(child => {
       const key = isBrand ? child.category_l2 : child.biz_unit;
       if (key && key.trim() !== "") {
-        currMap.set(key, child.curr_ytd);
-        prevMap.set(key, child.prev_ytd);
+        currMap.set(key, useMonthly ? child.curr_month : child.curr_ytd);
+        prevMap.set(key, useMonthly ? child.prev_month : child.prev_ytd);
       }
     });
 
@@ -81,8 +84,9 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
     byBizPrev = prevMap;
   } else {
     // 기존 로직: getCategoryDetail 사용
-    const detailCurrent = getCategoryDetail(bizUnit, year, month, "광고비", "ytd");
-    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "광고비", "ytd");
+    const dataMode = useMonthly ? "monthly" : "ytd";
+    const detailCurrent = getCategoryDetail(bizUnit, year, month, "광고비", dataMode, yearType);
+    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "광고비", dataMode, yearType);
 
     totalCurrent = totalAdExpense(detailCurrent);
     totalPrev = totalAdExpense(detailPrev);
@@ -160,9 +164,11 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
                     c => (isBrand ? c.category_l2 : c.biz_unit) === key
                   );
                   
-                  // L3 children 필터링 (curr_ytd > 0, showDetail === true일 때만)
+                  // L3 children 필터링 (curr 값 > 0, showDetail === true일 때만)
+                  const l3CurrVal = (c: ExpenseAccountRow) => useMonthly ? c.curr_month : c.curr_ytd;
+                  const l3PrevVal = (c: ExpenseAccountRow) => useMonthly ? c.prev_month : c.prev_ytd;
                   const l3Children = showDetail && l2Node?.children 
-                    ? l2Node.children.filter(c => c.curr_ytd > 0)
+                    ? l2Node.children.filter(c => l3CurrVal(c) > 0)
                     : [];
 
                   return (
@@ -178,8 +184,10 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
                       
                       {/* L3 행들 (소분류) - showDetail이 true면 자동으로 표시 */}
                       {l3Children.map((l3, idx) => {
-                        const l3Yoy = l3.prev_ytd > 0 ? (l3.curr_ytd / l3.prev_ytd) * 100 : null;
-                        const l3Diff = l3.curr_ytd - l3.prev_ytd;
+                        const l3Curr = l3CurrVal(l3);
+                        const l3Prev = l3PrevVal(l3);
+                        const l3Yoy = l3Prev > 0 ? (l3Curr / l3Prev) * 100 : null;
+                        const l3Diff = l3Curr - l3Prev;
                         const l3AmountPart = (l3Diff >= 0 ? "+" : "-") + formatK(Math.abs(l3Diff), 0);
                         const l3PercentPart = l3Yoy != null ? formatPercent(l3Yoy, 0) : "";
                         return (
@@ -187,8 +195,8 @@ export function AdExpenseCard({ bizUnit, year, month, adNode, yearType, sales, p
                             <td className="text-left py-0.5 pr-2 pl-4">
                               - {getDisplayLabel(l3.category_l3 || "-", l3.category_l3_cn, lang)}
                             </td>
-                            <td className="text-right py-0.5 px-1">{l3.prev_ytd > 0 ? formatK(l3.prev_ytd, 0) : "-"}</td>
-                            <td className="text-right py-0.5 px-1">{formatK(l3.curr_ytd, 0)}</td>
+                            <td className="text-right py-0.5 px-1">{l3Prev > 0 ? formatK(l3Prev, 0) : "-"}</td>
+                            <td className="text-right py-0.5 px-1">{formatK(l3Curr, 0)}</td>
                             <td className="text-right py-0.5 px-1">{l3AmountPart || "-"}</td>
                             <td className="text-right py-0.5 pl-1">{l3PercentPart || "-"}</td>
                           </tr>

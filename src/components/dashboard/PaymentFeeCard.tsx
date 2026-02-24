@@ -17,6 +17,8 @@ interface PaymentFeeCardProps {
   month: number;
   paymentNode?: ExpenseAccountRow | null;
   yearType?: 'actual' | 'plan';
+  /** 실적(actual)일 때만 전달: 당월/누적 구분 */
+  mode?: "monthly" | "ytd";
   sales?: number;
   prevSales?: number;
 }
@@ -36,9 +38,10 @@ function totalExpense(details: { amount: number }[]): number {
   return details.reduce((s, d) => s + d.amount, 0);
 }
 
-export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sales, prevSales }: PaymentFeeCardProps) {
+export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, mode = "ytd", sales, prevSales }: PaymentFeeCardProps) {
   const { lang } = useLanguage();
   const [showDetail, setShowDetail] = useState(false);
+  const useMonthly = mode === "monthly";
 
   // paymentNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
   let totalCurrent: number;
@@ -46,14 +49,15 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
   let l2Children: ExpenseAccountRow[] = [];
 
   if (paymentNode) {
-    // 계층형 표에서 받은 데이터 사용
-    totalCurrent = paymentNode.curr_ytd;
-    totalPrev = paymentNode.prev_ytd;
+    // 계층형 표에서 받은 데이터 사용 (실적 당월 모드면 curr_month/prev_month)
+    totalCurrent = useMonthly ? paymentNode.curr_month : paymentNode.curr_ytd;
+    totalPrev = useMonthly ? paymentNode.prev_month : paymentNode.prev_ytd;
     l2Children = paymentNode.children || [];
   } else {
     // 기존 로직: getCategoryDetail 사용
-    const detailCurrent = getCategoryDetail(bizUnit, year, month, "지급수수료", "ytd");
-    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "지급수수료", "ytd");
+    const dataMode = useMonthly ? "monthly" : "ytd";
+    const detailCurrent = getCategoryDetail(bizUnit, year, month, "지급수수료", dataMode, yearType);
+    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "지급수수료", dataMode, yearType);
 
     totalCurrent = totalExpense(detailCurrent);
     totalPrev = totalExpense(detailPrev);
@@ -62,7 +66,6 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
     const currMap = sumByKey(detailCurrent);
     const prevMap = sumByKey(detailPrev);
     
-    // L2를 ExpenseAccountRow 형태로 변환
     const allKeys = new Set([...currMap.keys(), ...prevMap.keys()]);
     l2Children = Array.from(allKeys).map(key => ({
       id: `payment-l2-${key}`,
@@ -70,10 +73,10 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
       category_l1: "지급수수료",
       category_l2: key,
       category_l3: "",
-      prev_month: 0,
-      curr_month: 0,
-      prev_ytd: prevMap.get(key) || 0,
-      curr_ytd: currMap.get(key) || 0,
+      prev_month: useMonthly ? (prevMap.get(key) || 0) : 0,
+      curr_month: useMonthly ? (currMap.get(key) || 0) : 0,
+      prev_ytd: useMonthly ? 0 : (prevMap.get(key) || 0),
+      curr_ytd: useMonthly ? 0 : (currMap.get(key) || 0),
       prev_year_annual: null,
       curr_year_annual: null,
       description: "",
@@ -87,7 +90,9 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
   const diff = totalCurrent - totalPrev;
   const diffStr = diff >= 0 ? `+${formatK(diff, 0)}` : formatK(diff, 0);
   const yoyStr = yoy != null ? formatPercent(yoy, 0) : "-";
-  const sortedL2Children = [...l2Children].sort((a, b) => (b.curr_ytd || 0) - (a.curr_ytd || 0));
+  const currVal = (row: ExpenseAccountRow) => useMonthly ? row.curr_month : row.curr_ytd;
+  const prevVal = (row: ExpenseAccountRow) => useMonthly ? row.prev_month : row.prev_ytd;
+  const sortedL2Children = [...l2Children].sort((a, b) => (currVal(b) || 0) - (currVal(a) || 0));
   const displayL2Children = showDetail ? sortedL2Children : sortedL2Children.slice(0, 5);
 
   return (
@@ -140,8 +145,8 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
               </thead>
               <tbody>
                 {displayL2Children.map((l2Child, idx) => {
-                  const curr = l2Child.curr_ytd;
-                  const prev = l2Child.prev_ytd;
+                  const curr = currVal(l2Child);
+                  const prev = prevVal(l2Child);
                   const yoyRow = prev > 0 ? (curr / prev) * 100 : null;
                   const currStr = curr > 0 ? formatK(curr, 0) : "-";
                   const prevStr = prev > 0 ? formatK(prev, 0) : "-";
@@ -154,9 +159,10 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                     lang
                   );
 
-                  // L3 children 필터링 (curr_ytd > 0, showDetail === true일 때만)
+                  const l3CurrVal = (c: ExpenseAccountRow) => useMonthly ? c.curr_month : c.curr_ytd;
+                  const l3PrevVal = (c: ExpenseAccountRow) => useMonthly ? c.prev_month : c.prev_ytd;
                   const l3Children = showDetail && l2Child.children 
-                    ? l2Child.children.filter(c => c.curr_ytd > 0)
+                    ? l2Child.children.filter(c => l3CurrVal(c) > 0)
                     : [];
 
                   return (
@@ -172,8 +178,10 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
 
                       {/* L3 행들 (소분류) - showDetail이 true면 자동으로 표시 */}
                       {l3Children.map((l3, l3Idx) => {
-                        const l3Yoy = l3.prev_ytd > 0 ? (l3.curr_ytd / l3.prev_ytd) * 100 : null;
-                        const l3Diff = l3.curr_ytd - l3.prev_ytd;
+                        const l3Curr = l3CurrVal(l3);
+                        const l3Prev = l3PrevVal(l3);
+                        const l3Yoy = l3Prev > 0 ? (l3Curr / l3Prev) * 100 : null;
+                        const l3Diff = l3Curr - l3Prev;
                         const l3AmountPart = (l3Diff >= 0 ? "+" : "-") + formatK(Math.abs(l3Diff), 0);
                         const l3PercentPart = l3Yoy != null ? formatPercent(l3Yoy, 0) : "";
                         return (
@@ -181,8 +189,8 @@ export function PaymentFeeCard({ bizUnit, year, month, paymentNode, yearType, sa
                             <td className="text-left py-0.5 pr-2 pl-4">
                               - {getDisplayLabel(l3.category_l3 || "-", l3.category_l3_cn, lang)}
                             </td>
-                            <td className="text-right py-0.5 px-1">{l3.prev_ytd > 0 ? formatK(l3.prev_ytd, 0) : "-"}</td>
-                            <td className="text-right py-0.5 px-1">{formatK(l3.curr_ytd, 0)}</td>
+                            <td className="text-right py-0.5 px-1">{l3Prev > 0 ? formatK(l3Prev, 0) : "-"}</td>
+                            <td className="text-right py-0.5 px-1">{formatK(l3Curr, 0)}</td>
                             <td className="text-right py-0.5 px-1">{l3AmountPart || "-"}</td>
                             <td className="text-right py-0.5 pl-1">{l3PercentPart || "-"}</td>
                           </tr>

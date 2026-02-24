@@ -17,6 +17,8 @@ interface ITFeeCardProps {
   month: number;
   itNode?: ExpenseAccountRow | null;
   yearType?: 'actual' | 'plan';
+  /** 실적(actual)일 때만 전달: 당월/누적 구분 */
+  mode?: "monthly" | "ytd";
   sales?: number;
   prevSales?: number;
 }
@@ -36,9 +38,10 @@ function totalExpense(details: { amount: number }[]): number {
   return details.reduce((s, d) => s + d.amount, 0);
 }
 
-export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevSales }: ITFeeCardProps) {
+export function ITFeeCard({ bizUnit, year, month, itNode, yearType, mode = "ytd", sales, prevSales }: ITFeeCardProps) {
   const { lang } = useLanguage();
   const [showDetail, setShowDetail] = useState(false);
+  const useMonthly = mode === "monthly";
 
   // itNode가 제공되면 계층형 데이터 사용, 아니면 기존 로직 사용
   let totalCurrent: number;
@@ -46,14 +49,15 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
   let l2Children: ExpenseAccountRow[] = [];
 
   if (itNode) {
-    // 계층형 표에서 받은 데이터 사용
-    totalCurrent = itNode.curr_ytd;
-    totalPrev = itNode.prev_ytd;
+    // 계층형 표에서 받은 데이터 사용 (실적 당월 모드면 curr_month/prev_month)
+    totalCurrent = useMonthly ? itNode.curr_month : itNode.curr_ytd;
+    totalPrev = useMonthly ? itNode.prev_month : itNode.prev_ytd;
     l2Children = itNode.children || [];
   } else {
     // 기존 로직: getCategoryDetail 사용
-    const detailCurrent = getCategoryDetail(bizUnit, year, month, "IT수수료", "ytd");
-    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "IT수수료", "ytd");
+    const dataMode = useMonthly ? "monthly" : "ytd";
+    const detailCurrent = getCategoryDetail(bizUnit, year, month, "IT수수료", dataMode, yearType);
+    const detailPrev = getCategoryDetail(bizUnit, year - 1, month, "IT수수료", dataMode, yearType);
 
     totalCurrent = totalExpense(detailCurrent);
     totalPrev = totalExpense(detailPrev);
@@ -70,10 +74,10 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
       category_l1: "IT수수료",
       category_l2: key,
       category_l3: "",
-      prev_month: 0,
-      curr_month: 0,
-      prev_ytd: prevMap.get(key) || 0,
-      curr_ytd: currMap.get(key) || 0,
+      prev_month: useMonthly ? (prevMap.get(key) || 0) : 0,
+      curr_month: useMonthly ? (currMap.get(key) || 0) : 0,
+      prev_ytd: useMonthly ? 0 : (prevMap.get(key) || 0),
+      curr_ytd: useMonthly ? 0 : (currMap.get(key) || 0),
       prev_year_annual: null,
       curr_year_annual: null,
       description: "",
@@ -88,8 +92,9 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
   const diffStr = diff >= 0 ? `+${formatK(diff, 0)}` : formatK(diff, 0);
   const yoyStr = yoy != null ? formatPercent(yoy, 0) : "-";
 
-  // L2 children을 당년 금액(curr_ytd) 내림차순 정렬
-  const sortedL2Children = [...l2Children].sort((a, b) => b.curr_ytd - a.curr_ytd);
+  const currVal = (row: ExpenseAccountRow) => useMonthly ? row.curr_month : row.curr_ytd;
+  const prevVal = (row: ExpenseAccountRow) => useMonthly ? row.prev_month : row.prev_ytd;
+  const sortedL2Children = [...l2Children].sort((a, b) => currVal(b) - currVal(a));
 
   // showDetail 여부에 따라 표시할 항목 결정 (상위 5개 or 전체)
   const displayChildren = showDetail ? sortedL2Children : sortedL2Children.slice(0, 5);
@@ -139,8 +144,8 @@ export function ITFeeCard({ bizUnit, year, month, itNode, yearType, sales, prevS
               </thead>
               <tbody>
                 {displayChildren.map((l2Child, idx) => {
-                  const curr = l2Child.curr_ytd;
-                  const prev = l2Child.prev_ytd;
+                  const curr = currVal(l2Child);
+                  const prev = prevVal(l2Child);
                   const yoyRow = prev > 0 ? (curr / prev) * 100 : null;
                   const currStr = curr > 0 ? formatK(curr, 0) : "-";
                   const prevStr = prev > 0 ? formatK(prev, 0) : "-";

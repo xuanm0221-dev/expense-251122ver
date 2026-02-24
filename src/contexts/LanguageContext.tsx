@@ -20,14 +20,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
-      if (stored === "ko" || stored === "zh") {
-        setLangState(stored);
-      }
-    } catch {
-      // ignore
-    }
     setMounted(true);
   }, []);
 

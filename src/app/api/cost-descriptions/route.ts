@@ -77,19 +77,37 @@ function ensureDirectoryExists(filePath: string): void {
   }
 }
 
+// 설명 데이터 타입: 언어별 { ko?, zh? } (레거시: plain string → ko로 간주)
+export type DescByLang = { ko?: string; zh?: string };
+
+function normalizeDescriptions(raw: Record<string, unknown>): Record<string, DescByLang> {
+  const out: Record<string, DescByLang> = {};
+  for (const [k, v] of Object.entries(raw)) {
+    if (typeof v === "string") {
+      if (v.trim()) out[k] = { ko: v };
+    } else if (v && typeof v === "object" && !Array.isArray(v)) {
+      const o = v as Record<string, unknown>;
+      const ko = typeof o.ko === "string" ? o.ko : "";
+      const zh = typeof o.zh === "string" ? o.zh : "";
+      if (ko || zh) out[k] = { ko: ko || undefined, zh: zh || undefined };
+    }
+  }
+  return out;
+}
+
 // 설명 데이터 읽기 (Redis 우선, 비었으면 배포된 파일 fallback)
 async function readDescriptions(
   brand: string,
   ym: string,
   mode: string,
   yearType?: string
-): Promise<Record<string, string>> {
+): Promise<Record<string, DescByLang>> {
   const redis = getRedis();
   if (redis) {
     try {
       const raw = await redis.get(redisDescKey(brand, ym, mode, yearType));
-      const fromRedis = raw == null ? {} : typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, string>);
-      if (Object.keys(fromRedis).length > 0) return fromRedis;
+      const fromRedis = raw == null ? {} : typeof raw === "string" ? JSON.parse(raw) : (raw as Record<string, unknown>);
+      if (Object.keys(fromRedis).length > 0) return normalizeDescriptions(fromRedis);
       // Redis 비었으면 배포된 파일 fallback
     } catch (e: any) {
       console.error("설명 Redis 읽기 오류:", e);
@@ -98,7 +116,7 @@ async function readDescriptions(
       const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
       if (fs.existsSync(filePath)) {
         const content = fs.readFileSync(filePath, "utf-8");
-        return JSON.parse(content);
+        return normalizeDescriptions(JSON.parse(content) as Record<string, unknown>);
       }
     } catch (e: any) {
       console.error("설명 파일 fallback 오류:", e);
@@ -109,7 +127,7 @@ async function readDescriptions(
     const filePath = getDescriptionFilePath(brand, ym, mode, yearType);
     if (!fs.existsSync(filePath)) return {};
     const content = fs.readFileSync(filePath, "utf-8");
-    return JSON.parse(content);
+    return normalizeDescriptions(JSON.parse(content) as Record<string, unknown>);
   } catch (error: any) {
     console.error("설명 파일 읽기 오류:", error);
     return {};
@@ -121,7 +139,7 @@ async function writeDescriptions(
   brand: string,
   ym: string,
   mode: string,
-  descriptions: Record<string, string>,
+  descriptions: Record<string, DescByLang>,
   yearType?: string
 ): Promise<void> {
   const redis = getRedis();
@@ -278,7 +296,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { brand, ym, mode, accountPath, description, basis: basisValue, yearType, password, action } = body;
+    const { brand, ym, mode, accountPath, description, basis: basisValue, yearType, password, action, lang } = body;
 
     // Vercel 배포 환경에서만 비밀번호 검사 (로컬은 비밀번호 없이 저장 가능)
     if (process.env.VERCEL === "1") {
@@ -328,15 +346,16 @@ export async function POST(request: NextRequest) {
     }
 
     const existingDescriptions = await readDescriptions(brand, ym, mode, yearType);
-    const oldValue = existingDescriptions[accountPath] || "";
-    const newDescriptions: Record<string, string> = {
-      ...existingDescriptions,
-      [accountPath]: description || "",
-    };
-    if (!description || description.trim() === "") {
-      delete newDescriptions[accountPath];
+    const langKey = (lang === "zh" ? "zh" : "ko") as "ko" | "zh";
+    const existingForPath = existingDescriptions[accountPath] || {};
+    const oldValue = existingForPath[langKey] || "";
+    const updatedForPath = { ...existingForPath, [langKey]: (description || "").trim() || undefined };
+    if (!updatedForPath.ko && !updatedForPath.zh) {
+      const { [accountPath]: _, ...rest } = existingDescriptions;
+      await writeDescriptions(brand, ym, mode, rest, yearType);
+    } else {
+      await writeDescriptions(brand, ym, mode, { ...existingDescriptions, [accountPath]: updatedForPath }, yearType);
     }
-    await writeDescriptions(brand, ym, mode, newDescriptions, yearType);
 
     const newLog: SaveLog = {
       timestamp: new Date().toISOString(),

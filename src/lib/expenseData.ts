@@ -498,6 +498,29 @@ export function getAnnualData(
   return filtered;
 }
 
+/** CategoryDetail[]을 (cost_lv1, cost_lv2, cost_lv3, biz_unit)별로 집계하여 AnnualData[]로 변환 */
+export function aggregateCategoryDetailToAnnual(details: CategoryDetail[]): AnnualData[] {
+  const grouped = new Map<string, number>();
+  for (const d of details) {
+    const key = `${d.biz_unit || ""}\x00${d.cost_lv1 || ""}\x00${d.cost_lv2 || ""}\x00${d.cost_lv3 || ""}`;
+    grouped.set(key, (grouped.get(key) || 0) + d.amount);
+  }
+  const year = details[0]?.year ?? 0;
+  const yearType = details[0]?.year_type ?? "actual";
+  return Array.from(grouped.entries()).map(([key, annual_amount]) => {
+    const [biz_unit, cost_lv1, cost_lv2, cost_lv3] = key.split("\x00");
+    return {
+      biz_unit: biz_unit || "",
+      year,
+      cost_lv1: cost_lv1 || "",
+      cost_lv2: cost_lv2 || "",
+      cost_lv3: cost_lv3 || "",
+      annual_amount,
+      year_type: yearType,
+    } as AnnualData;
+  });
+}
+
 export function getCategoryDetail(
   bizUnit: BizUnit | "ALL",
   year: number,
