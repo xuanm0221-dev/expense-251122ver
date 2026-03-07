@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@upstash/redis": "^1.36.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -17,7 +18,9 @@
     "next": "^14.2.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
+    "react-markdown": "^10.1.0",
     "recharts": "^2.12.0",
+    "remark-gfm": "^4.0.1",
     "tailwind-merge": "^2.2.0"
   },
   "devDependencies": {

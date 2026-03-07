@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, FileText, BookmarkCheck, type LucideIcon } from "lucide-react";
+import { Baby, Mountain, Building2, Building, BarChart3, Calendar, ChevronDown, Download, FileText, BookmarkCheck, Bot, type LucideIcon } from "lucide-react";
 import React from "react";
 
 // 야구공 아이콘 컴포넌트 (LucideIcon 타입과 호환)
@@ -47,6 +47,7 @@ const BaseballIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElemen
 BaseballIcon.displayName = "BaseballIcon";
 import { BrandCard } from "@/components/dashboard/BrandCard";
 import { ReportModal } from "@/components/dashboard/ReportModal";
+import { AIReportModal } from "@/components/dashboard/AIReportModal";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import {
@@ -88,6 +89,7 @@ export default function HomePage() {
   const [month, setMonth] = useState<number>(initialMonth);
   const [mode, setMode] = useState<Mode>(initialMode);
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
+  const [isAIReportOpen, setIsAIReportOpen] = useState(false);
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
   const availableMonths = getAvailableMonths(yearOption.year, yearOption.type);
@@ -122,6 +124,7 @@ export default function HomePage() {
   }, [yearOption, availableMonths, month, isPlanYear, mode]);
 
   return (
+    <>
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-6 md:py-8">
         {/* 헤더 */}
@@ -219,6 +222,16 @@ export default function HomePage() {
                 <BookmarkCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
                 {t("이 날짜를 기본으로 저장", lang)}
               </Button>
+              <Button
+                type="button"
+                size="sm"
+                onClick={() => setIsAIReportOpen(true)}
+                className="flex-shrink-0 text-[10px] sm:text-xs bg-blue-50 text-blue-700 border border-blue-300 hover:bg-blue-100"
+                variant="outline"
+              >
+                <Bot className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1 sm:mr-1.5" />
+                AI 보고서
+              </Button>
               {isPlanYear && (
                 <>
                   <Button
@@ -281,6 +294,16 @@ export default function HomePage() {
         />
       </div>
     </div>
+
+    <AIReportModal
+      isOpen={isAIReportOpen}
+      onClose={() => setIsAIReportOpen(false)}
+      year={yearOption.year}
+      month={month}
+      mode={mode}
+      yearType={yearOption.type}
+    />
+    </>
   );
 }
 

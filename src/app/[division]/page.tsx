@@ -14,10 +14,11 @@ import { AdExpenseCard } from "@/components/dashboard/AdExpenseCard";
 import { ITFeeCard } from "@/components/dashboard/ITFeeCard";
 import { PaymentFeeCard } from "@/components/dashboard/PaymentFeeCard";
 import { CategoryExpenseCard } from "@/components/dashboard/CategoryExpenseCard";
+import { AIReportModal } from "@/components/dashboard/AIReportModal";
 import { ExpenseAccountRow } from "@/types/expense";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2, Building, Download } from "lucide-react";
+import { ArrowLeft, Calendar, ChevronDown, Baby, Mountain, Building2, Building, Download, Bot } from "lucide-react";
 
 // 야구공 아이콘 컴포넌트
 const BaseballIcon = ({ className }: { className?: string }) => (
@@ -140,6 +141,7 @@ export default function DivisionPage() {
   const [meetingNode, setMeetingNode] = useState<ExpenseAccountRow | null>(null);
   const [travelNode, setTravelNode] = useState<ExpenseAccountRow | null>(null);
   const [tableAnnualTotals, setTableAnnualTotals] = useState<{ prev: number; curr: number } | null>(null);
+  const [isAIReportOpen, setIsAIReportOpen] = useState(false);
   const exportAreaRef = useRef<HTMLDivElement>(null);
 
   const isPlanYear = yearOption.year === 2026 && yearOption.type === 'plan';
@@ -459,6 +461,7 @@ export default function DivisionPage() {
   const perPersonCostYOY = calculateYOY(perPersonCost, prevPerPersonCost);
 
   return (
+    <>
     <div className="min-h-screen bg-gray-50">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-6 md:py-8">
         {/* 헤더: sticky로 스크롤 시 상단 고정 */}
@@ -552,6 +555,14 @@ export default function DivisionPage() {
           </Tabs>
           <div className="flex flex-shrink-0 items-center gap-2">
             <LanguageToggle compact />
+            <button
+              type="button"
+              onClick={() => setIsAIReportOpen(true)}
+              className="flex h-7 items-center gap-1 rounded-lg border border-blue-300 bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 transition-colors hover:bg-blue-100"
+            >
+              <Bot className="h-3 w-3 flex-shrink-0" />
+              AI 보고서
+            </button>
             {isCorporate && (
               <button
                 type="button"
@@ -743,6 +754,16 @@ export default function DivisionPage() {
 
       </div>
     </div>
+
+    <AIReportModal
+      isOpen={isAIReportOpen}
+      onClose={() => setIsAIReportOpen(false)}
+      year={year}
+      month={month}
+      mode={mode}
+      yearType={yearType}
+    />
+    </>
   );
 }
 
