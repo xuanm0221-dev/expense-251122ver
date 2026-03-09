@@ -124,7 +124,7 @@ export function BizUnitCard({
               <div className="w-5 h-5">{icon}</div>
             )}
           </div>
-          <span className="text-sm sm:text-base font-bold">{businessUnit}</span>
+          <span className="text-sm sm:text-base font-bold">{t(businessUnit, lang)}</span>
         </div>
 
         {/* 하단: YOY 박스들 - 브랜드/법인/공통 모두 판매매출 YOY + 영업비 YOY 표시 */}
