@@ -380,6 +380,42 @@ function DetailedSections({ markdown }: { markdown: string }) {
 
   const detailMdComponents = {
     ...mdTableComponents,
+    // tbody tr: 첫 번째 셀에 <strong>(bold)이 포함된 행은 대분류 → 배경색 강조
+    tr: ({ children, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => {
+      const cells = React.Children.toArray(children);
+      const firstCell = cells[0];
+      const isHeader =
+        React.isValidElement(firstCell) &&
+        React.Children.toArray((firstCell as React.ReactElement<{ children?: React.ReactNode }>).props.children).some(
+          (c) => React.isValidElement(c) && (c.type === "strong" || (c as React.ReactElement).type?.toString?.() === "strong")
+        );
+      return (
+        <tr
+          className={isHeader ? "bg-blue-50 font-semibold" : "hover:bg-gray-50"}
+          {...props}
+        >
+          {children}
+        </tr>
+      );
+    },
+    td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => {
+      const text = String(children ?? "");
+      // 전각공백(　) 접두사가 있으면 들여쓰기 적용
+      const isIndented = text.startsWith("　");
+      let cls = "border border-gray-200 px-2 py-1 text-[10px]";
+      if (isIndented) cls += " pl-5";
+      if (/개선/.test(text)) cls += " text-green-700 font-semibold";
+      else if (/악화|경고/.test(text)) cls += " text-red-700 font-semibold";
+      else if (/주의/.test(text)) cls += " text-yellow-700 font-semibold";
+      if (/🔴/.test(text)) cls += " text-red-700";
+      if (/🟡/.test(text)) cls += " text-yellow-700";
+      if (/🟢/.test(text)) cls += " text-green-700";
+      return (
+        <td className={cls} {...props}>
+          {children}
+        </td>
+      );
+    },
     h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h2
         className="text-xs font-bold text-gray-800 flex items-center gap-1"
@@ -559,7 +595,7 @@ export function AIReportModal({
           <div className="flex items-center gap-2">
             <Bot className="w-4 h-4 text-purple-600" />
             <span className="font-bold text-gray-800 text-sm">
-              AI 예산구조진단 보고서
+              AI 리포트
             </span>
             <span className="text-[10px] text-gray-400 ml-1">
               {year}년 {yearType === "plan" ? "예산" : "실적"} /{" "}
