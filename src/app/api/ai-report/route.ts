@@ -1,7 +1,23 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { Redis } from "@upstash/redis";
 import { NextRequest } from "next/server";
 import path from "path";
 import fs from "fs";
+
+// Redis: Vercel 배포 환경에서만 사용
+function getRedis(): Redis | null {
+  if (process.env.VERCEL !== "1") return null;
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
+}
+
+function aiReportCacheKey(year: number, month: number, mode: string, yearType: string): string {
+  return `ai-report:${year}:${month}:${mode}:${yearType}`;
+}
+
+const AI_REPORT_TTL_SEC = 60 * 60 * 24 * 60; // 60일
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -344,12 +360,34 @@ export async function POST(req: NextRequest) {
     month = 12,
     mode = "ytd",
     yearType = "plan",
+    forceRefresh = false,
   }: {
     year: number;
     month: number;
     mode: "monthly" | "ytd";
     yearType: "actual" | "plan";
+    forceRefresh?: boolean;
   } = body;
+
+  const redis = getRedis();
+  const cacheKey = aiReportCacheKey(year, month, mode, yearType);
+
+  // Redis 캐시 히트 시 즉시 반환 (재생성 요청이 아닌 경우)
+  if (!forceRefresh && redis) {
+    try {
+      const cached = await redis.get<string>(cacheKey);
+      if (cached) {
+        return new Response(cached, {
+          headers: {
+            "Content-Type": "text/plain; charset=utf-8",
+            "X-Cache": "HIT",
+          },
+        });
+      }
+    } catch {
+      // Redis 조회 실패 시 그냥 Claude 호출로 진행
+    }
+  }
 
   const dataPath = path.join(process.cwd(), "data", "aggregated-expense.json");
   const raw = fs.readFileSync(dataPath, "utf-8");
@@ -392,15 +430,26 @@ export async function POST(req: NextRequest) {
           ],
         });
 
+        let accumulated = "";
         for await (const chunk of anthropicStream) {
           if (
             chunk.type === "content_block_delta" &&
             chunk.delta.type === "text_delta"
           ) {
+            accumulated += chunk.delta.text;
             controller.enqueue(encoder.encode(chunk.delta.text));
           }
         }
         controller.close();
+
+        // 스트리밍 완료 후 Redis에 저장
+        if (redis && accumulated) {
+          try {
+            await redis.set(cacheKey, accumulated, { ex: AI_REPORT_TTL_SEC });
+          } catch {
+            // Redis 저장 실패는 무시 (보고서는 이미 전송됨)
+          }
+        }
       } catch (err) {
         controller.error(err);
       }
@@ -412,6 +461,7 @@ export async function POST(req: NextRequest) {
       "Content-Type": "text/plain; charset=utf-8",
       "Transfer-Encoding": "chunked",
       "Cache-Control": "no-cache",
+      "X-Cache": "MISS",
     },
   });
 }

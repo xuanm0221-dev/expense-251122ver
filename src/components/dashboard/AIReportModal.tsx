@@ -510,7 +510,7 @@ export function AIReportModal({
       const res = await fetch("/api/ai-report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ year, month, mode, yearType }),
+        body: JSON.stringify({ year, month, mode, yearType, forceRefresh }),
         signal: abortRef.current.signal,
       });
       if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
