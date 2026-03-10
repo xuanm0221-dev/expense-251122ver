@@ -82,16 +82,30 @@ function sumTotal(
   if (rows.length === 0) return null;
 
   const costRaw = rows.reduce((s, r) => s + (r.amount || 0), 0);
-  const headcount = mode === "ytd"
-    ? (rows.filter((r) => r.month === month)[0]?.headcount ?? rows[rows.length - 1]?.headcount ?? 0)
-    : rows.reduce((s, r) => s + (r.headcount || 0), 0);
+
+  // 기말 인원: 대상 월의 biz_unit 합계
+  const endMonthRows = rows.filter((r) => r.month === month);
+  const headcount = endMonthRows.length > 0
+    ? endMonthRows.reduce((s, r) => s + (r.headcount || 0), 0)
+    : rows[rows.length - 1]?.headcount ?? 0;
+
+  // 평균 인원: YTD 모드에서 월별 합계를 평균, monthly는 기말과 동일
+  let headcountAvg = headcount;
+  if (mode === "ytd" && rows.length > 0) {
+    const months = [...new Set(rows.map((r) => r.month))].sort((a, b) => a - b);
+    const monthlyTotals = months.map((m) =>
+      rows.filter((r) => r.month === m).reduce((s, r) => s + (r.headcount || 0), 0)
+    );
+    headcountAvg = Math.round(monthlyTotals.reduce((s, h) => s + h, 0) / monthlyTotals.length);
+  }
+
   const salesBizUnits = bizUnits.filter((b) => b !== "공통");
   const salesRows = rows.filter((r) => salesBizUnits.includes(r.biz_unit));
   const salesRaw = salesRows.reduce((s, r) => s + (r.sales || 0), 0);
   // 원(元) → K(천위안) 변환
   const cost = Math.round(costRaw / 1000);
   const sales = Math.round(salesRaw / 1000);
-  return { cost, headcount, sales };
+  return { cost, headcount, headcountAvg, sales };
 }
 
 function sumCategories(
@@ -233,6 +247,7 @@ SQL 원문, HTML 원문, 화면 문구를 임의 재해석하지 말고
 
 비율은 %로 표기한다.
 인원은 명으로 표기한다.
+JSON의 headcount는 기말 인원, headcountAvg는 평균 인원이다. 반드시 둘 다 사용해 {기말명/평균명} 형식으로 표기한다.
 
 --------------------------------------------------
 [기간 및 비교 기준]
