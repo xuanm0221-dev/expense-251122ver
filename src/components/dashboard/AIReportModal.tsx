@@ -223,6 +223,19 @@ const KPI_STYLES: Record<string, { border: string; bg: string; label: string }> 
   인원: { border: "border-violet-200", bg: "bg-violet-50", label: "text-violet-600" },
 };
 
+function YoyBadge({ value, isBad, isGood }: { value: string; isBad: boolean; isGood: boolean }) {
+  if (!value || value === "-") return null;
+  return (
+    <span
+      className={`text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${
+        isBad ? "bg-red-100 text-red-700" : isGood ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"
+      }`}
+    >
+      {value}
+    </span>
+  );
+}
+
 function KpiCards({ kpi }: { kpi: KpiItem[] }) {
   if (kpi.length === 0) return null;
   return (
@@ -237,46 +250,77 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
           item.direction === "개선" ||
           (item.label === "판매매출" && item.ytdYoy && parseFloat(item.ytdYoy) > 100);
         const isBad = item.direction === "악화";
+        const isInwon = item.label === "인원";
+        const isBiyongYul = item.label === "비용률";
 
         return (
           <div
             key={item.label}
-            className={`border ${s.border} ${s.bg} rounded-xl p-3 flex flex-col gap-1 shadow-sm`}
+            className={`border ${s.border} ${s.bg} rounded-xl p-3 flex flex-col gap-1.5 shadow-sm`}
           >
+            {/* 카드 라벨 */}
             <div className={`text-xs font-semibold ${s.label}`}>{item.label}</div>
-            {/* YTD 누적 값 (메인) */}
-            <div className="text-sm font-bold text-gray-800 leading-tight tracking-tight">
-              {item.ytdCurrent}
-            </div>
-            {/* YTD YOY */}
-            <div className="flex items-center gap-1.5 flex-wrap">
-              {item.ytdYoy && item.ytdYoy !== "-" && (
-                <span
-                  className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${
-                    isBad
-                      ? "bg-red-100 text-red-700"
-                      : isGood
-                      ? "bg-green-100 text-green-700"
-                      : "bg-gray-100 text-gray-600"
-                  }`}
-                >
-                  YTD YOY {item.ytdYoy}
-                </span>
-              )}
-              {item.direction && (
-                <span
-                  className={`text-xs font-medium ${
-                    item.direction === "개선" ? "text-green-600" : item.direction === "악화" ? "text-red-600" : "text-gray-500"
-                  }`}
-                >
-                  {item.direction}
-                </span>
-              )}
-            </div>
-            {/* 당월 YOY (보조) */}
-            <div className="text-xs text-gray-400 leading-tight">
-              당월 {item.monthlyCurrent} │ 당월YOY {item.monthlyYoy}
-            </div>
+
+            {isInwon ? (
+              /* 인원 카드 */
+              <>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-sm font-bold text-gray-800">{item.monthlyCurrent}</span>
+                  <span className={`text-xs font-medium ${item.monthlyYoy?.startsWith("+") ? "text-green-600" : item.monthlyYoy?.startsWith("-") ? "text-red-600" : "text-gray-500"}`}>
+                    {item.monthlyYoy}
+                  </span>
+                  <span className="text-xs text-gray-400">전년비</span>
+                </div>
+                <div className="border-t border-gray-200 pt-1 mt-0.5">
+                  <div className="text-[11px] text-gray-500 mb-0.5">인당매출 (YTD)</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-gray-800">{item.ytdCurrent}</span>
+                    <YoyBadge value={item.ytdYoy} isBad={isBad} isGood={isGood} />
+                  </div>
+                </div>
+              </>
+            ) : isBiyongYul ? (
+              /* 비용률 카드 */
+              <>
+                <div>
+                  <div className="text-[11px] text-gray-500">당월</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm font-bold text-gray-800">{item.monthlyCurrent}</span>
+                    <span className="text-xs text-gray-500">{item.monthlyYoy}</span>
+                  </div>
+                </div>
+                <div className="border-t border-gray-200 pt-1 mt-0.5">
+                  <div className="text-[11px] text-gray-500">YTD 누적</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-gray-800">{item.ytdCurrent}</span>
+                    <span className="text-xs text-gray-500">{item.ytdYoy}</span>
+                    {item.direction && (
+                      <span className={`text-xs font-medium ${isGood ? "text-green-600" : isBad ? "text-red-600" : "text-gray-500"}`}>
+                        {item.direction}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </>
+            ) : (
+              /* 판매매출 / 총비용 카드 */
+              <>
+                <div>
+                  <div className="text-[11px] text-gray-500">당월</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm font-bold text-gray-800">{item.monthlyCurrent}</span>
+                    <YoyBadge value={item.monthlyYoy} isBad={isBad} isGood={isGood} />
+                  </div>
+                </div>
+                <div className="border-t border-gray-200 pt-1 mt-0.5">
+                  <div className="text-[11px] text-gray-500">YTD 누적</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-gray-800">{item.ytdCurrent}</span>
+                    <YoyBadge value={item.ytdYoy} isBad={isBad} isGood={isGood} />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         );
       })}
