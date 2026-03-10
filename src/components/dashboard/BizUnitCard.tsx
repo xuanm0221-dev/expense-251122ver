@@ -110,6 +110,7 @@ export function BizUnitCard({
   const isCorporate = businessUnit === "법인";
   const themeKey = isCommon ? "COMMON" : isCorporate ? "법인" : (businessUnit as keyof typeof THEME);
   const theme = THEME[themeKey] || THEME.COMMON;
+  const detailMode = yearType === "actual" ? "ytd" : mode;
 
   return (
     <Card className="h-full flex flex-col shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg">
@@ -360,7 +361,7 @@ export function BizUnitCard({
 
         {/* 상세보기 버튼 */}
         <div className="mt-4">
-          <Link href={`/${businessUnit}?year=${year}&type=${yearType}&month=${month}&mode=${mode}`}>
+          <Link href={`/${businessUnit}?year=${year}&type=${yearType}&month=${month}&mode=${detailMode}`}>
             <Button
               className="w-full text-[10px] sm:text-xs py-2.5 rounded-lg font-medium"
               style={{
@@ -377,4 +378,3 @@ export function BizUnitCard({
     </Card>
   );
 }
-

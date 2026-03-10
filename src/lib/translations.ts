@@ -132,6 +132,7 @@ const ko: Record<string, string> = {
   예산: "예산",
   "기본 날짜가 저장되었습니다. 다음 접속 시 이 날짜가 적용됩니다.":
     "기본 날짜가 저장되었습니다. 다음 접속 시 이 날짜가 적용됩니다.",
+  사용률: "사용률",
 };
 
 const zh: Record<string, string> = {
@@ -261,6 +262,7 @@ const zh: Record<string, string> = {
   예산: "预算",
   "기본 날짜가 저장되었습니다. 다음 접속 시 이 날짜가 적용됩니다.":
     "已将默认日期保存，下次访问时将应用此日期。",
+  사용률: "使用率",
 };
 
 const maps: Record<Lang, Record<string, string>> = { ko, zh };
