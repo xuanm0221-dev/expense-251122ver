@@ -2331,6 +2331,7 @@ export function ExpenseAccountHierTable({
         diffAnnualTotal: null,
         yoyAnnualTotal: null,
         progressTotal: null,
+        usageRateTotal: null,
       };
     } else {
       // 누적(YTD) 모드: 전체 합계 = 표시되는 L1(대분류) 행 합계와 정확히 일치하도록 L1 기준으로 계산
@@ -2361,6 +2362,11 @@ export function ExpenseAccountHierTable({
       const planDiffTotal = is2026ActualYtd
         ? currYtdTotal - planYtdTotal
         : currYtdTotal - annual2025Total;
+
+      // 사용률 합계: 당년누적 / 2026년연간계획 × 100 (2026실적YTD 전용)
+      const usageRateTotal = is2026ActualYtd && annual2025Total > 0
+        ? (currYtdTotal / annual2025Total) * 100
+        : null;
       
       return {
         prevTotal: null,
@@ -2378,6 +2384,7 @@ export function ExpenseAccountHierTable({
         diffAnnualTotal,
         yoyAnnualTotal,
         progressTotal,
+        usageRateTotal,
       };
     }
   }, [hierarchicalData, viewMode, is2026AnnualOnly, bizUnit, year, yearType]);
@@ -2663,6 +2670,12 @@ export function ExpenseAccountHierTable({
                     <div>{t("계획비", lang)}</div>
                     <div>(%)</div>
                   </th>
+                  {year === 2026 && yearType === "actual" && (
+                    <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-orange-200">
+                      <div>{t("사용률", lang)}</div>
+                      <div>(%)</div>
+                    </th>
+                  )}
                   <th className="border-r border-slate-600"></th>
                   <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-slate-50">
                     <div>{year - 1}{t("년", lang)}</div>
@@ -2765,6 +2778,15 @@ export function ExpenseAccountHierTable({
                       {formatYOY(computeTotals.progressTotal)}
                     </span>
                   </td>
+                  {year === 2026 && yearType === "actual" && (
+                    <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-orange-50">
+                      {computeTotals.usageRateTotal != null ? (
+                        <span className={computeTotals.usageRateTotal > (month / 12) * 100 ? "text-red-600 font-bold" : "text-green-700"}>
+                          {computeTotals.usageRateTotal.toFixed(1)}%
+                        </span>
+                      ) : "-"}
+                    </td>
+                  )}
                   <td className="border-r border-gray-200"></td>
                   <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">
                     {formatK(computeTotals.annual2024Total)}
@@ -2859,6 +2881,13 @@ export function ExpenseAccountHierTable({
               const planDiff = viewMode === "ytd"
                 ? (rowIs2026ActualYtd ? currValue - planYtd : (effectiveCurrAnnual !== null ? currValue - effectiveCurrAnnual : null))
                 : null;
+
+              // 사용률: 당년누적 / 2026년연간계획 × 100 (2026실적YTD 전용)
+              const usageRate = rowIs2026ActualYtd && row.curr_year_annual != null && row.curr_year_annual > 0
+                ? (currValue / row.curr_year_annual) * 100
+                : null;
+              const expectedUsageRate = (month / 12) * 100;
+              const isOverUsage = usageRate != null && usageRate > expectedUsageRate;
 
               // 연간 계획 데이터 계산 (누적 모드 또는 2026 예산 연간 뷰에서 사용)
               const useAnnualPlanData = viewMode === "ytd" || is2026AnnualOnly;
@@ -3138,6 +3167,15 @@ export function ExpenseAccountHierTable({
                       <td className={`border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-teal-50 ${getYOYColor(progressRate)}`}>
                         {progressRate != null ? formatYOY(progressRate) : "-"}
                       </td>
+                      {rowIs2026ActualYtd && (
+                        <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-orange-50">
+                          {usageRate != null ? (
+                            <span className={isOverUsage ? "text-red-600 font-bold" : "text-green-700"}>
+                              {usageRate.toFixed(1)}%
+                            </span>
+                          ) : "-"}
+                        </td>
+                      )}
                       <td className="border-r border-gray-200"></td>
                       {/* 연간 계획 영역 */}
                       <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium">

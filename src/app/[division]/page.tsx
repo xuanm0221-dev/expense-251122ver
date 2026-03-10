@@ -130,7 +130,8 @@ export default function DivisionPage() {
   const fallbackYearOption = availableYearOptions.find((opt) => opt.year === 2026 && opt.type === "actual") || availableYearOptions[0] || { year: 2025, type: "actual" as const, display: "2025년(실적)" };
   const initialYearOption = urlYearOption || (savedValid ? savedOption! : fallbackYearOption);
   const initialMonth = (monthParam && !isNaN(parseInt(monthParam))) ? parseInt(monthParam) : (savedValid ? saved!.month : 1);
-  const initialMode: Mode = (modeParam === "monthly" || modeParam === "ytd") ? modeParam : (savedValid ? saved!.mode : "monthly");
+  const defaultMode: Mode = initialYearOption.type === "actual" ? "ytd" : "monthly";
+  const initialMode: Mode = (modeParam === "monthly" || modeParam === "ytd") ? modeParam : (savedValid ? saved!.mode : defaultMode);
 
   const [yearOption, setYearOption] = useState<YearOption>(initialYearOption);
   const [month, setMonth] = useState<number>(initialMonth);
