@@ -2671,8 +2671,8 @@ export function ExpenseAccountHierTable({
                     <div>(%)</div>
                   </th>
                   {year === 2026 && yearType === "actual" && (
-                    <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-orange-200">
-                      <div>{t("사용률", lang)}</div>
+                    <th className="border-r border-slate-600 px-2 py-1.5 sm:px-3 sm:py-2 text-center text-[12px] sm:text-[13.5px] md:text-[15px] font-semibold text-amber-200 min-w-[3.5rem]">
+                      <div className="whitespace-nowrap">{t("사용률", lang)}</div>
                       <div>(%)</div>
                     </th>
                   )}
@@ -2779,7 +2779,7 @@ export function ExpenseAccountHierTable({
                     </span>
                   </td>
                   {year === 2026 && yearType === "actual" && (
-                    <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-orange-50">
+                    <td className="border-r border-gray-200 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-amber-50">
                       {computeTotals.usageRateTotal != null ? (
                         <span className={computeTotals.usageRateTotal > (month / 12) * 100 ? "text-red-600 font-bold" : "text-green-700"}>
                           {computeTotals.usageRateTotal.toFixed(1)}%
@@ -3168,7 +3168,7 @@ export function ExpenseAccountHierTable({
                         {progressRate != null ? formatYOY(progressRate) : "-"}
                       </td>
                       {rowIs2026ActualYtd && (
-                        <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-orange-50">
+                        <td className="border-r border-gray-100 px-2 py-1.5 sm:px-3 sm:py-2 text-[13.5px] sm:text-[15px] text-right font-medium bg-amber-50">
                           {usageRate != null ? (
                             <span className={isOverUsage ? "text-red-600 font-bold" : "text-green-700"}>
                               {usageRate.toFixed(1)}%
