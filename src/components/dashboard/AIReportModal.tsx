@@ -17,10 +17,10 @@ import { Button } from "@/components/ui/button";
 // ─────────────────────────────────────────────
 interface KpiItem {
   label: string;
-  current: string;
-  previous: string;
-  yoy: string;
-  change: string;
+  monthlyCurrent: string;
+  monthlyYoy: string;
+  ytdCurrent: string;
+  ytdYoy: string;
   direction: string;
 }
 
@@ -79,10 +79,10 @@ function parseKpi(s: string): KpiItem[] {
       const p = line.split("|").map((x) => x.trim());
       return {
         label: p[0] || "",
-        current: p[1] || "-",
-        previous: p[2] || "-",
-        yoy: p[3] || "-",
-        change: p[4] || "",
+        monthlyCurrent: p[1] || "-",
+        monthlyYoy: p[2] || "-",
+        ytdCurrent: p[3] || "-",
+        ytdYoy: p[4] || "-",
         direction: p[5] || "",
       };
     });
@@ -235,7 +235,7 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
         };
         const isGood =
           item.direction === "개선" ||
-          (item.label === "판매매출" && item.yoy && parseFloat(item.yoy) > 100);
+          (item.label === "판매매출" && item.ytdYoy && parseFloat(item.ytdYoy) > 100);
         const isBad = item.direction === "악화";
 
         return (
@@ -244,11 +244,13 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
             className={`border ${s.border} ${s.bg} rounded-xl p-3 flex flex-col gap-1 shadow-sm`}
           >
             <div className={`text-xs font-semibold ${s.label}`}>{item.label}</div>
+            {/* YTD 누적 값 (메인) */}
             <div className="text-sm font-bold text-gray-800 leading-tight tracking-tight">
-              {item.current}
+              {item.ytdCurrent}
             </div>
+            {/* YTD YOY */}
             <div className="flex items-center gap-1.5 flex-wrap">
-              {item.yoy && (
+              {item.ytdYoy && item.ytdYoy !== "-" && (
                 <span
                   className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${
                     isBad
@@ -258,7 +260,7 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
                       : "bg-gray-100 text-gray-600"
                   }`}
                 >
-                  YOY {item.yoy}
+                  YTD YOY {item.ytdYoy}
                 </span>
               )}
               {item.direction && (
@@ -271,9 +273,9 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
                 </span>
               )}
             </div>
+            {/* 당월 YOY (보조) */}
             <div className="text-xs text-gray-400 leading-tight">
-              전년 {item.previous}
-              {item.change ? ` │ ${item.change}` : ""}
+              당월 {item.monthlyCurrent} │ 당월YOY {item.monthlyYoy}
             </div>
           </div>
         );

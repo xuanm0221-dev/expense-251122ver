@@ -264,12 +264,17 @@ YOY는 반드시 당년÷전년×100 방식으로 표기한다 (백분율 표시
 [기간 및 비교 기준]
 --------------------------------------------------
 
-분석은 반드시 아래 두 축으로 수행한다.
+입력 JSON에는 항상 monthly(당월)와 ytd(누적) 두 가지 데이터가 모두 포함된다.
+반드시 두 축을 모두 사용하여 분석한다.
 
-1. 당월 vs 전년동월
-2. YTD vs 전년 YTD
+1. monthly: 당월 단일 월 vs 전년 동월
+2. ytd: 1~N월 누적 vs 전년 동기간 누적
 
 항상 월 기준과 YTD 기준을 함께 보고 최종 판단한다.
+
+중요: 설(춘절) 등 계절성 요인으로 특정 월 단독 YOY가 왜곡될 수 있다.
+이런 경우 당월 YOY가 비정상으로 보여도 YTD YOY가 정상이면 반드시 "일시적 계절성 요인"으로 해석하고 최종 판정을 "정상"으로 표기한다.
+Executive Summary, KPI, 브랜드 분석 전부에서 당월 YOY와 YTD YOY를 함께 언급한다.
 
 --------------------------------------------------
 [YOY 및 이상 판단 규칙]
@@ -333,19 +338,19 @@ YOY는 반드시 당년÷전년×100 방식으로 표기한다 (백분율 표시
 • [핵심결론5 - 한 줄 이내, 숫자 포함]
 
 ===KPI===
-판매매출|{당년K}|{전년K}|{YOY%}|{증감K}
-총비용|{당년K}|{전년K}|{YOY%}|{증감K}
-비용률|{당년%}|{전년%}|{변화p}|{개선 또는 악화}
+판매매출|{당월K}|{당월YOY%}|{YTDK}|{YTDYOY%}
+총비용|{당월K}|{당월YOY%}|{YTDK}|{YTDYOY%}
+비용률|{당월%}|{당월변화p}|{YTD%}|{YTD변화p}|{개선 또는 악화}
 인원|{기말명/평균명}|{전년기말/전년평균}|{기말증감}|{인당매출K}
 
 ===BRAND_TABLE===
-| 브랜드 | 매출YOY | 비용YOY | 영업비율 | 전년비율 | 비율변화 | 인건비율 | 레버리지 |
-|--------|---------|---------|----------|----------|----------|----------|----------|
-| 법인전체 | ... | ... | ... | ... | ... | ... | 개선 또는 악화 |
-| MLB | ... | ... | ... | ... | ... | ... | ... |
-| KIDS | ... | ... | ... | ... | ... | ... | ... |
-| DISCOVERY | ... | ... | ... | ... | ... | ... | ... |
-| 공통 |  | ... | ... | ... | ... | ... | ... |
+| 브랜드 | 매출YOY(당월) | 매출YOY(YTD) | 비용YOY(당월) | 비용YOY(YTD) | 영업비율 | 전년비율 | 비율변화 | 레버리지 |
+|--------|--------------|--------------|--------------|--------------|----------|----------|----------|----------|
+| 법인전체 | ... | ... | ... | ... | ... | ... | ... | 개선 또는 악화 |
+| MLB | ... | ... | ... | ... | ... | ... | ... | ... |
+| KIDS | ... | ... | ... | ... | ... | ... | ... | ... |
+| DISCOVERY | ... | ... | ... | ... | ... | ... | ... | ... |
+| 공통 |  |  | ... | ... | ... | ... | ... | ... |
 
 ===RISK_TABLE===
 | 항목 | 판정 | 수치/원인 |
@@ -445,25 +450,38 @@ export async function POST(req: NextRequest) {
   const raw = fs.readFileSync(dataPath, "utf-8");
   const data: AggregatedExpense = JSON.parse(raw);
 
-  // 전년 기준 결정
-  const prevYear = yearType === "plan" ? 2025 : year - 1;
-  const prevMonth = yearType === "plan" ? 12 : month;
-  const prevMode: "monthly" | "ytd" = yearType === "plan" ? "ytd" : mode;
+  const prevYearActual = year - 1;
   const prevYearType = "actual";
 
-  const brands: Record<string, ReturnType<typeof buildBrandSummary>> = {};
+  // 당월 데이터: 당월 vs 전년 동월 (항상 monthly 모드)
+  const brandsMonthly: Record<string, ReturnType<typeof buildBrandSummary>> = {};
   for (const brand of BRANDS_WITH_CORP) {
-    brands[brand] = buildBrandSummary(
-      data, brand, year, month, mode, yearType,
-      prevYear, prevMonth, prevMode, prevYearType
+    brandsMonthly[brand] = buildBrandSummary(
+      data, brand, year, month, "monthly", yearType,
+      prevYearActual, month, "monthly", prevYearType
+    );
+  }
+
+  // YTD 누적 데이터: 1~N월 누적 vs 전년 동기간 누적 (항상 ytd 모드)
+  const brandsYtd: Record<string, ReturnType<typeof buildBrandSummary>> = {};
+  for (const brand of BRANDS_WITH_CORP) {
+    brandsYtd[brand] = buildBrandSummary(
+      data, brand, year, month, "ytd", yearType,
+      prevYearActual, month, "ytd", prevYearType
     );
   }
 
   const payload = {
-    period: { year, month, mode, yearType },
-    comparisonPeriod: { year: prevYear, month: prevMonth, mode: prevMode, yearType: prevYearType },
+    period: { year, month, yearType },
     note: "모든 금액 단위: K. current=당기, previous=전년동기. 예: 42083 → 42,083K로 표기할 것.",
-    brands,
+    monthly: {
+      description: `당월(${month}월) 단일 월 데이터 vs 전년 동월`,
+      brands: brandsMonthly,
+    },
+    ytd: {
+      description: `YTD 누적(1~${month}월) 데이터 vs 전년 동기간 누적`,
+      brands: brandsYtd,
+    },
   };
 
   const encoder = new TextEncoder();
