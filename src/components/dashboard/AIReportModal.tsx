@@ -124,20 +124,20 @@ function parseReport(text: string): ParsedReport {
 // ─────────────────────────────────────────────
 const mdTableComponents = {
   table: ({ ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <table className="w-full border-collapse text-[10px] leading-tight" {...props} />
+    <table className="w-full border-collapse text-xs leading-tight" {...props} />
   ),
   thead: ({ ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
     <thead className="bg-gray-100" {...props} />
   ),
   th: ({ ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
     <th
-      className="border border-gray-200 px-2 py-1 text-left font-semibold text-gray-700 text-[10px] whitespace-nowrap"
+      className="border border-gray-200 px-2 py-1 text-left font-semibold text-gray-700 text-xs whitespace-nowrap"
       {...props}
     />
   ),
   td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => {
     const text = String(children ?? "");
-    let cls = "border border-gray-200 px-2 py-1 text-[10px]";
+    let cls = "border border-gray-200 px-2 py-1 text-xs";
     if (/개선/.test(text)) cls += " text-green-700 font-semibold";
     else if (/악화|경고/.test(text)) cls += " text-red-700 font-semibold";
     else if (/주의/.test(text)) cls += " text-yellow-700 font-semibold";
@@ -150,6 +150,33 @@ const mdTableComponents = {
       </td>
     );
   },
+  tr: ({ children, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => {
+    const cells = React.Children.toArray(children);
+    const firstCell = cells[0];
+    const isGroupHeader =
+      React.isValidElement(firstCell) &&
+      React.Children.toArray(
+        (firstCell as React.ReactElement<{ children?: React.ReactNode }>).props.children
+      ).some(
+        (c) =>
+          React.isValidElement(c) &&
+          (c.type === "strong" ||
+            (c as React.ReactElement).type?.toString?.() === "strong")
+      );
+    return (
+      <tr
+        className={isGroupHeader ? "bg-slate-200 font-semibold text-slate-700" : "hover:bg-gray-50"}
+        {...props}
+      >
+        {children}
+      </tr>
+    );
+  },
+  p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    <p className="text-xs text-gray-600 leading-relaxed my-1" {...props}>
+      {children}
+    </p>
+  ),
 };
 
 // ─────────────────────────────────────────────
@@ -169,14 +196,14 @@ function ExecSummaryHeader({
         <span className="text-white font-bold text-xs tracking-widest">
           EXECUTIVE SUMMARY
         </span>
-        <span className="text-purple-200 text-[10px]">
+        <span className="text-purple-200 text-xs">
           {meta?.title ?? "중국법인 연간 예산 구조 진단 요약"}
         </span>
       </div>
       <div className="bg-purple-50 px-4 py-2.5 space-y-1.5">
         {bullets.length > 0 ? (
           bullets.map((b, i) => (
-            <div key={i} className="flex items-start gap-2 text-[11px] text-gray-700 leading-snug">
+            <div key={i} className="flex items-start gap-2 text-xs text-gray-700 leading-snug">
               <span className="text-purple-500 font-bold flex-shrink-0 mt-px">▸</span>
               <span>{b}</span>
             </div>
@@ -216,14 +243,14 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
             key={item.label}
             className={`border ${s.border} ${s.bg} rounded-xl p-3 flex flex-col gap-1 shadow-sm`}
           >
-            <div className={`text-[10px] font-semibold ${s.label}`}>{item.label}</div>
-            <div className="text-lg font-bold text-gray-800 leading-tight tracking-tight">
+            <div className={`text-xs font-semibold ${s.label}`}>{item.label}</div>
+            <div className="text-sm font-bold text-gray-800 leading-tight tracking-tight">
               {item.current}
             </div>
             <div className="flex items-center gap-1.5 flex-wrap">
               {item.yoy && (
                 <span
-                  className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${
+                  className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${
                     isBad
                       ? "bg-red-100 text-red-700"
                       : isGood
@@ -236,7 +263,7 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
               )}
               {item.direction && (
                 <span
-                  className={`text-[10px] font-medium ${
+                  className={`text-xs font-medium ${
                     item.direction === "개선" ? "text-green-600" : item.direction === "악화" ? "text-red-600" : "text-gray-500"
                   }`}
                 >
@@ -244,7 +271,7 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
                 </span>
               )}
             </div>
-            <div className="text-[10px] text-gray-400 leading-tight">
+            <div className="text-xs text-gray-400 leading-tight">
               전년 {item.previous}
               {item.change ? ` │ ${item.change}` : ""}
             </div>
@@ -402,7 +429,7 @@ function DetailedSections({ markdown }: { markdown: string }) {
       const text = String(children ?? "");
       // 전각공백(　) 접두사가 있으면 들여쓰기 적용
       const isIndented = text.startsWith("　");
-      let cls = "border border-gray-200 px-2 py-1 text-[10px]";
+      let cls = "border border-gray-200 px-2 py-1 text-xs";
       if (isIndented) cls += " pl-5";
       if (/개선/.test(text)) cls += " text-green-700 font-semibold";
       else if (/악화|경고/.test(text)) cls += " text-red-700 font-semibold";
@@ -433,12 +460,12 @@ function DetailedSections({ markdown }: { markdown: string }) {
       </h3>
     ),
     p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-      <p className="text-[10px] text-gray-600 leading-relaxed my-1" {...props}>
+      <p className="text-xs text-gray-600 leading-relaxed my-1" {...props}>
         {children}
       </p>
     ),
     li: ({ children, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => (
-      <li className="text-[10px] text-gray-600 my-0.5 ml-3 list-disc" {...props}>
+      <li className="text-xs text-gray-600 my-0.5 ml-3 list-disc" {...props}>
         {children}
       </li>
     ),
@@ -450,7 +477,7 @@ function DetailedSections({ markdown }: { markdown: string }) {
     hr: () => <hr className="border-gray-200 my-2" />,
     blockquote: ({ children, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
       <blockquote
-        className="border-l-2 border-purple-300 pl-3 text-[10px] text-purple-800 bg-purple-50 py-1 my-1 rounded-r"
+        className="border-l-2 border-purple-300 pl-3 text-xs text-purple-800 bg-purple-50 py-1 my-1 rounded-r"
         {...props}
       >
         {children}
