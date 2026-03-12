@@ -124,20 +124,19 @@ function parseReport(text: string): ParsedReport {
 // ─────────────────────────────────────────────
 const mdTableComponents = {
   table: ({ ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <table className="w-full border-collapse text-[14px] leading-6" {...props} />
+    <div className="overflow-x-auto">
+      <table className="rpt-tbl" {...props} />
+    </div>
   ),
   thead: ({ ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
     <thead className="bg-gray-100" {...props} />
   ),
   th: ({ ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
-    <th
-      className="border border-gray-200 px-3 py-2 text-left font-semibold text-gray-700 text-[14px] whitespace-nowrap"
-      {...props}
-    />
+    <th className="border border-gray-200 text-gray-700 bg-gray-50" {...props} />
   ),
   td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => {
     const text = String(children ?? "");
-    let cls = "border border-gray-200 px-3 py-2 text-[14px] leading-6";
+    let cls = "border border-gray-200 text-gray-700";
     if (/개선/.test(text)) cls += " text-green-700 font-semibold";
     else if (/악화|경고/.test(text)) cls += " text-red-700 font-semibold";
     else if (/주의/.test(text)) cls += " text-yellow-700 font-semibold";
@@ -165,7 +164,7 @@ const mdTableComponents = {
       );
     return (
       <tr
-        className={isGroupHeader ? "bg-slate-200 font-semibold text-slate-700" : "hover:bg-gray-50"}
+        className={isGroupHeader ? "brand-header" : "hover:bg-gray-50"}
         {...props}
       >
         {children}
@@ -173,7 +172,7 @@ const mdTableComponents = {
     );
   },
   p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="text-[13px] text-gray-600 leading-7 my-2" {...props}>
+    <p className="text-[12px] text-gray-600 leading-5 my-1.5" {...props}>
       {children}
     </p>
   ),
@@ -200,10 +199,10 @@ function ExecSummaryHeader({
           {meta?.title ?? "중국법인 연간 예산 구조 진단 요약"}
         </span>
       </div>
-      <div className="bg-purple-50 px-5 py-4 space-y-3">
+      <div className="bg-purple-50 px-5 py-4 space-y-1.5">
         {bullets.length > 0 ? (
           bullets.map((b, i) => (
-            <div key={i} className="flex items-start gap-3 text-[14px] text-gray-700 leading-7">
+            <div key={i} className="flex items-start gap-3 text-[14.5px] text-gray-700 leading-6">
               <span className="text-purple-500 font-bold flex-shrink-0 mt-px">▸</span>
               <span>{b}</span>
             </div>
@@ -359,10 +358,10 @@ function TableBox({
   );
 }
 
-const COST_TYPE_COLORS: Record<string, string> = {
-  고정비: "bg-blue-100 text-blue-800 font-bold",
-  준고정비: "bg-amber-100 text-amber-800 font-bold",
-  변동비: "bg-emerald-100 text-emerald-800 font-bold",
+const COST_TYPE_STYLES: Record<string, string> = {
+  고정비:   "bg-blue-50 text-blue-700 font-semibold",
+  준고정비: "bg-yellow-50 text-yellow-700 font-semibold",
+  변동비:   "bg-green-50 text-green-700 font-semibold",
 };
 
 function CostStructureSection({
@@ -381,47 +380,48 @@ function CostStructureSection({
         </span>
       </div>
       <div className="p-4 overflow-x-auto">
-        <table className="w-full border-collapse text-[13px] leading-6">
+        <table className="w-full border-collapse text-[12px] leading-6">
+          <colgroup>
+            <col style={{ width: "80px" }} />
+            <col />
+            <col style={{ width: "90px" }} />
+            <col style={{ width: "90px" }} />
+            <col style={{ width: "90px" }} />
+          </colgroup>
           <thead>
             <tr className="bg-gray-100">
-              {["분류", "포함 항목", "금액", "구성비", "YOY"].map((h) => (
-                <th
-                  key={h}
-                  className="border border-gray-200 px-3 py-2 text-left font-semibold text-gray-700"
-                >
-                  {h}
-                </th>
-              ))}
+              <th className="border border-gray-200 px-2 py-2 text-center font-semibold text-gray-700">분류</th>
+              <th className="border border-gray-200 px-3 py-2 text-left font-semibold text-gray-700">포함 항목</th>
+              <th className="border border-gray-200 px-2 py-2 text-right font-semibold text-gray-700 whitespace-nowrap">금액</th>
+              <th className="border border-gray-200 px-2 py-2 text-right font-semibold text-gray-700 whitespace-nowrap">구성비</th>
+              <th className="border border-gray-200 px-2 py-2 text-right font-semibold text-gray-700 whitespace-nowrap">YOY</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r, i) => (
               <tr key={i} className="hover:bg-gray-50">
-                <td
-                  className={`border border-gray-200 px-3 py-2 ${
-                    COST_TYPE_COLORS[r.type] ?? ""
-                  }`}
-                >
+                <td className={`border border-gray-200 px-2 py-2 text-center ${COST_TYPE_STYLES[r.type] ?? ""}`}>
                   {r.type}
                 </td>
-                <td className="border border-gray-200 px-3 py-2 text-gray-600">
+                <td className="border border-gray-200 px-3 py-2 text-gray-600 text-[12px]">
                   {r.items}
                 </td>
-                <td className="border border-gray-200 px-3 py-2 text-right font-mono font-medium text-gray-800">
+                <td className="border border-gray-200 px-2 py-2 text-right font-mono font-medium text-gray-800 whitespace-nowrap">
                   {r.amount}
                 </td>
-                <td className="border border-gray-200 px-3 py-2 text-right text-gray-700">
+                <td className="border border-gray-200 px-2 py-2 text-right text-gray-700 whitespace-nowrap">
                   {r.ratio}
                 </td>
-                <td className="border border-gray-200 px-3 py-2 text-right text-gray-700">
+                <td className="border border-gray-200 px-2 py-2 text-right text-gray-700 whitespace-nowrap">
                   {r.yoy}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <p className="text-[11px] text-gray-500 mt-2">※ YTD 법인 전체 기준</p>
         {insight && (
-          <div className="mt-4 text-[13px] text-purple-800 bg-purple-50 border border-purple-100 px-4 py-3 rounded-xl font-medium leading-6">
+          <div className="mt-3 text-[12px] text-indigo-800 bg-indigo-50 border-l-2 border-indigo-400 px-3.5 py-2.5 rounded-r-md leading-6">
             {insight}
           </div>
         )}
@@ -433,11 +433,11 @@ function CostStructureSection({
 function KeyInsightBar({ text }: { text: string }) {
   if (!text) return null;
   return (
-    <div className="flex items-start gap-4 bg-gradient-to-r from-purple-700 to-indigo-500 text-white px-5 py-4 rounded-2xl mb-5 shadow-sm">
-      <span className="font-bold text-sm whitespace-nowrap pt-0.5 shrink-0">
+    <div className="flex items-start gap-3 bg-gradient-to-r from-purple-700 to-indigo-500 text-white px-4 py-3 rounded-2xl mb-5 shadow-sm">
+      <span className="font-bold text-[12px] whitespace-nowrap pt-0.5 shrink-0">
         Key Insight
       </span>
-      <div className="border-l border-purple-300 pl-4 text-[14px] leading-7 opacity-95">
+      <div className="border-l border-purple-300 pl-3 text-[12px] leading-5 opacity-95">
         {text}
       </div>
     </div>
@@ -451,41 +451,81 @@ function DetailedSections({ markdown }: { markdown: string }) {
   // "## " 로 시작하는 h2 헤더 기준으로 분리
   const parts = markdown.split(/(?=^## )/m).filter(Boolean);
 
+  // ── 컬럼 그룹 배경 헬퍼 ──────────────────────────────
+  const getGroupBg = (idx: number, isHeaderRow: boolean): React.CSSProperties => {
+    const BL = "2px solid #D1D5DB";
+    if (idx === 0)               return {};
+    if (idx >= 1 && idx <= 3)   return { background: isHeaderRow ? "#DBEAFE" : "#EFF6FF", ...(idx === 1 ? { borderLeft: BL } : {}) };
+    if (idx >= 4 && idx <= 6)   return { background: isHeaderRow ? "#DCFCE7" : "#F0FDF4", ...(idx === 4 ? { borderLeft: BL } : {}) };
+    if (idx >= 7 && idx <= 10)  return { background: isHeaderRow ? "#FEF9C3" : "#FEFCE8", ...(idx === 7 ? { borderLeft: BL } : {}) };
+    /* idx === 11 */             return { background: isHeaderRow ? "#F3F4F6" : "#F9FAFB", borderLeft: BL };
+  };
+
+  // YOY 수치 색상 (순수 %숫자 패턴)
+  const getYoyColor = (text: string): string | undefined => {
+    const m = text.trim().match(/^(\d+)%$/);
+    if (!m) return undefined;
+    const v = parseInt(m[1]);
+    if (v >= 110) return "#DC2626";
+    if (v < 90)   return "#2563EB";
+    return undefined;
+  };
+
   const detailMdComponents = {
     ...mdTableComponents,
-    // DETAILED 섹션 테이블: th/table 크기 재정의 (14px)
-    table: ({ ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-      <table className="w-full border-collapse text-[15px] leading-7" {...props} />
-    ),
-    th: ({ ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
-      <th
-        className="border border-gray-200 px-3 py-2 text-left font-semibold text-gray-700 text-[15px] whitespace-nowrap bg-gray-100"
-        {...props}
-      />
-    ),
-    // tbody tr: 첫 번째 셀에 <strong>(bold)이 포함된 행은 대분류 → 배경색 강조
+    // DETAILED: thead → 12열 이상이면 그룹 헤더 행 주입
+    thead: ({ children, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => {
+      const rows = React.Children.toArray(children);
+      const firstRow = rows[0];
+      const colCount = React.isValidElement(firstRow)
+        ? React.Children.count((firstRow as React.ReactElement<{ children?: React.ReactNode }>).props.children)
+        : 0;
+      const GH: React.CSSProperties = { fontSize: "10px", fontWeight: 700, padding: "2px 6px", textAlign: "center" };
+      return (
+        <thead {...props}>
+          {colCount >= 12 && (
+            <tr>
+              <th style={{ background: "#F9FAFB", padding: "2px 4px" }} />
+              <th colSpan={3} style={{ ...GH, background: "#DBEAFE", color: "#1D4ED8", borderLeft: "2px solid #D1D5DB" }}>당월</th>
+              <th colSpan={3} style={{ ...GH, background: "#DCFCE7", color: "#15803D", borderLeft: "2px solid #D1D5DB" }}>YTD 누적</th>
+              <th colSpan={4} style={{ ...GH, background: "#FEF9C3", color: "#92400E", borderLeft: "2px solid #D1D5DB" }}>계획 대비</th>
+              <th style={{ background: "#F3F4F6", padding: "2px 4px", borderLeft: "2px solid #D1D5DB" }} />
+            </tr>
+          )}
+          {children}
+        </thead>
+      );
+    },
+    // tbody tr: 그룹 배경을 각 셀에 cloneElement로 주입
     tr: ({ children, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => {
       const cells = React.Children.toArray(children);
       const firstCell = cells[0];
-      const isHeader =
+      const isBrandHeader =
         React.isValidElement(firstCell) &&
         React.Children.toArray((firstCell as React.ReactElement<{ children?: React.ReactNode }>).props.children).some(
           (c) => React.isValidElement(c) && (c.type === "strong" || (c as React.ReactElement).type?.toString?.() === "strong")
         );
+      const isThRow = cells.some((c) => React.isValidElement(c) && (c as React.ReactElement).type === "th");
+      const styledCells = isBrandHeader
+        ? cells
+        : cells.map((cell, idx) => {
+            if (!React.isValidElement(cell)) return cell;
+            const existing = ((cell as React.ReactElement).props as { style?: React.CSSProperties }).style ?? {};
+            return React.cloneElement(cell as React.ReactElement, {
+              style: { ...getGroupBg(idx, isThRow), ...existing },
+            });
+          });
       return (
-        <tr
-          className={isHeader ? "bg-blue-50 font-semibold" : "hover:bg-gray-50"}
-          {...props}
-        >
-          {children}
+        <tr className={isBrandHeader ? "brand-header" : "hover:bg-gray-50"} {...props}>
+          {styledCells}
         </tr>
       );
     },
     td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => {
       const text = String(children ?? "");
-      // 전각공백(　) 접두사가 있으면 들여쓰기 적용
       const isIndented = text.startsWith("　");
-      let cls = "border border-gray-200 px-3 py-2 text-[15px] leading-7";
+      const yoyColor = getYoyColor(text);
+      let cls = "border border-gray-200 text-gray-700";
       if (isIndented) cls += " pl-5";
       if (/개선/.test(text)) cls += " text-green-700 font-semibold";
       else if (/악화|경고/.test(text)) cls += " text-red-700 font-semibold";
@@ -494,14 +534,14 @@ function DetailedSections({ markdown }: { markdown: string }) {
       if (/🟡/.test(text)) cls += " text-yellow-700";
       if (/🟢/.test(text)) cls += " text-green-700";
       return (
-        <td className={cls} {...props}>
+        <td className={cls} style={yoyColor ? { color: yoyColor, fontWeight: 600 } : undefined} {...props}>
           {children}
         </td>
       );
     },
     h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h2
-        className="text-lg font-bold text-gray-900 flex items-center gap-2"
+        className="text-[14px] font-bold text-[#1E3A5F] flex items-center gap-2"
         {...props}
       >
         {children}
@@ -509,19 +549,19 @@ function DetailedSections({ markdown }: { markdown: string }) {
     ),
     h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h3
-        className="text-base font-semibold text-gray-800 mt-5 mb-2 border-b border-gray-100 pb-2"
+        className="text-[13px] font-semibold text-gray-700 mt-4 mb-1.5 border-b border-gray-100 pb-1"
         {...props}
       >
         {children}
       </h3>
     ),
     p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-      <p className="text-[14px] text-gray-600 leading-7 my-2" {...props}>
+      <p className="text-[12px] text-gray-600 leading-5 my-1.5" {...props}>
         {children}
       </p>
     ),
     li: ({ children, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => (
-      <li className="text-[14px] text-gray-600 my-1 ml-5 list-disc leading-7" {...props}>
+      <li className="text-[12px] text-gray-600 my-0.5 ml-4 list-disc leading-5" {...props}>
         {children}
       </li>
     ),
@@ -533,7 +573,7 @@ function DetailedSections({ markdown }: { markdown: string }) {
     hr: () => <hr className="border-gray-200 my-2" />,
     blockquote: ({ children, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
       <blockquote
-        className="border-l-2 border-purple-300 pl-4 text-[14px] text-purple-800 bg-purple-50 py-3 my-2 rounded-r-xl leading-7"
+        className="border-l-2 border-purple-300 pl-3 text-[12px] text-purple-800 bg-purple-50 py-2 my-1.5 rounded-r-xl leading-5"
         {...props}
       >
         {children}
@@ -556,11 +596,11 @@ function DetailedSections({ markdown }: { markdown: string }) {
             className="border border-gray-200 rounded-2xl bg-white shadow-sm overflow-hidden"
           >
             {/* 섹션 헤더 */}
-            <div className="px-5 py-3.5 bg-gradient-to-r from-slate-50 to-white border-b border-gray-100">
-              <span className="text-lg font-semibold text-gray-900">{titleText}</span>
+            <div className="px-4 py-2.5 bg-gradient-to-r from-slate-50 to-white border-b border-gray-100">
+              <span className="text-[14px] font-bold text-[#1E3A5F]">{titleText}</span>
             </div>
             {/* 섹션 본문 */}
-            <div className="p-5 overflow-x-auto">
+            <div className="p-4 overflow-x-auto">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={detailMdComponents as never}
@@ -600,6 +640,7 @@ export function AIReportModal({
   const [isGenerated, setIsGenerated] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const reportBodyRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
   // 조건별 캐시: key = "year-month-mode-yearType"
   const cacheRef = useRef<Record<string, string>>({});
@@ -660,13 +701,125 @@ export function AIReportModal({
   }, [isOpen, generate]);
 
   const handleDownload = useCallback(() => {
-    const blob = new Blob([rawText], { type: "text/plain;charset=utf-8" });
+    if (!reportBodyRef.current) return;
+    const inner = reportBodyRef.current.innerHTML;
+    const title = `AI보고서_${year}년_${yearType === "plan" ? "예산" : "실적"}_${month}월`;
+    const fullDoc = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${title}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ── 전체 레이아웃 ── */
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #F3F4F6;
+      padding: 16px;
+      color: #374151;
+    }
+    .report-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px;
+      background: #F3F4F6;
+    }
+    .section-card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    /* ── 표 스타일 ── */
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4B5563;
+      background: #F9FAFB;
+      padding: 5px 8px;
+      white-space: nowrap;
+      text-align: center;
+      border: 1px solid #E5E7EB;
+    }
+    td {
+      font-size: 12px;
+      color: #374151;
+      padding: 4px 8px;
+      line-height: 1.4;
+      border: 1px solid #E5E7EB;
+    }
+    td.number { text-align: right; white-space: nowrap; }
+    td.label  { text-align: left; min-width: 90px; }
+    .badge {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    /* ── 섹션 제목 ── */
+    h2.section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1E3A5F;
+      margin-bottom: 12px;
+      margin-top: 24px;
+      border-left: 3px solid #6366F1;
+      padding-left: 8px;
+    }
+    h3.sub-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+
+    /* ── 본문 텍스트 ── */
+    .insight-text {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+    .proposal-item {
+      font-size: 12px;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+    .proposal-bullet {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #4B5563;
+      margin-bottom: 4px;
+    }
+
+    /* ── KPI 카드 ── */
+    .kpi-label  { font-size: 11px; color: #6B7280; }
+    .kpi-value  { font-size: 14px; font-weight: 700; color: #111827; }
+    .kpi-badge  { font-size: 11px; padding: 2px 7px; border-radius: 9999px; }
+  </style>
+</head>
+<body>
+<div class="report-container">
+${inner}
+</div>
+</body>
+</html>`;
+    const blob = new Blob([fullDoc], { type: "text/html;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `AI보고서_${year}년_${yearType === "plan" ? "예산" : "실적"}.txt`;
+    a.download = `${title}.html`;
     a.click();
     URL.revokeObjectURL(a.href);
-  }, [rawText, year, yearType]);
+  }, [year, month, yearType]);
 
   if (!isOpen) return null;
 
@@ -704,7 +857,7 @@ export function AIReportModal({
                   className="text-xs h-7 gap-1"
                 >
                   <Download className="w-3 h-3" />
-                  다운로드
+                  HTML 저장
                 </Button>
               </>
             )}
@@ -743,23 +896,31 @@ export function AIReportModal({
 
           {/* Dashboard content */}
           {rawText && (
-            <>
+            <div ref={reportBodyRef}>
+              {/* 표 공통 scoped 스타일 */}
+              <style>{`
+                .rpt-tbl { width: 100%; border-collapse: collapse; }
+                .rpt-tbl th { font-size: 11px; font-weight: 600; padding: 3px 8px; white-space: nowrap; line-height: 1.35; }
+                .rpt-tbl td { font-size: 12px; padding: 3px 8px; line-height: 1.35; }
+                .rpt-tbl td:first-child, .rpt-tbl th:first-child { width: 110px; min-width: 90px; max-width: 130px; text-align: left; }
+                .rpt-tbl td:not(:first-child), .rpt-tbl th:not(:first-child) { width: 90px; min-width: 80px; text-align: right; white-space: nowrap; }
+                .rpt-tbl td:last-child, .rpt-tbl th:last-child { width: 160px; min-width: 140px; text-align: left; white-space: normal; }
+                .rpt-tbl tr.brand-header td { padding: 4px 8px; background: #F1F5F9; font-weight: 600; font-size: 12px; color: #1E3A5F; }
+                .rpt-tbl tbody tr:nth-child(even) td { filter: brightness(0.97); }
+              `}</style>
               {/* 1. Executive Summary */}
               <ExecSummaryHeader meta={report.meta} bullets={report.bullets} />
 
               {/* 2. KPI Cards */}
               <KpiCards kpi={report.kpi} />
 
-              {/* 3. Brand table (left 60%) + Risk/YOY (right 40%) */}
-              <div className="grid grid-cols-5 gap-3 mb-5">
-                <div className="col-span-3">
-                  <TableBox
-                    title="브랜드별 비용 효율성"
-                    markdown={report.brandTable}
-                    className="h-full"
-                  />
-                </div>
-                <div className="col-span-2 flex flex-col gap-2.5">
+              {/* 3. Brand table (full width) + Risk/YOY (2-col below) */}
+              <div className="mb-5 flex flex-col gap-4">
+                <TableBox
+                  title="브랜드별 비용 효율성"
+                  markdown={report.brandTable}
+                />
+                <div className="grid grid-cols-2 gap-4">
                   <TableBox title="리스크 플래그" markdown={report.riskTable} />
                   <TableBox title="YOY 이상 신호" markdown={report.yoyTable} />
                 </div>
@@ -784,7 +945,7 @@ export function AIReportModal({
                   <span>상세 분석 생성 중...</span>
                 </div>
               )}
-            </>
+            </div>
           )}
         </div>
       </div>
