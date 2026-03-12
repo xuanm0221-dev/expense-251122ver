@@ -88,20 +88,19 @@ function parseKpi(s: string): KpiItem[] {
     });
 }
 
+const COST_ROW_TYPES = ["고정비", "준고정비", "변동비"];
+
 function parseCostRows(s: string): CostRow[] {
   return s
     .split("\n")
+    .map((line) => line.trim())
     .filter(Boolean)
+    .filter((line) => !line.startsWith("※"))
     .map((line) => {
       const p = line.split("|").map((x) => x.trim());
-      return {
-        type: p[0] || "",
-        items: p[1] || "",
-        amount: p[2] || "-",
-        ratio: p[3] || "-",
-        yoy: p[4] || "-",
-      };
-    });
+      return { type: p[0] || "", items: p[1] || "", amount: p[2] || "-", ratio: p[3] || "-", yoy: p[4] || "-" };
+    })
+    .filter((row) => COST_ROW_TYPES.includes(row.type));
 }
 
 function parseReport(text: string): ParsedReport {
@@ -639,6 +638,7 @@ export function AIReportModal({
   const [isLoading, setIsLoading] = useState(false);
   const [isGenerated, setIsGenerated] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isSavingStatic, setIsSavingStatic] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const reportBodyRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -699,6 +699,37 @@ export function AIReportModal({
     if (isOpen) generate();
     return () => abortRef.current?.abort();
   }, [isOpen, generate]);
+
+  const staticFileName = `${year}-${month}-${yearType}-${mode}.txt`;
+
+  const handleDownloadTxt = useCallback(() => {
+    if (!rawText) return;
+    const blob = new Blob([rawText], { type: "text/plain;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = staticFileName;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }, [rawText, staticFileName]);
+
+  const handleSaveStatic = useCallback(async () => {
+    if (!rawText) return;
+    setIsSavingStatic(true);
+    try {
+      const res = await fetch("/api/ai-report/save-static", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year, month, yearType, mode, content: rawText }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? "저장 실패");
+      window.alert(`${json.path}\n저장 완료. git add & commit & push 하세요.`);
+    } catch (err) {
+      window.alert(err instanceof Error ? err.message : "저장 실패");
+    } finally {
+      setIsSavingStatic(false);
+    }
+  }, [rawText, year, month, yearType, mode]);
 
   const handleDownload = useCallback(() => {
     if (!reportBodyRef.current) return;
@@ -853,11 +884,36 @@ ${inner}
                 <Button
                   variant="outline"
                   size="sm"
+                  onClick={handleSaveStatic}
+                  disabled={isSavingStatic}
+                  className="text-xs h-7 gap-1 bg-green-50 border-green-200 text-green-800 hover:bg-green-100"
+                  title="data/ai-reports/에 저장 (로컬 전용)"
+                >
+                  {isSavingStatic ? (
+                    <Loader2 className="w-3 h-3 animate-spin" />
+                  ) : (
+                    <Download className="w-3 h-3" />
+                  )}
+                  정적 파일로 저장
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleDownloadTxt}
+                  className="text-xs h-7 gap-1"
+                  title="다운로드"
+                >
+                  <Download className="w-3 h-3" />
+                  TXT
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
                   onClick={handleDownload}
                   className="text-xs h-7 gap-1"
                 >
                   <Download className="w-3 h-3" />
-                  HTML 저장
+                  HTML
                 </Button>
               </>
             )}

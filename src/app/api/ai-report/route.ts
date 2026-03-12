@@ -294,6 +294,7 @@ payload JSON 블록 구조:
 - 당월 YOY 단독으로 구조적 문제를 단정하는 것 금지. 반드시 YTD YOY와 함께 최종 판정
 - 계절성·시점차(Red pack, 수주회, 세금 등)가 확인된 항목을 리스크로 분류하는 것 금지
 - YTD 데이터가 있음에도 당월 수치를 YTD란에 그대로 사용하는 것 금지. 당월과 YTD는 반드시 다른 값으로 표기
+- 취소선(~~), 삭제 표시, 지움 표시 사용 금지. 수정이 필요하면 잘못된 문구는 출력하지 말고 올바른 최종 문구만 출력
 
 --------------------------------------------------
 [단위 규칙 - 매우 중요]
@@ -489,6 +490,7 @@ RISK_TABLE 수치/원인 컬럼 필수 포함 형식:
 고정비|인건비+임차료+감가상각비|{금액K}|{구성비%}|{YOY%}
 준고정비|복리후생비+IT수수료+기타+차량렌트비|{금액K}|{구성비%}|{YOY%}
 변동비|광고비+수주회+출장비+지급수수료+세금과공과|{금액K}|{구성비%}|{YOY%}
+(위 3행만 출력. 계산 과정·※ 주석·추가 설명 절대 금지. CEO 보고용 요약만)
 
 ===COST_INSIGHT===
 ▶ {한 줄 비용 구조 핵심 해석}
@@ -551,7 +553,19 @@ export async function POST(req: NextRequest) {
   const redis = getRedis();
   const cacheKey = aiReportCacheKey(year, month, mode, yearType);
 
-  // Redis 캐시 히트 시 즉시 반환 (재생성 요청이 아닌 경우)
+  // 1. 정적 파일 우선: data/ai-reports/{year}-{month}-{yearType}-{mode}.txt
+  const staticPath = path.join(process.cwd(), "data", "ai-reports", `${year}-${month}-${yearType}-${mode}.txt`);
+  if (fs.existsSync(staticPath)) {
+    const staticContent = fs.readFileSync(staticPath, "utf-8");
+    return new Response(staticContent, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Cache": "STATIC",
+      },
+    });
+  }
+
+  // 2. Redis 캐시 히트 시 즉시 반환 (재생성 요청이 아닌 경우)
   if (!forceRefresh && redis) {
     try {
       const cached = await redis.get<string>(cacheKey);
