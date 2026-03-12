@@ -872,15 +872,17 @@ ${inner}
           <div className="flex items-center gap-2">
             {isGenerated && (
               <>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => generate(true)}
-                  className="text-xs h-7 gap-1"
-                >
-                  <RefreshCw className="w-3 h-3" />
-                  재생성
-                </Button>
+                {process.env.NEXT_PUBLIC_AI_REPORT_ALLOW_REGENERATE === "true" && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => generate(true)}
+                    className="text-xs h-7 gap-1"
+                  >
+                    <RefreshCw className="w-3 h-3" />
+                    재생성
+                  </Button>
+                )}
                 <Button
                   variant="outline"
                   size="sm"
