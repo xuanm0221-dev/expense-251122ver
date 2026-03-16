@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { ChevronRight, ChevronDown, ChevronsDownUp, Edit2, Check, X, PieChart, Calendar, Info, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getCategoryDetail, getAnnualData, getAggregatedData, getMonthlyTotal, aggregateCategoryDetailToAnnual, type BizUnit } from "@/lib/expenseData";
+import { getCategoryDetail, getAnnualData, getAggregatedData, getMonthlyTotal, getYTDHeadcountSum, aggregateCategoryDetailToAnnual, type BizUnit } from "@/lib/expenseData";
 import { useToast } from "@/components/ui/toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getDisplayLabel, t } from "@/lib/translations";
@@ -2182,11 +2182,11 @@ export function ExpenseAccountHierTable({
     DISCOVERY: "DISCOVERY",
   };
   const calculateBasicSalaryDescription = (row: ExpenseAccountRow): string => {
-    // 인건비 > 기본급이고 당월 모드인 경우만 계산
+    // 인건비 > 기본급이고 당월 또는 YTD 모드인 경우만 계산
     if (
       row.category_l1 !== "인건비" ||
       row.category_l2 !== "기본급" ||
-      viewMode !== "monthly"
+      (viewMode !== "monthly" && viewMode !== "ytd")
     ) {
       return "";
     }
@@ -2206,6 +2206,67 @@ export function ExpenseAccountHierTable({
         : bizUnit === "ALL"
           ? "법인"
           : bizUnit;
+
+      const yoyLabel = t("전년비", lang);
+      const unitName = t("명", lang);
+      const perCapitaLabel = t("인당 인건비", lang);
+
+      // ── YTD 모드 ──
+      if (viewMode === "ytd") {
+        // 평균 인원수 = 1~N월 headcount 합계 / 월수
+        const currYtdSum = getYTDHeadcountSum(effectiveBizUnit, year, month, yearType);
+        const prevYtdSum = getYTDHeadcountSum(effectiveBizUnit, year - 1, month, yearType);
+        const currAvgHeadcount = currYtdSum / month;
+        const prevAvgHeadcount = prevYtdSum / month;
+
+        if (currAvgHeadcount === 0 || isNaN(currAvgHeadcount)) {
+          return "-";
+        }
+
+        // 누적 인당 인건비 = curr_ytd / 누적인원수합계 / 1000 (K 단위)
+        const currAmount = row.curr_ytd;
+        const prevAmount = row.prev_ytd;
+        const currPerPersonCostK = currAmount / currYtdSum / 1000;
+
+        let prevPerPersonCostK: number | null = null;
+        let ratioPercent: number | null = null;
+
+        if (
+          prevYtdSum > 0 &&
+          !isNaN(prevAvgHeadcount) &&
+          prevAmount !== null &&
+          prevAmount !== undefined &&
+          !isNaN(prevAmount)
+        ) {
+          prevPerPersonCostK = prevAmount / prevYtdSum / 1000;
+          if (prevPerPersonCostK > 0) {
+            ratioPercent = (currPerPersonCostK / prevPerPersonCostK) * 100;
+          }
+        }
+
+        let result = `[평균 인원수 ${Math.round(currAvgHeadcount)}${unitName}`;
+
+        // 인원수 전년비: 절대값 차이(명)
+        if (prevAvgHeadcount > 0 && !isNaN(prevAvgHeadcount)) {
+          const headcountDiff = currAvgHeadcount - prevAvgHeadcount;
+          const diffSign = headcountDiff >= 0 ? "+" : "";
+          result += `, ${yoyLabel} ${diffSign}${Math.round(headcountDiff)}${unitName}`;
+        }
+
+        result += ` | ${perCapitaLabel} ${currPerPersonCostK.toFixed(1)}K`;
+
+        // 인당 인건비 전년비: 전년 대비 비율 (전년=100% 기준)
+        if (ratioPercent !== null && !isNaN(ratioPercent)) {
+          result += `, ${yoyLabel} ${ratioPercent.toFixed(0)}%`;
+        } else {
+          result += `, ${yoyLabel} -`;
+        }
+
+        result += `]`;
+        return result;
+      }
+
+      // ── 당월 모드 ──
       const currHeadcount =
         getMonthlyTotal(effectiveBizUnit, year, month, "monthly", yearType)?.headcount ?? 0;
       const prevHeadcount =
@@ -2223,7 +2284,7 @@ export function ExpenseAccountHierTable({
       // 전년 인당 인건비 계산
       const prevAmount = row.prev_month;
       let prevPerPersonCostK: number | null = null;
-      let yoyPercent: number | null = null;
+      let ratioPercent: number | null = null;
 
       if (
         prevHeadcount > 0 &&
@@ -2234,17 +2295,14 @@ export function ExpenseAccountHierTable({
       ) {
         prevPerPersonCostK = prevAmount / prevHeadcount / 1000; // K 단위
 
-        // YOY 계산: (당년 / 전년 - 1) × 100
+        // 전년 대비 비율: (당년 / 전년) × 100
         if (prevPerPersonCostK > 0) {
-          yoyPercent = (currPerPersonCostK / prevPerPersonCostK - 1) * 100;
+          ratioPercent = (currPerPersonCostK / prevPerPersonCostK) * 100;
         }
       }
 
       // 포맷팅 (언어별)
       const prefix = t("당월 인원수", lang);
-      const unitName = t("명", lang);
-      const yoyLabel = t("전년비", lang);
-      const perCapitaLabel = t("인당 인건비", lang);
       let result = `[${prefix} ${Math.round(currHeadcount)}${unitName}`;
 
       // 전년 동월 대비 인원수 증감 계산 및 표시
@@ -2260,13 +2318,10 @@ export function ExpenseAccountHierTable({
 
       result += ` | ${perCapitaLabel} ${currPerPersonCostK.toFixed(1)}K`;
 
-      if (yoyPercent !== null && !isNaN(yoyPercent)) {
-        // 전년비 표시
-        const sign = yoyPercent >= 0 ? "+" : "△";
-        const absYoy = Math.abs(yoyPercent);
-        result += `, ${yoyLabel} ${sign}${absYoy.toFixed(1)}%`;
+      // 인당 인건비 전년비: 전년 대비 비율 (전년=100% 기준)
+      if (ratioPercent !== null && !isNaN(ratioPercent)) {
+        result += `, ${yoyLabel} ${ratioPercent.toFixed(0)}%`;
       } else {
-        // 전년비 계산 불가
         result += `, ${yoyLabel} -`;
       }
 
