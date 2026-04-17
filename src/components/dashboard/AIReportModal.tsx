@@ -262,12 +262,12 @@ function KpiCards({ kpi }: { kpi: KpiItem[] }) {
             {isInwon ? (
               /* 인원 카드 */
               <>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-[32px] font-bold leading-none text-gray-800">{item.monthlyCurrent}</span>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-sm font-bold text-gray-800">{item.monthlyCurrent}</span>
                   <span className={`text-xs font-medium ${item.monthlyYoy?.startsWith("+") ? "text-green-600" : item.monthlyYoy?.startsWith("-") ? "text-red-600" : "text-gray-500"}`}>
                     {item.monthlyYoy}
                   </span>
-                  <span className="text-xs text-gray-400">전년비</span>
+                  <span className="text-[11px] text-gray-400">전년비</span>
                 </div>
                 <div className="border-t border-gray-200 pt-1 mt-0.5">
                   <div className="text-[11px] text-gray-500 mb-0.5">인당매출 (YTD)</div>
@@ -554,6 +554,22 @@ function DetailedSections({ markdown }: { markdown: string }) {
         {children}
       </h3>
     ),
+    h4: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h4
+        className="text-[12.5px] font-semibold text-gray-600 mt-3 mb-1"
+        {...props}
+      >
+        {children}
+      </h4>
+    ),
+    h5: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h5
+        className="text-[12px] font-semibold text-gray-600 mt-2 mb-1"
+        {...props}
+      >
+        {children}
+      </h5>
+    ),
     p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
       <p className="text-[12px] text-gray-600 leading-5 my-1.5" {...props}>
         {children}
@@ -637,8 +653,8 @@ export function AIReportModal({
   const [rawText, setRawText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isGenerated, setIsGenerated] = useState(false);
+  const [isNotFound, setIsNotFound] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [isSavingStatic, setIsSavingStatic] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const reportBodyRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -648,12 +664,14 @@ export function AIReportModal({
   const report = useMemo(() => parseReport(rawText), [rawText]);
 
   const cacheKey = `${year}-${month}-${mode}-${yearType}`;
+  const canRegenerate = process.env.NEXT_PUBLIC_AI_REPORT_ALLOW_REGENERATE === "true";
 
   const generate = useCallback(async (forceRefresh = false) => {
     // 캐시 히트 시 즉시 반환 (조건이 같고 강제 재생성 아닌 경우)
     if (!forceRefresh && cacheRef.current[cacheKey]) {
       setRawText(cacheRef.current[cacheKey]);
       setIsGenerated(true);
+      setIsNotFound(false);
       setIsLoading(false);
       if (scrollRef.current) scrollRef.current.scrollTop = 0;
       return;
@@ -663,6 +681,7 @@ export function AIReportModal({
     setRawText("");
     setError(null);
     setIsGenerated(false);
+    setIsNotFound(false);
     if (scrollRef.current) scrollRef.current.scrollTop = 0;
 
     abortRef.current = new AbortController();
@@ -673,7 +692,21 @@ export function AIReportModal({
         body: JSON.stringify({ year, month, mode, yearType, forceRefresh }),
         signal: abortRef.current.signal,
       });
-      if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
+      if (res.status === 404) {
+        setIsNotFound(true);
+        setIsLoading(false);
+        return;
+      }
+      if (!res.ok || !res.body) {
+        let msg = `HTTP ${res.status}`;
+        try {
+          const j = await res.clone().json();
+          if (j?.message) msg = j.message;
+        } catch {
+          // ignore
+        }
+        throw new Error(msg);
+      }
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
@@ -689,7 +722,7 @@ export function AIReportModal({
       setIsGenerated(true);
     } catch (err: unknown) {
       if (err instanceof Error && err.name === "AbortError") return;
-      setError(err instanceof Error ? err.message : "보고서 생성 오류");
+      setError(err instanceof Error ? err.message : "보고서 로드 오류");
     } finally {
       setIsLoading(false);
     }
@@ -711,25 +744,6 @@ export function AIReportModal({
     a.click();
     URL.revokeObjectURL(a.href);
   }, [rawText, staticFileName]);
-
-  const handleSaveStatic = useCallback(async () => {
-    if (!rawText) return;
-    setIsSavingStatic(true);
-    try {
-      const res = await fetch("/api/ai-report/save-static", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ year, month, yearType, mode, content: rawText }),
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "저장 실패");
-      window.alert(`${json.path}\n저장 완료. git add & commit & push 하세요.`);
-    } catch (err) {
-      window.alert(err instanceof Error ? err.message : "저장 실패");
-    } finally {
-      setIsSavingStatic(false);
-    }
-  }, [rawText, year, month, yearType, mode]);
 
   const handleDownload = useCallback(() => {
     if (!reportBodyRef.current) return;
@@ -870,34 +884,20 @@ ${inner}
             </span>
           </div>
           <div className="flex items-center gap-2">
+            {canRegenerate && (isGenerated || isNotFound) && !isLoading && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => generate(true)}
+                className="text-xs h-7 gap-1 bg-green-50 border-green-200 text-green-800 hover:bg-green-100"
+                title="Claude로 새 보고서를 생성하고 data/ai-reports/에 덮어쓰기 (로컬 전용)"
+              >
+                <RefreshCw className="w-3 h-3" />
+                재생성 & 저장
+              </Button>
+            )}
             {isGenerated && (
               <>
-                {process.env.NEXT_PUBLIC_AI_REPORT_ALLOW_REGENERATE === "true" && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => generate(true)}
-                    className="text-xs h-7 gap-1"
-                  >
-                    <RefreshCw className="w-3 h-3" />
-                    재생성
-                  </Button>
-                )}
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleSaveStatic}
-                  disabled={isSavingStatic}
-                  className="text-xs h-7 gap-1 bg-green-50 border-green-200 text-green-800 hover:bg-green-100"
-                  title="data/ai-reports/에 저장 (로컬 전용)"
-                >
-                  {isSavingStatic ? (
-                    <Loader2 className="w-3 h-3 animate-spin" />
-                  ) : (
-                    <Download className="w-3 h-3" />
-                  )}
-                  정적 파일로 저장
-                </Button>
                 <Button
                   variant="outline"
                   size="sm"
@@ -942,8 +942,31 @@ ${inner}
             </div>
           )}
 
+          {/* Not found (정적 파일 없음) */}
+          {isNotFound && !isLoading && (
+            <div className="flex flex-col items-center justify-center h-full gap-3 text-gray-500">
+              <Bot className="w-10 h-10 text-gray-300" />
+              <p className="text-sm font-medium">
+                {year}년 {yearType === "plan" ? "예산" : "실적"} / {mode === "ytd" ? "연누계" : `${month}월`} 보고서가 아직 생성되지 않았습니다.
+              </p>
+              {canRegenerate ? (
+                <>
+                  <p className="text-xs text-gray-400 text-center max-w-md">
+                    상단 <span className="font-semibold text-green-700">&quot;재생성 &amp; 저장&quot;</span> 버튼을 눌러 Claude 보고서를 생성하세요.
+                    <br />생성된 내용은 <code className="bg-gray-100 px-1 rounded text-[11px]">data/ai-reports/{staticFileName}</code>에 자동 저장됩니다.
+                    <br />이후 git add &amp; commit &amp; push 하면 배포 환경에도 반영됩니다.
+                  </p>
+                </>
+              ) : (
+                <p className="text-xs text-gray-400 text-center max-w-md">
+                  배포 환경에서는 보고서 생성이 차단됩니다. 로컬에서 보고서를 생성하고 커밋/배포해주세요.
+                </p>
+              )}
+            </div>
+          )}
+
           {/* Error */}
-          {error && (
+          {error && !isNotFound && (
             <div className="flex flex-col items-center justify-center h-full gap-4 text-red-500">
               <p className="text-sm font-medium">오류: {error}</p>
               <Button variant="outline" size="sm" onClick={() => generate()}>
@@ -972,16 +995,10 @@ ${inner}
               {/* 2. KPI Cards */}
               <KpiCards kpi={report.kpi} />
 
-              {/* 3. Brand table (full width) + Risk/YOY (2-col below) */}
-              <div className="mb-5 flex flex-col gap-4">
-                <TableBox
-                  title="브랜드별 비용 효율성"
-                  markdown={report.brandTable}
-                />
-                <div className="grid grid-cols-2 gap-4">
-                  <TableBox title="리스크 플래그" markdown={report.riskTable} />
-                  <TableBox title="YOY 이상 신호" markdown={report.yoyTable} />
-                </div>
+              {/* 3. Risk/YOY (2-col) */}
+              <div className="mb-5 grid grid-cols-2 gap-4">
+                <TableBox title="리스크 플래그" markdown={report.riskTable} />
+                <TableBox title="YOY 이상 신호" markdown={report.yoyTable} />
               </div>
 
               {/* 4. Cost Structure */}
