@@ -613,7 +613,10 @@ export function BizUnitCard({
                     <div className="text-center">{t("전년동기간", lang)}</div>
                     <div className="text-center">YOY{t("금액", lang)}</div>
                     <div className="text-center">YoY</div>
-                    <div className="text-center border-l border-slate-200 pl-1.5">{t("연간계획", lang)}</div>
+                    {/* 사용예상 뷰에서는 이 컬럼이 plan_adj 를 읽으므로 이름을 구분한다 */}
+                    <div className="text-center border-l border-slate-200 pl-1.5">
+                      {showPlanDelta ? t("연간계획new", lang) : t("연간계획", lang)}
+                    </div>
                     {showPlanDelta && <div className={`text-center ${PLAN_DELTA_BG} -my-1 py-1`}>{t("기존대비", lang)}</div>}
                     <div className="text-center">
                       {t("진척률", lang)}
