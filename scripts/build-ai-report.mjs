@@ -282,6 +282,7 @@ for (const brand of BRANDS_WITH_CORP) {
     annualPlan: {
       total: sumTotal(bu, 2026, 12, "ytd", "plan"),
       cats: sumCategories(bu, 2026, 12, "ytd", "plan"),
+      labor: sumLv2(bu, 2026, 12, "ytd", "plan", "인건비"),
     },
   };
 }
@@ -857,7 +858,12 @@ function buildLaborTotal() {
       const cyp = y.prevLabor[lv2] ?? 0;
       const yYoy = yoyNum(cy, cyp);
       const note = laborLv2AnalysisText(lv2, yYoy, cy, cyp);
-      lines.push(`| 　${lv2} | ${fmtK(cmp)} | ${fmtK(cm)} | ${fmtYoy(cm, cmp)} | ${fmtK(cyp)} | ${fmtK(cy)} | ${yYoy != null ? Math.round(yYoy) + "%" : "-"} | - | - | - | - | ${note} |`);
+      // 계획 대비 — 대분류 행과 같은 식을 중분류에 적용 (CSV 에 중분류 계획이 있는데 '-' 로 비워두던 것)
+      const p2 = bd.ytdPlan.labor[lv2] ?? null;
+      const a2 = bd.annualPlan.labor[lv2] ?? null;
+      const pr2 = p2 && p2 > 0 ? (cy / p2) * 100 : null;
+      const us2 = a2 && a2 > 0 ? (cy / a2) * 100 : null;
+      lines.push(`| 　${lv2} | ${fmtK(cmp)} | ${fmtK(cm)} | ${fmtYoy(cm, cmp)} | ${fmtK(cyp)} | ${fmtK(cy)} | ${yYoy != null ? Math.round(yYoy) + "%" : "-"} | ${p2 != null ? fmtK(p2) : "-"} | ${pr2 != null ? Math.round(pr2) + "%" : "-"} | ${us2 != null ? us2.toFixed(1) + "%" : "-"} | ${a2 != null ? fmtK(a2) : "-"} | ${note} |`);
     }
   }
   return lines.join("\n");
